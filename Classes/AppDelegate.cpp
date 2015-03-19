@@ -1,52 +1,59 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "SceneSupport/SceneCreator.h"
+#include "Utility/Audio/ADX2LogoLayer.h"
 
-USING_NS_CC;
+using namespace cocos2d;
 
-AppDelegate::AppDelegate() {
-
-}
-
-AppDelegate::~AppDelegate() 
+AppDelegate::AppDelegate()
+	: mADX2Manager( ADX2Manager::create() )
 {
+	mADX2Manager->retain();
 }
 
-bool AppDelegate::applicationDidFinishLaunching() {
-    // initialize director
-    auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();
-    if(!glview) {
-        glview = GLView::create("My Game");
-        director->setOpenGLView(glview);
-    }
-
-    // turn on display FPS
-    director->setDisplayStats(true);
-
-    // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0 / 60);
-
-    // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
-
-    // run
-    director->runWithScene(scene);
-
-    return true;
+AppDelegate::~AppDelegate()
+{
+	mADX2Manager->release();
 }
 
-// This function will be called when the app is inactive. When comes a phone call,it's be invoked too
-void AppDelegate::applicationDidEnterBackground() {
-    Director::getInstance()->stopAnimation();
-
-    // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+bool AppDelegate::applicationDidFinishLaunching()
+{
+	auto director	= Director::getInstance();
+	auto glView		= director->getOpenGLView();
+	
+	if ( !glView )
+	{
+		glView = GLView::create( "おんぷぅ" );
+		director->setOpenGLView( glView );
+	}
+	
+	director->setDisplayStats( true );
+	director->setAnimationInterval( 1.f / 60.f );
+	
+	glView->setDesignResolutionSize( 720, 1280, ResolutionPolicy::SHOW_ALL );
+	
+	FileUtils::getInstance()->addSearchPath( "Font"		);
+	FileUtils::getInstance()->addSearchPath( "Texture"	);
+	FileUtils::getInstance()->addSearchPath( "Sound"	);
+	
+	// mADX2Manager->init( "GameProject.acf" );
+	
+	auto firstScene	= SceneCreator::createScene( ADX2LogoLayer::create() );
+	auto scene		= TransitionFade::create( 1.5f, firstScene, Color3B::BLACK );
+	director->runWithScene( scene );
+	
+	return true;
 }
 
-// this function will be called when the app is active again
-void AppDelegate::applicationWillEnterForeground() {
-    Director::getInstance()->startAnimation();
+void AppDelegate::applicationDidEnterBackground()
+{
+	Director::getInstance()->stopAnimation();
+	
+	mADX2Manager->pauseApp();
+}
 
-    // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+void AppDelegate::applicationWillEnterForeground()
+{
+	Director::getInstance()->startAnimation();
+	
+	mADX2Manager->resumeApp();
 }
