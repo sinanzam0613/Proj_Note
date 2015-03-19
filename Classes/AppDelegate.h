@@ -1,38 +1,49 @@
-#ifndef  _APP_DELEGATE_H_
-#define  _APP_DELEGATE_H_
+#ifndef _APP_DELEGATE_H_
+#define _APP_DELEGATE_H_
 
 #include "cocos2d.h"
+#include "Utility/Audio/ADX2Manager.h"
 
 /**
-@brief    The cocos2d Application.
-
-The reason for implement as private inheritance is to hide some interface call by Director.
-*/
-class  AppDelegate : private cocos2d::Application
+ *	@class	：	AppDelegate
+ *	@brief	：	アプリケーション統括者クラス
+ *	@author	：	利川聖太
+ */
+class AppDelegate : private cocos2d::Application
 {
+	
 public:
-    AppDelegate();
-    virtual ~AppDelegate();
-
-    /**
-    @brief    Implement Director and Scene init code here.
-    @return true    Initialize success, app continue.
-    @return false   Initialize failed, app terminate.
-    */
-    virtual bool applicationDidFinishLaunching();
-
-    /**
-    @brief  The function be called when the application enter background
-    @param  the pointer of the application
-    */
-    virtual void applicationDidEnterBackground();
-
-    /**
-    @brief  The function be called when the application enter foreground
-    @param  the pointer of the application
-    */
-    virtual void applicationWillEnterForeground();
+	
+	/**
+	 *	@brief	コンストラクタ
+	 */
+	AppDelegate();
+	
+	/**
+	 *	@brief	デストラクタ
+	 */
+	virtual ~AppDelegate();
+	
+	/**
+	 *	@brief	アプリケーションの起動準備が整った時に呼ばれるコールバック関数
+	 *	@return	bool	アプリケーションを開始するか否か
+	 */
+	virtual bool applicationDidFinishLaunching() override;
+	
+	/**
+	 *	@brief	アプリケーションが非アクティブ状態になった時に呼ばれるコールバック関数
+	 */
+	virtual void applicationDidEnterBackground() override;
+	
+	/**
+	 *	@brief	アプリケーションがアクティブ状態になった時に呼ばれるコールバック関数
+	 */
+	virtual void applicationWillEnterForeground() override;
+	
+private:
+	
+	// メンバ変数の宣言
+	ADX2Manager*	mADX2Manager;
 };
 
-#endif // _APP_DELEGATE_H_
-
+#endif
