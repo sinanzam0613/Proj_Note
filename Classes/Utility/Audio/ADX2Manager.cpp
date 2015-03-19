@@ -1,6 +1,5 @@
 #include "ADX2Manager.h"
 #include "ADX2Converter.h"
-#include "Define/GameProject_acf.h"
 
 using namespace cocos2d;
 
@@ -67,7 +66,7 @@ void ADX2Manager::init( const std::string& acf )
 	auto acfPath = ADX2Converter::convertFilePath( acf.c_str() );
 	
 	criAtomEx_RegisterAcfFile( NULL, acfPath.c_str(), NULL, 0 );
-	criAtomEx_AttachDspBusSetting( CRI_GAMEPROJECT_ACF_DSPSETTING_DSPBUSSETTING_0, NULL, 0 );
+	criAtomEx_AttachDspBusSetting( "DspBusSetting_0", NULL, 0 );
 	
 	mDbasID = criAtomDbas_Create( NULL, NULL, 0 );
 }

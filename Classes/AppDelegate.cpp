@@ -22,7 +22,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	
 	if ( !glView )
 	{
-		glView = GLView::create( "RooMove" );
+		glView = GLView::create( "おんぷぅ" );
 		director->setOpenGLView( glView );
 	}
 	
@@ -35,7 +35,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	FileUtils::getInstance()->addSearchPath( "Texture"	);
 	FileUtils::getInstance()->addSearchPath( "Sound"	);
 	
-	mADX2Manager->init( "GameProject.acf" );
+	// mADX2Manager->init( "GameProject.acf" );
 	
 	auto firstScene	= SceneCreator::createScene( ADX2LogoLayer::create() );
 	auto scene		= TransitionFade::create( 1.5f, firstScene, Color3B::BLACK );
