@@ -938,10 +938,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../adx2/libs/ios",
-					"/Users/ToshikawaSeita/Documents/2015/Cocos2d-x/JapanGameAwards/Project/Proj_Note/adx2/libs/ios",
-				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../adx2/libs/ios";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -973,10 +970,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../adx2/libs/ios",
-					"/Users/ToshikawaSeita/Documents/2015/Cocos2d-x/JapanGameAwards/Project/Proj_Note/adx2/libs/ios",
-				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../adx2/libs/ios";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
