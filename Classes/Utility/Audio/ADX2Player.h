@@ -13,7 +13,7 @@
 class ADX2Player : public cocos2d::Node
 {
 	
-private:
+public:
 	
 	// 型定義
 	typedef CriAtomExPlayerConfig				PlayerConfig;
