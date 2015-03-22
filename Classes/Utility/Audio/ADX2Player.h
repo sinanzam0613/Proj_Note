@@ -13,13 +13,6 @@
 class ADX2Player : public cocos2d::Node
 {
 	
-private:
-	
-	// 型定義
-	typedef CriAtomExPlayerConfig				PlayerConfig;
-	typedef CriAtomExStandardVoicePoolConfig	VoicePoolConfig;
-	typedef CriAtomExHcaMxVoicePoolConfig		HcaMxVoicePoolConfig;
-	
 protected:
 	
 	/**
@@ -62,9 +55,10 @@ public:
 	 *			再生中の音に対して何らかの処理を行いたい場合
 	 *			戻り値であるプレイバックIDを保持する必要があります。
 	 *	@param	cueID				キューID
+	 *	@param	pitch				プレーヤに設定するピッチ( セント単位なので注意 )
 	 *	@return	CriAtomExPlaybackId	プレイバックID
 	 */
-	CriAtomExPlaybackId play( CriAtomExCueId cueID );
+	CriAtomExPlaybackId play( CriAtomExCueId cueID, float pitch = 0.f );
 	
 	/**
 	 *	@brief	音の停止
@@ -95,7 +89,30 @@ public:
 	 *	@param	cueID		キューID
 	 *	@return	std::string	キューIDに紐づくキューの名前
 	 */
-	std::string getCueName( CriAtomExCueId cueID );
+	std::string getCueName( CriAtomExCueId cueID ) const;
+	
+	/**
+	 *	@brief	各コンフィグの設定
+	 *			ある程度最適化されている各コンフィグを上書きします。
+	 *			この関数を使用するユーザは、ある程度ADX2の内部を知っている必要があります。
+	 *	@param	pCon	プレーヤ用コンフィグ構造体
+	 *	@param	vCon	標準ボイスプール用コンフィグ構造体
+	 *	@param	hCon	HCA-MXボイスプール用コンフィグ構造体
+	 */
+	void setConfig( CriAtomExPlayerConfig pCon, CriAtomExStandardVoicePoolConfig vCon, CriAtomExHcaMxVoicePoolConfig hCon );
+	
+	/**
+	 *	@brief	ピッチの設定
+	 *	@param	playbackID	プレイバックID
+	 *	@param	pitch		設定するピッチ( セント単位なので注意 )
+	 */
+	void setPitch( CriAtomExPlaybackId playbackID, float pitch );
+
+	/**
+	 *	@brief	全ての音に対してピッチの設定
+	 *	@param	pitch	設定するピッチ( セント単位なので注意 )
+	 */
+	void setPitchAll( float pitch );
 	
 private:
 	
@@ -103,16 +120,6 @@ private:
 	 *	@brief	ハンドルの解放
 	 */
 	void releaseHandle();
-	
-	/**
-	 *	@brief	各コンフィグの設定
-	 *			ある程度最適化されている各コンフィグを上書きします。
-	 *			この関数を使用するユーザは、ある程度ADX2の内部を知っている必要があります。
-	 *	@param	playerConfig			プレーヤ用コンフィグ構造体
-	 *	@param	voicePoolConfig			標準ボイスプール用コンフィグ構造体
-	 *	@param	hcaMxVoicePoolConfig	HCA-MXボイスプール用コンフィグ構造体
-	 */
-	void setConfig( PlayerConfig playerConfig, VoicePoolConfig voicePoolConfig, HcaMxVoicePoolConfig hcaMxVoicePoolConfig );
 	
 private:
 	

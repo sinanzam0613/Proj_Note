@@ -47,21 +47,22 @@ bool ADX2Player::init( const std::string& acb, const std::string& awb )
 	CriAtomExStandardVoicePoolConfig voicePoolConfig;
 	criAtomExVoicePool_SetDefaultConfigForStandardVoicePool( &voicePoolConfig );
 	voicePoolConfig.player_config.streaming_flag	= CRI_TRUE;
-	voicePoolConfig.player_config.max_sampling_rate	= 48000 * 2;
+	voicePoolConfig.player_config.max_sampling_rate	= 96000;
 	mVoicePoolHandle = criAtomExVoicePool_AllocateStandardVoicePool( &voicePoolConfig, NULL, 0 );
 	
 	CriAtomExHcaMxVoicePoolConfig hcaMxVoicePoolConfig;
 	criAtomExVoicePool_SetDefaultConfigForHcaMxVoicePool( &hcaMxVoicePoolConfig );
 	hcaMxVoicePoolConfig.player_config.streaming_flag		= CRI_TRUE;
-	hcaMxVoicePoolConfig.player_config.max_sampling_rate	= 48000 * 2;
+	hcaMxVoicePoolConfig.player_config.max_sampling_rate	= 96000;
 	mHcaMxVoicePoolHandle = criAtomExVoicePool_AllocateHcaMxVoicePool( &hcaMxVoicePoolConfig, NULL, 0 );
 	
 	return true;
 }
 
-CriAtomExPlaybackId ADX2Player::play( CriAtomExCueId cueID )
+CriAtomExPlaybackId ADX2Player::play( CriAtomExCueId cueID, float pitch )
 {
 	criAtomExPlayer_SetCueId( mPlayerHandle, mCueSheet->getAcbHandle(), cueID );
+	criAtomExPlayer_SetPitch( mPlayerHandle, pitch );
 	auto playbackID = criAtomExPlayer_Start( mPlayerHandle );
 	return playbackID;
 }
@@ -86,7 +87,7 @@ CriSint64 ADX2Player::getTime( CriAtomExPlaybackId playbackID ) const
 	return criAtomExPlayback_GetTime( playbackID );
 }
 
-std::string ADX2Player::getCueName( CriAtomExCueId cueID )
+std::string ADX2Player::getCueName( CriAtomExCueId cueID ) const
 {
 	return criAtomExAcb_GetCueNameById( mCueSheet->getAcbHandle(), cueID );
 }
@@ -100,11 +101,23 @@ void ADX2Player::releaseHandle()
 	criAtomExVoicePool_Free( mHcaMxVoicePoolHandle );
 }
 
-void ADX2Player::setConfig( PlayerConfig playerConfig, VoicePoolConfig voicePoolConfig, HcaMxVoicePoolConfig hcaMxVoicePoolConfig )
+void ADX2Player::setConfig( CriAtomExPlayerConfig pCon, CriAtomExStandardVoicePoolConfig vCon, CriAtomExHcaMxVoicePoolConfig hCon )
 {
 	releaseHandle();
 	
-	mPlayerHandle			= criAtomExPlayer_Create( &playerConfig, NULL, 0 );
-	mVoicePoolHandle		= criAtomExVoicePool_AllocateStandardVoicePool( &voicePoolConfig, NULL, 0 );
-	mHcaMxVoicePoolHandle	= criAtomExVoicePool_AllocateHcaMxVoicePool( &hcaMxVoicePoolConfig, NULL, 0 );
+	mPlayerHandle			= criAtomExPlayer_Create( &pCon, NULL, 0 );
+	mVoicePoolHandle		= criAtomExVoicePool_AllocateStandardVoicePool( &vCon, NULL, 0 );
+	mHcaMxVoicePoolHandle	= criAtomExVoicePool_AllocateHcaMxVoicePool( &hCon, NULL, 0 );
+}
+
+void ADX2Player::setPitch( CriAtomExPlaybackId playbackID, float pitch )
+{
+	criAtomExPlayer_SetPitch( mPlayerHandle, pitch );
+	criAtomExPlayer_Update( mPlayerHandle, playbackID );
+}
+
+void ADX2Player::setPitchAll( float pitch )
+{
+	criAtomExPlayer_SetPitch( mPlayerHandle, pitch );
+	criAtomExPlayer_UpdateAll( mPlayerHandle );
 }
