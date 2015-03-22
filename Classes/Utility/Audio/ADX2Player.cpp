@@ -86,7 +86,7 @@ CriSint64 ADX2Player::getTime( CriAtomExPlaybackId playbackID ) const
 	return criAtomExPlayback_GetTime( playbackID );
 }
 
-std::string ADX2Player::getCueName( CriAtomExCueId cueID )
+std::string ADX2Player::getCueName( CriAtomExCueId cueID ) const
 {
 	return criAtomExAcb_GetCueNameById( mCueSheet->getAcbHandle(), cueID );
 }

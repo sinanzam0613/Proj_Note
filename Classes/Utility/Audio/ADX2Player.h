@@ -95,14 +95,7 @@ public:
 	 *	@param	cueID		キューID
 	 *	@return	std::string	キューIDに紐づくキューの名前
 	 */
-	std::string getCueName( CriAtomExCueId cueID );
-	
-private:
-	
-	/**
-	 *	@brief	ハンドルの解放
-	 */
-	void releaseHandle();
+	std::string getCueName( CriAtomExCueId cueID ) const;
 	
 	/**
 	 *	@brief	各コンフィグの設定
@@ -113,6 +106,13 @@ private:
 	 *	@param	hcaMxVoicePoolConfig	HCA-MXボイスプール用コンフィグ構造体
 	 */
 	void setConfig( PlayerConfig playerConfig, VoicePoolConfig voicePoolConfig, HcaMxVoicePoolConfig hcaMxVoicePoolConfig );
+	
+private:
+	
+	/**
+	 *	@brief	ハンドルの解放
+	 */
+	void releaseHandle();
 	
 private:
 	
