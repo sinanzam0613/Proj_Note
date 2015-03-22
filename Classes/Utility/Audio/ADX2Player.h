@@ -13,13 +13,6 @@
 class ADX2Player : public cocos2d::Node
 {
 	
-public:
-	
-	// 型定義
-	typedef CriAtomExPlayerConfig				PlayerConfig;
-	typedef CriAtomExStandardVoicePoolConfig	VoicePoolConfig;
-	typedef CriAtomExHcaMxVoicePoolConfig		HcaMxVoicePoolConfig;
-	
 protected:
 	
 	/**
@@ -102,11 +95,24 @@ public:
 	 *	@brief	各コンフィグの設定
 	 *			ある程度最適化されている各コンフィグを上書きします。
 	 *			この関数を使用するユーザは、ある程度ADX2の内部を知っている必要があります。
-	 *	@param	playerConfig			プレーヤ用コンフィグ構造体
-	 *	@param	voicePoolConfig			標準ボイスプール用コンフィグ構造体
-	 *	@param	hcaMxVoicePoolConfig	HCA-MXボイスプール用コンフィグ構造体
+	 *	@param	pCon	プレーヤ用コンフィグ構造体
+	 *	@param	vCon	標準ボイスプール用コンフィグ構造体
+	 *	@param	hCon	HCA-MXボイスプール用コンフィグ構造体
 	 */
-	void setConfig( PlayerConfig playerConfig, VoicePoolConfig voicePoolConfig, HcaMxVoicePoolConfig hcaMxVoicePoolConfig );
+	void setConfig( CriAtomExPlayerConfig pCon, CriAtomExStandardVoicePoolConfig vCon, CriAtomExHcaMxVoicePoolConfig hCon );
+	
+	/**
+	 *	@brief	ピッチの設定
+	 *	@param	playbackID	プレイバックID
+	 *	@param	pitch		設定するピッチ( セント単位なので注意 )
+	 */
+	void setPitch( CriAtomExPlaybackId playbackID, float pitch );
+
+	/**
+	 *	@brief	全ての音に対してピッチの設定
+	 *	@param	pitch	設定するピッチ( セント単位なので注意 )
+	 */
+	void setPitchAll( float pitch );
 	
 private:
 	
