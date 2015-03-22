@@ -62,9 +62,10 @@ public:
 	 *			再生中の音に対して何らかの処理を行いたい場合
 	 *			戻り値であるプレイバックIDを保持する必要があります。
 	 *	@param	cueID				キューID
+	 *	@param	pitch				プレーヤに設定するピッチ( セント単位なので注意 )
 	 *	@return	CriAtomExPlaybackId	プレイバックID
 	 */
-	CriAtomExPlaybackId play( CriAtomExCueId cueID );
+	CriAtomExPlaybackId play( CriAtomExCueId cueID, float pitch = 0.f );
 	
 	/**
 	 *	@brief	音の停止

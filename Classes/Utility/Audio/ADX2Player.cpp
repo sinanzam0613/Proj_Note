@@ -59,9 +59,10 @@ bool ADX2Player::init( const std::string& acb, const std::string& awb )
 	return true;
 }
 
-CriAtomExPlaybackId ADX2Player::play( CriAtomExCueId cueID )
+CriAtomExPlaybackId ADX2Player::play( CriAtomExCueId cueID, float pitch )
 {
 	criAtomExPlayer_SetCueId( mPlayerHandle, mCueSheet->getAcbHandle(), cueID );
+	criAtomExPlayer_SetPitch( mPlayerHandle, pitch );
 	auto playbackID = criAtomExPlayer_Start( mPlayerHandle );
 	return playbackID;
 }
