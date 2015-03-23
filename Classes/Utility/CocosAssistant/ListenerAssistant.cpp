@@ -23,6 +23,25 @@ void ListenerAssistant::setupSingleTouchListener
 	target->getEventDispatcher()->addEventListenerWithSceneGraphPriority( singleTouchListener, target );
 }
 
+void ListenerAssistant::setupMultiTouchListener
+(
+	Node*			target,
+	MultiTouchFunc	began,
+	MultiTouchFunc	moved,
+	MultiTouchFunc	ended,
+	MultiTouchFunc	cancelled
+)
+{
+	auto multiTouchListener = EventListenerTouchAllAtOnce::create();
+	
+	multiTouchListener->onTouchesBegan		= began;
+	multiTouchListener->onTouchesMoved		= moved;
+	multiTouchListener->onTouchesEnded		= ended;
+	multiTouchListener->onTouchesCancelled	= cancelled;
+	
+	target->getEventDispatcher()->addEventListenerWithSceneGraphPriority( multiTouchListener, target );
+}
+
 void ListenerAssistant::setupKeyboardListener( Node* target, KeyboardFunc pressed, KeyboardFunc released )
 {
 	auto keyboardListener = EventListenerKeyboard::create();
