@@ -70,6 +70,8 @@
 		5A93F91F1ABB1E0B001E05E1 /* PhysicsListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A93F9051ABB1E0B001E05E1 /* PhysicsListener.cpp */; };
 		5A93F9201ABB1E0B001E05E1 /* PlistReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A93F90A1ABB1E0B001E05E1 /* PlistReader.cpp */; };
 		5A93F9251ABB25F0001E05E1 /* libcri_ware_ios_LE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A93F9241ABB25F0001E05E1 /* libcri_ware_ios_LE.a */; };
+		5AE058A51ABFAE1200315A80 /* IScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE058A31ABFAE1200315A80 /* IScene.cpp */; };
+		5AE058AB1ABFAE4000315A80 /* SpriteAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE058A91ABFAE4000315A80 /* SpriteAnimation.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -303,6 +305,10 @@
 		5A93F9111ABB1E0B001E05E1 /* ReleaseContainerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseContainerImpl.h; sourceTree = "<group>"; };
 		5A93F9121ABB1E0B001E05E1 /* ReleaseInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseInstance.h; sourceTree = "<group>"; };
 		5A93F9241ABB25F0001E05E1 /* libcri_ware_ios_LE.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcri_ware_ios_LE.a; path = ../adx2/libs/ios/libcri_ware_ios_LE.a; sourceTree = "<group>"; };
+		5AE058A31ABFAE1200315A80 /* IScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IScene.cpp; sourceTree = "<group>"; };
+		5AE058A41ABFAE1200315A80 /* IScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IScene.h; sourceTree = "<group>"; };
+		5AE058A91ABFAE4000315A80 /* SpriteAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteAnimation.cpp; sourceTree = "<group>"; };
+		5AE058AA1ABFAE4000315A80 /* SpriteAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteAnimation.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -514,6 +520,8 @@
 		5A93F8E71ABB1E0A001E05E1 /* SceneSupport */ = {
 			isa = PBXGroup;
 			children = (
+				5AE058A31ABFAE1200315A80 /* IScene.cpp */,
+				5AE058A41ABFAE1200315A80 /* IScene.h */,
 				5A93F8E81ABB1E0A001E05E1 /* SceneCreator.cpp */,
 				5A93F8E91ABB1E0A001E05E1 /* SceneCreator.h */,
 			);
@@ -535,6 +543,7 @@
 		5A93F8EE1ABB1E0A001E05E1 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				5AE058A81ABFAE4000315A80 /* Animation */,
 				5A93F8EF1ABB1E0A001E05E1 /* Audio */,
 				5A93F8FD1ABB1E0B001E05E1 /* CocosAssistant */,
 				5A93F9001ABB1E0B001E05E1 /* Collision */,
@@ -613,6 +622,15 @@
 				5A93F9121ABB1E0B001E05E1 /* ReleaseInstance.h */,
 			);
 			path = Release;
+			sourceTree = "<group>";
+		};
+		5AE058A81ABFAE4000315A80 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				5AE058A91ABFAE4000315A80 /* SpriteAnimation.cpp */,
+				5AE058AA1ABFAE4000315A80 /* SpriteAnimation.h */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
@@ -830,6 +848,7 @@
 				5A93F9131ABB1E0B001E05E1 /* AppDelegate.cpp in Sources */,
 				5A93F91D1ABB1E0B001E05E1 /* Collider.cpp in Sources */,
 				5A93F9171ABB1E0B001E05E1 /* ADX2Converter.cpp in Sources */,
+				5AE058AB1ABFAE4000315A80 /* SpriteAnimation.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				5A93F9191ABB1E0B001E05E1 /* ADX2LogoLayer.cpp in Sources */,
 				5A93F9141ABB1E0B001E05E1 /* GameTitleScene.cpp in Sources */,
@@ -841,6 +860,7 @@
 				5A93F91C1ABB1E0B001E05E1 /* ListenerAssistant.cpp in Sources */,
 				5A93F9181ABB1E0B001E05E1 /* ADX2CueSheet.cpp in Sources */,
 				5A93F91A1ABB1E0B001E05E1 /* ADX2Manager.cpp in Sources */,
+				5AE058A51ABFAE1200315A80 /* IScene.cpp in Sources */,
 				5A93F91F1ABB1E0B001E05E1 /* PhysicsListener.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				5A93F9161ABB1E0B001E05E1 /* SceneCreator.cpp in Sources */,
