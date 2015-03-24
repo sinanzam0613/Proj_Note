@@ -2,7 +2,6 @@
 #define SPRITEANIMATION_H
 
 #include "cocos2d.h"
-USING_NS_CC;
 
 #include <vector>
 #include <string>
@@ -29,7 +28,7 @@ public:
 		bool   restart	　一番初めの画像に戻すか
 		bool   repeat	　繰り返すか？
 	--------------------------------------------------------------------------------*/
-	Sprite* create(const std::string& spriteName, const int count, const float delay, const bool restart, const bool repeat);
+	cocos2d::Sprite* create(const std::string& spriteName, const int count, const float delay, const bool restart, const bool repeat);
 	
 
 	/*------------------------------------------------------------
@@ -38,7 +37,7 @@ public:
 	-------------------------------------------------------------*/
 	void setResourcesPath(const std::string& path);
 private:
-	std::string m_ResourcePath;
+	std::string mResourcePath;
 };
 }
 

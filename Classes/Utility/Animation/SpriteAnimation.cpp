@@ -1,36 +1,37 @@
 ﻿#include "SpriteAnimation.h"
 
 using namespace Util;
+USING_NS_CC;
 
 SpriteAnimation::SpriteAnimation(const std::string& path){
-	m_ResourcePath = path;
+	mResourcePath = path;
 }
 
 
 Sprite* SpriteAnimation::create(const std::string& spriteName, const int count, const float delay, const bool restart, const bool repeat){
 	
-	std::string r_spriteName = spriteName;
+	std::string textureName = spriteName;
 
-	Sprite* r_firstSprite = Sprite::create(m_ResourcePath + r_spriteName + "1.png");
-	r_firstSprite->setName(spriteName);
+	Sprite* firstSprite = Sprite::create(mResourcePath + textureName + "1.png");
+	firstSprite->setName(spriteName);
 
-	auto r_animation = Animation::create();
+	auto animation = Animation::create();
 	for (int i = 2; i <= count; ++i){
-		r_animation->addSpriteFrameWithFileName(m_ResourcePath + r_spriteName + std::to_string(i) + ".png");
+		animation->addSpriteFrameWithFile(mResourcePath + textureName + std::to_string(i) + ".png");
 	}
-	r_animation->setRestoreOriginalFrame(restart);
-	r_animation->setDelayPerUnit(delay);
+	animation->setRestoreOriginalFrame(restart);
+	animation->setDelayPerUnit(delay);
 
 	//繰り返すなら
 	if (repeat){
-		Animate* animate = Animate::create(r_animation);
+		Animate* animate = Animate::create(animation);
 		RepeatForever* repeatTrue = RepeatForever::create(animate);
-		r_firstSprite->runAction(repeatTrue);
+		firstSprite->runAction(repeatTrue);
 	}
 
-	return r_firstSprite;
+	return firstSprite;
 }
 
 void SpriteAnimation::setResourcesPath(const std::string& path){
-	m_ResourcePath = path;
+	mResourcePath = path;
 }

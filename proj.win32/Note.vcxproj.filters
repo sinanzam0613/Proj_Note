@@ -10,16 +10,103 @@
     <Filter Include="resource">
       <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Util">
+      <UniqueIdentifier>{5fb83daf-8ccb-49e2-bdbd-976260bfb2ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Util\Collision">
+      <UniqueIdentifier>{2a6b5396-84cc-44d2-8e9a-622cc89272c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Util\SceneSupport">
+      <UniqueIdentifier>{44675f6b-416b-4e56-8868-99ef53a090c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Util\Animation">
+      <UniqueIdentifier>{8b574e19-b815-4ac1-8889-00e810d537fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Util\FileIO">
+      <UniqueIdentifier>{73d665e0-11be-4057-9502-af4fd2b7e4a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Util\Delegate">
+      <UniqueIdentifier>{535f8e08-e282-49f1-8a3e-76c2b46752ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Util\CocosAssistant">
+      <UniqueIdentifier>{b8bca06f-0fbe-4d09-a4d3-5df6455c4681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Util\Template">
+      <UniqueIdentifier>{8d3c10fd-e0de-4bd4-a648-82f4aa988a95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game">
+      <UniqueIdentifier>{df433383-d392-4486-8a49-f595831a7ca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Util\Sound">
+      <UniqueIdentifier>{bfa984b4-6038-417e-b3ac-b57a5c8346ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Util\Release">
+      <UniqueIdentifier>{6927291a-8ce3-4f06-ae5c-28b93cc4717f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Scene">
+      <UniqueIdentifier>{1011de28-b8e9-4d32-aed1-1c143437b155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Scene\Title">
+      <UniqueIdentifier>{364dbf0f-9db1-4a58-a772-5a6a23388ea0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>Classes</Filter>
+      <Filter>Classes\Util</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>Classes</Filter>
+    <ClCompile Include="..\Classes\SceneSupport\SceneCreator.cpp">
+      <Filter>Classes\Util\SceneSupport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SceneSupport\IScene.cpp">
+      <Filter>Classes\Util\SceneSupport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Collision\Collider.cpp">
+      <Filter>Classes\Util\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Collision\PhysicsCollisionManager.cpp">
+      <Filter>Classes\Util\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Collision\PhysicsListener.cpp">
+      <Filter>Classes\Util\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Animation\SpriteAnimation.cpp">
+      <Filter>Classes\Util\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\FileIO\PlistReader.cpp">
+      <Filter>Classes\Util\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\CocosAssistant\ListenerAssistant.cpp">
+      <Filter>Classes\Util\CocosAssistant</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2Converter.cpp">
+      <Filter>Classes\Util\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2CueSheet.cpp">
+      <Filter>Classes\Util\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2LogoLayer.cpp">
+      <Filter>Classes\Util\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2Manager.cpp">
+      <Filter>Classes\Util\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2Player.cpp">
+      <Filter>Classes\Util\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameTitle\GameTitleScene.cpp">
+      <Filter>Classes\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameTitle\GameTitleScreen.cpp">
+      <Filter>Classes\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>Classes\Game\Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleState.cpp">
+      <Filter>Classes\Game\Scene\Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -27,10 +114,88 @@
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>Classes</Filter>
+      <Filter>Classes\Util</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>Classes</Filter>
+    <ClInclude Include="..\Classes\SceneSupport\SceneCreator.h">
+      <Filter>Classes\Util\SceneSupport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SceneSupport\IScene.h">
+      <Filter>Classes\Util\SceneSupport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Collision\Collider.h">
+      <Filter>Classes\Util\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Collision\PhysicsCollisionManager.h">
+      <Filter>Classes\Util\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Collision\PhysicsListener.h">
+      <Filter>Classes\Util\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Animation\SpriteAnimation.h">
+      <Filter>Classes\Util\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\FileIO\PlistReader.h">
+      <Filter>Classes\Util\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Delegate\Delegate.h">
+      <Filter>Classes\Util\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\CocosAssistant\ListenerAssistant.h">
+      <Filter>Classes\Util\CocosAssistant</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Template\CloneFactory.h">
+      <Filter>Classes\Util\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Template\CloneFactoryImpl.h">
+      <Filter>Classes\Util\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Template\Singleton.h">
+      <Filter>Classes\Util\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2Converter.h">
+      <Filter>Classes\Util\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2CueSheet.h">
+      <Filter>Classes\Util\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2LogoLayer.h">
+      <Filter>Classes\Util\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2Manager.h">
+      <Filter>Classes\Util\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2Player.h">
+      <Filter>Classes\Util\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameTitle\GameTitleScene.h">
+      <Filter>Classes\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameTitle\GameTitleScreen.h">
+      <Filter>Classes\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Release\DeleteContainer.h">
+      <Filter>Classes\Util\Release</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Release\DeleteContainerImpl.h">
+      <Filter>Classes\Util\Release</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Release\DeleteInstance.h">
+      <Filter>Classes\Util\Release</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Release\ReleaseContainer.h">
+      <Filter>Classes\Util\Release</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Release\ReleaseContainerImpl.h">
+      <Filter>Classes\Util\Release</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Release\ReleaseInstance.h">
+      <Filter>Classes\Util\Release</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>Classes\Game\Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleState.h">
+      <Filter>Classes\Game\Scene\Title</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

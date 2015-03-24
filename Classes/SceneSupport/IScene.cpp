@@ -8,4 +8,9 @@ IScene::IScene() :mSceneState(FADEIN)
 	updateFunc[2] = &IScene::fadeOut;
 	updateFunc[3] = nullptr;
 
+	mainFunc[0] = &IScene::mainStart;
+	mainFunc[1] = &IScene::mainLoop;
+	mainFunc[2] = &IScene::mainEnd;
+	mainFunc[3] = nullptr;
+
 }
