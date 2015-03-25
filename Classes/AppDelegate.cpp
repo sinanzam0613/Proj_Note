@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "SceneSupport/SceneCreator.h"
+#include "Utility/Audio/ADX2Manager.h"
 #include "Utility/Audio/ADX2LogoLayer.h"
 
 using namespace cocos2d;

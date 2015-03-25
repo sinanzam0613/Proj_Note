@@ -1,4 +1,5 @@
 #include "ADX2Player.h"
+#include "ADX2CueSheet.h"
 
 ADX2Player::ADX2Player()
 	: mCueSheet( nullptr )
@@ -59,10 +60,9 @@ bool ADX2Player::init( const std::string& acb, const std::string& awb )
 	return true;
 }
 
-CriAtomExPlaybackId ADX2Player::play( CriAtomExCueId cueID, float pitch )
+CriAtomExPlaybackId ADX2Player::play( CriAtomExCueId cueID )
 {
 	criAtomExPlayer_SetCueId( mPlayerHandle, mCueSheet->getAcbHandle(), cueID );
-	criAtomExPlayer_SetPitch( mPlayerHandle, pitch );
 	auto playbackID = criAtomExPlayer_Start( mPlayerHandle );
 	return playbackID;
 }

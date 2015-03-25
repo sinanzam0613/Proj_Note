@@ -2,7 +2,8 @@
 #define _GAME_TITLE_SCENE_H_
 
 #include "cocos2d.h"
-#include "GameTitleScreen.h"
+
+class GameTitleScreen;
 
 /**
  *	@class	：	GameTitleScene
