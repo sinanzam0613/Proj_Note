@@ -2,7 +2,8 @@
 #define _APP_DELEGATE_H_
 
 #include "cocos2d.h"
-#include "Utility/Audio/ADX2Manager.h"
+
+class ADX2Manager;
 
 /**
  *	@class	：	AppDelegate
