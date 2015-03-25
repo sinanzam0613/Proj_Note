@@ -1,6 +1,6 @@
 #include "ADX2LogoLayer.h"
 #include "SceneSupport/SceneCreator.h"
-#include "GameTitle/GameTitleScene.h"
+#include "GameTitle/TitleScene.h"
 
 using namespace cocos2d;
 
@@ -34,7 +34,7 @@ bool ADX2LogoLayer::init()
 	
 	auto changeSceneFunc = []()
 	{
-		auto nextScene	= SceneCreator::createScene( GameTitleScene::create() );
+		auto nextScene	= SceneCreator::createScene( TitleScene::create() );
 		auto scene		= TransitionFade::create( 1.5f, nextScene, Color3B::BLACK );
 		Director::getInstance()->replaceScene( scene );
 	};

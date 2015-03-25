@@ -140,6 +140,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\GameTitle\GameTitleScene.cpp" />
     <ClCompile Include="..\Classes\GameTitle\GameTitleScreen.cpp" />
+    <ClCompile Include="..\Classes\GameTitle\TitleScene.cpp" />
+    <ClCompile Include="..\Classes\GameTitle\TitleState.cpp" />
     <ClCompile Include="..\Classes\SceneSupport\IScene.cpp" />
     <ClCompile Include="..\Classes\SceneSupport\SceneCreator.cpp" />
     <ClCompile Include="..\Classes\Utility\Animation\SpriteAnimation.cpp" />
@@ -154,13 +156,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Utility\Collision\PhysicsListener.cpp" />
     <ClCompile Include="..\Classes\Utility\FileIO\PlistReader.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="TitleScene.cpp" />
-    <ClCompile Include="TitleState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\GameTitle\GameTitleScene.h" />
     <ClInclude Include="..\Classes\GameTitle\GameTitleScreen.h" />
+    <ClInclude Include="..\Classes\GameTitle\TitleScene.h" />
+    <ClInclude Include="..\Classes\GameTitle\TitleState.h" />
     <ClInclude Include="..\Classes\SceneSupport\IScene.h" />
     <ClInclude Include="..\Classes\SceneSupport\SceneCreator.h" />
     <ClInclude Include="..\Classes\Template\CloneFactory.h" />
@@ -184,9 +186,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Utility\Release\ReleaseContainer.h" />
     <ClInclude Include="..\Classes\Utility\Release\ReleaseContainerImpl.h" />
     <ClInclude Include="..\Classes\Utility\Release\ReleaseInstance.h" />
+    <ClInclude Include="IFunction.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="TitleScene.h" />
-    <ClInclude Include="TitleState.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\cocos2d\cocos\2d\cocos2d.vcxproj">

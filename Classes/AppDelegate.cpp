@@ -20,11 +20,11 @@ bool AppDelegate::applicationDidFinishLaunching()
 {
 	auto director	= Director::getInstance();
 	auto glView		= director->getOpenGLView();
-	
-	if ( !glView )
+
+	if (!glView)
 	{
-		glView = GLView::create( "おんぷぅ" );
-		director->setOpenGLView( glView );
+		glView = GLView::create("おんぷ");
+		director->setOpenGLView(glView);
 	}
 	
 	director->setDisplayStats( true );
