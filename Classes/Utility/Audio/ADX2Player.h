@@ -3,7 +3,8 @@
 
 #include "cocos2d.h"
 #include "cri_adx2le.h"
-#include "ADX2CueSheet.h"
+
+class ADX2CueSheet;
 
 /**
  *	@class	：	ADX2Player
@@ -55,10 +56,9 @@ public:
 	 *			再生中の音に対して何らかの処理を行いたい場合
 	 *			戻り値であるプレイバックIDを保持する必要があります。
 	 *	@param	cueID				キューID
-	 *	@param	pitch				プレーヤに設定するピッチ( セント単位なので注意 )
 	 *	@return	CriAtomExPlaybackId	プレイバックID
 	 */
-	CriAtomExPlaybackId play( CriAtomExCueId cueID, float pitch = 0.f );
+	CriAtomExPlaybackId play( CriAtomExCueId cueID );
 	
 	/**
 	 *	@brief	音の停止
