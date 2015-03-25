@@ -52,6 +52,8 @@
 		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
+		5A23644F1AC2D874008E4C42 /* TestLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A23644D1AC2D874008E4C42 /* TestLayer.cpp */; };
+		5A2364571AC2D886008E4C42 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A2364551AC2D886008E4C42 /* Player.cpp */; };
 		5A6FC12A1ABB300400C1769C /* Font in Resources */ = {isa = PBXBuildFile; fileRef = 5A6FC1271ABB300400C1769C /* Font */; };
 		5A6FC12B1ABB300400C1769C /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = 5A6FC1281ABB300400C1769C /* Sound */; };
 		5A6FC12C1ABB300400C1769C /* Texture in Resources */ = {isa = PBXBuildFile; fileRef = 5A6FC1291ABB300400C1769C /* Texture */; };
@@ -263,6 +265,12 @@
 		50EF629517ECD46A001EB2F8 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
+		5A14D6381AC30DFD0041F3E4 /* Note_acf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note_acf.h; sourceTree = "<group>"; };
+		5A14D6391AC30DFD0041F3E4 /* Sample_DoReMi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sample_DoReMi.h; sourceTree = "<group>"; };
+		5A23644D1AC2D874008E4C42 /* TestLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestLayer.cpp; sourceTree = "<group>"; };
+		5A23644E1AC2D874008E4C42 /* TestLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLayer.h; sourceTree = "<group>"; };
+		5A2364551AC2D886008E4C42 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		5A2364561AC2D886008E4C42 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		5A6FC1271ABB300400C1769C /* Font */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Font; sourceTree = "<group>"; };
 		5A6FC1281ABB300400C1769C /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
 		5A6FC1291ABB300400C1769C /* Texture */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Texture; sourceTree = "<group>"; };
@@ -388,9 +396,11 @@
 			children = (
 				5A93F8E01ABB1E0A001E05E1 /* AppDelegate.cpp */,
 				5A93F8E11ABB1E0A001E05E1 /* AppDelegate.h */,
+				5A2364521AC2D886008E4C42 /* GamePlay */,
 				5A93F8E21ABB1E0A001E05E1 /* GameTitle */,
 				5A93F8E71ABB1E0A001E05E1 /* SceneSupport */,
 				5A93F8EA1ABB1E0A001E05E1 /* Template */,
+				5A23644C1AC2D874008E4C42 /* Test */,
 				5A93F8EE1ABB1E0A001E05E1 /* Utility */,
 			);
 			name = Classes;
@@ -505,6 +515,51 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		5A14D6371AC30DFD0041F3E4 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				5A14D6381AC30DFD0041F3E4 /* Note_acf.h */,
+				5A14D6391AC30DFD0041F3E4 /* Sample_DoReMi.h */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		5A23644C1AC2D874008E4C42 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				5A23644D1AC2D874008E4C42 /* TestLayer.cpp */,
+				5A23644E1AC2D874008E4C42 /* TestLayer.h */,
+			);
+			name = Test;
+			path = ../Classes/Test;
+			sourceTree = "<group>";
+		};
+		5A2364521AC2D886008E4C42 /* GamePlay */ = {
+			isa = PBXGroup;
+			children = (
+				5A2364531AC2D886008E4C42 /* Character */,
+			);
+			name = GamePlay;
+			path = ../Classes/GamePlay;
+			sourceTree = "<group>";
+		};
+		5A2364531AC2D886008E4C42 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				5A2364541AC2D886008E4C42 /* Player */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		5A2364541AC2D886008E4C42 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				5A2364551AC2D886008E4C42 /* Player.cpp */,
+				5A2364561AC2D886008E4C42 /* Player.h */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		5A93F8E21ABB1E0A001E05E1 /* GameTitle */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +623,7 @@
 				5A93F8F71ABB1E0A001E05E1 /* ADX2Manager.h */,
 				5A93F8F81ABB1E0A001E05E1 /* ADX2Player.cpp */,
 				5A93F8F91ABB1E0A001E05E1 /* ADX2Player.h */,
+				5A14D6371AC30DFD0041F3E4 /* Define */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -848,10 +904,12 @@
 				5A93F9131ABB1E0B001E05E1 /* AppDelegate.cpp in Sources */,
 				5A93F91D1ABB1E0B001E05E1 /* Collider.cpp in Sources */,
 				5A93F9171ABB1E0B001E05E1 /* ADX2Converter.cpp in Sources */,
+				5A23644F1AC2D874008E4C42 /* TestLayer.cpp in Sources */,
 				5AE058AB1ABFAE4000315A80 /* SpriteAnimation.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				5A93F9191ABB1E0B001E05E1 /* ADX2LogoLayer.cpp in Sources */,
 				5A93F9141ABB1E0B001E05E1 /* GameTitleScene.cpp in Sources */,
+				5A2364571AC2D886008E4C42 /* Player.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				5A93F9151ABB1E0B001E05E1 /* GameTitleScreen.cpp in Sources */,
 				5A93F9201ABB1E0B001E05E1 /* PlistReader.cpp in Sources */,
