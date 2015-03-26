@@ -39,7 +39,7 @@ bool ADX2LogoLayer::init()
 		Director::getInstance()->replaceScene( scene );
 	};
 	
-	auto seqAct = Sequence::create( DelayTime::create( 3.0f ), CallFunc::create( changeSceneFunc ), NULL );
+	auto seqAct = Sequence::create( DelayTime::create( 3.0f ), CallFunc::create( changeSceneFunc ), nullptr );
 	this->runAction( seqAct );
 	
 	return true;
