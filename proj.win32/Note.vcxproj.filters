@@ -28,9 +28,6 @@
     <Filter Include="Classes\Util\Delegate">
       <UniqueIdentifier>{535f8e08-e282-49f1-8a3e-76c2b46752ef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Util\CocosAssistant">
-      <UniqueIdentifier>{b8bca06f-0fbe-4d09-a4d3-5df6455c4681}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\Util\Template">
       <UniqueIdentifier>{8d3c10fd-e0de-4bd4-a648-82f4aa988a95}</UniqueIdentifier>
     </Filter>
@@ -48,6 +45,9 @@
     </Filter>
     <Filter Include="Classes\Game\Scene\Title">
       <UniqueIdentifier>{364dbf0f-9db1-4a58-a772-5a6a23388ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Util\CocosAssistant">
+      <UniqueIdentifier>{b8bca06f-0fbe-4d09-a4d3-5df6455c4681}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -102,10 +102,10 @@
     <ClCompile Include="..\Classes\GameTitle\GameTitleScreen.cpp">
       <Filter>Classes\Game</Filter>
     </ClCompile>
-    <ClCompile Include="TitleScene.cpp">
+    <ClCompile Include="..\Classes\GameTitle\TitleScene.cpp">
       <Filter>Classes\Game\Scene\Title</Filter>
     </ClCompile>
-    <ClCompile Include="TitleState.cpp">
+    <ClCompile Include="..\Classes\GameTitle\TitleState.cpp">
       <Filter>Classes\Game\Scene\Title</Filter>
     </ClCompile>
   </ItemGroup>
@@ -191,10 +191,13 @@
     <ClInclude Include="..\Classes\Utility\Release\ReleaseInstance.h">
       <Filter>Classes\Util\Release</Filter>
     </ClInclude>
-    <ClInclude Include="TitleScene.h">
+    <ClInclude Include="IFunction.h">
+      <Filter>Classes\Util\SceneSupport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameTitle\TitleScene.h">
       <Filter>Classes\Game\Scene\Title</Filter>
     </ClInclude>
-    <ClInclude Include="TitleState.h">
+    <ClInclude Include="..\Classes\GameTitle\TitleState.h">
       <Filter>Classes\Game\Scene\Title</Filter>
     </ClInclude>
   </ItemGroup>
