@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "../SpriteCreator.h"
 
 using namespace cocos2d;
 
@@ -8,6 +9,7 @@ Player::Player()
 
 Player::~Player()
 {
+	
 }
 
 bool Player::init()
@@ -17,8 +19,11 @@ bool Player::init()
 		return false;
 	}
 
-	mSprite = Sprite::create("Character/Player.png");
+	const Size size = Size(120,180);
+
+	mSprite = SpriteCreator::createPhysicsBox("GamePlay/Character/Player.png", size);
 	this->addChild(mSprite);
+	
 
 	return true;
 }
@@ -28,7 +33,7 @@ void Player::update(float deltaTime)
 
 }
 
-Player* Player::createCharacter()
+Player* Player::create()
 {
 	auto instance = new Player();
 
