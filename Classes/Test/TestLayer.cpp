@@ -28,7 +28,10 @@ bool TestLayer::init()
 	debugLabel->setPosition(Vec2(40, 1200));
 	this->addChild(debugLabel);
 
-	mKatsumi = Player::createCharacter();
+	this->schedule(schedule_selector(TestLayer::update));
+	this->scheduleUpdate();
+
+	mKatsumi = Player::create();
 	mKatsumi->setPosition(200,200);
 	this->addChild(mKatsumi);
 	return true;
@@ -36,7 +39,7 @@ bool TestLayer::init()
 
 void TestLayer::update(float deltaTime)
 {
-
+	mKatsumi->update(deltaTime);
 }
 
 TestLayer* TestLayer::create()

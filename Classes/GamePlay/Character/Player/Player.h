@@ -40,7 +40,7 @@ public:
 	/*********************************************
 	プレイヤーの生成
 	**********************************************/
-	static Player* createCharacter();
+	static Player* create();
 
 private:
 	cocos2d::Sprite* mSprite;
