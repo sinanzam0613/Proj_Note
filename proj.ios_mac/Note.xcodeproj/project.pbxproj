@@ -57,6 +57,7 @@
 		5A6FC12A1ABB300400C1769C /* Font in Resources */ = {isa = PBXBuildFile; fileRef = 5A6FC1271ABB300400C1769C /* Font */; };
 		5A6FC12B1ABB300400C1769C /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = 5A6FC1281ABB300400C1769C /* Sound */; };
 		5A6FC12C1ABB300400C1769C /* Texture in Resources */ = {isa = PBXBuildFile; fileRef = 5A6FC1291ABB300400C1769C /* Texture */; };
+		5A836EBA1AC44A5F00A56AB7 /* SpriteCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A836EB81AC44A5F00A56AB7 /* SpriteCreator.cpp */; };
 		5A93F9131ABB1E0B001E05E1 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A93F8E01ABB1E0A001E05E1 /* AppDelegate.cpp */; };
 		5A93F9141ABB1E0B001E05E1 /* GameTitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A93F8E31ABB1E0A001E05E1 /* GameTitleScene.cpp */; };
 		5A93F9151ABB1E0B001E05E1 /* GameTitleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A93F8E51ABB1E0A001E05E1 /* GameTitleScreen.cpp */; };
@@ -274,6 +275,8 @@
 		5A6FC1271ABB300400C1769C /* Font */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Font; sourceTree = "<group>"; };
 		5A6FC1281ABB300400C1769C /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
 		5A6FC1291ABB300400C1769C /* Texture */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Texture; sourceTree = "<group>"; };
+		5A836EB81AC44A5F00A56AB7 /* SpriteCreator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteCreator.cpp; sourceTree = "<group>"; };
+		5A836EB91AC44A5F00A56AB7 /* SpriteCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteCreator.h; sourceTree = "<group>"; };
 		5A93F8E01ABB1E0A001E05E1 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		5A93F8E11ABB1E0A001E05E1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
 		5A93F8E31ABB1E0A001E05E1 /* GameTitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameTitleScene.cpp; sourceTree = "<group>"; };
@@ -547,6 +550,8 @@
 			isa = PBXGroup;
 			children = (
 				5A2364541AC2D886008E4C42 /* Player */,
+				5A836EB81AC44A5F00A56AB7 /* SpriteCreator.cpp */,
+				5A836EB91AC44A5F00A56AB7 /* SpriteCreator.h */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -918,6 +923,7 @@
 				5A93F91C1ABB1E0B001E05E1 /* ListenerAssistant.cpp in Sources */,
 				5A93F9181ABB1E0B001E05E1 /* ADX2CueSheet.cpp in Sources */,
 				5A93F91A1ABB1E0B001E05E1 /* ADX2Manager.cpp in Sources */,
+				5A836EBA1AC44A5F00A56AB7 /* SpriteCreator.cpp in Sources */,
 				5AE058A51ABFAE1200315A80 /* IScene.cpp in Sources */,
 				5A93F91F1ABB1E0B001E05E1 /* PhysicsListener.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
