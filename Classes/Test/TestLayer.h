@@ -5,8 +5,7 @@
 #include "cocos2d.h"
 
 //クラスの前方宣言
-class Player;
-class TestObject;
+class ObjectManager;
 
 
 /**************************************************
@@ -59,8 +58,7 @@ public:
 	virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 
 private:
-	Player* mKatsumi;
-	TestObject* mObject;
+	ObjectManager* manager;
 };
 
 #endif
