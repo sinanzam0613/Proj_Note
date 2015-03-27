@@ -1,7 +1,6 @@
 #include "TestLayer.h"
-#include "GamePlay/Character/Player/Player.h"
-#include "GamePlay/Character/Test/TestObject.h"
 #include "Utility/CocosAssistant/ListenerAssistant.h"
+#include "GamePlay/Character/ObjectManager.h"
 
 using namespace cocos2d;
 
@@ -38,20 +37,15 @@ bool TestLayer::init()
 
 	this->scheduleUpdate();
 
-	mKatsumi = Player::create();
-	mKatsumi->setPosition(200,200);
-	this->addChild(mKatsumi);
-
-	//以下、テストオブジェクト生成
-	mObject = TestObject::create();
-	this->addChild(mObject);
+	manager = ObjectManager::create();
+	this->addChild(manager);
 
 	return true;
 }
 
 void TestLayer::update(float deltaTime)
 {
-	mKatsumi->update(deltaTime);
+	manager->update(deltaTime);
 }
 
 TestLayer* TestLayer::create()
@@ -70,7 +64,7 @@ TestLayer* TestLayer::create()
 
 bool TestLayer::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	Vec2 touchPoint = touch->getLocation();
-	mObject->setPosition(touchPoint);
+	manager->onTouchBegan(touchPoint);
 	return true;
 }
 
