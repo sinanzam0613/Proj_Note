@@ -6,7 +6,15 @@
 template< typename KEY, typename PRODUCT, typename RELEASE >
 CloneFactory< KEY, PRODUCT, RELEASE >::~CloneFactory()
 {
-	RELEASE::cleanMap( mProductContainer );
+	auto itor	= mProductContainer.begin();
+	auto end	= mProductContainer.end();
+	
+	for ( ; itor != end; ++itor )
+	{
+		RELEASE();
+	}
+	
+	mProductContainer.clear();
 }
 
 template< typename KEY, typename PRODUCT, typename RELEASE >
