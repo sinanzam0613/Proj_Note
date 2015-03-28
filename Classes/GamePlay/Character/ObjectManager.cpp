@@ -36,7 +36,7 @@ void ObjectManager::update(float deltaTime)
 
 	if (distanceCheck())
 	{
-		mKatsumi->Jump(mObject->getPosition());
+		mKatsumi->jump(mObject->getPosition());
 	}
 }
 
