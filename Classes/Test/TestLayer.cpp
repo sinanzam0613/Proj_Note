@@ -37,15 +37,15 @@ bool TestLayer::init()
 
 	this->scheduleUpdate();
 
-	manager = ObjectManager::create();
-	this->addChild(manager);
+	mManager = ObjectManager::create();
+	this->addChild(mManager);
 
 	return true;
 }
 
 void TestLayer::update(float deltaTime)
 {
-	manager->update(deltaTime);
+	mManager->update(deltaTime);
 }
 
 TestLayer* TestLayer::create()
@@ -64,7 +64,7 @@ TestLayer* TestLayer::create()
 
 bool TestLayer::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	Vec2 touchPoint = touch->getLocation();
-	manager->onTouchBegan(touchPoint);
+	mManager->onTouchBegan(touchPoint);
 	return true;
 }
 
