@@ -70,6 +70,9 @@
     <Filter Include="Classes\Game\Scene\Sub">
       <UniqueIdentifier>{ea3f041b-360c-42a8-8100-efbf9296a12f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Game\Obj\StageObj">
+      <UniqueIdentifier>{c6034c7a-b74b-43f5-b2b2-6235573969bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -158,6 +161,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\GamePlay\Character\DistanceCheck.cpp">
       <Filter>Classes\Util\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GamePlay\Object\Bar.cpp">
+      <Filter>Classes\Game\Obj\StageObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GamePlay\Object\Goal.cpp">
+      <Filter>Classes\Game\Obj\StageObj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -280,6 +289,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GamePlay\Character\DistanceCheck.h">
       <Filter>Classes\Util\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GamePlay\Object\Bar.h">
+      <Filter>Classes\Game\Obj\StageObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GamePlay\Object\Goal.h">
+      <Filter>Classes\Game\Obj\StageObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GamePlay\Object\StageObj.h">
+      <Filter>Classes\Game\Obj\StageObj</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

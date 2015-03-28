@@ -145,6 +145,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\GamePlay\Character\Player\Player.cpp" />
     <ClCompile Include="..\Classes\GamePlay\Character\SpriteCreator.cpp" />
     <ClCompile Include="..\Classes\GamePlay\Character\Test\TestObject.cpp" />
+    <ClCompile Include="..\Classes\GamePlay\Object\Bar.cpp" />
+    <ClCompile Include="..\Classes\GamePlay\Object\Goal.cpp" />
     <ClCompile Include="..\Classes\GamePlay\Scene\GameMainScene.cpp" />
     <ClCompile Include="..\Classes\GamePlay\Scene\GameMainState.cpp" />
     <ClCompile Include="..\Classes\GameTitle\GameTitleScene.cpp" />
@@ -176,6 +178,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\GamePlay\Character\Player\Player.h" />
     <ClInclude Include="..\Classes\GamePlay\Character\SpriteCreator.h" />
     <ClInclude Include="..\Classes\GamePlay\Character\Test\TestObject.h" />
+    <ClInclude Include="..\Classes\GamePlay\Object\Bar.h" />
+    <ClInclude Include="..\Classes\GamePlay\Object\Goal.h" />
+    <ClInclude Include="..\Classes\GamePlay\Object\StageObj.h" />
     <ClInclude Include="..\Classes\GamePlay\Scene\GameMainScene.h" />
     <ClInclude Include="..\Classes\GamePlay\Scene\GameMainState.h" />
     <ClInclude Include="..\Classes\GameTitle\GameTitleScene.h" />
