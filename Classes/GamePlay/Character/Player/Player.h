@@ -46,7 +46,7 @@ public:
 	ジャンプ
 	後に別クラスに以降させると思います
 	********************************************/
-	void Jump(cocos2d::Vec2 targetPosition);
+	void jump(cocos2d::Vec2 targetPosition);
 
 private:
 	cocos2d::Sprite* mSprite;

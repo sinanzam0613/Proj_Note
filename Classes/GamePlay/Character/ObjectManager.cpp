@@ -24,7 +24,7 @@ bool ObjectManager::init()
 	mKatsumi->setPosition(200, 200);
 	this->addChild(mKatsumi);
 
-	//ˆÈ‰ºAƒeƒXƒgƒIƒuƒWƒFƒNƒg¶¬
+	//ä»¥ä¸‹ã€ãƒ†ã‚¹ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ
 	mObject = TestObject::create();
 	mObject->setPosition(300,500);
 	this->addChild(mObject);
@@ -62,8 +62,8 @@ void ObjectManager::onTouchBegan(Vec2 touchPoint)
 bool ObjectManager::distanceCheck()
 {
 	float distance = DistanceCheck::Check(mKatsumi, mObject);
-	const float maximumDistance = 200;	//ƒWƒƒƒ“ƒv‚Å‚«‚éÅ‘å‹——£
-	const float minDistance = 50;		//‹ß‚·‚¬‚é‚ÆƒWƒƒƒ“ƒv‚µ‚È‚¢
+	const float maximumDistance = 200;	//ã‚¸ãƒ£ãƒ³ãƒ—ã§ãã‚‹æœ€å¤§è·é›¢
+	const float minDistance = 50;		//è¿‘ã™ãŽã‚‹ã¨ã‚¸ãƒ£ãƒ³ãƒ—ã—ãªã„
 	if (distance > maximumDistance||
 		distance < minDistance)
 	{
