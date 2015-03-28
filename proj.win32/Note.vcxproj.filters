@@ -49,6 +49,18 @@
     <Filter Include="Classes\Util\CocosAssistant">
       <UniqueIdentifier>{b8bca06f-0fbe-4d09-a4d3-5df6455c4681}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Game\Scene\Title\Title">
+      <UniqueIdentifier>{9cdccfbc-b8e6-4273-a680-0d60d9d05628}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Scene\Title\Main">
+      <UniqueIdentifier>{3ff9447a-e5d6-4382-a629-0aa4d03522d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Scene\Title\Ending">
+      <UniqueIdentifier>{25aec235-1f8e-4e25-9830-dda6e6a941a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Scene\Title\Sub">
+      <UniqueIdentifier>{ea3f041b-360c-42a8-8100-efbf9296a12f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -96,17 +108,29 @@
     <ClCompile Include="..\Classes\Utility\Audio\ADX2Player.cpp">
       <Filter>Classes\Util\Sound</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameTitle\GameTitleScene.cpp">
-      <Filter>Classes\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\GameTitle\GameTitleScreen.cpp">
-      <Filter>Classes\Game</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\GameTitle\TitleScene.cpp">
-      <Filter>Classes\Game\Scene\Title</Filter>
+      <Filter>Classes\Game\Scene\Title\Title</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\GameTitle\TitleState.cpp">
-      <Filter>Classes\Game\Scene\Title</Filter>
+      <Filter>Classes\Game\Scene\Title\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameTitle\GameTitleScene.cpp">
+      <Filter>Classes\Game\Scene\Title\Sub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameTitle\GameTitleScreen.cpp">
+      <Filter>Classes\Game\Scene\Title\Sub</Filter>
+    </ClCompile>
+    <ClCompile Include="EndingScene.cpp">
+      <Filter>Classes\Game\Scene\Title\Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="EndingState.cpp">
+      <Filter>Classes\Game\Scene\Title\Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMainScene.cpp">
+      <Filter>Classes\Game\Scene\Title\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMainState.cpp">
+      <Filter>Classes\Game\Scene\Title\Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,12 +191,6 @@
     <ClInclude Include="..\Classes\Utility\Audio\ADX2Player.h">
       <Filter>Classes\Util\Sound</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameTitle\GameTitleScene.h">
-      <Filter>Classes\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\GameTitle\GameTitleScreen.h">
-      <Filter>Classes\Game</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Utility\Release\DeleteContainer.h">
       <Filter>Classes\Util\Release</Filter>
     </ClInclude>
@@ -195,10 +213,28 @@
       <Filter>Classes\Util\SceneSupport</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\GameTitle\TitleScene.h">
-      <Filter>Classes\Game\Scene\Title</Filter>
+      <Filter>Classes\Game\Scene\Title\Title</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\GameTitle\TitleState.h">
-      <Filter>Classes\Game\Scene\Title</Filter>
+      <Filter>Classes\Game\Scene\Title\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameTitle\GameTitleScene.h">
+      <Filter>Classes\Game\Scene\Title\Sub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameTitle\GameTitleScreen.h">
+      <Filter>Classes\Game\Scene\Title\Sub</Filter>
+    </ClInclude>
+    <ClInclude Include="EndingScene.h">
+      <Filter>Classes\Game\Scene\Title\Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="EndingState.h">
+      <Filter>Classes\Game\Scene\Title\Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMainScene.h">
+      <Filter>Classes\Game\Scene\Title\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMainState.h">
+      <Filter>Classes\Game\Scene\Title\Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

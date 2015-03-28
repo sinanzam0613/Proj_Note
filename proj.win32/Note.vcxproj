@@ -155,6 +155,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Utility\Collision\PhysicsCollisionManager.cpp" />
     <ClCompile Include="..\Classes\Utility\Collision\PhysicsListener.cpp" />
     <ClCompile Include="..\Classes\Utility\FileIO\PlistReader.cpp" />
+    <ClCompile Include="EndingScene.cpp" />
+    <ClCompile Include="EndingState.cpp" />
+    <ClCompile Include="GameMainScene.cpp" />
+    <ClCompile Include="GameMainState.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +190,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Utility\Release\ReleaseContainer.h" />
     <ClInclude Include="..\Classes\Utility\Release\ReleaseContainerImpl.h" />
     <ClInclude Include="..\Classes\Utility\Release\ReleaseInstance.h" />
+    <ClInclude Include="EndingScene.h" />
+    <ClInclude Include="EndingState.h" />
+    <ClInclude Include="GameMainScene.h" />
+    <ClInclude Include="GameMainState.h" />
     <ClInclude Include="IFunction.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

@@ -1,10 +1,10 @@
-﻿#include "TitleState.h"
+﻿#include "GameMainState.h"
 
 USING_NS_CC;
 
-TitleState* TitleState::create(Layer* layer){
+GameMainState* GameMainState::create(Layer* layer){
 
-	auto obj = new TitleState();
+	auto obj = new GameMainState();
 
 	if (obj && obj->init(layer)){
 		obj->retain();
@@ -16,7 +16,7 @@ TitleState* TitleState::create(Layer* layer){
 	return nullptr;
 }
 
-bool TitleState::init(Layer* layer){
+bool GameMainState::init(Layer* layer){
 	mSceneState = FADEIN;
 	mUpdateState = UPDATESTART;
 	parentLayer = layer;
@@ -30,12 +30,12 @@ bool TitleState::init(Layer* layer){
 	return true;
 }
 
-void TitleState::update(float at){
-	
+void GameMainState::update(float at){
+
 	(this->*updateFunc[mSceneState])(at);
 }
 
-void TitleState::fadeIn(float at){
+void GameMainState::fadeIn(float at){
 	if (mTestTouch){
 		mTestTouch = false;
 		mSceneState = MAIN;
@@ -45,11 +45,11 @@ void TitleState::fadeIn(float at){
 	obj->setString("fadeIN");
 }
 
-void TitleState::sceneMain(float at){
+void GameMainState::sceneMain(float at){
 	(this->*mainFunc[mUpdateState])(at);
 }
 
-void TitleState::fadeOut(float at){
+void GameMainState::fadeOut(float at){
 	if (mTestTouch){
 		mTestTouch = false;
 		mSceneState = FADEIN;
@@ -59,11 +59,11 @@ void TitleState::fadeOut(float at){
 	obj->setString("fadeOut");
 }
 
-void TitleState::mainStart(float at){
+void GameMainState::mainStart(float at){
 	mUpdateState = UPDATELOOP;
 }
 
-void TitleState::mainLoop(float at){
+void GameMainState::mainLoop(float at){
 	if (mTestTouch){
 		mTestTouch = false;
 		mUpdateState = UPDATEEND;
@@ -73,18 +73,18 @@ void TitleState::mainLoop(float at){
 	obj->setString("Loop");
 }
 
-void TitleState::mainEnd(float at){
-	mUpdateState =UPDATESTART;
+void GameMainState::mainEnd(float at){
+	mUpdateState = UPDATESTART;
 	mSceneState = FADEOUT;
 }
 
-bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
+bool GameMainState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	mTestTouch = true;
 
 	return true;
 }
 
 
-void TitleState::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event){
+void GameMainState::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event){
 
 }
