@@ -31,7 +31,7 @@ bool EndingScene::init(){
 		return false;
 	}
 
-	mState = GameMainState::create(this);
+	mState = EndingState::create(this);
 
 	auto onTouchBegan = CC_CALLBACK_2(EndingScene::onTouchBegan, this);
 	auto onTouchEnd = CC_CALLBACK_2(EndingScene::onTouchEnded, this);

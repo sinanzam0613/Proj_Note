@@ -1,7 +1,7 @@
 ﻿#ifndef EndingScene_H
 #define EndingScene_H
 
-#include "GameMainState.h"
+#include "EndingState.h"
 
 class EndingScene : public cocos2d::Layer
 {
@@ -13,7 +13,7 @@ public:
 
 	bool init();
 
-	GameMainState* mState;
+	EndingState* mState;
 
 	void update(float at);
 

@@ -120,16 +120,16 @@
     <ClCompile Include="..\Classes\GameTitle\GameTitleScreen.cpp">
       <Filter>Classes\Game\Scene\Title\Sub</Filter>
     </ClCompile>
-    <ClCompile Include="EndingScene.cpp">
+    <ClCompile Include="..\Classes\GameEnd\EndingScene.cpp">
       <Filter>Classes\Game\Scene\Title\Ending</Filter>
     </ClCompile>
-    <ClCompile Include="EndingState.cpp">
+    <ClCompile Include="..\Classes\GameEnd\EndingState.cpp">
       <Filter>Classes\Game\Scene\Title\Ending</Filter>
     </ClCompile>
-    <ClCompile Include="GameMainScene.cpp">
+    <ClCompile Include="..\Classes\GamePlay\Scene\GameMainScene.cpp">
       <Filter>Classes\Game\Scene\Title\Main</Filter>
     </ClCompile>
-    <ClCompile Include="GameMainState.cpp">
+    <ClCompile Include="..\Classes\GamePlay\Scene\GameMainState.cpp">
       <Filter>Classes\Game\Scene\Title\Main</Filter>
     </ClCompile>
   </ItemGroup>
@@ -224,16 +224,16 @@
     <ClInclude Include="..\Classes\GameTitle\GameTitleScreen.h">
       <Filter>Classes\Game\Scene\Title\Sub</Filter>
     </ClInclude>
-    <ClInclude Include="EndingScene.h">
+    <ClInclude Include="..\Classes\GameEnd\EndingScene.h">
       <Filter>Classes\Game\Scene\Title\Ending</Filter>
     </ClInclude>
-    <ClInclude Include="EndingState.h">
+    <ClInclude Include="..\Classes\GameEnd\EndingState.h">
       <Filter>Classes\Game\Scene\Title\Ending</Filter>
     </ClInclude>
-    <ClInclude Include="GameMainScene.h">
+    <ClInclude Include="..\Classes\GamePlay\Scene\GameMainScene.h">
       <Filter>Classes\Game\Scene\Title\Main</Filter>
     </ClInclude>
-    <ClInclude Include="GameMainState.h">
+    <ClInclude Include="..\Classes\GamePlay\Scene\GameMainState.h">
       <Filter>Classes\Game\Scene\Title\Main</Filter>
     </ClInclude>
   </ItemGroup>
