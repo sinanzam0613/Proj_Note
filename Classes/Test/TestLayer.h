@@ -58,7 +58,7 @@ public:
 	virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 
 private:
-	ObjectManager* manager;
+	ObjectManager* mManager;
 };
 
 #endif

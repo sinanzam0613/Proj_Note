@@ -47,7 +47,7 @@ Player* Player::create()
 	return nullptr;
 }
 
-void Player::Jump(Vec2 targetPosition)
+void Player::jump(Vec2 targetPosition)
 {
 	//すでにジャンプが実行されているのであれば何もしない。
 	if (this->getActionByTag(1))
