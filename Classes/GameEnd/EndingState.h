@@ -1,4 +1,7 @@
-﻿#include "SceneSupport/IScene.h"
+﻿#ifndef ENDINGSTATE_H
+#define ENDINGSTATE_H
+
+#include "SceneSupport/IScene.h"
 
 class EndingState : public IScene
 {
@@ -81,3 +84,4 @@ private:
 	bool mTestTouch;
 };
 
+#endif

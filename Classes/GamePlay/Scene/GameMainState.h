@@ -1,4 +1,7 @@
-﻿#include "SceneSupport/IScene.h"
+﻿#ifndef GAMEMAINSTATE_H
+#define GAMEMAINSTATE_H
+
+#include "SceneSupport/IScene.h"
 
 class GameMainState : public IScene
 {
@@ -81,3 +84,4 @@ private:
 	bool mTestTouch;
 };
 
+#endif

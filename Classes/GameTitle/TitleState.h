@@ -1,4 +1,7 @@
-﻿#include "SceneSupport/IScene.h"
+﻿#ifndef TITLESTATE_H
+#define TITLESTATE_H
+
+#include "SceneSupport/IScene.h"
 
 class TitleState : public IScene
 {
@@ -81,3 +84,5 @@ private:
 	bool mTestTouch;
 };
 
+
+#endif
