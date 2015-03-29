@@ -3,6 +3,9 @@
 
 #include "cocos2d.h"
 
+//クラス前方宣言
+class ADX2Player;
+
 /**
  *	@class	：	Note
  *	@brief	：	音符
@@ -40,10 +43,13 @@ public:
 	 */
 	static Note* createObject();
 
+	void SoundPlay(int PosY);
+
 private:
 
 	//メンバ関数の宣言
 	cocos2d::Sprite* mSprite;
+	ADX2Player* mADX2Player;
 };
 
 #endif
