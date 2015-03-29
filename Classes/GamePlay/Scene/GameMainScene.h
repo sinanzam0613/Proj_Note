@@ -1,19 +1,19 @@
-﻿#ifndef TITLESCENE_H
-#define TITLESCENE_H
+﻿#ifndef GAMEMAINSCENE_H
+#define GAMEMAINSCENE_H
 
-#include "TitleState.h"
+#include "GameMainState.h"
 
-class TitleScene : public cocos2d::Layer
+class GameMainScene : public cocos2d::Layer
 {
 public:
-	TitleScene();
-	~TitleScene();
+	GameMainScene();
+	~GameMainScene();
 
-	static TitleScene* create();
+	static GameMainScene* create();
 
 	bool init();
 
-	TitleState* mState;
+	GameMainState* mState;
 
 	void update(float at);
 

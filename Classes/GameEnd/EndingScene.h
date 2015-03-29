@@ -1,19 +1,19 @@
-﻿#ifndef TITLESCENE_H
-#define TITLESCENE_H
+﻿#ifndef EndingScene_H
+#define EndingScene_H
 
-#include "TitleState.h"
+#include "EndingState.h"
 
-class TitleScene : public cocos2d::Layer
+class EndingScene : public cocos2d::Layer
 {
 public:
-	TitleScene();
-	~TitleScene();
+	EndingScene();
+	~EndingScene();
 
-	static TitleScene* create();
+	static EndingScene* create();
 
 	bool init();
 
-	TitleState* mState;
+	EndingState* mState;
 
 	void update(float at);
 

@@ -46,3 +46,15 @@ Player* Player::create()
 	CC_SAFE_DELETE(instance);
 	return nullptr;
 }
+
+void Player::jump(Vec2 targetPosition)
+{
+	//すでにジャンプが実行されているのであれば何もしない。
+	if (this->getActionByTag(1))
+	{
+		return;
+	}
+	auto action = JumpTo::create(0.7f, targetPosition, 50, 1);
+	action->setTag(1);
+	this->runAction(action);
+}
