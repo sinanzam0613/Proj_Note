@@ -9,7 +9,6 @@ std::string ADX2Converter::convertFilePath( const std::string& filePath )
 	return FileUtils::getInstance()->fullPathForFilename( filePath );
 	
 #elif ( CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID ) || ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 )
-	return std::string( filePath );
-	
+	return std::string( filePath.c_str() );
 #endif
 }

@@ -2,10 +2,11 @@
 #define _HIGE_LAYER_H_
 
 #include "cocos2d.h"
+#include <vector>
 
 //クラス前方宣言
-class ObjectManager;
 class Note;
+class ADX2Player;
 
 /**
  *	@class	：	HigeLayer
@@ -65,10 +66,15 @@ public:
 	 */
 	static HigeLayer* create();
 
+	void noteCreator();
+
 private:
 
-	//メンバ関数の宣言
+	//メンバ変数宣言
 	Note* mNote;
+	int mMoveNote;
+	ADX2Player* mADX2Player;
+	std::vector<Node*> mNoteContainar;
 };
 
 #endif

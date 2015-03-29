@@ -73,6 +73,9 @@
     <Filter Include="Classes\Game\Obj\StageObj">
       <UniqueIdentifier>{c6034c7a-b74b-43f5-b2b2-6235573969bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Util\Sound\Define">
+      <UniqueIdentifier>{a71f73a4-0e2a-47a6-a89c-08ef2a9fbde2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -310,6 +313,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Test\HigeLayer.h">
       <Filter>Classes\Game\Scene\Sub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\Define\Note_acf.h">
+      <Filter>Classes\Util\Sound\Define</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\Define\Sample_DoReMi.h">
+      <Filter>Classes\Util\Sound\Define</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
