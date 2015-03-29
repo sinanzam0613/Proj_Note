@@ -18,13 +18,13 @@ CloneFactory< KEY, PRODUCT, RELEASE >::~CloneFactory()
 }
 
 template< typename KEY, typename PRODUCT, typename RELEASE >
-void CloneFactory< KEY, PRODUCT, RELEASE >::add( KEY key, PRODUCT* product )
+void CloneFactory< KEY, PRODUCT, RELEASE >::addProduct( KEY key, PRODUCT* product )
 {
 	mProductContainer[ key ] = product;
 }
 
 template< typename KEY, typename PRODUCT, typename RELEASE >
-PRODUCT* CloneFactory< KEY, PRODUCT, RELEASE >::create( KEY key )
+PRODUCT* CloneFactory< KEY, PRODUCT, RELEASE >::createProduct( KEY key )
 {
 	// clone関数( プロトタイプパターン )を実装していることが前提です。
 	return mProductContainer[ key ]->clone();

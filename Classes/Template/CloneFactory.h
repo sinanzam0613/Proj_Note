@@ -32,14 +32,14 @@ public:
 	 *	@param	key		要素に紐付けるキー
 	 *	@param	product	コンテナに格納する要素
 	 */
-	void add( KEY key, PRODUCT* product );
+	void addProduct( KEY key, PRODUCT* product );
 	
 	/**
 	 *	@brief	要素の生成
 	 *	@param	key		取り出す要素のキー
 	 *	@return	PRODUCT	要素のインスタンス
 	 */
-	PRODUCT* create( KEY key );
+	PRODUCT* createProduct( KEY key );
 	
 private:
 	
