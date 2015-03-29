@@ -147,6 +147,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\GamePlay\Character\Test\TestObject.cpp" />
     <ClCompile Include="..\Classes\GamePlay\Object\Bar.cpp" />
     <ClCompile Include="..\Classes\GamePlay\Object\Goal.cpp" />
+    <ClCompile Include="..\Classes\GamePlay\Object\Note.cpp" />
     <ClCompile Include="..\Classes\GamePlay\Scene\GameMainScene.cpp" />
     <ClCompile Include="..\Classes\GamePlay\Scene\GameMainState.cpp" />
     <ClCompile Include="..\Classes\GameTitle\GameTitleScene.cpp" />
@@ -155,6 +156,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\GameTitle\TitleState.cpp" />
     <ClCompile Include="..\Classes\SceneSupport\IScene.cpp" />
     <ClCompile Include="..\Classes\SceneSupport\SceneCreator.cpp" />
+    <ClCompile Include="..\Classes\Test\HigeLayer.cpp" />
     <ClCompile Include="..\Classes\Test\TestLayer.cpp" />
     <ClCompile Include="..\Classes\Utility\Animation\SpriteAnimation.cpp" />
     <ClCompile Include="..\Classes\Utility\Audio\ADX2Converter.cpp" />
@@ -180,6 +182,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\GamePlay\Character\Test\TestObject.h" />
     <ClInclude Include="..\Classes\GamePlay\Object\Bar.h" />
     <ClInclude Include="..\Classes\GamePlay\Object\Goal.h" />
+    <ClInclude Include="..\Classes\GamePlay\Object\Note.h" />
     <ClInclude Include="..\Classes\GamePlay\Object\StageObj.h" />
     <ClInclude Include="..\Classes\GamePlay\Scene\GameMainScene.h" />
     <ClInclude Include="..\Classes\GamePlay\Scene\GameMainState.h" />
@@ -192,6 +195,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Template\CloneFactory.h" />
     <ClInclude Include="..\Classes\Template\CloneFactoryImpl.h" />
     <ClInclude Include="..\Classes\Template\Singleton.h" />
+    <ClInclude Include="..\Classes\Test\HigeLayer.h" />
     <ClInclude Include="..\Classes\Test\TestLayer.h" />
     <ClInclude Include="..\Classes\Utility\Animation\SpriteAnimation.h" />
     <ClInclude Include="..\Classes\Utility\Audio\ADX2Converter.h" />
