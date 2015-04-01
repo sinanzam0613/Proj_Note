@@ -1,7 +1,7 @@
 ﻿#ifndef GOAL_H
 #define GOAL_H
 
-#include "StageObj.h"
+#include "Game/Object/StageObject/StageObj.h"
 
 class Goal : public StageObj {
 

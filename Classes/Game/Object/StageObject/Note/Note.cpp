@@ -11,8 +11,11 @@ Note::~Note() {}
 bool Note::init() {
 	if (!Node::init()) return false;
 	mSprite = Sprite::create("GamePlay/Character/Note.png");
-	this->setContentSize(mSprite->getContentSize());
-	this->setAnchorPoint(Vec2(0,0));
+	
+	auto afa = mSprite->getContentSize().height;
+	this->setContentSize(Size(mSprite->getContentSize().width, mSprite->getContentSize().height * 2));
+	//mSprite->setAnchorPoint(Vec2(0, 0));
+	setAnchorPoint(Vec2(0.5f, 0));
 	PhysicsBody* body = PhysicsBody::createBox(this->getContentSize());
 	body->setMass(1.0f);
 	mSprite->setPhysicsBody(body);
@@ -43,4 +46,9 @@ Note* Note::createObject() {
 
 	CC_SAFE_DELETE(instance);
 	return nullptr;
+}
+
+void Note::setPosition(const Vec2& pos){
+	//mSprite->setPosition(pos);
+	Node::setPosition(pos);
 }

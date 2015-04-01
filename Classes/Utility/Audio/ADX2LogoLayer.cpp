@@ -1,6 +1,6 @@
 #include "ADX2LogoLayer.h"
-#include "SceneSupport/SceneCreator.h"
-#include "GameTitle/TitleScene.h"
+#include "Utility/SceneSupport/SceneCreator.h"
+#include "Game/Scene/Title/TitleScene.h"
 
 using namespace cocos2d;
 

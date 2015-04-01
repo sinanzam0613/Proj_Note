@@ -1,27 +1,27 @@
-﻿#ifndef TITLESTATE_H
-#define TITLESTATE_H
+﻿#ifndef ENDINGSTATE_H
+#define ENDINGSTATE_H
 
-#include "SceneSupport/IScene.h"
+#include "Utility/SceneSupport/IScene.h"
 
-class TitleState : public IScene
+class EndingState : public IScene
 {
 public:
 
 	/*-------------------------------------------------------------------
 	|	・コンストラクタ
 	-------------------------------------------------------------------*/
-	TitleState() = default;
+	EndingState() = default;
 
 
 	/*-------------------------------------------------------------------
 	|	・デストラクタ
 	-------------------------------------------------------------------*/
-	~TitleState() = default;
+	~EndingState() = default;
 
 	/*-------------------------------------------------------------------
 	|	・レイヤーの生成
 	-------------------------------------------------------------------*/
-	static TitleState* create(cocos2d::Layer* layer);
+	static EndingState* create(cocos2d::Layer* layer);
 
 	/*-------------------------------------------------------------------
 	|	・初期化
@@ -30,7 +30,7 @@ public:
 
 	/*--------------------------------------------------------------------
 	|	・更新
-	|　 float at	１フレームにかかる時間   
+	|　 float at	１フレームにかかる時間
 	--------------------------------------------------------------------*/
 	void update(float at) override;
 
@@ -83,6 +83,5 @@ private:
 private:
 	bool mTestTouch;
 };
-
 
 #endif

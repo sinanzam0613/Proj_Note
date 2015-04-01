@@ -1,6 +1,6 @@
 #include "TestLayer.h"
 #include "Utility/CocosAssistant/ListenerAssistant.h"
-#include "GamePlay/Character/ObjectManager.h"
+#include "Game/Object/Manager/ObjectManager.h"
 
 using namespace cocos2d;
 

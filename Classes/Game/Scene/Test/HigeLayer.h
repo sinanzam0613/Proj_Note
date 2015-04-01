@@ -13,7 +13,7 @@ class ADX2Player;
  *	@brief	：	作業用レイヤー
  *	@author	：	石川貴康
  */
-class HigeLayer : public cocos2d::Layer {
+class HigeLayer : public cocos2d::LayerColor {
 protected:
 
 	/**

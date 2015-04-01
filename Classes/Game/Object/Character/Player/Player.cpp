@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "../SpriteCreator.h"
+#include "Utility/CocosAssistant/SpriteCreator.h"
 
 using namespace cocos2d;
 

@@ -2,7 +2,7 @@
 #define _PHYSICS_COLLISION_MANAGER_H_
 
 #include "cocos2d.h"
-#include "Template/Singleton.h"
+#include "Utility/Template/Singleton.h"
 #include "../Delegate/Delegate.h"
 
 class Collider;

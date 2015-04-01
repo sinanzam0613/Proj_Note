@@ -1,27 +1,27 @@
-﻿#ifndef GAMEMAINSTATE_H
-#define GAMEMAINSTATE_H
+﻿#ifndef TITLESTATE_H
+#define TITLESTATE_H
 
-#include "SceneSupport/IScene.h"
+#include "Utility/SceneSupport/IScene.h"
 
-class GameMainState : public IScene
+class TitleState : public IScene
 {
 public:
 
 	/*-------------------------------------------------------------------
 	|	・コンストラクタ
 	-------------------------------------------------------------------*/
-	GameMainState() = default;
+	TitleState() = default;
 
 
 	/*-------------------------------------------------------------------
 	|	・デストラクタ
 	-------------------------------------------------------------------*/
-	~GameMainState() = default;
+	~TitleState() = default;
 
 	/*-------------------------------------------------------------------
 	|	・レイヤーの生成
 	-------------------------------------------------------------------*/
-	static GameMainState* create(cocos2d::Layer* layer);
+	static TitleState* create(cocos2d::Layer* layer);
 
 	/*-------------------------------------------------------------------
 	|	・初期化
@@ -30,7 +30,7 @@ public:
 
 	/*--------------------------------------------------------------------
 	|	・更新
-	|　 float at	１フレームにかかる時間
+	|　 float at	１フレームにかかる時間   
 	--------------------------------------------------------------------*/
 	void update(float at) override;
 
@@ -83,5 +83,6 @@ private:
 private:
 	bool mTestTouch;
 };
+
 
 #endif

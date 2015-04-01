@@ -45,6 +45,9 @@ public:
 
 	void SoundPlay(int PosY);
 
+    void setPosition(const cocos2d::Vec2 &position) override;
+
+
 private:
 
 	//メンバ関数の宣言

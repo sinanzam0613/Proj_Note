@@ -1,5 +1,5 @@
 ﻿#include "HigeLayer.h"
-#include "GamePlay/Object/Note.h"
+#include "Game/Object/StageObject/Note/Note.h"
 #include "Utility/Audio/ADX2Player.h"
 #include "Utility/Audio/Define/Sample_DoReMi.h"
 #include <math.h>
@@ -25,7 +25,7 @@ HigeLayer::~HigeLayer() {
 }
 
 bool HigeLayer::init() {
-	if (!Layer::init()) return false;
+	if (!LayerColor::initWithColor(Color4B(255, 255, 255, 255), 1280, 720)) return false;
 
 	this->schedule(schedule_selector(HigeLayer::update));
 
@@ -35,6 +35,10 @@ bool HigeLayer::init() {
 	listener->onTouchEnded = CC_CALLBACK_2(HigeLayer::onTouchEnded, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	noteCreator();
+	auto back = Sprite::create("GamePlay/Character/NoteLine.png");
+	back->setAnchorPoint(Vec2(0,0));
+	addChild(back);
+
 	return true;
 }
 
@@ -59,23 +63,26 @@ bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 
 void HigeLayer::onTouchMoved(Touch* touch, Event* event) {
 	Point pos = this->convertTouchToNodeSpace(touch);
+	if (mMoveNote > 7) return;
 	auto pNote = this->getChildByTag(mMoveNote);
 	pNote->setPositionY(pos.y);
 }
 
 void HigeLayer::onTouchEnded(Touch* touch, Event* event) {
+	if (mMoveNote > 7) return;
 	Note* pNote = static_cast<Note*>(this->getChildByTag(mMoveNote));
 	int setLinePos = 0;
 	setLinePos = (int)pNote->getPositionY() / 100;
 	pNote->SoundPlay(setLinePos);
 	setLinePos = setLinePos * 150;
 	pNote->setPositionY(setLinePos);
+	mMoveNote = 8;
 }
 
 void HigeLayer::noteCreator() {
 	for (int i = 0; i < 5; ++i) {
 		auto note = Note::createObject();
-		note->setPosition(100 + i * 130, rand() % 500 + 300);
+		note->setPosition(Vec2(100 + i * 130, rand() % 500 + 300));
 		note->setTag(i);
 		note->retain();
 		mNoteContainar.push_back(note);

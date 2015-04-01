@@ -2,7 +2,7 @@
 #define STAGEOBJ_H
 
 #include "cocos2d.h"
-#include "GamePlay/Character/SpriteCreator.h"
+#include "Utility/CocosAssistant/SpriteCreator.h"
 
 class StageObj : public cocos2d::Node{
 public:

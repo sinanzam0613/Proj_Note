@@ -1,7 +1,7 @@
 #include "ObjectManager.h"
-#include "GamePlay/Character/Player/Player.h"
-#include "GamePlay/Character/Test/TestObject.h"
-#include "DistanceCheck.h"
+#include "Game/Object/Character/Player/Player.h"
+#include "Game/Object/Test/TestObject.h"
+#include "Utility/Collision/DistanceCheck.h"
 
 using namespace cocos2d;
 
@@ -28,6 +28,8 @@ bool ObjectManager::init()
 	mObject = TestObject::create();
 	mObject->setPosition(300,500);
 	this->addChild(mObject);
+
+	return true;
 }
 
 void ObjectManager::update(float deltaTime)

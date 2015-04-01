@@ -1,27 +1,27 @@
-﻿#ifndef ENDINGSTATE_H
-#define ENDINGSTATE_H
+﻿#ifndef GAMEMAINSTATE_H
+#define GAMEMAINSTATE_H
 
-#include "SceneSupport/IScene.h"
+#include "Utility/SceneSupport/IScene.h"
 
-class EndingState : public IScene
+class GameMainState : public IScene
 {
 public:
 
 	/*-------------------------------------------------------------------
 	|	・コンストラクタ
 	-------------------------------------------------------------------*/
-	EndingState() = default;
+	GameMainState() = default;
 
 
 	/*-------------------------------------------------------------------
 	|	・デストラクタ
 	-------------------------------------------------------------------*/
-	~EndingState() = default;
+	~GameMainState() = default;
 
 	/*-------------------------------------------------------------------
 	|	・レイヤーの生成
 	-------------------------------------------------------------------*/
-	static EndingState* create(cocos2d::Layer* layer);
+	static GameMainState* create(cocos2d::Layer* layer);
 
 	/*-------------------------------------------------------------------
 	|	・初期化

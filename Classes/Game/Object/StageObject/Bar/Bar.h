@@ -1,7 +1,7 @@
 ﻿#ifndef BAR_H
 #define BAR_H
 
-#include "StageObj.h"
+#include "Game/Object/StageObject/StageObj.h"
 
 class Bar : public StageObj{
 
