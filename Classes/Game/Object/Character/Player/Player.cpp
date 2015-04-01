@@ -3,13 +3,13 @@
 
 using namespace cocos2d;
 
-Player::Player()
+Player::Player() :mAngle(0)
 {
 }
 
 Player::~Player()
 {
-	
+
 }
 
 bool Player::init()
@@ -18,18 +18,18 @@ bool Player::init()
 	{
 		return false;
 	}
-
-	const Size size = Size(120,180);
-
-	mSprite = SpriteCreator::createPhysicsBox("GamePlay/Character/Player.png", size);
-	this->addChild(mSprite);
+	mSprite = SpriteCreator::create("GamePlay/Character/Player.png");
 	
+	this->addChild(mSprite);
+
 
 	return true;
 }
 
 void Player::update(float deltaTime)
 {
+	mAngle += 0.2f;
+	mSprite->setRotation(mAngle);
 
 }
 
@@ -50,11 +50,21 @@ Player* Player::create()
 void Player::jump(Vec2 targetPosition)
 {
 	//すでにジャンプが実行されているのであれば何もしない。
-	if (this->getActionByTag(1))
+	if (mSprite->getActionByTag(1))
 	{
 		return;
 	}
 	auto action = JumpTo::create(0.7f, targetPosition, 50, 1);
 	action->setTag(1);
-	this->runAction(action);
+	mSprite->runAction(action);
+}
+
+void Player::setPosition(const Vec2& position)
+{
+	mSprite->setPosition(position);
+}
+
+const Vec2& Player::getPosition()const
+{
+	return mSprite->getPosition();
 }
