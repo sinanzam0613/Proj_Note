@@ -21,7 +21,7 @@ bool ObjectManager::init()
 	}
 
 	mKatsumi = Player::create();
-	mKatsumi->setPosition(200, 200);
+	mKatsumi->setPosition(Vec2(200, 200));
 	this->addChild(mKatsumi);
 
 	//以下、テストオブジェクト生成
