@@ -2,7 +2,6 @@
 #include "Utility/SceneSupport/SceneCreator.h"
 #include "Utility/Audio/ADX2Manager.h"
 #include "Utility/Audio/ADX2LogoLayer.h"
-#include "Game/Scene/Test/HigeLayer.h"
 
 using namespace cocos2d;
 
@@ -31,7 +30,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	director->setDisplayStats( true );
 	director->setAnimationInterval( 1.f / 60.f );
 	
-	glView->setDesignResolutionSize(1280, 720, ResolutionPolicy::SHOW_ALL);
+	glView->setDesignResolutionSize( 1280, 720, ResolutionPolicy::SHOW_ALL );
 	
 	FileUtils::getInstance()->addSearchPath( "Font"		);
 	FileUtils::getInstance()->addSearchPath( "Texture"	);
@@ -39,7 +38,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	
 	mADX2Manager->init( "Note.acf" );
 	
-	auto firstScene = SceneCreator::createScene(ADX2LogoLayer::create());
+	auto firstScene = SceneCreator::createScene( ADX2LogoLayer::create() );
 	auto scene		= TransitionFade::create( 1.5f, firstScene, Color3B::BLACK );
 	director->runWithScene( scene );
 	
