@@ -2,10 +2,10 @@
 #define _NOTELINE_H_
 
 #include "cocos2d.h"
-
-
 #include <vector>
 #include <string>
+
+class Note;
 
 
 /**
@@ -75,14 +75,14 @@ public:
      *  @brief  末尾への要素の追加
      *  @param NoteLineMember 追加したい音階または休符
      */
-    void notePushBack( NoteLineMember nlm);
+    void notePushBack( Note* nlm);
     
     /**
      *  @brief  指定位置への要素の追加
      *  @param int 追加したい箇所
      *  @param NoteLineMember 追加したい音階または休符
      */
-    void noteInsert(int number, NoteLineMember nlm);
+    void noteInsert(int number, Note* nlm);
     
     /**
      *  @brief  要素数の確認
@@ -94,11 +94,15 @@ public:
      *  @param int　取得したい音符の番数
      */
     cocos2d::Point noteGetPosition(int number);
+
+
+	Note* getNote(int number);
     
     
 private:
     //音符格納用配列
-    typedef std::vector<NoteLineMember> NoteList;
+    typedef std::vector<Note*> NoteList;
+
     NoteList mNoteList;
     //音符各種値構造体
     constNoteValue mNoteValue;

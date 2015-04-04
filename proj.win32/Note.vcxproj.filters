@@ -189,8 +189,11 @@
     <ClCompile Include="..\Classes\Utility\SceneSupport\IScene.cpp">
       <Filter>Classes\Utility\SceneSupport</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\NoteLine.cpp">
-      <Filter>Classes</Filter>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Note\NoteLine.cpp">
+      <Filter>Classes\Game\Object\StageObject\Note</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\Manager\NoteManager.cpp">
+      <Filter>Classes\Game\Object\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -332,8 +335,14 @@
     <ClInclude Include="..\Classes\Utility\SceneSupport\IScene.h">
       <Filter>Classes\Utility\SceneSupport</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\NoteLine.h">
-      <Filter>Classes</Filter>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Note\NoteLine.h">
+      <Filter>Classes\Game\Object\StageObject\Note</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Note\NoteValue.h">
+      <Filter>Classes\Game\Object\StageObject\Note</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\Manager\NoteManager.h">
+      <Filter>Classes\Game\Object\Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

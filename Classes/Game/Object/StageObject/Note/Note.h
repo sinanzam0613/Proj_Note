@@ -2,6 +2,7 @@
 #define _NOTE_H_
 
 #include "cocos2d.h"
+#include "NoteValue.h"
 #include "Game/Object/StageObject/StageObj.h"
 
 //クラス前方宣言
@@ -49,11 +50,12 @@ public:
 	|	サウンドの再生
 	|	int PosY 　音符の高さ（位置によって音を変える為）
 	------------------------------------------------------*/
-	void SoundPlay(int PosY);
+	void soundPlay(int PosY);
 
 private:
 
 	ADX2Player* mADX2Player;
+	int mSoundScale;
 };
 
 #endif

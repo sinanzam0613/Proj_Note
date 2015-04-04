@@ -30,20 +30,21 @@ NoteLine* NoteLine::create(){
  初期化
  /--------------------------*/
 bool NoteLine::init(){
+	setPosition(0, 0);
     return true;
 }
 
 /*--------------------------/
  末尾への要素の追加
  /--------------------------*/
-void NoteLine::notePushBack(NoteLineMember nlm){
+void NoteLine::notePushBack(Note* nlm){
     mNoteList.push_back(nlm);
 }
 
 /*--------------------------/
  指定位置への要素の追加
  /--------------------------*/
-void NoteLine::noteInsert(int number,NoteLineMember nlm){
+void NoteLine::noteInsert(int number,Note* nlm){
     mNoteList.insert(mNoteList.begin() + number, nlm);
 }
 
@@ -60,13 +61,19 @@ size_t NoteLine::noteSize(){
 cocos2d::Point NoteLine::noteGetPosition(int number){
     
     
-    cocos2d::Point mNotePosition;
+ /*   cocos2d::Point mNotePosition;
     
     
     mNotePosition  = cocos2d::Point( number * mNoteValue.notesSpaceX + mNoteValue.startPosX ,
                                     mNoteList[number] * mNoteValue.notesSpaceY + mNoteValue.startPosY );
     
-    return mNotePosition;
+    return mNotePosition;*/
+
+	return nullptr;
+}
+
+Note* NoteLine::getNote(int number){
+	return mNoteList[number];
 }
 
 

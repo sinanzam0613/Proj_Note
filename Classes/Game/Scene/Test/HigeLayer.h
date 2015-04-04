@@ -5,8 +5,8 @@
 #include <vector>
 
 //クラス前方宣言
-class Note;
 class ADX2Player;
+class NoteManager;
 
 /**
  *	@class	：	HigeLayer
@@ -66,15 +66,12 @@ public:
 	 */
 	static HigeLayer* create();
 
-	void noteCreator();
 
 private:
 
 	//メンバ変数宣言
-	Note* mNote;
-	int mMoveNote;
-	ADX2Player* mADX2Player;
-	std::vector<Node*> mNoteContainar;
+	NoteManager* mNoteManager;
+
 };
 
 #endif

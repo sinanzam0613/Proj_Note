@@ -47,7 +47,7 @@ bool Note::init(const cocos2d::Vec2 &position) {
 
 void Note::update(float deltaTime) {}
 
-void Note::SoundPlay(int PosY) {
+void Note::soundPlay(int PosY) {
 	if (PosY > 7) {
 		PosY = 7;
 	}
