@@ -12,13 +12,14 @@ using namespace cocos2d;
 
 HigeLayer::HigeLayer() 
 	: mADX2Player(nullptr)
-	, mMoveNote(NULL) {
+	, mMoveNote(NULL) 
+	, mNote(nullptr){
 	//目る専ぬツイスター
 	srand((unsigned)time(NULL));
 }
 
 HigeLayer::~HigeLayer() {
-	for ( int i = 0; i < mNoteContainar.size(); ++i) {
+	for (unsigned int i = 0; i < mNoteContainar.size(); ++i) {
 		mNoteContainar[i]->release();
 	}
 	mNoteContainar.clear();
@@ -39,6 +40,8 @@ bool HigeLayer::init() {
 	back->setAnchorPoint(Vec2(0,0));
 	addChild(back);
 
+	
+
 	return true;
 }
 
@@ -47,14 +50,14 @@ void HigeLayer::update(float deltaTime) {}
 
 bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 	Point pos = this->convertTouchToNodeSpace(touch);
-	for (int i = 0; i < mNoteContainar.size(); ++i) {
-		auto pNote = this->getChildByTag(i);
+	for (unsigned int i = 0; i < mNoteContainar.size(); ++i) {
+		auto pNote = static_cast<Note*>(this->getChildByTag(i));
 		if (!pNote) {
 			return false;
 		}
-		Rect noteRect = pNote->boundingBox();
+		Rect noteRect = pNote->getBoundingBox();
 		if (noteRect.containsPoint(pos)) {
-			mMoveNote = i;
+			mNote = pNote;
 			return true;
 		}
 	}
@@ -63,30 +66,34 @@ bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 
 void HigeLayer::onTouchMoved(Touch* touch, Event* event) {
 	Point pos = this->convertTouchToNodeSpace(touch);
-	if (mMoveNote > 7) return;
-	auto pNote = this->getChildByTag(mMoveNote);
-	pNote->setPositionY(pos.y);
+	if (mNote == nullptr) return;
+	
+	mNote->setPositionY(pos.y + 180);
 }
 
 void HigeLayer::onTouchEnded(Touch* touch, Event* event) {
-	if (mMoveNote > 7) return;
-	Note* pNote = static_cast<Note*>(this->getChildByTag(mMoveNote));
+	if (mNote == nullptr) return;
+	
 	int setLinePos = 0;
-	setLinePos = (int)pNote->getPositionY() / 100;
-	pNote->SoundPlay(setLinePos);
-	setLinePos = setLinePos * 150;
-	pNote->setPositionY(setLinePos);
-	mMoveNote = 8;
+	setLinePos = ((int)mNote->getPositionY() - 530) / 70;
+	
+	mNote->SoundPlay(setLinePos);
+	
+	setLinePos = 530 + (setLinePos * 70);
+
+	mNote->setPositionY(setLinePos);
+
+	mNote = nullptr;
+
 }
 
 void HigeLayer::noteCreator() {
-	for (int i = 0; i < 5; ++i) {
-		auto note = Note::createObject();
-		note->setPosition(Vec2(100 + i * 130, rand() % 500 + 300));
+	for (int i = 0; i < 8; ++i) {
+		auto note = Note::createObject(Vec2(100 + i * 160, rand() % 500 + 300));
 		note->setTag(i);
 		note->retain();
 		mNoteContainar.push_back(note);
-		this->addChild(note);
+		this->addChild(note,5);
 	}
 }
 
