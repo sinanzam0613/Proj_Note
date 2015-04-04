@@ -2,6 +2,7 @@
 #define _NOTE_H_
 
 #include "cocos2d.h"
+#include "Game/Object/StageObject/StageObj.h"
 
 //クラス前方宣言
 class ADX2Player;
@@ -11,7 +12,7 @@ class ADX2Player;
  *	@brief	：	音符
  *	@author	：	石川貴康
  */
-class Note :public cocos2d::Node {
+class Note : public StageObj {
 protected:
 
 	/**
@@ -29,7 +30,7 @@ public:
 	 *	@brief	初期化
 	 *	@return	bool	初期化の成否
 	 */
-	virtual bool init() override;
+	virtual bool init(const cocos2d::Vec2 &position);
 
 	/**
 	 *	@brief	更新
@@ -41,17 +42,17 @@ public:
 	 *	@brief	インスタンスの生成
 	 *	@return	Note	インスタンス
 	 */
-	static Note* createObject();
+	static Note* createObject(const cocos2d::Vec2 &position);
 
+
+	/*-----------------------------------------------------
+	|	サウンドの再生
+	|	int PosY 　音符の高さ（位置によって音を変える為）
+	------------------------------------------------------*/
 	void SoundPlay(int PosY);
-
-    void setPosition(const cocos2d::Vec2 &position) override;
-
 
 private:
 
-	//メンバ関数の宣言
-	cocos2d::Sprite* mSprite;
 	ADX2Player* mADX2Player;
 };
 

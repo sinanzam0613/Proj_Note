@@ -189,6 +189,9 @@
     <ClCompile Include="..\Classes\Utility\SceneSupport\IScene.cpp">
       <Filter>Classes\Utility\SceneSupport</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\NoteLine.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -328,6 +331,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\SceneSupport\IScene.h">
       <Filter>Classes\Utility\SceneSupport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NoteLine.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

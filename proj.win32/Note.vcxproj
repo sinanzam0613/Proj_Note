@@ -154,6 +154,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Scene\Test\TestLayer.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\Title\TitleScene.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\Title\TitleState.cpp" />
+    <ClCompile Include="..\Classes\NoteLine.cpp" />
     <ClCompile Include="..\Classes\Utility\Animation\SpriteAnimation.cpp" />
     <ClCompile Include="..\Classes\Utility\Audio\ADX2Converter.cpp" />
     <ClCompile Include="..\Classes\Utility\Audio\ADX2CueSheet.cpp" />
@@ -190,6 +191,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Scene\Test\TestLayer.h" />
     <ClInclude Include="..\Classes\Game\Scene\Title\TitleScene.h" />
     <ClInclude Include="..\Classes\Game\Scene\Title\TitleState.h" />
+    <ClInclude Include="..\Classes\NoteLine.h" />
     <ClInclude Include="..\Classes\Template\CloneFactory.h" />
     <ClInclude Include="..\Classes\Template\CloneFactoryImpl.h" />
     <ClInclude Include="..\Classes\Template\Singleton.h" />

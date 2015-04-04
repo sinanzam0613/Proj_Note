@@ -8,18 +8,36 @@ Note::Note() {}
 
 Note::~Note() {}
 
-bool Note::init() {
+Note* Note::createObject(const cocos2d::Vec2 &position) {
+	Note* instance = new Note();
+
+	if (instance && instance->init(position)) {
+		instance->autorelease();
+		return instance;
+	}
+
+	CC_SAFE_DELETE(instance);
+	return nullptr;
+}
+
+bool Note::init(const cocos2d::Vec2 &position) {
 	if (!Node::init()) return false;
-	mSprite = Sprite::create("GamePlay/Character/Note.png");
 	
-	auto afa = mSprite->getContentSize().height;
-	this->setContentSize(Size(mSprite->getContentSize().width, mSprite->getContentSize().height * 2));
-	//mSprite->setAnchorPoint(Vec2(0, 0));
-	setAnchorPoint(Vec2(0.5f, 0));
-	PhysicsBody* body = PhysicsBody::createBox(this->getContentSize());
-	body->setMass(1.0f);
-	mSprite->setPhysicsBody(body);
+
+	mSprite = Sprite::create("GamePlay/Character/Note.png");
+	mSprite->retain();
 	this->addChild(mSprite);
+
+	mSprite->setPosition(position);
+	mSprite->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
+
+	PhysicsBody* body = PhysicsBody::createBox(mSprite->getContentSize());
+	body->setMass(1.0f);
+	body->setDynamic(true);
+	body->setContactTestBitmask(true);
+	body->setCollisionBitmask(false);
+
+	mSprite->setPhysicsBody(body);
 
 	mADX2Player = ADX2Player::create("Sound/ADX2/Sample_DoReMi.acb");
 	mADX2Player->retain();
@@ -34,21 +52,4 @@ void Note::SoundPlay(int PosY) {
 		PosY = 7;
 	}
 	mADX2Player->play(PosY);
-}
-
-Note* Note::createObject() {
-	auto instance = new Note();
-
-	if (instance && instance->init()) {
-		instance->autorelease();
-		return instance;
-	}
-
-	CC_SAFE_DELETE(instance);
-	return nullptr;
-}
-
-void Note::setPosition(const Vec2& pos){
-	//mSprite->setPosition(pos);
-	Node::setPosition(pos);
 }
