@@ -1,9 +1,10 @@
 #include "Player.h"
 #include "Utility/CocosAssistant/SpriteCreator.h"
+#include "Utility/Collision/PhysicsCollisionManager.h"
 
 using namespace cocos2d;
 
-Player::Player() :mAngle(0)
+Player::Player() :mAngle(0), mTestIsJump(false)
 {
 }
 
@@ -18,18 +19,33 @@ bool Player::init()
 	{
 		return false;
 	}
-	mSprite = SpriteCreator::create("GamePlay/Character/Player.png");
+	mSprite = SpriteCreator::create("Texture/GamePlay/Character/Player.png");
 	
 	this->addChild(mSprite);
 
+	mPhysicsBody = PhysicsBody::createBox(mSprite->getContentSize());
+	mPhysicsBody->setMass(1.0f);
+	mPhysicsBody->setDynamic(true);
+	mPhysicsBody->setContactTestBitmask(true);
+	mPhysicsBody->setCollisionBitmask(true);
+	setName("Player");
+
+	enableCollision("Player");
+
+	mSprite->setPhysicsBody(mPhysicsBody);
+
+	mSprite->setName("Player");
+	
 
 	return true;
 }
 
 void Player::update(float deltaTime)
 {
-	mAngle += 0.2f;
-	mSprite->setRotation(mAngle);
+	/*mAngle += 0.2f;
+	mSprite->setRotation(mAngle);*/
+	if (!mTestIsJump) return;
+	//mSprite->setPositionX(mSprite->getPositionX() + 0.5f);
 
 }
 
@@ -54,7 +70,7 @@ void Player::jump(Vec2 targetPosition)
 	{
 		return;
 	}
-	auto action = JumpTo::create(0.7f, targetPosition, 50, 1);
+	auto action = MoveTo::create(0.7f, targetPosition);
 	action->setTag(1);
 	mSprite->runAction(action);
 }
@@ -67,4 +83,8 @@ void Player::setPosition(const Vec2& position)
 const Vec2& Player::getPosition()const
 {
 	return mSprite->getPosition();
+}
+
+void Player::onContactBegin(cocos2d::Node* contactNode){
+	stopAllActions();
 }

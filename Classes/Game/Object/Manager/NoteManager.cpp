@@ -36,13 +36,18 @@ NoteManager::NoteManager():mNote(nullptr){
 }
 
 void NoteManager::noteCreator(cocos2d::Layer* layer) {
-	for (int i = 0; i < 8; ++i) {
-		auto note = Note::createObject(Vec2(100 + i * 160, rand() % 500 + 300));
-		note->setTag(i);
+	for (int i = 0; i < 1; ++i) {  //Vec2(100 + i * 160, rand() % 500 + 300)
+		auto note = Note::createObject(Vec2(100 , 400));
+		note->setName("Note"+ 2);
 		note->retain();
 		mNoteLine->notePushBack(note);
 		mNoteLine->addChild(note, 5);
 	}
+	auto note = Note::createObject(Vec2(1000,500));
+	note->setName("Note" + 1);
+	note->retain();
+	mNoteLine->notePushBack(note);
+	mNoteLine->addChild(note, 5);
 }
 
 void NoteManager::onTouchBegan(cocos2d::Point pos) {
@@ -62,12 +67,22 @@ void NoteManager::onTouchBegan(cocos2d::Point pos) {
 
 void NoteManager::onTouchMove(cocos2d::Point pos) {
 	
-	if (pos.y <= 300) return;
+	if (mNote == nullptr) return;
 
-	mNote->setPositionY(pos.y + 180);
+	float Yvalue;
+
+	Yvalue = pos.y + ADJUST_VALUE;
+
+	if (pos.y > MAX_NOTE - ADJUST_VALUE)  Yvalue = MAX_NOTE;
+
+	if (pos.y < START_NOTE - ADJUST_VALUE) Yvalue = START_NOTE;
+
+	mNote->setPositionY(Yvalue);
 }
 
 void NoteManager::onTouchEnd(cocos2d::Point pos) {
+
+	if (mNote == nullptr) return;
 
 	int setLinePos = 0;
 	setLinePos = ((int)mNote->getPositionY() - START_NOTE) / NOTE_SPACE;

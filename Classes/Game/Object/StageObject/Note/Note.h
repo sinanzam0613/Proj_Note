@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "NoteValue.h"
 #include "Game/Object/StageObject/StageObj.h"
+#include "Utility/Collision/Collider.h"
 
 //クラス前方宣言
 class ADX2Player;
@@ -13,7 +14,7 @@ class ADX2Player;
  *	@brief	：	音符
  *	@author	：	石川貴康
  */
-class Note : public StageObj {
+class Note : public StageObj , public Collider {
 protected:
 
 	/**
@@ -51,6 +52,10 @@ public:
 	|	int PosY 　音符の高さ（位置によって音を変える為）
 	------------------------------------------------------*/
 	void soundPlay(int PosY);
+
+    void onContactBegin(cocos2d::Node* contactNode) override;
+
+	void setName(const std::string& name) override;
 
 private:
 

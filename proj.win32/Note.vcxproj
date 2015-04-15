@@ -145,6 +145,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Object\StageObject\Goal\Goal.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\Note.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\NoteLine.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Rest\Rest.cpp" />
     <ClCompile Include="..\Classes\Game\Object\Test\TestObject.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameEnd\EndingScene.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameEnd\EndingState.cpp" />
@@ -183,6 +184,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\Note.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\NoteLine.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\NoteValue.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Rest\Rest.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\StageObj.h" />
     <ClInclude Include="..\Classes\Game\Object\Test\TestObject.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameEnd\EndingScene.h" />

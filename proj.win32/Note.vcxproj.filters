@@ -88,6 +88,9 @@
     <Filter Include="Classes\Game\Object\StageObject\Note">
       <UniqueIdentifier>{a785542e-d2fc-48de-8cb7-9261d23a71cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Game\Object\StageObject\Rest">
+      <UniqueIdentifier>{41bcf6dc-ec9c-4df1-8bcd-205ee37384f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -194,6 +197,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Manager\NoteManager.cpp">
       <Filter>Classes\Game\Object\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Rest\Rest.cpp">
+      <Filter>Classes\Game\Object\StageObject\Rest</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -343,6 +349,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Manager\NoteManager.h">
       <Filter>Classes\Game\Object\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Rest\Rest.h">
+      <Filter>Classes\Game\Object\StageObject\Rest</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

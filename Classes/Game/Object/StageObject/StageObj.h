@@ -46,6 +46,7 @@ public:
 	-----------------------------------------------------*/
 	cocos2d::Rect getBoundingBox() const override			{ return mSprite->getBoundingBox(); }
 
+
 protected:
 
 	cocos2d::Sprite* mSprite;

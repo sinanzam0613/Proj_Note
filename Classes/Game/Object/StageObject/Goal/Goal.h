@@ -6,7 +6,7 @@
 class Goal : public StageObj {
 
 public:
-	Goal* create(const std::string textureName);
+	static Goal* create(const std::string textureName);
 
 	bool init(const std::string textureName);
 

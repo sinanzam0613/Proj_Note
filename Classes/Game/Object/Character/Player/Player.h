@@ -4,6 +4,7 @@
 
 //インクルード
 #include "cocos2d.h"
+#include "Utility/Collision/Collider.h"
 
 class Note;
 
@@ -13,7 +14,7 @@ class Note;
 作成者: 小林 勇輝
 
 ***********************************************/
-class Player :public cocos2d::Node
+class Player :public cocos2d::Node , public Collider
 {
 protected:
 
@@ -50,12 +51,19 @@ public:
 	********************************************/
 	void jump(cocos2d::Vec2 targetPosition);
 
+	void onContactBegin(cocos2d::Node* contactNode) override;
+
 	virtual void setPosition(const cocos2d::Vec2& pos)override;
+
 	virtual const cocos2d::Vec2& getPosition()const override;
 
+	//テストでタッチしている間ジャンプさせてみます
+	bool mTestIsJump;
 private:
 	cocos2d::Sprite* mSprite;
 	float mAngle;
+	bool mTest;
+	
 };
 
 #endif

@@ -24,20 +24,25 @@ bool Note::init(const cocos2d::Vec2 &position) {
 	if (!Node::init()) return false;
 	
 
-	mSprite = Sprite::create("GamePlay/Character/Note.png");
+	mSprite = Sprite::create("Texture/GamePlay/Character/Note.png");
 	mSprite->retain();
 	this->addChild(mSprite);
 
 	mSprite->setPosition(position);
 	mSprite->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
 
-	PhysicsBody* body = PhysicsBody::createBox(mSprite->getContentSize());
-	body->setMass(1.0f);
-	body->setDynamic(true);
-	body->setContactTestBitmask(true);
-	body->setCollisionBitmask(false);
+	mPhysicsBody = PhysicsBody::createBox(mSprite->getContentSize());
+	mPhysicsBody->setMass(1.0f);
+	mPhysicsBody->setDynamic(false);
+	mPhysicsBody->setContactTestBitmask(true);
+	mPhysicsBody->setCollisionBitmask(false);
+	mPhysicsBody->setGravityEnable(false);
 
-	mSprite->setPhysicsBody(body);
+	mSprite->setPhysicsBody(mPhysicsBody);
+
+	mSprite->setName("Note");
+	Node::setName("Note");
+	enableCollision("Note");
 
 	mADX2Player = ADX2Player::create("Sound/ADX2/Sample_DoReMi.acb");
 	mADX2Player->retain();
@@ -52,4 +57,17 @@ void Note::soundPlay(int PosY) {
 		PosY = 7;
 	}
 	mADX2Player->play(PosY);
+}
+
+void Note::onContactBegin(cocos2d::Node* contactNode){
+	mADX2Player->play(1);
+}
+
+void Note::setName(const std::string& name){
+	disableCollision(getName());
+	
+	mSprite->setName(name);
+	Node::setName(name);
+
+	enableCollision(name);
 }
