@@ -57,6 +57,8 @@ public:
 
 	virtual const cocos2d::Vec2& getPosition()const override;
 
+	void stop(){ mSprite->stopAllActions(); };
+
 	//テストでタッチしている間ジャンプさせてみます
 	bool mTestIsJump;
 private:

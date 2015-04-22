@@ -44,8 +44,11 @@ void Player::update(float deltaTime)
 {
 	/*mAngle += 0.2f;
 	mSprite->setRotation(mAngle);*/
-	if (!mTestIsJump) return;
-	//mSprite->setPositionX(mSprite->getPositionX() + 0.5f);
+
+	if (mSprite->getPositionY() < 0){
+		mSprite->stopAllActions();
+		setPosition(Vec2(100, 250));
+	}
 
 }
 
@@ -70,7 +73,7 @@ void Player::jump(Vec2 targetPosition)
 	{
 		return;
 	}
-	auto action = MoveTo::create(0.7f, targetPosition);
+	auto action = JumpTo::create(0.7f, targetPosition,3,3);
 	action->setTag(1);
 	mSprite->runAction(action);
 }

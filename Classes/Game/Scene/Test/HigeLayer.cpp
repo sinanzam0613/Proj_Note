@@ -65,6 +65,9 @@ void HigeLayer::update(float deltaTime) {
 	auto sprite = (Player*)getChildByTag(555);
 
 	sprite->update(deltaTime);
+
+	sprite->jump(Vec2(sprite->getPositionX() + 1000, sprite->getPositionY() + 700));
+	
 }
 
 
@@ -75,8 +78,6 @@ bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 
 	auto sprite = (Player*)getChildByTag(555);
 
-	sprite->setPosition(Vec2(100, 250));
-	sprite->jump(Vec2(sprite->getPositionX()+1000, sprite->getPositionY() + 700));
 	sprite->mTestIsJump = true;
 
 	return true;
@@ -89,13 +90,16 @@ void HigeLayer::onTouchMoved(Touch* touch, Event* event) {
 
 void HigeLayer::onTouchEnded(Touch* touch, Event* event) {
 	Point pos = this->convertTouchToNodeSpace(touch);
-	mNoteManager->onTouchEnd(pos);
+	//mNoteManager->onTouchEnd(pos);
 
-	mNoteManager->onTouchBegan(pos);
-
+	//mNoteManager->onTouchBegan(pos);
 	auto sprite = (Player*)getChildByTag(555);
 
+	//sprite->setPosition(Vec2(100, 250));
+
 	sprite->mTestIsJump = false;
+
+	sprite->stop();
 }
 
 HigeLayer* HigeLayer::create() {
