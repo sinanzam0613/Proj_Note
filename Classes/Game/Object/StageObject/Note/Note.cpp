@@ -1,6 +1,6 @@
 ﻿#include "Note.h"
 #include "Utility/Audio/ADX2Player.h"
-#include "Utility/Audio/Define/Sample_DoReMi.h"
+#include "Utility/Audio/Define/PianoSample.h"
 
 using namespace cocos2d;
 
