@@ -1,7 +1,7 @@
 ﻿#include "HigeLayer.h"
 #include "Game/Object/Manager/NoteManager.h"
 #include "Utility/Audio/ADX2Player.h"
-#include "Utility/Audio/Define/Sample_DoReMi.h"
+#include "Utility/Audio/Define/PianoSample.h"
 #include "Game/Object/StageObject/Rest/Rest.h"
 #include "Game/Object/StageObject/Goal/Goal.h"
 #include "Game/Object/Character/Player/Player.h"
