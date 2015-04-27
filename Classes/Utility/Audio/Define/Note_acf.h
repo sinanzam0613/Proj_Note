@@ -2,10 +2,10 @@
  *  Header file for Atom Config File
  *  Project            : Note
  *  Tool Ver.          : CRI Atom Craft LE Ver.2.13.00
- *  File Path          : C:/Toshikawa/adx2/Note/Public/Note.acf
+ *  File Path          : C:/Toshikawa/2015/ADX2Project/Note/Public/Note.acf
  *  File Name          : Note.acf
  *  File Size          : 4,288 bytes
- *  Date Time          : 2015/03/26 0:23
+ *  Date Time          : 2015/04/27 9:47
  *  Target             : Public
  *  Categories         : 1
  *  AISAC Controls     : 16
