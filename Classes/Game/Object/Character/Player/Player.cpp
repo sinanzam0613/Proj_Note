@@ -20,7 +20,7 @@ bool Player::init()
 		return false;
 	}
 	mSprite = SpriteCreator::create("Texture/GamePlay/Character/Player.png");
-	
+	//‚Â‚¢‚©
 	this->addChild(mSprite);
 
 	mPhysicsBody = PhysicsBody::createBox(mSprite->getContentSize());
