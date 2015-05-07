@@ -13,7 +13,7 @@ Block::~Block()
 	
 }
 
-Block* Block::create( const std::string& nodeName, const cocos2d::Vec2& pos )
+Block* Block::create( const std::string& nodeName, const Vec2& pos )
 {
 	auto inst = new Block();
 	
@@ -27,7 +27,7 @@ Block* Block::create( const std::string& nodeName, const cocos2d::Vec2& pos )
 	return nullptr;
 }
 
-bool Block::init( const std::string& nodeName, const cocos2d::Vec2& pos )
+bool Block::init( const std::string& nodeName, const Vec2& pos )
 {
 	if ( !Sprite::initWithFile( "Texture/GamePlay/Character/BluePoint.png" ) )
 	{
@@ -38,7 +38,7 @@ bool Block::init( const std::string& nodeName, const cocos2d::Vec2& pos )
 	this->enableCollision( nodeName );
 	this->setPosition( pos );
 	
-	mPhysicsBody = PhysicsBody::createBox( Size( this->getContentSize().width, this->getContentSize().height ), mPhysicsMaterial );
+	mPhysicsBody = PhysicsBody::createBox( cocos2d::Size( this->getContentSize().width, this->getContentSize().height ), mPhysicsMaterial );
 	mPhysicsBody->setDynamic( false );
 	mPhysicsBody->setCategoryBitmask( static_cast< int >( ObjectType::OBJECT_BLOCK_RED ) );
 	mPhysicsBody->setContactTestBitmask( static_cast< int >( ObjectType::OBJECT_PLAYER_RED ) | static_cast< int >( ObjectType::OBJECT_BLOCK_RED ) );
@@ -53,7 +53,7 @@ void Block::onContactBegin( Node* contactNode )
 	CCLOG( "ta" );
 	this->setTexture( "Texture/GamePlay/Character/BlueStand.png" );
 	
-	mPhysicsBody = PhysicsBody::createBox( Size( this->getContentSize().width, this->getContentSize().height ), mPhysicsMaterial );
+	mPhysicsBody = PhysicsBody::createBox( cocos2d::Size( this->getContentSize().width, this->getContentSize().height ), mPhysicsMaterial );
 	mPhysicsBody->setDynamic( false );
 	mPhysicsBody->setCategoryBitmask( static_cast< int >( ObjectType::OBJECT_BLOCK_RED ) );
 	mPhysicsBody->setContactTestBitmask( static_cast< int >( ObjectType::OBJECT_PLAYER_RED ) );

@@ -69,7 +69,7 @@ void HigeLayer::update(float deltaTime) {
 
 
 bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
-	Point pos = this->convertTouchToNodeSpace(touch);
+	auto pos = this->convertTouchToNodeSpace(touch);
 
 	mNoteManager->onTouchBegan(pos);
 
@@ -83,12 +83,12 @@ bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 }
 
 void HigeLayer::onTouchMoved(Touch* touch, Event* event) {
-	Point pos = this->convertTouchToNodeSpace(touch);
+	auto pos = this->convertTouchToNodeSpace(touch);
 	mNoteManager->onTouchMove(pos);
 }
 
 void HigeLayer::onTouchEnded(Touch* touch, Event* event) {
-	Point pos = this->convertTouchToNodeSpace(touch);
+	auto pos = this->convertTouchToNodeSpace(touch);
 	mNoteManager->onTouchEnd(pos);
 
 	mNoteManager->onTouchBegan(pos);
