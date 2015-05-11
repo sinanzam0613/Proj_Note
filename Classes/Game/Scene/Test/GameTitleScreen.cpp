@@ -1,5 +1,6 @@
 #include "GameTitleScreen.h"
 #include "Utility/CocosAssistant/ListenerAssistant.h"
+#include "Game/Object/StageObject/Block/BlockManager.h"
 
 using namespace cocos2d;
 
@@ -28,6 +29,9 @@ bool GameTitleScreen::init()
 	debugLabel->setAnchorPoint( Vec2::ANCHOR_TOP_LEFT );
 	debugLabel->setPosition( Vec2( 40, 1200 ) );
 	this->addChild( debugLabel );
+	
+	auto blockManager = BlockManager::create();
+	this->addChild( blockManager );
 	
 	return true;
 }
