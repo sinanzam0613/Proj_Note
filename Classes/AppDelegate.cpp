@@ -33,13 +33,13 @@ bool AppDelegate::applicationDidFinishLaunching()
 	
 	glView->setDesignResolutionSize( 1280, 720, ResolutionPolicy::SHOW_ALL );
 	
-	FileUtils::getInstance()->addSearchPath( "Font"		);
-	FileUtils::getInstance()->addSearchPath( "Texture"	);
-	FileUtils::getInstance()->addSearchPath( "Sound"	);
-	
 	mADX2Manager->init( "Note.acf" );
 	
+<<<<<<< HEAD
 	auto firstScene = SceneCreator::createPhysicsScene( HigeLayer::create(),Vect(0,-9.8f),5.0f,true );
+=======
+	auto firstScene = SceneCreator::createPhysicsScene( HigeLayer::create(), Vect( 0, -50 ), 5.0f, true );
+>>>>>>> origin/master
 	auto scene		= TransitionFade::create( 1.5f, firstScene, Color3B::BLACK );
 	director->runWithScene( scene );
 	

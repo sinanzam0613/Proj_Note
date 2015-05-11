@@ -22,7 +22,7 @@ Sprite* SpriteCreator::createPhysicsCircle(const std::string& filePath,float rad
 	return sprite;
 }
 
-Sprite* SpriteCreator::createPhysicsBox(const std::string& filePath, Size size)
+Sprite* SpriteCreator::createPhysicsBox(const std::string& filePath, cocos2d::Size size)
 {
 	//スプライトを生成
 	Sprite* sprite = Sprite::create(filePath);

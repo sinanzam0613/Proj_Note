@@ -20,8 +20,13 @@ bool Player::init()
 		return false;
 	}
 	mSprite = SpriteCreator::create("Texture/GamePlay/Character/Player.png");
+<<<<<<< HEAD
 
 	mSprite->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
+=======
+	//‚Â‚¢‚©
+	this->addChild(mSprite);
+>>>>>>> origin/master
 
 	mPhysicsBody = PhysicsBody::createBox(mSprite->getContentSize());
 	mPhysicsBody->setMass(1.0f);

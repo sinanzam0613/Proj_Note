@@ -72,7 +72,7 @@ void NoteManager::onTouchBegan(cocos2d::Point pos) {
 		if (!pNote) {
 			return;
 		}
-		Rect noteRect = pNote->getBoundingBox();
+		auto noteRect = pNote->getBoundingBox();
 		if (noteRect.containsPoint(pos)) {
 			mNote = pNote;
 			return;
