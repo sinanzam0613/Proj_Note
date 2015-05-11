@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Utility/Collision/Collider.h"
+#include "BlockData.h"
 
 class Block : public cocos2d::Sprite, public Collider
 {
@@ -15,11 +16,19 @@ protected:
 	
 public:
 	
-	static Block* create( const std::string& nodeName, const cocos2d::Vec2& pos );
+	static Block* create( const std::string& nodeName, const BlockData& data );
 	
-	bool init( const std::string& nodeName, const cocos2d::Vec2& pos );
+	bool init( const std::string& nodeName, const BlockData& data );
 	
-	virtual void onContactBegin( cocos2d::Node* contactNode );
+	virtual void onContactBegin( cocos2d::Node* contactNode ) override;
+	
+private:
+	
+	void initPhysics();
+	
+private:
+	
+	BlockData	mBlockData;
 };
 
 #endif

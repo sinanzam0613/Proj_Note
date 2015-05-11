@@ -30,7 +30,7 @@ GameTitleScene* GameTitleScene::create()
 
 bool GameTitleScene::init()
 {
-	if ( !LayerColor::initWithColor( Color4B::BLACK ) )
+	if ( !LayerColor::initWithColor( Color4B::WHITE ) )
 	{
 		return false;
 	}

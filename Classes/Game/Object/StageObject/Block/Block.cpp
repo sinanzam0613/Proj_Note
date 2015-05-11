@@ -1,23 +1,23 @@
 #include "Block.h"
-#include "../ObjectType.h"
 
 using namespace cocos2d;
 
 Block::Block()
+	: mBlockData( BlockData() )
 {
 	
 }
 
 Block::~Block()
 {
-	
+	this->disableCollision( this->getName() );
 }
 
-Block* Block::create( const std::string& nodeName, const Vec2& pos )
+Block* Block::create( const std::string& nodeName, const BlockData& data )
 {
 	auto inst = new Block();
 	
-	if ( inst && inst->init( nodeName, pos ) )
+	if ( inst && inst->init( nodeName, data ) )
 	{
 		inst->autorelease();
 		return inst;
@@ -27,36 +27,39 @@ Block* Block::create( const std::string& nodeName, const Vec2& pos )
 	return nullptr;
 }
 
-bool Block::init( const std::string& nodeName, const Vec2& pos )
+bool Block::init( const std::string& nodeName, const BlockData& data )
 {
-	if ( !Sprite::initWithFile( "Texture/GamePlay/Character/BluePoint.png" ) )
+	if ( !Sprite::initWithFile( data.pointTextureName ) )
 	{
 		return false;
 	}
 	
+	mBlockData = data;
+	
 	this->setName( nodeName );
 	this->enableCollision( nodeName );
-	this->setPosition( pos );
+	this->setPosition( Vec2( mBlockData.positionX, mBlockData.positionY ) );
 	
-	mPhysicsBody = PhysicsBody::createBox( cocos2d::Size( this->getContentSize().width, this->getContentSize().height ), mPhysicsMaterial );
-	mPhysicsBody->setDynamic( false );
-	mPhysicsBody->setCategoryBitmask( static_cast< int >( ObjectType::OBJECT_BLOCK_RED ) );
-	mPhysicsBody->setContactTestBitmask( static_cast< int >( ObjectType::OBJECT_PLAYER_RED ) | static_cast< int >( ObjectType::OBJECT_BLOCK_RED ) );
-	mPhysicsBody->setCollisionBitmask( 0xFFFFFFFF );
-	this->setPhysicsBody( mPhysicsBody );
+	initPhysics();
 	
 	return true;
 }
 
 void Block::onContactBegin( Node* contactNode )
 {
-	CCLOG( "ta" );
-	this->setTexture( "Texture/GamePlay/Character/BlueStand.png" );
+	this->setTexture( mBlockData.blockTextureName );
 	
-	mPhysicsBody = PhysicsBody::createBox( cocos2d::Size( this->getContentSize().width, this->getContentSize().height ), mPhysicsMaterial );
+	initPhysics();
+}
+
+void Block::initPhysics()
+{
+	auto size = cocos2d::Size( this->getContentSize().width, this->getContentSize().height );
+	
+	mPhysicsBody = PhysicsBody::createBox( size, mPhysicsMaterial );
 	mPhysicsBody->setDynamic( false );
-	mPhysicsBody->setCategoryBitmask( static_cast< int >( ObjectType::OBJECT_BLOCK_RED ) );
-	mPhysicsBody->setContactTestBitmask( static_cast< int >( ObjectType::OBJECT_PLAYER_RED ) );
+	mPhysicsBody->setCategoryBitmask( mBlockData.objectType );
+	mPhysicsBody->setContactTestBitmask( mBlockData.objectType );
 	mPhysicsBody->setCollisionBitmask( 0xFFFFFFFF );
 	this->setPhysicsBody( mPhysicsBody );
 }
