@@ -61,10 +61,12 @@ public:
 
 	//テストでタッチしている間ジャンプさせてみます
 	bool mTestIsJump;
+	int mTestCount;
 private:
 	cocos2d::Sprite* mSprite;
 	float mAngle;
 	bool mTest;
+	unsigned int  mJumpTime;
 	
 };
 

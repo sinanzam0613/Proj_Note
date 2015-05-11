@@ -24,12 +24,9 @@ bool Note::init(const cocos2d::Vec2 &position) {
 	if (!Node::init()) return false;
 	
 
-	mSprite = Sprite::create("Texture/GamePlay/Character/Note.png");
+	mSprite = Sprite::create("Texture/GamePlay/Character/Stand.png");
 	mSprite->retain();
 	this->addChild(mSprite);
-
-	mSprite->setPosition(position);
-	mSprite->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
 
 	mPhysicsBody = PhysicsBody::createBox(mSprite->getContentSize());
 	mPhysicsBody->setMass(1.0f);
@@ -39,10 +36,11 @@ bool Note::init(const cocos2d::Vec2 &position) {
 	mPhysicsBody->setGravityEnable(false);
 
 	mSprite->setPhysicsBody(mPhysicsBody);
+	
+	mSprite->setScale(0.8f);
 
-	mSprite->setName("Note");
-	Node::setName("Note");
-	enableCollision("Note");
+	mSprite->setPosition(position);
+	
 
 	mADX2Player = ADX2Player::create("Sound/ADX2/Sample_DoReMi.acb");
 	mADX2Player->retain();
@@ -70,4 +68,8 @@ void Note::setName(const std::string& name){
 	Node::setName(name);
 
 	enableCollision(name);
+}
+
+const Vec2& Note::getPosition() const{
+	return mSprite->getPosition();
 }

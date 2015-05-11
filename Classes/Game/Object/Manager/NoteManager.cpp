@@ -18,11 +18,18 @@ NoteManager* NoteManager::create(cocos2d::Layer* layer){
 }
 
 bool NoteManager::init(cocos2d::Layer* layer){
-	mNoteLine = NoteLine::create();
+	mRedNoteLine = NoteLine::create();
 
-	mNoteLine->retain();
+	mRedNoteLine->retain();
 
-	layer->addChild(mNoteLine);
+	layer->addChild(mRedNoteLine);
+
+	mBuleNoteLine = NoteLine::create();
+
+	mBuleNoteLine->retain();
+
+
+	layer->addChild(mBuleNoteLine);
 
 	noteCreator(layer);
 
@@ -32,28 +39,36 @@ bool NoteManager::init(cocos2d::Layer* layer){
 NoteManager::NoteManager():mNote(nullptr){
 
 
+}
 
+NoteManager::~NoteManager(){
+	mRedNoteLine->release();
+	mBuleNoteLine->release();
 }
 
 void NoteManager::noteCreator(cocos2d::Layer* layer) {
-	for (int i = 0; i < 1; ++i) {  //Vec2(100 + i * 160, rand() % 500 + 300)
-		auto note = Note::createObject(Vec2(100 , 400));
-		note->setName("Note"+ 2);
+	for (int i = 0; i < 5; ++i) {  //Vec2(100 + i * 160, rand() % 500 + 300) Vec2(100 , 400)
+		auto note = Note::createObject(Vec2(350 + i * 180, rand() % 300 + 300));
+		note->setName("Note" + std::to_string(i));
 		note->retain();
-		mNoteLine->notePushBack(note);
-		mNoteLine->addChild(note, 5);
+		mRedNoteLine->notePushBack(note);
+		mRedNoteLine->addChild(note, 5);
 	}
-	auto note = Note::createObject(Vec2(1000,500));
-	note->setName("Note" + 1);
-	note->retain();
-	mNoteLine->notePushBack(note);
-	mNoteLine->addChild(note, 5);
+
+	for (int i = 0; i < 5; ++i) {  //Vec2(100 + i * 160, rand() % 500 + 300) Vec2(100 , 400)
+		auto note = Note::createObject(Vec2(350 + i * 180, rand() % 300 ));
+		note->setName("Note" + std::to_string(i));
+		note->retain();
+		mBuleNoteLine->notePushBack(note);
+		mBuleNoteLine->addChild(note, 5);
+	}
+
 }
 
 void NoteManager::onTouchBegan(cocos2d::Point pos) {
 	
-	for (unsigned int i = 0; i < mNoteLine->noteSize(); ++i) {
-		auto pNote = mNoteLine->getNote(i);
+	for (unsigned int i = 0; i < mRedNoteLine->noteSize(); ++i) {
+		auto pNote = mRedNoteLine->getNote(i);
 		if (!pNote) {
 			return;
 		}
@@ -97,6 +112,14 @@ void NoteManager::onTouchEnd(cocos2d::Point pos) {
 
 }
 
-Note* NoteManager::getNote(int value){
-	return mNoteLine->getNote(value);
+Note* NoteManager::getNote(LineType type, int value){
+
+	if (type == Red){
+		if (value >= mRedNoteLine->noteSize()) return mRedNoteLine->getNote(0);																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																							//AGO
+		return mRedNoteLine->getNote(value);
+	}
+	if (value >= mBuleNoteLine->noteSize()) return mBuleNoteLine->getNote(0);																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																							//AGO
+	return mBuleNoteLine->getNote(value);
+
+
 }
