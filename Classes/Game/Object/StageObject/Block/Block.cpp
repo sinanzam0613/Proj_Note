@@ -50,7 +50,6 @@ bool Block::init( const std::string& nodeName, const Vec2& pos )
 
 void Block::onContactBegin( Node* contactNode )
 {
-	CCLOG( "ta" );
 	this->setTexture( "Texture/GamePlay/Character/BlueStand.png" );
 	
 	mPhysicsBody = PhysicsBody::createBox( cocos2d::Size( this->getContentSize().width, this->getContentSize().height ), mPhysicsMaterial );
