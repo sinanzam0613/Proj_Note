@@ -7,23 +7,12 @@
 class Block : public cocos2d::Sprite, public Collider
 {
 	
-<<<<<<< HEAD
-public:
-=======
 protected:
->>>>>>> origin/master
 	
 	Block();
 	
 	~Block();
 	
-<<<<<<< HEAD
-	static Block* create( const std::string& nodeName, int queID );
-	
-	bool init( const std::string& nodeName, int queID );
-	
-	virtual void onContactBegin( cocos2d::Node* contactNode ) override;
-=======
 public:
 	
 	static Block* create( const std::string& nodeName, const cocos2d::Vec2& pos );
@@ -31,7 +20,6 @@ public:
 	bool init( const std::string& nodeName, const cocos2d::Vec2& pos );
 	
 	virtual void onContactBegin( cocos2d::Node* contactNode );
->>>>>>> origin/master
 };
 
 #endif

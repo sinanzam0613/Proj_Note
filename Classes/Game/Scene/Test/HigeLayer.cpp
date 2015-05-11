@@ -1,12 +1,8 @@
 ﻿#include "HigeLayer.h"
 #include "Game/Object/Manager/NoteManager.h"
 #include "Utility/Audio/ADX2Player.h"
-<<<<<<< HEAD
-#include "Utility/Audio/Define/Sample_DoReMi.h"
 #include "Game/Object/StageObject/Note/Note.h"
-=======
 #include "Utility/Audio/Define/PianoSample.h"
->>>>>>> origin/master
 #include "Game/Object/StageObject/Rest/Rest.h"
 #include "Game/Object/StageObject/Goal/Goal.h"
 #include "Game/Object/Character/Player/Player.h"
@@ -99,15 +95,10 @@ void HigeLayer::onTouchMoved(Touch* touch, Event* event) {
 }
 
 void HigeLayer::onTouchEnded(Touch* touch, Event* event) {
-<<<<<<< HEAD
-	Point pos = this->convertTouchToNodeSpace(touch);
-	//mNoteManager->onTouchEnd(pos);
-=======
 	auto pos = this->convertTouchToNodeSpace(touch);
 	mNoteManager->onTouchEnd(pos);
 
 	mNoteManager->onTouchBegan(pos);
->>>>>>> origin/master
 
 	//mNoteManager->onTouchBegan(pos);
 	auto sprite = (Player*)getChildByTag(555);
