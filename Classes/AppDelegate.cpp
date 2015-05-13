@@ -35,7 +35,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	
 	mADX2Manager->init( "Note.acf" );
 	
-	auto firstScene = SceneCreator::createPhysicsScene( HigeLayer::create(), Vect( 0, -50 ), 5.0f, true );
+	auto firstScene = SceneCreator::createPhysicsScene( HigeLayer::create(),Vect(0,-9.8f),5.0f,true );
 	auto scene		= TransitionFade::create( 1.5f, firstScene, Color3B::BLACK );
 	director->runWithScene( scene );
 	

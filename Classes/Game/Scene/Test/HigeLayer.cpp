@@ -1,10 +1,12 @@
 ﻿#include "HigeLayer.h"
 #include "Game/Object/Manager/NoteManager.h"
 #include "Utility/Audio/ADX2Player.h"
+#include "Game/Object/StageObject/Note/Note.h"
 #include "Utility/Audio/Define/PianoSample.h"
 #include "Game/Object/StageObject/Rest/Rest.h"
 #include "Game/Object/StageObject/Goal/Goal.h"
 #include "Game/Object/Character/Player/Player.h"
+#include "Game/Object/StageObject/Block/Block.h"
 #include "Utility/Collision/PhysicsListener.h"
 #include <math.h>
 #include <random>
@@ -51,7 +53,6 @@ bool HigeLayer::init() {
 
 	auto sprite = Player::create();
 	sprite->setPosition(Vec2(100, 230));
-	sprite->setScale(0.9f);
 	sprite->setTag(555);
 	addChild(sprite);
 
@@ -65,6 +66,14 @@ void HigeLayer::update(float deltaTime) {
 	auto sprite = (Player*)getChildByTag(555);
 
 	sprite->update(deltaTime);
+
+	if (!sprite->mTestIsJump) return;
+	auto note = mNoteManager->getNote(Bule,sprite->mTestCount);
+	
+	sprite->jump(note->getPosition());
+	 
+	sprite->mTestIsJump = false;
+
 }
 
 
@@ -74,9 +83,7 @@ bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 	mNoteManager->onTouchBegan(pos);
 
 	auto sprite = (Player*)getChildByTag(555);
-
-	sprite->setPosition(Vec2(100, 250));
-	sprite->jump(Vec2(sprite->getPositionX()+1000, sprite->getPositionY() + 700));
+	sprite->stop();
 	sprite->mTestIsJump = true;
 
 	return true;
@@ -93,9 +100,10 @@ void HigeLayer::onTouchEnded(Touch* touch, Event* event) {
 
 	mNoteManager->onTouchBegan(pos);
 
+	//mNoteManager->onTouchBegan(pos);
 	auto sprite = (Player*)getChildByTag(555);
 
-	sprite->mTestIsJump = false;
+	//sprite->stop();
 }
 
 HigeLayer* HigeLayer::create() {

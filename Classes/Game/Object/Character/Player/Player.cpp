@@ -4,7 +4,7 @@
 
 using namespace cocos2d;
 
-Player::Player() :mAngle(0), mTestIsJump(false)
+Player::Player() :mAngle(0), mTestIsJump(false), mTestCount(0)
 {
 }
 
@@ -20,22 +20,29 @@ bool Player::init()
 		return false;
 	}
 	mSprite = SpriteCreator::create("Texture/GamePlay/Character/Player.png");
-	//‚Â‚¢‚©
-	this->addChild(mSprite);
 
 	mPhysicsBody = PhysicsBody::createBox(mSprite->getContentSize());
 	mPhysicsBody->setMass(1.0f);
 	mPhysicsBody->setDynamic(true);
+	mPhysicsBody->setEnable(true);
 	mPhysicsBody->setContactTestBitmask(true);
 	mPhysicsBody->setCollisionBitmask(true);
+
 	setName("Player");
 
 	enableCollision("Player");
 
-	mSprite->setPhysicsBody(mPhysicsBody);
-
 	mSprite->setName("Player");
 	
+	mSprite->setPosition(Vec2(0, 0));
+
+
+	mSprite->setPhysicsBody(mPhysicsBody);
+	this->addChild(mSprite);
+
+	mTestIsJump = true;
+
+	mSprite->setScale(0.5f);
 
 	return true;
 }
@@ -44,8 +51,15 @@ void Player::update(float deltaTime)
 {
 	/*mAngle += 0.2f;
 	mSprite->setRotation(mAngle);*/
-	if (!mTestIsJump) return;
-	//mSprite->setPositionX(mSprite->getPositionX() + 0.5f);
+
+	if (mSprite->getPositionY() < 0){
+		mSprite->stopAllActions();
+		mSprite->setPosition(Vec2(100, 250));
+		mTestIsJump = true;
+	}
+
+	CCLOG("X : %f", mSprite->getAnchorPoint().x);
+	CCLOG("Y : %f", mSprite->getAnchorPoint().y);
 
 }
 
@@ -70,9 +84,16 @@ void Player::jump(Vec2 targetPosition)
 	{
 		return;
 	}
-	auto action = MoveTo::create(0.7f, targetPosition);
+
+	auto action = JumpTo::create(2.f, Vec2(targetPosition.x,targetPosition.y + mSprite->getContentSize().height / 4),
+	targetPosition.y / 2, 1);
 	action->setTag(1);
-	mSprite->runAction(action);
+
+	auto seq = Sequence::create(action, CallFunc::create([this](){ mPhysicsBody->setDynamic(true); }), nullptr);
+
+	mSprite->runAction(seq);
+
+	mPhysicsBody->setDynamic(false);
 }
 
 void Player::setPosition(const Vec2& position)
@@ -86,5 +107,7 @@ const Vec2& Player::getPosition()const
 }
 
 void Player::onContactBegin(cocos2d::Node* contactNode){
-	stopAllActions();
+	mSprite->stopAllActions();
+	mTestCount++;
+	mTestIsJump = true;
 }

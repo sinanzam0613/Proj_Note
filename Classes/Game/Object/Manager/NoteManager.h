@@ -6,12 +6,17 @@
 class NoteLine;
 class Note;
 
+enum LineType{
+	Red = 0,
+	Bule
+};
+
 class NoteManager : public cocos2d::Ref{
 
 protected:
 	NoteManager();
 
-	~NoteManager() = default;
+	~NoteManager();
 
 public:
 
@@ -21,7 +26,7 @@ public:
 
 	void noteCreator(cocos2d::Layer* layer);
 
-	Note* getNote(int value);
+	Note* getNote(LineType type, int value);
 	
 	void onTouchBegan(cocos2d::Point pos);
 
@@ -31,6 +36,8 @@ public:
 
 private:
 	Note* mNote;
-	NoteLine* mNoteLine;
+	NoteLine* mRedNoteLine;
+	NoteLine* mBuleNoteLine;
+	NoteLine* Lines;
 };
 #endif

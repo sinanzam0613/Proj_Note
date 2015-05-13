@@ -57,6 +57,13 @@ public:
 
 	void setName(const std::string& name) override;
 
+	const cocos2d::Vec2& getPosition() const override;
+
+	const cocos2d::Size& getContentSize() const
+	{
+		return mSprite->getContentSize();
+	}
+
 private:
 
 	ADX2Player* mADX2Player;
