@@ -26,13 +26,9 @@ bool Player::init()
 	mPhysicsBody = PhysicsBody::createBox(mSprite->getContentSize());
 	mPhysicsBody->setMass(1.0f);
 	mPhysicsBody->setDynamic(true);
-<<<<<<< HEAD
 	mPhysicsBody->setEnable(true);
 	mPhysicsBody->setContactTestBitmask(true);
 	mPhysicsBody->setCollisionBitmask(true);
-
-=======
->>>>>>> 2015/05/13 ヒゲレイヤーの機能統合
 	mPhysicsBody->setCategoryBitmask( static_cast< int >(ObjectType::OBJECT_PLAYER_RED));
 	mPhysicsBody->setContactTestBitmask(static_cast< int >(ObjectType::OBJECT_BLOCK_RED) | static_cast< int >(ObjectType::OBJECT_BLOCK_BLUE));
 	mPhysicsBody->setCollisionBitmask(0xFFFFFFFF);
