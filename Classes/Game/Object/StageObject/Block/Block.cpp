@@ -55,6 +55,7 @@ void Block::onContactBegin( Node* contactNode )
 void Block::initPhysics()
 {
 	auto size = cocos2d::Size( this->getContentSize().width, this->getContentSize().height );
+	this->setTexture( "Texture/GamePlay/Character/BlueStand.png" );
 	
 	mPhysicsBody = PhysicsBody::createBox( size, mPhysicsMaterial );
 	mPhysicsBody->setDynamic( false );
