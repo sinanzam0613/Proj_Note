@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "Utility/CocosAssistant/SpriteCreator.h"
 #include "Utility/Collision/PhysicsCollisionManager.h"
+#include "Game/Object/StageObject/Block/Block.h"
+#include "Game/Object/StageObject/ObjectType.h"
 
 using namespace cocos2d;
 
@@ -28,6 +30,9 @@ bool Player::init()
 	mPhysicsBody->setContactTestBitmask(true);
 	mPhysicsBody->setCollisionBitmask(true);
 
+	mPhysicsBody->setCategoryBitmask( static_cast< int >(ObjectType::OBJECT_PLAYER_RED));
+	mPhysicsBody->setContactTestBitmask(static_cast< int >(ObjectType::OBJECT_BLOCK_RED) | static_cast< int >(ObjectType::OBJECT_BLOCK_BLUE));
+	mPhysicsBody->setCollisionBitmask(0xFFFFFFFF);
 	setName("Player");
 
 	enableCollision("Player");
