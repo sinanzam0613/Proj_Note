@@ -83,7 +83,16 @@ bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 	mNoteManager->onTouchBegan(pos);
 
 	auto sprite = (Player*)getChildByTag(555);
+<<<<<<< HEAD
 	sprite->stop();
+=======
+
+	auto block = Block::create("StageNode", Vec2(pos.x, pos.y));
+	addChild(block);
+
+	sprite->setPosition(Vec2(100, 250));
+	sprite->jump(Vec2(sprite->getPositionX()+1000, sprite->getPositionY() + 700));
+>>>>>>> 2015/05/13 ヒゲレイヤーの機能統合
 	sprite->mTestIsJump = true;
 
 	return true;
