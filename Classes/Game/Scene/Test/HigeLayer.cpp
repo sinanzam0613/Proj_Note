@@ -6,6 +6,7 @@
 #include "Game/Object/StageObject/Goal/Goal.h"
 #include "Game/Object/Character/Player/Player.h"
 #include "Game/Object/StageObject/Block/Block.h"
+#include "Game/Object/StageObject/Block/BlockManager.h"
 #include "Utility/Collision/PhysicsListener.h"
 #include <math.h>
 #include <random>
@@ -59,6 +60,9 @@ bool HigeLayer::init() {
 	auto lis = PhysicsListener::create();
 	addChild(lis);
 
+	auto b = BlockManager::create();
+	this->addChild(b);
+
 	return true;
 }
 
@@ -75,9 +79,6 @@ bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 	mNoteManager->onTouchBegan(pos);
 
 	auto sprite = (Player*)getChildByTag(555);
-
-	auto block = Block::create("StageNode", Vec2(pos.x, pos.y));
-	addChild(block);
 
 	sprite->setPosition(Vec2(100, 250));
 	sprite->jump(Vec2(sprite->getPositionX()+1000, sprite->getPositionY() + 700));
