@@ -2,6 +2,10 @@
 #define TITLESTATE_H
 
 #include "Utility/SceneSupport/IScene.h"
+#include "Game/Object/UIObject/SlideBar.h"
+#include "cocos-ext.h"
+
+using namespace cocos2d::extension;
 
 class TitleState : public IScene
 {
@@ -82,6 +86,10 @@ private:
 
 private:
 	bool mTestTouch;
+    
+    SlideBar* mSlide;
+
+    
 };
 
 
