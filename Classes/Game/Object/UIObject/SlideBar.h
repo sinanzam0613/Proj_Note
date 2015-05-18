@@ -3,13 +3,7 @@
 #define _SLIDEBAR_H_
 
 #include "cocos2d.h"
-#include "cocos-ext.h"
-
-#include <iostream>
-
-USING_NS_CC;
-
-
+#include "extensions/cocos-ext.h"
 
 class SlideBar : public cocos2d::Node
 {
@@ -42,7 +36,7 @@ public:
                         const std::string& progressFail,
                         const std::string& thumbFail,
                         const std::string& selectthumbFail,
-                        Vec2 position
+                        cocos2d::Vec2 position
                         );
     
     /** @brief 値の取得
@@ -53,7 +47,7 @@ public:
     
 private:
     /**　@brief  スライダーのポインター*/
-    cocos2d::extension::ControlSlider* mSlider;
+   // cocos2d::extension::ControlSlider* mSlider;
 };
 
 

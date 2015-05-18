@@ -71,7 +71,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\adx2\include\pc;$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\adx2\include\pc;$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot);$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -143,11 +143,14 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Object\Manager\ObjectManager.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Bar\Bar.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\Block.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockDataReader.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockManager.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Goal\Goal.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\Note.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\NoteLine.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Rest\Rest.cpp" />
     <ClCompile Include="..\Classes\Game\Object\Test\TestObject.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\UIObject\SlideBar.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameEnd\EndingScene.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameEnd\EndingState.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameMain\GameMainScene.cpp" />
@@ -182,6 +185,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Object\Manager\ObjectManager.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Bar\Bar.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\Block.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockData.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockDataReader.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockManager.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\ObjectType.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Goal\Goal.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\Note.h" />
@@ -190,6 +196,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Object\StageObject\Rest\Rest.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\StageObj.h" />
     <ClInclude Include="..\Classes\Game\Object\Test\TestObject.h" />
+    <ClInclude Include="..\Classes\Game\Object\UIObject\SlideBar.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameEnd\EndingScene.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameEnd\EndingState.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameMain\GameMainScene.h" />
@@ -236,6 +243,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     </ProjectReference>
     <ProjectReference Include="..\cocos2d\cocos\audio\proj.win32\CocosDenshion.vcxproj">
       <Project>{f8edd7fa-9a51-4e80-baeb-860825d2eac6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\cocos2d\extensions\proj.win32\libExtensions.vcxproj">
+      <Project>{21b2c324-891f-48ea-ad1a-5ae13de12e28}</Project>
     </ProjectReference>
     <ProjectReference Include="..\cocos2d\external\chipmunk\proj.win32\chipmunk.vcxproj">
       <Project>{207bc7a9-ccf1-4f2f-a04d-45f72242ae25}</Project>
