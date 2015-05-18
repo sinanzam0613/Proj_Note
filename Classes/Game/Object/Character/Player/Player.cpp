@@ -26,16 +26,15 @@ bool Player::init()
 	mPhysicsBody = PhysicsBody::createBox(mSprite->getContentSize());
 	mPhysicsBody->setMass(1.0f);
 	mPhysicsBody->setDynamic(true);
-	mPhysicsBody->setEnable(true);
-	mPhysicsBody->setContactTestBitmask(true);
-	mPhysicsBody->setCollisionBitmask(true);
-	mPhysicsBody->setCategoryBitmask( static_cast< int >(ObjectType::OBJECT_PLAYER_RED));
-	mPhysicsBody->setContactTestBitmask(static_cast< int >(ObjectType::OBJECT_BLOCK_RED) | static_cast< int >(ObjectType::OBJECT_BLOCK_BLUE));
-	mPhysicsBody->setCollisionBitmask(0xFFFFFFFF);
+
+	mPhysicsBody->setCategoryBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_RED));
+	mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED) |
+		static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE));
+	mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED) |
+		static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE));
+
 	setName("Player");
-
 	enableCollision("Player");
-
 	mSprite->setName("Player");
 	
 	mSprite->setPosition(Vec2(0, 0));
@@ -62,8 +61,8 @@ void Player::update(float deltaTime)
 		mTestIsJump = true;
 	}
 
-	CCLOG("X : %f", mSprite->getAnchorPoint().x);
-	CCLOG("Y : %f", mSprite->getAnchorPoint().y);
+	//CCLOG("X : %f", mSprite->getAnchorPoint().x);
+	//CCLOG("Y : %f", mSprite->getAnchorPoint().y);
 
 }
 

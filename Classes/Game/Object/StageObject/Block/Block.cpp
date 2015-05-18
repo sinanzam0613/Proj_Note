@@ -4,6 +4,7 @@ using namespace cocos2d;
 
 Block::Block()
 	: mBlockData( BlockData() )
+	, mIsTextureChanged( false )
 {
 	
 }
@@ -47,7 +48,11 @@ bool Block::init( const std::string& nodeName, const BlockData& data )
 
 void Block::onContactBegin( Node* contactNode )
 {
+	if (mIsTextureChanged)	return;
+
 	this->setTexture( mBlockData.blockTextureName );
+	mIsTextureChanged = true;
+	CCLOG("%s",this->getName().c_str());
 	
 	initPhysics();
 }
@@ -59,7 +64,7 @@ void Block::initPhysics()
 	mPhysicsBody = PhysicsBody::createBox( size, mPhysicsMaterial );
 	mPhysicsBody->setDynamic( false );
 	mPhysicsBody->setCategoryBitmask( mBlockData.objectType );
-	mPhysicsBody->setContactTestBitmask( mBlockData.objectType );
+	mPhysicsBody->setContactTestBitmask(0xFFFFFFFF);
 	mPhysicsBody->setCollisionBitmask( 0xFFFFFFFF );
 	this->setPhysicsBody( mPhysicsBody );
 }

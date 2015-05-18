@@ -29,6 +29,7 @@ private:
 private:
 	
 	BlockData	mBlockData;
+	bool		mIsTextureChanged;
 };
 
 #endif

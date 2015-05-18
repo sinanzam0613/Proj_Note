@@ -115,11 +115,9 @@ void NoteManager::onTouchEnd(cocos2d::Point pos) {
 Note* NoteManager::getNote(LineType type, int value){
 
 	if (type == Red){
-		if (value >= mRedNoteLine->noteSize()) return mRedNoteLine->getNote(0);																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																							//AGO
+		if (value >= mRedNoteLine->noteSize()) return mRedNoteLine->getNote(0);
 		return mRedNoteLine->getNote(value);
 	}
-	if (value >= mBuleNoteLine->noteSize()) return mBuleNoteLine->getNote(0);																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																							//AGO
+	if (value >= mBuleNoteLine->noteSize()) return mBuleNoteLine->getNote(0);
 	return mBuleNoteLine->getNote(value);
-
-
 }

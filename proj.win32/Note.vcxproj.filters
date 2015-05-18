@@ -207,6 +207,12 @@
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\Block.cpp">
       <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockDataReader.cpp">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockManager.cpp">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -363,6 +369,15 @@
       <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\ObjectType.h">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockData.h">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockDataReader.h">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockManager.h">
       <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClInclude>
   </ItemGroup>
