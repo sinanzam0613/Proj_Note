@@ -1,6 +1,8 @@
 ﻿#include "TitleState.h"
+#include "cocos-ext.h"
 
 USING_NS_CC;
+using namespace cocos2d::extension;
 
 TitleState* TitleState::create(Layer* layer){
 
@@ -24,16 +26,28 @@ bool TitleState::init(Layer* layer){
 
 	auto debugLabel = Label::createWithTTF("TitleScreen", "Font/MarkerFelt.ttf", 64);
 	debugLabel->setName("ラベル");
-	debugLabel->setPosition(Vec2(500, 500));
+    debugLabel->setColor(Color3B::WHITE);
+	debugLabel->setPosition(Vec2(100, 100));
 	parentLayer->addChild(debugLabel);
-
+    
+    mSlide->SlideBarCreate("p1",
+                           parentLayer,
+                           "Texture/GamePlay/slider/sliderTrack.png",
+                           "Texture/GamePlay/slider/sliderTrack.png",
+                           "Texture/GamePlay/slider/sliderThumb.png",
+                           "Texture/GamePlay/slider/switch-thumb.png",
+                           Vec2(300,300));
+    
+    
+    
 	return true;
 }
 
 void TitleState::update(float at){
 	
-	(this->*updateFunc[mSceneState])(at);
-}
+    (this->*updateFunc[mSceneState])(at);
+    
+ }
 
 void TitleState::fadeIn(float at){
 	if (mTestTouch){
@@ -43,6 +57,8 @@ void TitleState::fadeIn(float at){
 	auto obj = (Label*)parentLayer->getChildByName("ラベル");
 
 	obj->setString("fadeIN");
+    
+    CCLOG("%f",mSlide->getValue("p1", parentLayer));
 }
 
 void TitleState::sceneMain(float at){
@@ -57,6 +73,8 @@ void TitleState::fadeOut(float at){
 	auto obj = (Label*)parentLayer->getChildByName("ラベル");
 
 	obj->setString("fadeOut");
+    
+    
 }
 
 void TitleState::mainStart(float at){
