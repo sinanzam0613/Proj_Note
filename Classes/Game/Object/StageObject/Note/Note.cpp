@@ -24,7 +24,7 @@ bool Note::init(const cocos2d::Vec2 &position) {
 	if (!Node::init()) return false;
 	
 
-	mSprite = Sprite::create("Texture/GamePlay/Character/Stand.png");
+	mSprite = Sprite::create("Texture/GamePlay/Character/BlueStand.png");
 	mSprite->retain();
 	this->addChild(mSprite);
 

@@ -7,6 +7,7 @@
 #include "Game/Object/StageObject/Goal/Goal.h"
 #include "Game/Object/Character/Player/Player.h"
 #include "Game/Object/StageObject/Block/Block.h"
+#include "Game/Object/StageObject/Block/BlockManager.h"
 #include "Utility/Collision/PhysicsListener.h"
 #include <math.h>
 #include <random>
@@ -17,12 +18,10 @@ using namespace cocos2d;
 #define ORIGINSIZE Director::getInstance()->getVisibleOrigin()
 
 HigeLayer::HigeLayer(){
-	//目る専ぬツイスター
 	srand((unsigned)time(NULL));
 }
 
 HigeLayer::~HigeLayer() {
-	mNoteManager->release();
 }
 
 bool HigeLayer::init() {
@@ -35,13 +34,11 @@ bool HigeLayer::init() {
 	listener->onTouchMoved = CC_CALLBACK_2(HigeLayer::onTouchMoved, this);
 	listener->onTouchEnded = CC_CALLBACK_2(HigeLayer::onTouchEnded, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+	
 	auto back = Sprite::create("Texture/GamePlay/Character/NoteLine.png");
 	back->setAnchorPoint(Vec2(0,0));
 	back->setPosition(Vec2(0, 5));
 	addChild(back);
-
-	mNoteManager = NoteManager::create(this);
-	mNoteManager->retain();
 
 	auto rest = Rest::create("Texture/GamePlay/Character/2Rest.png");
 	rest->setPosition(Vec2(100, 50));
@@ -59,6 +56,10 @@ bool HigeLayer::init() {
 	auto lis = PhysicsListener::create();
 	addChild(lis);
 
+	auto b = BlockManager::create();
+	b->setTag(123);
+	this->addChild(b);
+
 	return true;
 }
 
@@ -68,9 +69,10 @@ void HigeLayer::update(float deltaTime) {
 	sprite->update(deltaTime);
 
 	if (!sprite->mTestIsJump) return;
-	auto note = mNoteManager->getNote(Bule,sprite->mTestCount);
-	
-	sprite->jump(note->getPosition());
+
+	auto blockManager = (BlockManager*)getChildByTag(123);
+
+	sprite->jump(blockManager->getBlockPos(sprite->mTestCount));
 	 
 	sprite->mTestIsJump = false;
 
@@ -80,30 +82,38 @@ void HigeLayer::update(float deltaTime) {
 bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 	auto pos = this->convertTouchToNodeSpace(touch);
 
+	auto blockManager = (BlockManager*)getChildByTag(123);
+	blockManager->onTouchBegan(pos);
+
+	/*auto blockManager = (BlockManager*)getChildByTag(123);
+	blockManager->onTouchBegan(pos);
 	mNoteManager->onTouchBegan(pos);
 
 	auto sprite = (Player*)getChildByTag(555);
 	sprite->stop();
-	sprite->mTestIsJump = true;
+	
+	sprite->setPosition(Vec2(100, 250));
+	sprite->jump(Vec2(sprite->getPositionX()+1000, sprite->getPositionY() + 700));
+	sprite->mTestIsJump = true;*/
 
 	return true;
 }
 
 void HigeLayer::onTouchMoved(Touch* touch, Event* event) {
-	auto pos = this->convertTouchToNodeSpace(touch);
-	mNoteManager->onTouchMove(pos);
+	//auto pos = this->convertTouchToNodeSpace(touch);
+	//mNoteManager->onTouchMove(pos);
 }
 
 void HigeLayer::onTouchEnded(Touch* touch, Event* event) {
-	auto pos = this->convertTouchToNodeSpace(touch);
+	/*auto pos = this->convertTouchToNodeSpace(touch);
 	mNoteManager->onTouchEnd(pos);
 
 	mNoteManager->onTouchBegan(pos);
 
-	//mNoteManager->onTouchBegan(pos);
+	mNoteManager->onTouchBegan(pos);
 	auto sprite = (Player*)getChildByTag(555);
 
-	//sprite->stop();
+	sprite->stop();*/
 }
 
 HigeLayer* HigeLayer::create() {
