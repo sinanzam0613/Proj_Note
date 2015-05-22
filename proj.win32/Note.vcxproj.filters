@@ -94,6 +94,9 @@
     <Filter Include="Classes\Game\Object\StageObject\Block">
       <UniqueIdentifier>{5d58a652-cbb0-4f1b-b6e3-3cb6e95486db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Game\Object\SideBar">
+      <UniqueIdentifier>{c756fbed-2ac8-4187-b376-33007fd876b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -206,6 +209,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\Block.cpp">
       <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\UIObject\SlideBar.cpp">
+      <Filter>Classes\Game\Object\SideBar</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockDataReader.cpp">
       <Filter>Classes\Game\Object\StageObject\Block</Filter>
@@ -370,6 +376,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\ObjectType.h">
       <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\UIObject\SlideBar.h">
+      <Filter>Classes\Game\Object\SideBar</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockData.h">
       <Filter>Classes\Game\Object\StageObject\Block</Filter>
