@@ -3,6 +3,7 @@
 #include "Utility/Collision/PhysicsCollisionManager.h"
 #include "Game/Object/StageObject/Block/Block.h"
 #include "Game/Object/StageObject/ObjectType.h"
+#include "Utility/Action/Jump.h"
 
 using namespace cocos2d;
 
@@ -42,10 +43,13 @@ bool Player::init()
 
 	mSprite->setPhysicsBody(mPhysicsBody);
 	this->addChild(mSprite);
-
+		
 	mTestIsJump = true;
 
 	mSprite->setScale(0.5f);
+	mJumpTime = 2.0f;
+	
+	mTestJumpTimer = 0;
 
 	return true;
 }
@@ -64,6 +68,7 @@ void Player::update(float deltaTime)
 	//CCLOG("X : %f", mSprite->getAnchorPoint().x);
 	//CCLOG("Y : %f", mSprite->getAnchorPoint().y);
 
+	mTestJumpTimer += deltaTime;
 }
 
 Player* Player::create()
@@ -87,12 +92,16 @@ void Player::jump(Vec2 targetPosition)
 	{
 		return;
 	}
+	mTestJumpTimer = 0;
 
-	auto action = JumpTo::create(2.f, Vec2(targetPosition.x,targetPosition.y + mSprite->getContentSize().height / 4),
+	mTargetPos = targetPosition;
+
+	auto action = myAction::Jump::create(mJumpTime, Vec2(targetPosition.x,targetPosition.y + mSprite->getContentSize().height / 4),
 	targetPosition.y / 2, 1);
-	action->setTag(1);
 
 	auto seq = Sequence::create(action, CallFunc::create([this](){ mPhysicsBody->setDynamic(true); }), nullptr);
+
+	seq->setTag(1);
 
 	mSprite->runAction(seq);
 
@@ -113,4 +122,23 @@ void Player::onContactBegin(cocos2d::Node* contactNode){
 	mSprite->stopAllActions();
 	mTestCount++;
 	mTestIsJump = true;
+}
+
+void Player::changeSpeed(float speed){
+
+	mSprite->stopAllActions();
+
+	mJumpTime = speed;
+
+	float unko = speed - mTestJumpTimer;
+
+	if (unko <= 0) unko = 0.1f;
+
+	auto action = myAction::Jump::create(unko, Vec2(mTargetPos.x, mTargetPos.y + mSprite->getContentSize().height / 4), 0, 1);
+
+	auto seq = Sequence::create(action, CallFunc::create([this](){ mPhysicsBody->setDynamic(true); }), nullptr);
+
+	seq->setTag(1);
+
+	mSprite->runAction(seq);
 }

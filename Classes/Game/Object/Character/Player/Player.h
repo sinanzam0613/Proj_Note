@@ -51,6 +51,8 @@ public:
 	********************************************/
 	void jump(cocos2d::Vec2 targetPosition);
 
+	void changeSpeed(float speed);
+
 	void onContactBegin(cocos2d::Node* contactNode) override;
 
 	virtual void setPosition(const cocos2d::Vec2& pos)override;
@@ -65,8 +67,9 @@ public:
 private:
 	cocos2d::Sprite* mSprite;
 	float mAngle;
-	bool mTest;
 	unsigned int  mJumpTime;
+    float mTestJumpTimer;
+	cocos2d::Vec2 mTargetPos;
 	
 };
 

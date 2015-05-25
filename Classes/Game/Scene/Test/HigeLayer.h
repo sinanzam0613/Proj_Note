@@ -3,6 +3,8 @@
 
 #include "cocos2d.h"
 #include <vector>
+#include "Game/Object/UIObject/SlideBar.h"
+
 
 //クラス前方宣言
 class ADX2Player;
@@ -71,6 +73,7 @@ private:
 
 	//メンバ変数宣言
 	NoteManager* mNoteManager;
+	SlideBar* mSlideBar;
 
 };
 

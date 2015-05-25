@@ -60,6 +60,15 @@ bool HigeLayer::init() {
 	b->setTag(123);
 	this->addChild(b);
 
+	mSlideBar->SlideBarCreate("p1",
+		this,
+		"Texture/GamePlay/slider/sliderTrack.png",
+		"Texture/GamePlay/slider/sliderTrack.png",
+		"Texture/GamePlay/slider/sliderThumb.png",
+		"Texture/GamePlay/slider/switch-thumb.png",
+		Vec2(300, 100));
+
+
 	return true;
 }
 
@@ -76,6 +85,8 @@ void HigeLayer::update(float deltaTime) {
 	 
 	sprite->mTestIsJump = false;
 
+	CCLOG("%f", mSlideBar->getValue("p1", this));
+	CCLOG("1");
 }
 
 
@@ -85,35 +96,17 @@ bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 	auto blockManager = (BlockManager*)getChildByTag(123);
 	blockManager->onTouchBegan(pos);
 
-	/*auto blockManager = (BlockManager*)getChildByTag(123);
-	blockManager->onTouchBegan(pos);
-	mNoteManager->onTouchBegan(pos);
-
-	auto sprite = (Player*)getChildByTag(555);
-	sprite->stop();
-	
-	sprite->setPosition(Vec2(100, 250));
-	sprite->jump(Vec2(sprite->getPositionX()+1000, sprite->getPositionY() + 700));
-	sprite->mTestIsJump = true;*/
-
 	return true;
 }
 
 void HigeLayer::onTouchMoved(Touch* touch, Event* event) {
-	//auto pos = this->convertTouchToNodeSpace(touch);
-	//mNoteManager->onTouchMove(pos);
+	auto sprite = (Player*)getChildByTag(555);
+
+	sprite->changeSpeed(mSlideBar->getValue("p1", this));
 }
 
 void HigeLayer::onTouchEnded(Touch* touch, Event* event) {
-	/*auto pos = this->convertTouchToNodeSpace(touch);
-	mNoteManager->onTouchEnd(pos);
 
-	mNoteManager->onTouchBegan(pos);
-
-	mNoteManager->onTouchBegan(pos);
-	auto sprite = (Player*)getChildByTag(555);
-
-	sprite->stop();*/
 }
 
 HigeLayer* HigeLayer::create() {

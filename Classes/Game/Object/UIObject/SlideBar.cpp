@@ -37,11 +37,10 @@ void SlideBar::SlideBarCreate(const std::string& name,
 	)
 {
 	//画像の設定
-	//auto  mSlider = extension::ControlSlider::create(bgFail.c_str(), progressFail.c_str() , thumbFail.c_str(),selectthumbFail.c_str());
-	auto  mSlider = extension::ControlSlider::create("", "", "");
-
+	auto  mSlider = extension::ControlSlider::create(bgFail.c_str(), progressFail.c_str() , thumbFail.c_str(),selectthumbFail.c_str());
+	
 	//最小値、最大値の決定
-	/*
+	
 	mSlider->setMinimumValue(1.5f);
 	mSlider->setMaximumValue(3.0f);
 	//移動範囲の最小値、最大値の決定
@@ -56,7 +55,7 @@ void SlideBar::SlideBarCreate(const std::string& name,
 	mSlider->setScale(1.5f);
 	//レイヤーへの追加
 	layer->addChild(mSlider);
-	*/
+	
 }
 
 /*--------------------------/
