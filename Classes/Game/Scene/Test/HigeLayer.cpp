@@ -1,5 +1,4 @@
 ﻿#include "HigeLayer.h"
-#include "Game/Object/Manager/NoteManager.h"
 #include "Utility/Audio/ADX2Player.h"
 #include "Game/Object/StageObject/Note/Note.h"
 #include "Utility/Audio/Define/PianoSample.h"
@@ -75,9 +74,7 @@ void HigeLayer::update(float deltaTime) {
 	sprite->jump(blockManager->getBlockPos(sprite->mTestCount));
 	 
 	sprite->mTestIsJump = false;
-
 }
-
 
 bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 	auto pos = this->convertTouchToNodeSpace(touch);
@@ -85,35 +82,13 @@ bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 	auto blockManager = (BlockManager*)getChildByTag(123);
 	blockManager->onTouchBegan(pos);
 
-	/*auto blockManager = (BlockManager*)getChildByTag(123);
-	blockManager->onTouchBegan(pos);
-	mNoteManager->onTouchBegan(pos);
-
-	auto sprite = (Player*)getChildByTag(555);
-	sprite->stop();
-	
-	sprite->setPosition(Vec2(100, 250));
-	sprite->jump(Vec2(sprite->getPositionX()+1000, sprite->getPositionY() + 700));
-	sprite->mTestIsJump = true;*/
-
 	return true;
 }
 
 void HigeLayer::onTouchMoved(Touch* touch, Event* event) {
-	//auto pos = this->convertTouchToNodeSpace(touch);
-	//mNoteManager->onTouchMove(pos);
 }
 
 void HigeLayer::onTouchEnded(Touch* touch, Event* event) {
-	/*auto pos = this->convertTouchToNodeSpace(touch);
-	mNoteManager->onTouchEnd(pos);
-
-	mNoteManager->onTouchBegan(pos);
-
-	mNoteManager->onTouchBegan(pos);
-	auto sprite = (Player*)getChildByTag(555);
-
-	sprite->stop();*/
 }
 
 HigeLayer* HigeLayer::create() {

@@ -6,7 +6,6 @@
 
 //クラス前方宣言
 class ADX2Player;
-class NoteManager;
 
 /**
  *	@class	：	HigeLayer
@@ -68,10 +67,6 @@ public:
 
 
 private:
-
-	//メンバ変数宣言
-	NoteManager* mNoteManager;
-
 };
 
 #endif
