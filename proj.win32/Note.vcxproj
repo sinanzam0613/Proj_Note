@@ -161,6 +161,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Scene\Test\TestLayer.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\Title\TitleScene.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\Title\TitleState.cpp" />
+    <ClCompile Include="..\Classes\Utility\Action\Jump.cpp" />
     <ClCompile Include="..\Classes\Utility\Animation\SpriteAnimation.cpp" />
     <ClCompile Include="..\Classes\Utility\Audio\ADX2Converter.cpp" />
     <ClCompile Include="..\Classes\Utility\Audio\ADX2CueSheet.cpp" />
@@ -210,6 +211,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Template\CloneFactory.h" />
     <ClInclude Include="..\Classes\Template\CloneFactoryImpl.h" />
     <ClInclude Include="..\Classes\Template\Singleton.h" />
+    <ClInclude Include="..\Classes\Utility\Action\Jump.h" />
     <ClInclude Include="..\Classes\Utility\Animation\SpriteAnimation.h" />
     <ClInclude Include="..\Classes\Utility\Audio\ADX2Converter.h" />
     <ClInclude Include="..\Classes\Utility\Audio\ADX2CueSheet.h" />
