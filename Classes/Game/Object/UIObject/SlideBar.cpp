@@ -1,8 +1,7 @@
 #include "SlideBar.h"
 
-USING_NS_CC;
 using namespace cocos2d::extension;
-
+USING_NS_CC;
 
 /*--------------------------/
  コンストラクタ
@@ -29,8 +28,8 @@ SlideBar* SlideBar::create(){
 /*--------------------------/
  スライドバー生成
 /--------------------------*/
-void SlideBar::SlideBarCreate(const std::string& name,
-                              cocos2d::Layer* layer,
+void SlideBar::slideBarCreate(const std::string& name,
+                              Layer* layer,
                               const std::string& bgFail,
                               const std::string& progressFail,
                               const std::string& thumbFail,
@@ -55,13 +54,16 @@ void SlideBar::SlideBarCreate(const std::string& name,
     mSlider->setPosition(pos);
     mSlider->setScale(1.5f);
     //レイヤーへの追加
-    layer->addChild(mSlider);
+    layer->addChild(mSlider,1);
+    
+   // auto getValue = CC_CALLBACK_2(SlideBar::getValue, this);
+    
 }
 
 /*--------------------------/
  値の取得
 /--------------------------*/
-float SlideBar::getValue(const std::string& name,cocos2d::Layer* layer)
+float SlideBar::getValue(const std::string& name,Layer* layer)
 {
     auto slider = static_cast<ControlSlider*>( layer->getChildByName(name) );
     
