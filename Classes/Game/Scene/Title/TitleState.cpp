@@ -1,5 +1,6 @@
 ﻿#include "TitleState.h"
 #include "cocos-ext.h"
+#include "Utility/Audio/ADX2Player.h"
 
 USING_NS_CC;
 using namespace cocos2d::extension;
@@ -99,7 +100,6 @@ void TitleState::mainEnd(float at){
 bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	mTestTouch = true;
     
-
 	return true;
 }
 
