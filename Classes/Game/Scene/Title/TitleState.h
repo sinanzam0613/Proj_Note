@@ -3,9 +3,8 @@
 
 #include "Utility/SceneSupport/IScene.h"
 #include "Game/Object/UIObject/SlideBar.h"
-#include "cocos-ext.h"
+#include "Game/Object/UIObject/BackGround.h"
 
-using namespace cocos2d::extension;
 
 class TitleState : public IScene
 {
@@ -88,7 +87,7 @@ private:
 	bool mTestTouch;
     
     SlideBar* mSlide;
-
+    BackGround* mBG;
     
 };
 

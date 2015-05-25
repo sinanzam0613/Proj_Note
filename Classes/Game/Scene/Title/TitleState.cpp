@@ -23,14 +23,14 @@ bool TitleState::init(Layer* layer){
 	mUpdateState = UPDATESTART;
 	parentLayer = layer;
 	mTestTouch = false;
-
+    
 	auto debugLabel = Label::createWithTTF("TitleScreen", "Font/MarkerFelt.ttf", 64);
 	debugLabel->setName("ラベル");
     debugLabel->setColor(Color3B::WHITE);
 	debugLabel->setPosition(Vec2(100, 100));
 	parentLayer->addChild(debugLabel);
     
-    mSlide->SlideBarCreate("p1",
+    mSlide->slideBarCreate("p1",
                            parentLayer,
                            "Texture/GamePlay/slider/sliderTrack.png",
                            "Texture/GamePlay/slider/sliderTrack.png",
@@ -38,7 +38,7 @@ bool TitleState::init(Layer* layer){
                            "Texture/GamePlay/slider/switch-thumb.png",
                            Vec2(300,300));
     
-    
+    mBG->BackGraundCreate(parentLayer);
     
 	return true;
 }
@@ -98,6 +98,7 @@ void TitleState::mainEnd(float at){
 
 bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	mTestTouch = true;
+    
 
 	return true;
 }
