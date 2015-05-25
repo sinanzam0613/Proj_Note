@@ -1,9 +1,14 @@
-
 #ifndef _SLIDEBAR_H_
 #define _SLIDEBAR_H_
 
 #include "cocos2d.h"
 #include "extensions/cocos-ext.h"
+
+/**
+ *	@class	： SlideBar
+ *	@brief	： スライドバークラス
+ *	@author	： 新井椋汰
+ */
 
 class SlideBar : public cocos2d::Node
 {
@@ -30,7 +35,7 @@ public:
      *   @param4 ボタンスプライト
      *   @param5 位置
      */
-    void SlideBarCreate(const std::string& name,
+    void slideBarCreate(const std::string& name,
                         cocos2d::Layer* layer,
                         const std::string& bgFail,
                         const std::string& progressFail,
