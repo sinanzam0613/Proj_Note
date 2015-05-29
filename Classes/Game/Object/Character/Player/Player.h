@@ -1,4 +1,4 @@
-#ifndef _PLAYER_H_
+﻿#ifndef _PLAYER_H_
 #define _PLAYER_H_
 
 
@@ -32,7 +32,7 @@ public:
 	/*******************************************
 	初期化
 	********************************************/
-	virtual bool init() override;
+	virtual bool init(const std::string& fileName);
 
 	/********************************************
 	更新
@@ -43,7 +43,7 @@ public:
 	/*********************************************
 	プレイヤーの生成
 	**********************************************/
-	static Player* create();
+	static Player* create(const std::string& fileName);
 
 	/********************************************
 	ジャンプ
@@ -68,9 +68,9 @@ private:
 	cocos2d::Sprite* mSprite;
 	float mAngle;
 	unsigned int  mJumpTime;
-    float mTestJumpTimer;
+   	float mTestJumpTimer;
 	cocos2d::Vec2 mTargetPos;
-	
+
 };
 
 #endif

@@ -7,6 +7,7 @@
 //クラスの前方宣言
 class Player;
 class TestObject;
+class PlayerManager;
 
 /*****************************************
 
@@ -57,6 +58,7 @@ private:
 private:
 	Player* mKatsumi;
 	TestObject* mObject;
+	PlayerManager* mPlayerManager;
 };
 
 
