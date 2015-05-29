@@ -43,6 +43,7 @@ ControlSlider::ControlSlider()
 , _selectedThumbSprite(nullptr)
 , _progressSprite(nullptr)
 , _backgroundSprite(nullptr)
+,_EndFlag(false)
 {
 
 }
@@ -262,6 +263,7 @@ void ControlSlider::onTouchMoved(Touch *pTouch, Event *pEvent)
 {
     Vec2 location = locationFromTouch(pTouch);
     sliderMoved(location);
+    _EndFlag = true;
 }
 
 void ControlSlider::onTouchEnded(Touch *pTouch, Event *pEvent)

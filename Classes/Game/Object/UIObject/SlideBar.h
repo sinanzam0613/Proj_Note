@@ -49,10 +49,28 @@ public:
      */
     float getValue(const std::string& name,cocos2d::Layer* layer);
     
+    /** @brief スライダーのタッチ判定*/
+    bool isTouch(const std::string& name,cocos2d::Layer* layer);
     
 private:
-    /**　@brief  スライダーのポインター*/
-   // cocos2d::extension::ControlSlider* mSlider;
+    
+    /*
+     //作成
+     mSlideBar->slideBarCreate("p1",
+     this,
+     "Texture/GamePlay/slider/sliderTrack.png",
+     "Texture/GamePlay/slider/sliderTrack.png",
+     "Texture/GamePlay/slider/sliderThumb.png",
+     "Texture/GamePlay/slider/switch-thumb.png",
+     Vec2(300, 100));
+     
+     //タッチ取得
+     if(mSlideBar->isTouch("p1", this)){
+     auto sprite = (Player*)getChildByTag(555);
+     sprite->changeSpeed(mSlideBar->getValue("p1", this));
+     }
+     */
+
 };
 
 
