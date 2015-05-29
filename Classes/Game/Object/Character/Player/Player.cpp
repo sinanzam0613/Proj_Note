@@ -13,7 +13,6 @@ Player::Player() :mAngle(0), mTestIsJump(false), mTestCount(0)
 
 Player::~Player()
 {
-
 }
 
 bool Player::init()
@@ -29,17 +28,18 @@ bool Player::init()
 	mPhysicsBody->setDynamic(true);
 
 	mPhysicsBody->setCategoryBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_RED));
-	mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED) |
-		static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE));
-	mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED) |
-		static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE));
+	//ÚGŽž‚ÉOnContact‚ðŒÄ‚Ô‚©‚Ç‚¤‚©
+	mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED)/* |
+		static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE)*/);
+	//ÚG’†
+	mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED)/* |
+		static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE)*/);
 
 	setName("Player");
 	enableCollision("Player");
 	mSprite->setName("Player");
 	
 	mSprite->setPosition(Vec2(0, 0));
-
 
 	mSprite->setPhysicsBody(mPhysicsBody);
 	this->addChild(mSprite);
