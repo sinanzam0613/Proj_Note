@@ -69,6 +69,8 @@ private:
 	float mAngle;
     	float mTestJumpTimer;
 	cocos2d::Vec2 mTargetPos;
+	bool mTest;
+	unsigned int  mJumpTime;
 };
 
 #endif

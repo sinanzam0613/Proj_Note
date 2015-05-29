@@ -63,11 +63,14 @@ void Player::update(float deltaTime)
 		mSprite->setPosition(Vec2(100, 250));
 		mTestIsJump = true;
 	}
+	jump(Vec2());
 
 	//CCLOG("X : %f", mSprite->getAnchorPoint().x);
 	//CCLOG("Y : %f", mSprite->getAnchorPoint().y);
 
 	mTestJumpTimer += deltaTime;
+
+	
 
 }
 
@@ -95,6 +98,7 @@ void Player::jump(Vec2 targetPosition)
 	mTestJumpTimer = 0;
 
 	mTargetPos = targetPosition;
+
 
 	auto action = myAction::Jump::create(mJumpTime, Vec2(targetPosition.x,targetPosition.y + mSprite->getContentSize().height / 4),
 	targetPosition.y / 2, 1);
