@@ -141,6 +141,11 @@ protected:
 
     CC_SYNTHESIZE(float, _minimumAllowedValue, MinimumAllowedValue);
     CC_SYNTHESIZE(float, _maximumAllowedValue, MaximumAllowedValue);
+    
+    /**
+     タッチ判定フラグ
+     */
+    CC_SYNTHESIZE(bool, _EndFlag, mEndFlag);
 
     // maybe this should be read-only
     CC_SYNTHESIZE_RETAIN(Sprite*, _thumbSprite, ThumbSprite);
