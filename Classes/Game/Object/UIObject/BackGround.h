@@ -1,6 +1,8 @@
 #ifndef _BACKGROUND_H_
 #define _BACKGROUND_H_
 
+#include "cocos2d.h"
+
 /**
  *	@class	： BackGround
  *	@brief	： 背景クラス
