@@ -16,13 +16,15 @@ Player::~Player()
 
 }
 
-bool Player::init()
+bool Player::init(const std::string& fileName)
 {
 	if (!Node::init())
 	{
 		return false;
 	}
-	mSprite = SpriteCreator::create("Texture/GamePlay/Character/Player.png");
+
+	const std::string file = "Texture/GamePlay/Character/" + fileName;
+	mSprite = SpriteCreator::create(file);
 
 	mPhysicsBody = PhysicsBody::createBox(mSprite->getContentSize());
 	mPhysicsBody->setMass(1.0f);
@@ -56,26 +58,27 @@ bool Player::init()
 
 void Player::update(float deltaTime)
 {
-	/*mAngle += 0.2f;
-	mSprite->setRotation(mAngle);*/
-
 	if (mSprite->getPositionY() < 0){
 		mSprite->stopAllActions();
 		mSprite->setPosition(Vec2(100, 250));
 		mTestIsJump = true;
 	}
+	jump(Vec2());
 
 	//CCLOG("X : %f", mSprite->getAnchorPoint().x);
 	//CCLOG("Y : %f", mSprite->getAnchorPoint().y);
 
 	mTestJumpTimer += deltaTime;
+
+	
+
 }
 
-Player* Player::create()
+Player* Player::create(const std::string& fileName)
 {
 	auto instance = new Player();
 
-	if (instance && instance->init())
+	if (instance && instance->init(fileName))
 	{
 		instance->autorelease();
 		return instance;
@@ -95,6 +98,7 @@ void Player::jump(Vec2 targetPosition)
 	mTestJumpTimer = 0;
 
 	mTargetPos = targetPosition;
+
 
 	auto action = myAction::Jump::create(mJumpTime, Vec2(targetPosition.x,targetPosition.y + mSprite->getContentSize().height / 4),
 	targetPosition.y / 2, 1);

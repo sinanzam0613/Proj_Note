@@ -2,6 +2,7 @@
 #include "Game/Object/Character/Player/Player.h"
 #include "Game/Object/Test/TestObject.h"
 #include "Utility/Collision/DistanceCheck.h"
+#include "../Manager/PlayerManager.h"
 
 using namespace cocos2d;
 
@@ -20,9 +21,13 @@ bool ObjectManager::init()
 		return false;
 	}
 
-	mKatsumi = Player::create();
+	/*mKatsumi = Player::create("Player");
 	mKatsumi->setPosition(Vec2(200, 200));
-	this->addChild(mKatsumi);
+	this->addChild(mKatsumi);*/
+
+	mPlayerManager = PlayerManager::create();
+	mPlayerManager->add(Vec2(100,200),Vec2(400,200));
+	this->addChild(mPlayerManager);
 
 	//以下、テストオブジェクト生成
 	mObject = TestObject::create();
@@ -34,12 +39,13 @@ bool ObjectManager::init()
 
 void ObjectManager::update(float deltaTime)
 {
-	mKatsumi->update(deltaTime);
+	//mKatsumi->update(deltaTime);
 
-	if (distanceCheck())
+	/*if (distanceCheck())
 	{
-		mKatsumi->jump(mObject->getPosition());
-	}
+		//mKatsumi->jump(mObject->getPosition());
+	}*/
+	mPlayerManager->update(deltaTime);
 }
 
 ObjectManager* ObjectManager::create()
