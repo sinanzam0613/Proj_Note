@@ -32,7 +32,7 @@ public:
 	/*******************************************
 	初期化
 	********************************************/
-	virtual bool init() override;
+	virtual bool init(const std::string& fileName);
 
 	/********************************************
 	更新
@@ -43,7 +43,7 @@ public:
 	/*********************************************
 	プレイヤーの生成
 	**********************************************/
-	static Player* create();
+	static Player* create(const std::string& fileName);
 
 	/********************************************
 	ジャンプ
@@ -67,7 +67,6 @@ private:
 	float mAngle;
 	bool mTest;
 	unsigned int  mJumpTime;
-	
 };
 
 #endif
