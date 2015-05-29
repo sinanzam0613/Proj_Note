@@ -35,7 +35,6 @@ bool BlockManager::init()
 	for ( auto& data : readData )
 	{
 		auto block = Block::create( "Block" + std::to_string( count ), data );
-		//mBlockList.push_back(block)5;
 		mBlockNode->addChild( block );
 		++count;
 	}
@@ -44,7 +43,6 @@ bool BlockManager::init()
 }
 
 void BlockManager::onTouchBegan(cocos2d::Point pos) {
-	//mBlockList.size();
 }
 
 void BlockManager::onTouchMove(cocos2d::Point pos) {
@@ -59,9 +57,6 @@ Vec2 BlockManager::getBlockPos(int value) const {
 	if (value >= mBlockNode->getChildrenCount()) {
 		return mBlockNode->getChildren().front()->getPosition();
 	}
-
-	//CCLOG("X : %f", mBlockList[value]->getPositionX());
-	//CCLOG("Y : %f", mBlockList[value]->getPositionY());
 
 	return mBlockNode->getChildren().at(value)->getPosition();
 }

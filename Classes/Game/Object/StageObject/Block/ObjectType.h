@@ -3,8 +3,10 @@
 
 enum class ObjectType : int
 {
-	OBJECT_PLAYER	= 1 << 0,
-	OBJECT_BLOCK	= 1 << 1,
+	OBJECT_BLOCK_RED	= 1 << 0,
+	OBJECT_BLOCK_BLUE	= 1 << 1,
+	OBJECT_PLAYER_RED	= 1 << 2,
+	OBJECT_PLAYER_BLUE	= 1 << 3,
 };
 
 #endif
