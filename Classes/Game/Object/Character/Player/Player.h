@@ -67,11 +67,10 @@ public:
 private:
 	cocos2d::Sprite* mSprite;
 	float mAngle;
-	unsigned int  mJumpTime;
-   	float mTestJumpTimer;
-	cocos2d::Vec2 mTargetPos;
     	float mTestJumpTimer;
 	cocos2d::Vec2 mTargetPos;
+	bool mTest;
+	unsigned int  mJumpTime;
 };
 
 #endif
