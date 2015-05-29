@@ -48,7 +48,7 @@ bool HigeLayer::init() {
 	goal->setPosition(Vec2(1250, 500));
 	addChild(goal);
 
-	auto sprite = Player::create();
+	auto sprite = Player::create("Helper1.png");
 	sprite->setPosition(Vec2(100, 230));
 	sprite->setTag(555);
 	addChild(sprite);
@@ -60,7 +60,7 @@ bool HigeLayer::init() {
 	b->setTag(123);
 	this->addChild(b);
 
-	mSlideBar->SlideBarCreate("p1",
+	mSlideBar->slideBarCreate("p1",
 		this,
 		"Texture/GamePlay/slider/sliderTrack.png",
 		"Texture/GamePlay/slider/sliderTrack.png",
