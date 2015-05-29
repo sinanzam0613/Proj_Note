@@ -68,8 +68,6 @@ void Player::update(float deltaTime)
 	//CCLOG("Y : %f", mSprite->getAnchorPoint().y);
 
 	mTestJumpTimer += deltaTime;
-
-	
 }
 
 Player* Player::create(const std::string& fileName)

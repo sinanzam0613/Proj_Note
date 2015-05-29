@@ -70,7 +70,8 @@ private:
 	unsigned int  mJumpTime;
    	float mTestJumpTimer;
 	cocos2d::Vec2 mTargetPos;
-
+    	float mTestJumpTimer;
+	cocos2d::Vec2 mTargetPos;
 };
 
 #endif
