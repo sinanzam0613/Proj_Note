@@ -10,7 +10,7 @@
  *	@author	： 新井椋汰
  */
 
-class SlideBar : public cocos2d::Node
+class SlideBar : public cocos2d::extension::ControlSlider
 {
 protected:
     
@@ -43,35 +43,14 @@ public:
                         const std::string& selectthumbFail,
                         cocos2d::Vec2 position
                         );
-    
-    /** @brief 値の取得
+
+	/*スライダーのタッチ判定
+	*/
+	bool isTouch(const std::string& name, cocos2d::Layer* layer);
+
+	/** @brief 値の取得
      *  @param tagNumber
      */
     float getValue(const std::string& name,cocos2d::Layer* layer);
-    
-    /** @brief スライダーのタッチ判定*/
-    bool isTouch(const std::string& name,cocos2d::Layer* layer);
-    
-private:
-    
-    /*
-     //作成
-     mSlideBar->slideBarCreate("p1",
-     this,
-     "Texture/GamePlay/slider/sliderTrack.png",
-     "Texture/GamePlay/slider/sliderTrack.png",
-     "Texture/GamePlay/slider/sliderThumb.png",
-     "Texture/GamePlay/slider/switch-thumb.png",
-     Vec2(300, 100));
-     
-     //タッチ取得
-     if(mSlideBar->isTouch("p1", this)){
-     auto sprite = (Player*)getChildByTag(555);
-     sprite->changeSpeed(mSlideBar->getValue("p1", this));
-     }
-     */
-
 };
-
-
 #endif

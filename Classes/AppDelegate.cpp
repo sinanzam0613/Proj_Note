@@ -3,6 +3,7 @@
 #include "Utility/Audio/ADX2Manager.h"
 #include "Utility/Audio/ADX2LogoLayer.h"
 #include "Game/Scene/Test/HigeLayer.h"
+#include "Game\Scene\Title\TitleScene.h"
 
 using namespace cocos2d;
 
