@@ -29,7 +29,6 @@ bool Player::init(const std::string& fileName, ObjectType type)
 	mPhysicsBody->setMass(1.0f);
 	mPhysicsBody->setDynamic(true);
 
-
 	mPhysicsBody->setCategoryBitmask(static_cast<int>(type));
 	if (type == ObjectType::OBJECT_PLAYER_RED){
 		mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED));
