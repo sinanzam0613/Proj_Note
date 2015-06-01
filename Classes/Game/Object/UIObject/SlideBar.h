@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "extensions/cocos-ext.h"
+#include <math.h>
 
 /**
  *	@class	： SlideBar
@@ -10,7 +11,7 @@
  *	@author	： 新井椋汰
  */
 
-class SlideBar : public cocos2d::Node
+class SlideBar : public cocos2d::extension::ControlSlider
 {
 protected:
     

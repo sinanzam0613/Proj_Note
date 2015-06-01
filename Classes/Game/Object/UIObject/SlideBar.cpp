@@ -41,8 +41,8 @@ void SlideBar::slideBarCreate(const std::string& name,
     auto  mSlider = ControlSlider::create(bgFail.c_str(), progressFail.c_str() , thumbFail.c_str(),selectthumbFail.c_str());
     
     //最小値、最大値の決定
-    mSlider->setMinimumValue(1.5f);
-    mSlider->setMaximumValue(3.0f);
+    mSlider->setMinimumValue(0.0f);
+    mSlider->setMaximumValue(1.5f);
     
     //移動範囲の最小値、最大値の決定
     //mSlider[tag]->setMinimumAllowedValue(0.1f);
@@ -67,9 +67,16 @@ void SlideBar::slideBarCreate(const std::string& name,
 /--------------------------*/
 float SlideBar::getValue(const std::string& name,Layer* layer)
 {
-	auto slider = static_cast<extension::ControlSlider*>(layer->getChildByName(name));
-    slider->setmEndFlag(false);
-    return slider->getValue();
+    const float refValue = 3.0f;
+	auto mSlider = static_cast<extension::ControlSlider*>(layer->getChildByName(name));
+    
+    mSlider->setmEndFlag(false);
+    
+    float mValue = mSlider->getValue() - refValue;
+    
+    mValue *= -1;
+
+    return mValue;
 }
 
 /*--------------------------/
