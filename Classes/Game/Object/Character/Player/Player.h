@@ -5,6 +5,7 @@
 //インクルード
 #include "cocos2d.h"
 #include "Utility/Collision/Collider.h"
+#include "Game/Object/StageObject/ObjectType.h"
 
 class Note;
 
@@ -21,7 +22,7 @@ protected:
 	/******************************************
 	コンストラクタ
 	*******************************************/
-	Player();
+	Player(ObjectType type);
 
 	/*******************************************
 	デストラクタ
@@ -32,7 +33,7 @@ public:
 	/*******************************************
 	初期化
 	********************************************/
-	virtual bool init(const std::string& fileName);
+	virtual bool init(const std::string& fileName, ObjectType type);
 
 	/********************************************
 	更新
@@ -43,7 +44,7 @@ public:
 	/*********************************************
 	プレイヤーの生成
 	**********************************************/
-	static Player* create(const std::string& fileName);
+	static Player* create(const std::string& fileName, ObjectType type);
 
 	/********************************************
 	ジャンプ
@@ -67,7 +68,7 @@ public:
 private:
 	cocos2d::Sprite* mSprite;
 	float mAngle;
-    	float mTestJumpTimer;
+    float mTestJumpTimer;
 	cocos2d::Vec2 mTargetPos;
 	bool mTest;
 	unsigned int  mJumpTime;

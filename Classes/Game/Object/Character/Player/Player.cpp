@@ -7,7 +7,7 @@
 
 using namespace cocos2d;
 
-Player::Player() :mAngle(0), mTestIsJump(false), mTestCount(0)
+Player::Player(ObjectType type) :mAngle(0), mTestIsJump(false), mTestCount(0)
 {
 }
 
@@ -16,7 +16,7 @@ Player::~Player()
 
 }
 
-bool Player::init(const std::string& fileName)
+bool Player::init(const std::string& fileName, ObjectType type)
 {
 	if (!Node::init())
 	{
@@ -30,11 +30,16 @@ bool Player::init(const std::string& fileName)
 	mPhysicsBody->setMass(1.0f);
 	mPhysicsBody->setDynamic(true);
 
-	mPhysicsBody->setCategoryBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_RED));
-	mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED) |
-		static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE));
-	mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED) |
-		static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE));
+	mPhysicsBody->setCategoryBitmask(static_cast<int>(type));
+	if (type == ObjectType::OBJECT_PLAYER_RED){
+		mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED));
+		mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED));
+	}
+	else if (type == ObjectType::OBJECT_PLAYER_BLUE)
+	{
+		mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE));
+		mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE));
+	}
 
 	setName("Player");
 	enableCollision("Player");
@@ -45,7 +50,7 @@ bool Player::init(const std::string& fileName)
 
 	mSprite->setPhysicsBody(mPhysicsBody);
 	this->addChild(mSprite);
-		
+	
 	mTestIsJump = true;
 
 	mSprite->setScale(0.5f);
@@ -63,7 +68,7 @@ void Player::update(float deltaTime)
 		mSprite->setPosition(Vec2(100, 250));
 		mTestIsJump = true;
 	}
-	jump(Vec2());
+	//jump(Vec2());
 
 	//CCLOG("X : %f", mSprite->getAnchorPoint().x);
 	//CCLOG("Y : %f", mSprite->getAnchorPoint().y);
@@ -74,11 +79,11 @@ void Player::update(float deltaTime)
 
 }
 
-Player* Player::create(const std::string& fileName)
+Player* Player::create(const std::string& fileName,ObjectType type)
 {
-	auto instance = new Player();
+	auto instance = new Player(type);
 
-	if (instance && instance->init(fileName))
+	if (instance && instance->init(fileName,type))
 	{
 		instance->autorelease();
 		return instance;
