@@ -62,13 +62,22 @@ bool HigeLayer::init() {
 
 	mSlideBar->slideBarCreate("p1",
 		this,
-		"Texture/GamePlay/slider/sliderTrack.png",
-		"Texture/GamePlay/slider/sliderTrack.png",
-		"Texture/GamePlay/slider/sliderThumb.png",
-		"Texture/GamePlay/slider/switch-thumb.png",
+		"Texture/GamePlay/Controller/sliderTrack.png",
+		"Texture/GamePlay/Controller/sliderTrack.png",
+		"Texture/GamePlay/Controller/sliderThumb_Red.png",
+		"Texture/GamePlay/Controller/switch-thumb_Red.png",
 		Vec2(300, 100));
 
-
+    
+    /*
+    mSlideBar->slideBarCreate("p2",
+                              this,
+                              "Texture/GamePlay/Controller/sliderTrack.png",
+                              "Texture/GamePlay/Controller/sliderTrack.png",
+                              "Texture/GamePlay/Controller/sliderThumb_Blue.png",
+                              "Texture/GamePlay/Controller/switch-thumb_Blue.png",
+                              Vec2(300, 100));
+     */
 	return true;
 }
 
