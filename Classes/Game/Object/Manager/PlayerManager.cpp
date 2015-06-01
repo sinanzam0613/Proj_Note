@@ -1,6 +1,7 @@
 #include "PlayerManager.h"
 #include "../Character/Player/Player.h"
 #include "../../../Utility/Release/ReleaseInstance.h"
+#include "Game/Object/StageObject/ObjectType.h"
 using namespace cocos2d;
 
 PlayerManager::PlayerManager()
@@ -12,7 +13,7 @@ PlayerManager::~PlayerManager()
 {
 	for (auto player : mPlayerContainer)
 	{
-		ReleaseInstance(player);
+		CC_SAFE_RELEASE(player);
 	}
 }
 
@@ -35,12 +36,12 @@ void PlayerManager::update(float deltaTime)
 
 void PlayerManager::add(const Vec2& position1P, const Vec2& position2P)
 {
-	auto player = Player::create("Helper1.png");
+	auto player = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_RED);
 	player->setName("Player1");
 	player->setPosition( position1P );
 	mPlayerContainer.push_back( player );
 	this->addChild(player);
-	auto player2P = Player::create("Helper2.png");
+	auto player2P = Player::create("Helper2.png",ObjectType::OBJECT_PLAYER_BLUE);
 	player2P->setName("Player2");
 	player2P->setPosition( position2P );
 	mPlayerContainer.push_back( player2P );
