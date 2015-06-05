@@ -40,9 +40,19 @@ bool Player::init(const std::string& fileName, ObjectType type)
 		mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE));
 	}
 
-	setName("Player");
-	enableCollision("Player");
-	mSprite->setName("Player");
+	if (type == ObjectType::OBJECT_PLAYER_RED)
+	{
+		setName("Player");
+		enableCollision("Player");
+		mSprite->setName("Player");
+	}
+
+	else
+	{
+		setName("Player2");
+		enableCollision("Player2");
+		mSprite->setName("Player2");
+	}
 	
 	mSprite->setPosition(Vec2(0, 0));
 

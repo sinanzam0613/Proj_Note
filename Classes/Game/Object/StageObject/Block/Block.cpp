@@ -1,4 +1,5 @@
 #include "Block.h"
+#include "../ObjectType.h"
 
 using namespace cocos2d;
 
@@ -64,7 +65,18 @@ void Block::initPhysics()
 	mPhysicsBody = PhysicsBody::createBox( size, mPhysicsMaterial );
 	mPhysicsBody->setDynamic( false );
 	mPhysicsBody->setCategoryBitmask( mBlockData.objectType );
-	mPhysicsBody->setContactTestBitmask(0xFFFFFFFF);
-	mPhysicsBody->setCollisionBitmask( 0xFFFFFFFF );
-	this->setPhysicsBody( mPhysicsBody );
+
+	if (static_cast<ObjectType>(mBlockData.objectType) == ObjectType::OBJECT_BLOCK_RED)
+	{
+		mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_RED));
+		mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_RED));
+		this->setPhysicsBody(mPhysicsBody);
+	}
+
+	if (static_cast<ObjectType>(mBlockData.objectType) == ObjectType::OBJECT_BLOCK_BLUE)
+	{
+		mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_BLUE));
+		mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_BLUE));
+		this->setPhysicsBody(mPhysicsBody);
+	}
 }
