@@ -35,16 +35,16 @@ bool HigeLayer::init() {
 	listener->onTouchEnded = CC_CALLBACK_2(HigeLayer::onTouchEnded, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	
-	auto back = Sprite::create("Texture/GamePlay/Character/NoteLine.png");
+	auto back = Sprite::create("Texture/GamePlay/GameStage/BackGround1.png");
 	back->setAnchorPoint(Vec2(0,0));
 	back->setPosition(Vec2(0, 5));
 	addChild(back);
 
-	auto rest = Rest::create("Texture/GamePlay/Character/2Rest.png");
+	auto rest = Rest::create("Texture/GamePlay/Character/RestEnemy.png");
 	rest->setPosition(Vec2(100, 50));
 	addChild(rest);
 
-	auto goal = Goal::create("Texture/GamePlay/Character/End.png");
+	auto goal = Goal::create("Texture/GamePlay/GameStage/GoalBlockAfter.png");
 	goal->setPosition(Vec2(1250, 500));
 	addChild(goal);
 
@@ -62,13 +62,22 @@ bool HigeLayer::init() {
 
 	mSlideBar->slideBarCreate("p1",
 		this,
-		"Texture/GamePlay/slider/sliderTrack.png",
-		"Texture/GamePlay/slider/sliderTrack.png",
-		"Texture/GamePlay/slider/sliderThumb.png",
-		"Texture/GamePlay/slider/switch-thumb.png",
+		"Texture/GamePlay/Controller/sliderTrack.png",
+		"Texture/GamePlay/Controller/sliderTrack.png",
+		"Texture/GamePlay/Controller/sliderThumb_Red.png",
+		"Texture/GamePlay/Controller/switch-thumb_Red.png",
 		Vec2(300, 100));
 
-
+    
+    /*
+    mSlideBar->slideBarCreate("p2",
+                              this,
+                              "Texture/GamePlay/Controller/sliderTrack.png",
+                              "Texture/GamePlay/Controller/sliderTrack.png",
+                              "Texture/GamePlay/Controller/sliderThumb_Blue.png",
+                              "Texture/GamePlay/Controller/switch-thumb_Blue.png",
+                              Vec2(300, 100));
+     */
 	return true;
 }
 

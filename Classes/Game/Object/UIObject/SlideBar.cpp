@@ -76,10 +76,14 @@ float SlideBar::getValue(const std::string& name,Layer* layer)
     
     mValue *= -1;
 
+    
+    
     return mValue;
 }
 
-
+/*--------------------------/
+ スライダーのタッチ判定
+/--------------------------*/
 bool SlideBar::isTouch(const std::string& name, Layer* layer){
 	auto slider = static_cast<extension::ControlSlider*>(layer->getChildByName(name));
 

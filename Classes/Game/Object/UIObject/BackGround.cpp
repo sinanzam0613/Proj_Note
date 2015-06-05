@@ -28,12 +28,31 @@ BackGround* BackGround::create(){
  背景生成
 /--------------------------*/
 void BackGround::BackGraundCreate(Layer* layer){
-    Sprite* mBG;
+    Sprite* mBG1;
+    Sprite* mBG2;
+    Sprite* mBG3;
+    Sprite* mBG4;
     
-    mBG = Sprite::create("Texture/GamePlay/Character/BG.png");
-    mBG -> setAnchorPoint(Vec2(0,0));
-    mBG -> setPosition(Vec2(0,0));
+    const float mSprightWeight = 1280;
     
-    layer -> addChild(mBG,0);
+    mBG1 = Sprite::create("Texture/GamePlay/GameStage/BackGround1.png");
+    mBG1 -> setAnchorPoint(Vec2(0,0));
+    mBG1 -> setPosition(Vec2(mSprightWeight,0));
+    
+    mBG2 = Sprite::create("Texture/GamePlay/GameStage/BackGround2.png");
+    mBG2 -> setAnchorPoint(Vec2(0,0));
+    mBG2 -> setPosition(Vec2(mSprightWeight * 2,0));
+    
+    mBG3 = Sprite::create("Texture/GamePlay/GameStage/BackGround3.png");
+    mBG3 -> setAnchorPoint(Vec2(0,0));
+    mBG3 -> setPosition(Vec2(mSprightWeight * 3,0));
+    
+    mBG4 = Sprite::create("Texture/GamePlay/GameStage/BackGround4.png");
+    mBG4 -> setAnchorPoint(Vec2(0,0));
+    mBG4 -> setPosition(Vec2(mSprightWeight * 4,0));
+    
+    
+    
+    layer -> addChild(mBG1,0);
 }
 
