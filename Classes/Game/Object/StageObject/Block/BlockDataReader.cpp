@@ -31,7 +31,7 @@ BlockDataReader::ReadData BlockDataReader::read( const std::string& fileName )
 		data.cueID				= map.at( "cueID" ).asInt();
 		data.positionX			= map.at( "positionX" ).asInt();
 		data.positionY			= map.at( "positionY" ).asInt();
-		data.objectType			= std::stoi( map.at( "objectType" ).asString().c_str(), nullptr, 16 );
+		data.objectType			= std::stoi( map.at( "objectType" ).asString().c_str(), nullptr, 2 );
 		debugLog( data );
 		readData.push_back( data );
 	}

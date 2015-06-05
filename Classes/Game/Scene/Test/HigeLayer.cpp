@@ -85,6 +85,9 @@ void HigeLayer::update(float deltaTime) {
 	auto sprite = (Player*)getChildByTag(555);
 
 	sprite->update(deltaTime);
+	if (mSlideBar->isTouch("p1", this)){
+		sprite->changeSpeed(mSlideBar->getValue("p1", this));
+	}
 
 	if (!sprite->mTestIsJump) return;
 
@@ -110,8 +113,6 @@ bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 
 void HigeLayer::onTouchMoved(Touch* touch, Event* event) {
 	auto sprite = (Player*)getChildByTag(555);
-
-	sprite->changeSpeed(mSlideBar->getValue("p1", this));
 }
 
 void HigeLayer::onTouchEnded(Touch* touch, Event* event) {

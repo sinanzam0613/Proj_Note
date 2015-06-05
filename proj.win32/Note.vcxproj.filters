@@ -97,7 +97,7 @@
     <Filter Include="Classes\Game\Scene\Object\SideBar">
       <UniqueIdentifier>{c756fbed-2ac8-4187-b376-33007fd876b6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\Scene\Object\SideBar\Manager">
+    <Filter Include="Classes\Game\Scene\Object\Manager">
       <UniqueIdentifier>{e5bc30a0-fb01-4358-949b-cf4524ff00c5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -178,7 +178,7 @@
       <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Manager\ObjectManager.cpp">
-      <Filter>Classes\Game\Scene\Object\SideBar\Manager</Filter>
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Scene\GameMain\GameMainScene.cpp">
       <Filter>Classes\Game\Scene\GameMain</Filter>
@@ -205,7 +205,7 @@
       <Filter>Classes\Game\Scene\Object\StageObject\Note</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Manager\NoteManager.cpp">
-      <Filter>Classes\Game\Scene\Object\SideBar\Manager</Filter>
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Rest\Rest.cpp">
       <Filter>Classes\Game\Scene\Object\StageObject\Rest</Filter>
@@ -224,6 +224,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Utility\Action\Jump.cpp">
       <Filter>Classes\Utility\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\Manager\PlayerManager.cpp">
+      <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\UIObject\BackGround.cpp">
+      <Filter>Classes\Game\Scene\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -339,7 +345,7 @@
       <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Manager\ObjectManager.h">
-      <Filter>Classes\Game\Scene\Object\SideBar\Manager</Filter>
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\StageObj.h">
       <Filter>Classes\Game\Scene\Object\StageObject</Filter>
@@ -372,7 +378,7 @@
       <Filter>Classes\Game\Scene\Object\StageObject\Note</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Manager\NoteManager.h">
-      <Filter>Classes\Game\Scene\Object\SideBar\Manager</Filter>
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Rest\Rest.h">
       <Filter>Classes\Game\Scene\Object\StageObject\Rest</Filter>
@@ -397,6 +403,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\Action\Jump.h">
       <Filter>Classes\Utility\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\Manager\PlayerManager.h">
+      <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\UIObject\BackGround.h">
+      <Filter>Classes\Game\Scene\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

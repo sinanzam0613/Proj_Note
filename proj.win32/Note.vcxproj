@@ -141,6 +141,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Object\Character\Player\Player.cpp" />
     <ClCompile Include="..\Classes\Game\Object\Manager\NoteManager.cpp" />
     <ClCompile Include="..\Classes\Game\Object\Manager\ObjectManager.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\Manager\PlayerManager.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Bar\Bar.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\Block.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockDataReader.cpp" />
@@ -150,6 +151,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\NoteLine.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Rest\Rest.cpp" />
     <ClCompile Include="..\Classes\Game\Object\Test\TestObject.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\UIObject\BackGround.cpp" />
     <ClCompile Include="..\Classes\Game\Object\UIObject\SlideBar.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameEnd\EndingScene.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameEnd\EndingState.cpp" />
@@ -184,6 +186,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Object\Character\Player\Player.h" />
     <ClInclude Include="..\Classes\Game\Object\Manager\NoteManager.h" />
     <ClInclude Include="..\Classes\Game\Object\Manager\ObjectManager.h" />
+    <ClInclude Include="..\Classes\Game\Object\Manager\PlayerManager.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Bar\Bar.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\Block.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockData.h" />
@@ -197,6 +200,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Object\StageObject\Rest\Rest.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\StageObj.h" />
     <ClInclude Include="..\Classes\Game\Object\Test\TestObject.h" />
+    <ClInclude Include="..\Classes\Game\Object\UIObject\BackGround.h" />
     <ClInclude Include="..\Classes\Game\Object\UIObject\SlideBar.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameEnd\EndingScene.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameEnd\EndingState.h" />

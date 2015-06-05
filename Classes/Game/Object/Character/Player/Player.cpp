@@ -143,7 +143,7 @@ void Player::onContactBegin(cocos2d::Node* contactNode){
 
 void Player::changeSpeed(float speed){
 
-	mSprite->stopAllActions();
+	if (!mSprite->getActionByTag(1) || mJumpTime == speed || mJumpTime < mTestJumpTimer) return;
 
 	mJumpTime = speed;
 
@@ -151,7 +151,9 @@ void Player::changeSpeed(float speed){
 
 	if (unko <= 0) unko = 0.1f;
 
-	auto action = myAction::Jump::create(unko, Vec2(mTargetPos.x, mTargetPos.y + mSprite->getContentSize().height / 4), 0, 1);
+	mSprite->stopAllActions();
+
+	auto action = myAction::Jump::create(unko, Vec2(mTargetPos.x, mTargetPos.y + mSprite->getContentSize().height / 4), mTargetPos.y / 2, 1);
 
 	auto seq = Sequence::create(action, CallFunc::create([this](){ mPhysicsBody->setDynamic(true); }), nullptr);
 
