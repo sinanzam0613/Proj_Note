@@ -76,6 +76,8 @@ float SlideBar::getValue(const std::string& name,Layer* layer)
     
     mValue *= -1;
 
+    
+    
     return mValue;
 }
 
