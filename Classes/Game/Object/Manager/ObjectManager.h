@@ -8,6 +8,8 @@
 class Player;
 class TestObject;
 class PlayerManager;
+class RestEnemy;
+class EnemyManager;
 
 /*****************************************
 
@@ -59,6 +61,8 @@ private:
 	Player* mKatsumi;
 	TestObject* mObject;
 	PlayerManager* mPlayerManager;
+	RestEnemy* mEnemy;
+	EnemyManager* mEnemyManager;
 };
 
 
