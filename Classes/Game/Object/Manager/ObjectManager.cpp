@@ -3,6 +3,8 @@
 #include "Game/Object/Test/TestObject.h"
 #include "Utility/Collision/DistanceCheck.h"
 #include "../Manager/PlayerManager.h"
+#include "Game/Object/Character/Enemy/RestEnemy.h"
+#include "../Manager/EnemyManager.h"
 
 using namespace cocos2d;
 
@@ -12,6 +14,7 @@ ObjectManager::ObjectManager()
 
 ObjectManager::~ObjectManager()
 {
+	mEnemyManager->release();
 }
 
 bool ObjectManager::init()
@@ -34,6 +37,16 @@ bool ObjectManager::init()
 	mObject->setPosition(300,500);
 	this->addChild(mObject);
 
+	//以下、エネミーのテスト
+	mEnemy = RestEnemy::create(Vec2());
+	this->addChild(mEnemy);
+
+	//以下、エネミーマネージャーのテスト
+	mEnemyManager = EnemyManager::create();
+	mEnemyManager->retain();
+	mEnemyManager->add(Vec2(500,-52));
+	mEnemyManager->add(Vec2(300, -52));
+	this->addChild(mEnemyManager);
 	return true;
 }
 
@@ -43,9 +56,11 @@ void ObjectManager::update(float deltaTime)
 
 	/*if (distanceCheck())
 	{
-		//mKatsumi->jump(mObject->getPosition());
+		mEnemy->jump();
 	}*/
 	mPlayerManager->update(deltaTime);
+	mEnemy->update(deltaTime);
+	mEnemyManager->update(deltaTime);
 }
 
 ObjectManager* ObjectManager::create()
@@ -69,11 +84,9 @@ void ObjectManager::onTouchBegan(Vec2 touchPoint)
 
 bool ObjectManager::distanceCheck()
 {
-	float distance = DistanceCheck::Check(mKatsumi, mObject);
+	float distance = DistanceCheck::checkX(mObject, mEnemy);
 	const float maximumDistance = 200;	//ジャンプできる最大距離
-	const float minDistance = 50;		//近すぎるとジャンプしない
-	if (distance > maximumDistance||
-		distance < minDistance)
+	if (distance > maximumDistance)
 	{
 		return false;
 	}
