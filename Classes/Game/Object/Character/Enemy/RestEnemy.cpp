@@ -15,7 +15,7 @@ RestEnemy::~RestEnemy()
 bool RestEnemy::init(const cocos2d::Vec2& position)
 {
 	if (!Node::init())return false;
-	mSprite = SpriteCreator::createPhysicsBox("Texture/GamePlay/Character/RestEnemy.png",Size(112,52));
+    mSprite = SpriteCreator::createPhysicsBox("Texture/GamePlay/Character/RestEnemy.png",cocos2d::Size(112,52));
 	mSprite->setPosition(Vec2(position.x,-52));
 	addChild(mSprite);
 	mTimer.reset();

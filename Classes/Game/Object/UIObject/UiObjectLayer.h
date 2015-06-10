@@ -10,7 +10,7 @@ public:
     /**　@brief  コンストラクタ*/
     UiObjectLayer();
     /**　@brief  デストラクタ*/
-    ~UiObjectLayer();
+    ~UiObjectLayer() = default;
     
     /**　@brief  初期化*/
     virtual bool init();

@@ -70,37 +70,10 @@ bool HigeLayer::init() {
     uiLayer = UiObjectLayer::create();
     addChild(uiLayer);
     
-	mSlideBar->slideBarCreate("p1",
-		this,
-		"Texture/GamePlay/Controller/sliderTrack.png",
-		"Texture/GamePlay/Controller/sliderTrack.png",
-		"Texture/GamePlay/Controller/sliderThumb_Red.png",
-		"Texture/GamePlay/Controller/switch-thumb_Red.png",
-		Vec2(300, 100));
-
-	mSlideBar2->slideBarCreate("p2",
-		this,
-		"Texture/GamePlay/Controller/sliderTrack.png",
-		"Texture/GamePlay/Controller/sliderTrack.png",
-		"Texture/GamePlay/Controller/sliderThumb_Red.png",
-		"Texture/GamePlay/Controller/switch-thumb_Red.png",
-		Vec2(900, 100));
-
+    mSlideBar = SlideBar::create();
     
-    /*
-    mSlideBar->slideBarCreate("p2",
-                              this,
-                              "Texture/GamePlay/Controller/sliderTrack.png",
-                              "Texture/GamePlay/Controller/sliderTrack.png",
-                              "Texture/GamePlay/Controller/sliderThumb_Blue.png",
-                              "Texture/GamePlay/Controller/switch-thumb_Blue.png",
-                              Vec2(300, 100));
-     */
-
 	//runAction(Follow::create(sprite));
 
-
->>>>>>> master
 	return true;
 }
 
@@ -112,8 +85,8 @@ void HigeLayer::update(float deltaTime) {
         
 		sprite2->update(deltaTime);
 
-		if (mSlideBar2->isTouch("p2", this)){
-			sprite2->changeJumpTime(mSlideBar2->getValue("p2", this));
+		if (mSlideBar->isTouch("p2", uiLayer)){
+			sprite2->changeJumpTime(mSlideBar->getValue("p2", uiLayer));
 		}
 
 		if (!sprite2->isJump()){
@@ -131,8 +104,8 @@ void HigeLayer::update(float deltaTime) {
 
 		sprite->update(deltaTime);
 
-		if (mSlideBar->isTouch("p1", this)){
-			sprite->changeJumpTime(mSlideBar->getValue("p1", this));
+		if (mSlideBar->isTouch("p1", uiLayer)){
+			sprite->changeJumpTime(mSlideBar->getValue("p1", uiLayer));
 		}
 
 		if (sprite->isJump()) return;
@@ -140,9 +113,6 @@ void HigeLayer::update(float deltaTime) {
 		auto blockManager = (BlockManager*)getChildByTag(123);
 
 		sprite->jump(blockManager->getBlockPos(sprite->jumpCount()));
-
-		CCLOG("%f", mSlideBar->getValue("p1", this));
-		CCLOG("1");
 	}
 
 }

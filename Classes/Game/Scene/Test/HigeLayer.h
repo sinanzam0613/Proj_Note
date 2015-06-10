@@ -76,7 +76,6 @@ private:
 	NoteManager* mNoteManager;
 	SlideBar* mSlideBar;
     UiObjectLayer* uiLayer;
-	SlideBar* mSlideBar2;
 
 };
 

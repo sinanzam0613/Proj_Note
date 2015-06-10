@@ -2,6 +2,15 @@
 
 USING_NS_CC;
 
+
+/*--------------------------/
+ コンストラクタ
+/--------------------------*/
+UiObjectLayer::UiObjectLayer(){}
+
+/*--------------------------/
+ 初期化
+/--------------------------*/
 bool UiObjectLayer::init(){
     if(!Layer::init()){
         return false;
