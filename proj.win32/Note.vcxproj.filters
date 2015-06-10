@@ -100,6 +100,12 @@
     <Filter Include="Classes\Utility\Camera">
       <UniqueIdentifier>{fd357900-e3f5-4a3b-89b7-3e7790565bf8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Utility\Audio">
+      <UniqueIdentifier>{2a63b653-dd24-4949-9822-26966f2bffa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Scene\Object\Character\Enemy">
+      <UniqueIdentifier>{380d8712-4ae2-4f91-a469-accb0cc10a37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -215,6 +221,30 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\UIObject\BackGround.cpp">
       <Filter>Classes\Game\Scene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2Converter.cpp">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2CueSheet.cpp">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2LogoLayer.cpp">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2Manager.cpp">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2Player.cpp">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\Character\Enemy\RestEnemy.cpp">
+      <Filter>Classes\Game\Scene\Object\Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\Manager\EnemyManager.cpp">
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Timer\Timer.cpp">
+      <Filter>Classes\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -373,6 +403,36 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\UIObject\BackGround.h">
       <Filter>Classes\Game\Scene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2Converter.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2CueSheet.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2LogoLayer.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2Manager.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2Player.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\Define\Note_acf.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\Define\PianoSample.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\Character\Enemy\RestEnemy.h">
+      <Filter>Classes\Game\Scene\Object\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\Manager\EnemyManager.h">
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Timer\Timer.h">
+      <Filter>Classes\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
