@@ -21,6 +21,8 @@ public:
 	bool init( const std::string& nodeName, const BlockData& data );
 	
 	virtual void onContactBegin( cocos2d::Node* contactNode ) override;
+
+	inline bool isChange(){ return mIsTextureChanged; }
 	
 private:
 	

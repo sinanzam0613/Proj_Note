@@ -17,7 +17,7 @@ bool TestObject::init()
 	{
 		return false;
 	}
-	mSprite = SpriteCreator::create("GamePlay/Character/Test.png");
+	mSprite = SpriteCreator::create("Texture/GamePlay/Character/Test.png");
 	this->addChild(mSprite);
 	return true;
 }

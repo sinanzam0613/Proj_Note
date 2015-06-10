@@ -7,7 +7,9 @@ class DistanceCheck
 {
 public:
 	
-	static float Check(cocos2d::Node* myObject, cocos2d::Node* targetObject);
+	static float check(cocos2d::Node* myObject, cocos2d::Node* targetObject);
+	static float checkX(cocos2d::Node* myObject, cocos2d::Node* targetObject);
+	static float checkY(cocos2d::Node* myObject, cocos2d::Node* targetObject);
 
 private:
 

@@ -37,12 +37,6 @@
     <Filter Include="Classes\Utility\Template">
       <UniqueIdentifier>{8d3c10fd-e0de-4bd4-a648-82f4aa988a95}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Utility\Audio">
-      <UniqueIdentifier>{bfa984b4-6038-417e-b3ac-b57a5c8346ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Utility\Audio\Define">
-      <UniqueIdentifier>{a71f73a4-0e2a-47a6-a89c-08ef2a9fbde2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\Utility\Release">
       <UniqueIdentifier>{6927291a-8ce3-4f06-ae5c-28b93cc4717f}</UniqueIdentifier>
     </Filter>
@@ -97,8 +91,20 @@
     <Filter Include="Classes\Game\Scene\Object\SideBar">
       <UniqueIdentifier>{c756fbed-2ac8-4187-b376-33007fd876b6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\Scene\Object\SideBar\Manager">
+    <Filter Include="Classes\Game\Scene\Object\Manager">
       <UniqueIdentifier>{e5bc30a0-fb01-4358-949b-cf4524ff00c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\NewFilter1">
+      <UniqueIdentifier>{af91321a-20b6-403f-a4d2-ea5c71d9748a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Utility\Camera">
+      <UniqueIdentifier>{fd357900-e3f5-4a3b-89b7-3e7790565bf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Utility\Audio">
+      <UniqueIdentifier>{2a63b653-dd24-4949-9822-26966f2bffa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Scene\Object\Character\Enemy">
+      <UniqueIdentifier>{380d8712-4ae2-4f91-a469-accb0cc10a37}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -125,21 +131,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Utility\CocosAssistant\ListenerAssistant.cpp">
       <Filter>Classes\Utility\CocosAssistant</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Utility\Audio\ADX2Converter.cpp">
-      <Filter>Classes\Utility\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Utility\Audio\ADX2CueSheet.cpp">
-      <Filter>Classes\Utility\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Utility\Audio\ADX2LogoLayer.cpp">
-      <Filter>Classes\Utility\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Utility\Audio\ADX2Manager.cpp">
-      <Filter>Classes\Utility\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Utility\Audio\ADX2Player.cpp">
-      <Filter>Classes\Utility\Audio</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Scene\GameEnd\EndingScene.cpp">
       <Filter>Classes\Game\Scene\GameEnd</Filter>
@@ -178,7 +169,7 @@
       <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Manager\ObjectManager.cpp">
-      <Filter>Classes\Game\Scene\Object\SideBar\Manager</Filter>
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Scene\GameMain\GameMainScene.cpp">
       <Filter>Classes\Game\Scene\GameMain</Filter>
@@ -205,7 +196,7 @@
       <Filter>Classes\Game\Scene\Object\StageObject\Note</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Manager\NoteManager.cpp">
-      <Filter>Classes\Game\Scene\Object\SideBar\Manager</Filter>
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Rest\Rest.cpp">
       <Filter>Classes\Game\Scene\Object\StageObject\Rest</Filter>
@@ -224,6 +215,36 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Utility\Action\Jump.cpp">
       <Filter>Classes\Utility\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\Manager\PlayerManager.cpp">
+      <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\UIObject\BackGround.cpp">
+      <Filter>Classes\Game\Scene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2Converter.cpp">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2CueSheet.cpp">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2LogoLayer.cpp">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2Manager.cpp">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Audio\ADX2Player.cpp">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\Character\Enemy\RestEnemy.cpp">
+      <Filter>Classes\Game\Scene\Object\Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\Manager\EnemyManager.cpp">
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Timer\Timer.cpp">
+      <Filter>Classes\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -263,21 +284,6 @@
     <ClInclude Include="..\Classes\Template\Singleton.h">
       <Filter>Classes\Utility\Template</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Utility\Audio\ADX2Converter.h">
-      <Filter>Classes\Utility\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Utility\Audio\ADX2CueSheet.h">
-      <Filter>Classes\Utility\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Utility\Audio\ADX2LogoLayer.h">
-      <Filter>Classes\Utility\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Utility\Audio\ADX2Manager.h">
-      <Filter>Classes\Utility\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Utility\Audio\ADX2Player.h">
-      <Filter>Classes\Utility\Audio</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Utility\Release\DeleteContainer.h">
       <Filter>Classes\Utility\Release</Filter>
     </ClInclude>
@@ -295,12 +301,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\Release\ReleaseInstance.h">
       <Filter>Classes\Utility\Release</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Utility\Audio\Define\Note_acf.h">
-      <Filter>Classes\Utility\Audio\Define</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Utility\Audio\Define\Sample_DoReMi.h">
-      <Filter>Classes\Utility\Audio\Define</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Scene\GameEnd\EndingScene.h">
       <Filter>Classes\Game\Scene\GameEnd</Filter>
@@ -339,7 +339,7 @@
       <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Manager\ObjectManager.h">
-      <Filter>Classes\Game\Scene\Object\SideBar\Manager</Filter>
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\StageObj.h">
       <Filter>Classes\Game\Scene\Object\StageObject</Filter>
@@ -372,7 +372,7 @@
       <Filter>Classes\Game\Scene\Object\StageObject\Note</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Manager\NoteManager.h">
-      <Filter>Classes\Game\Scene\Object\SideBar\Manager</Filter>
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Rest\Rest.h">
       <Filter>Classes\Game\Scene\Object\StageObject\Rest</Filter>
@@ -398,10 +398,51 @@
     <ClInclude Include="..\Classes\Utility\Action\Jump.h">
       <Filter>Classes\Utility\Action</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\Manager\PlayerManager.h">
+      <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\UIObject\BackGround.h">
+      <Filter>Classes\Game\Scene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2Converter.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2CueSheet.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2LogoLayer.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2Manager.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\ADX2Player.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\Define\Note_acf.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Audio\Define\PianoSample.h">
+      <Filter>Classes\Utility\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\Character\Enemy\RestEnemy.h">
+      <Filter>Classes\Game\Scene\Object\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\Manager\EnemyManager.h">
+      <Filter>Classes\Game\Scene\Object\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Timer\Timer.h">
+      <Filter>Classes\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\Plist\BlockData.plist">
+      <Filter>resource</Filter>
+    </None>
   </ItemGroup>
 </Project>

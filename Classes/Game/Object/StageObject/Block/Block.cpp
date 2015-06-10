@@ -51,11 +51,31 @@ void Block::onContactBegin( Node* contactNode )
 {
 	if (mIsTextureChanged)	return;
 
-	this->setTexture( mBlockData.blockTextureName );
-	mIsTextureChanged = true;
-	CCLOG("%s",this->getName().c_str());
-	
-	initPhysics();
+	if (static_cast<ObjectType>(mBlockData.objectType) == ObjectType::OBJECT_BLOCK_RED)
+	{
+		if (static_cast<ObjectType>(contactNode->getPhysicsBody()->getCategoryBitmask() ) == ObjectType::OBJECT_PLAYER_RED )
+		{
+
+			this->setTexture(mBlockData.blockTextureName);
+			mIsTextureChanged = true;
+			CCLOG("%s", this->getName().c_str());
+
+			initPhysics();
+		}
+	}
+
+	if (static_cast<ObjectType>(mBlockData.objectType) == ObjectType::OBJECT_BLOCK_BLUE)
+	{
+		if (static_cast<ObjectType>(contactNode->getPhysicsBody()->getCategoryBitmask()) == ObjectType::OBJECT_PLAYER_BLUE)
+		{
+
+			this->setTexture(mBlockData.blockTextureName);
+			mIsTextureChanged = true;
+			CCLOG("%s", this->getName().c_str());
+
+			initPhysics();
+		}
+	}
 }
 
 void Block::initPhysics()
@@ -68,14 +88,14 @@ void Block::initPhysics()
 
 	if (static_cast<ObjectType>(mBlockData.objectType) == ObjectType::OBJECT_BLOCK_RED)
 	{
-		mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_RED));
+		mPhysicsBody->setContactTestBitmask(0xFFFFFFFF);
 		mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_RED));
 		this->setPhysicsBody(mPhysicsBody);
 	}
 
 	if (static_cast<ObjectType>(mBlockData.objectType) == ObjectType::OBJECT_BLOCK_BLUE)
 	{
-		mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_BLUE));
+		mPhysicsBody->setContactTestBitmask(0xFFFFFFFF);
 		mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_BLUE));
 		this->setPhysicsBody(mPhysicsBody);
 	}
