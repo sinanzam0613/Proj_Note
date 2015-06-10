@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include <vector>
 #include "Game/Object/UIObject/SlideBar.h"
+#include "Game/Object/UIObject/UiObjectLayer.h"
 
 
 //クラス前方宣言
@@ -74,6 +75,7 @@ private:
 	//メンバ変数宣言
 	NoteManager* mNoteManager;
 	SlideBar* mSlideBar;
+    UiObjectLayer* uiLayer;
 
 };
 

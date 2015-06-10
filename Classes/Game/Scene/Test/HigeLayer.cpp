@@ -8,6 +8,8 @@
 #include "Game/Object/Character/Player/Player.h"
 #include "Game/Object/StageObject/Block/Block.h"
 #include "Game/Object/StageObject/Block/BlockManager.h"
+#include "Game/Object/UIObject/UiObjectLayer.h"
+
 #include "Utility/Collision/PhysicsListener.h"
 #include <math.h>
 #include <random>
@@ -48,7 +50,7 @@ bool HigeLayer::init() {
 	goal->setPosition(Vec2(1250, 500));
 	addChild(goal);
 
-	auto sprite = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_RED);
+	auto sprite = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_BLUE);
 	sprite->setPosition(Vec2(100, 230));
 	sprite->setTag(555);
 	addChild(sprite);
@@ -60,24 +62,10 @@ bool HigeLayer::init() {
 	b->setTag(123);
 	this->addChild(b);
 
-	mSlideBar->slideBarCreate("p1",
-		this,
-		"Texture/GamePlay/Controller/sliderTrack.png",
-		"Texture/GamePlay/Controller/sliderTrack.png",
-		"Texture/GamePlay/Controller/sliderThumb_Red.png",
-		"Texture/GamePlay/Controller/switch-thumb_Red.png",
-		Vec2(300, 100));
-
+    uiLayer = UiObjectLayer::create();
+    addChild(uiLayer);
     
-    /*
-    mSlideBar->slideBarCreate("p2",
-                              this,
-                              "Texture/GamePlay/Controller/sliderTrack.png",
-                              "Texture/GamePlay/Controller/sliderTrack.png",
-                              "Texture/GamePlay/Controller/sliderThumb_Blue.png",
-                              "Texture/GamePlay/Controller/switch-thumb_Blue.png",
-                              Vec2(300, 100));
-     */
+    
 	return true;
 }
 
@@ -85,6 +73,10 @@ void HigeLayer::update(float deltaTime) {
 	auto sprite = (Player*)getChildByTag(555);
 
 	sprite->update(deltaTime);
+    
+    if(mSlideBar->isTouch("p1", uiLayer)){
+        sprite->changeSpeed(mSlideBar->getValue("p1", this));
+    }
 
 	if (!sprite->mTestIsJump) return;
 
@@ -94,7 +86,7 @@ void HigeLayer::update(float deltaTime) {
 	 
 	sprite->mTestIsJump = false;
 
-	CCLOG("%f", mSlideBar->getValue("p1", this));
+	//CCLOG("%f", mSlideBar->getValue("p1", this));
 	CCLOG("1");
 }
 

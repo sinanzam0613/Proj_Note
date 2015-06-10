@@ -30,8 +30,8 @@ bool GameTitleScreen::init()
 	debugLabel->setPosition( Vec2( 40, 1200 ) );
 	this->addChild( debugLabel );
 	
-	auto blockManager = BlockManager::create();
-	this->addChild( blockManager );
+	//auto blockManager = BlockManager::create();
+	//this->addChild( blockManager );
 	
 	return true;
 }
