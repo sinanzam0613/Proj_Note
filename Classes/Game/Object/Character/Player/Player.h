@@ -13,7 +13,6 @@ class Note;
 
 ファイル名: Player.h
 作成者: 小林 勇輝
-
 ***********************************************/
 class Player :public cocos2d::Node , public Collider
 {
@@ -52,7 +51,7 @@ public:
 	********************************************/
 	void jump(cocos2d::Vec2 targetPosition);
 
-	void changeSpeed(float speed);
+	void changeJumpTime(float speed);
 
 	void onContactBegin(cocos2d::Node* contactNode) override;
 
@@ -60,18 +59,19 @@ public:
 
 	virtual const cocos2d::Vec2& getPosition()const override;
 
+	bool isJump();
+
 	void stop(){ mSprite->stopAllActions(); };
 
-	//テストでタッチしている間ジャンプさせてみます
-	bool mTestIsJump;
-	int mTestCount;
+	unsigned int jumpCount();
+
 private:
 	cocos2d::Sprite* mSprite;
-	float mAngle;
-    float mTestJumpTimer;
+    float mDuration;
 	cocos2d::Vec2 mTargetPos;
-	bool mTest;
-	unsigned int  mJumpTime;
+    float  mJumpTime;
+	unsigned int mJumpCount;
+	bool mIsJump;
 };
 
 #endif

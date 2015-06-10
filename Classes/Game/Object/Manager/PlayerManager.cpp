@@ -41,6 +41,7 @@ void PlayerManager::add(const Vec2& position1P, const Vec2& position2P)
 	player->setPosition( position1P );
 	mPlayerContainer.push_back( player );
 	this->addChild(player);
+
 	auto player2P = Player::create("Helper2.png",ObjectType::OBJECT_PLAYER_BLUE);
 	player2P->setName("Player2");
 	player2P->setPosition( position2P );

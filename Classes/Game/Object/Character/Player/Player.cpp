@@ -7,7 +7,7 @@
 
 using namespace cocos2d;
 
-Player::Player(ObjectType type) :mAngle(0), mTestIsJump(false), mTestCount(0)
+Player::Player(ObjectType type) :mJumpCount(0)
 {
 }
 
@@ -31,12 +31,12 @@ bool Player::init(const std::string& fileName, ObjectType type)
 
 	mPhysicsBody->setCategoryBitmask(static_cast<int>(type));
 	if (type == ObjectType::OBJECT_PLAYER_RED){
-		mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED));
+		mPhysicsBody->setContactTestBitmask(0xFFFFFFFF);
 		mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_RED));
 	}
 	else if (type == ObjectType::OBJECT_PLAYER_BLUE)
 	{
-		mPhysicsBody->setContactTestBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE));
+		mPhysicsBody->setContactTestBitmask(0xFFFFFFFF);
 		mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_BLOCK_BLUE));
 	}
 
@@ -46,7 +46,6 @@ bool Player::init(const std::string& fileName, ObjectType type)
 		enableCollision("Player");
 		mSprite->setName("Player");
 	}
-
 	else
 	{
 		setName("Player2");
@@ -58,13 +57,11 @@ bool Player::init(const std::string& fileName, ObjectType type)
 
 	mSprite->setPhysicsBody(mPhysicsBody);
 	this->addChild(mSprite);
-	
-	mTestIsJump = true;
 
 	mSprite->setScale(0.5f);
 	mJumpTime = 2.0f;
-	
-	mTestJumpTimer = 0;
+	mIsJump = false;
+	mDuration = 0;
 
 	return true;
 }
@@ -74,16 +71,18 @@ void Player::update(float deltaTime)
 	if (mSprite->getPositionY() < 0){
 		mSprite->stopAllActions();
 		mSprite->setPosition(Vec2(100, 250));
-		mTestIsJump = true;
+		mIsJump = false;
 	}
 	//jump(Vec2());
 
 	//CCLOG("X : %f", mSprite->getAnchorPoint().x);
 	//CCLOG("Y : %f", mSprite->getAnchorPoint().y);
 
-	mTestJumpTimer += deltaTime;
+	mDuration += deltaTime;
 
 	
+
+
 
 }
 
@@ -108,10 +107,9 @@ void Player::jump(Vec2 targetPosition)
 	{
 		return;
 	}
-	mTestJumpTimer = 0;
+	mDuration = 0;
 
 	mTargetPos = targetPosition;
-
 
 	auto action = myAction::Jump::create(mJumpTime, Vec2(targetPosition.x,targetPosition.y + mSprite->getContentSize().height / 4),
 	targetPosition.y / 2, 1);
@@ -123,6 +121,8 @@ void Player::jump(Vec2 targetPosition)
 	mSprite->runAction(seq);
 
 	mPhysicsBody->setDynamic(false);
+
+	mIsJump = true;
 }
 
 void Player::setPosition(const Vec2& position)
@@ -136,28 +136,40 @@ const Vec2& Player::getPosition()const
 }
 
 void Player::onContactBegin(cocos2d::Node* contactNode){
-	mSprite->stopAllActions();
-	mTestCount++;
-	mTestIsJump = true;
+	
+	if ( std::strstr(static_cast<Block*>(contactNode)->getName().c_str(),"Block")){
+		if (!static_cast<Block*>(contactNode)->isChange()) return;
+		mSprite->stopAllActions();																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								// ‹L”OAGO
+		mJumpCount++;
+
+		mIsJump = false;
+	}
 }
 
-void Player::changeSpeed(float speed){
+void Player::changeJumpTime(float changetime){
 
-	if (!mSprite->getActionByTag(1) || mJumpTime == speed || mJumpTime < mTestJumpTimer) return;
+	if (!mSprite->getActionByTag(1) || mJumpTime == changetime || mDuration > mJumpTime) return;
 
-	mJumpTime = speed;
+	mJumpTime = changetime;
 
-	float unko = speed - mTestJumpTimer;
-
-	if (unko <= 0) unko = 0.1f;
+	float rest = 0 < changetime - mDuration ? changetime - mDuration : 0.1f;
 
 	mSprite->stopAllActions();
 
-	auto action = myAction::Jump::create(unko, Vec2(mTargetPos.x, mTargetPos.y + mSprite->getContentSize().height / 4), mTargetPos.y / 2, 1);
+	auto action = myAction::Jump::create(rest, Vec2(mTargetPos.x, mTargetPos.y + mSprite->getContentSize().height / 4), mTargetPos.y / 2, 1);
 
 	auto seq = Sequence::create(action, CallFunc::create([this](){ mPhysicsBody->setDynamic(true); }), nullptr);
 
 	seq->setTag(1);
 
 	mSprite->runAction(seq);
+}
+
+bool Player::isJump(){
+	return mIsJump;
+	//return mSprite->getActionByTag(1) != nullptr ? true : false;
+}
+
+unsigned int Player::jumpCount(){
+	return mJumpCount;	
 }

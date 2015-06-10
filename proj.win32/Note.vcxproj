@@ -165,11 +165,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Scene\Title\TitleState.cpp" />
     <ClCompile Include="..\Classes\Utility\Action\Jump.cpp" />
     <ClCompile Include="..\Classes\Utility\Animation\SpriteAnimation.cpp" />
-    <ClCompile Include="..\Classes\Utility\Audio\ADX2Converter.cpp" />
-    <ClCompile Include="..\Classes\Utility\Audio\ADX2CueSheet.cpp" />
-    <ClCompile Include="..\Classes\Utility\Audio\ADX2LogoLayer.cpp" />
-    <ClCompile Include="..\Classes\Utility\Audio\ADX2Manager.cpp" />
-    <ClCompile Include="..\Classes\Utility\Audio\ADX2Player.cpp" />
     <ClCompile Include="..\Classes\Utility\CocosAssistant\ListenerAssistant.cpp" />
     <ClCompile Include="..\Classes\Utility\CocosAssistant\SpriteCreator.cpp" />
     <ClCompile Include="..\Classes\Utility\Collision\Collider.cpp" />
@@ -217,13 +212,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Template\Singleton.h" />
     <ClInclude Include="..\Classes\Utility\Action\Jump.h" />
     <ClInclude Include="..\Classes\Utility\Animation\SpriteAnimation.h" />
-    <ClInclude Include="..\Classes\Utility\Audio\ADX2Converter.h" />
-    <ClInclude Include="..\Classes\Utility\Audio\ADX2CueSheet.h" />
-    <ClInclude Include="..\Classes\Utility\Audio\ADX2LogoLayer.h" />
-    <ClInclude Include="..\Classes\Utility\Audio\ADX2Manager.h" />
-    <ClInclude Include="..\Classes\Utility\Audio\ADX2Player.h" />
-    <ClInclude Include="..\Classes\Utility\Audio\Define\Note_acf.h" />
-    <ClInclude Include="..\Classes\Utility\Audio\Define\Sample_DoReMi.h" />
     <ClInclude Include="..\Classes\Utility\CocosAssistant\ListenerAssistant.h" />
     <ClInclude Include="..\Classes\Utility\CocosAssistant\SpriteCreator.h" />
     <ClInclude Include="..\Classes\Utility\Collision\Collider.h" />
@@ -259,6 +247,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\Plist\BlockData.plist" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

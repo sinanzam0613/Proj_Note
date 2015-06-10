@@ -48,10 +48,15 @@ bool HigeLayer::init() {
 	goal->setPosition(Vec2(1250, 500));
 	addChild(goal);
 
-	auto sprite = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_RED);
+	auto sprite = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_BLUE);
 	sprite->setPosition(Vec2(100, 230));
 	sprite->setTag(555);
 	addChild(sprite);
+
+	auto sprite2 = Player::create("Helper1.png", ObjectType::OBJECT_PLAYER_RED);
+	sprite2->setPosition(Vec2(100, 230));
+	sprite2->setTag(55);
+	addChild(sprite2);
 
 	auto lis = PhysicsListener::create();
 	addChild(lis);
@@ -68,6 +73,14 @@ bool HigeLayer::init() {
 		"Texture/GamePlay/Controller/switch-thumb_Red.png",
 		Vec2(300, 100));
 
+	mSlideBar2->slideBarCreate("p2",
+		this,
+		"Texture/GamePlay/Controller/sliderTrack.png",
+		"Texture/GamePlay/Controller/sliderTrack.png",
+		"Texture/GamePlay/Controller/sliderThumb_Red.png",
+		"Texture/GamePlay/Controller/switch-thumb_Red.png",
+		Vec2(900, 100));
+
     
     /*
     mSlideBar->slideBarCreate("p2",
@@ -78,27 +91,53 @@ bool HigeLayer::init() {
                               "Texture/GamePlay/Controller/switch-thumb_Blue.png",
                               Vec2(300, 100));
      */
+
+	//runAction(Follow::create(sprite));
+
+
 	return true;
 }
 
 void HigeLayer::update(float deltaTime) {
-	auto sprite = (Player*)getChildByTag(555);
+	
+	//プレイヤー２
+	{
+		auto sprite2 = (Player*)getChildByTag(55);
 
-	sprite->update(deltaTime);
-	if (mSlideBar->isTouch("p1", this)){
-		sprite->changeSpeed(mSlideBar->getValue("p1", this));
+		sprite2->update(deltaTime);
+
+		if (mSlideBar2->isTouch("p2", this)){
+			sprite2->changeJumpTime(mSlideBar2->getValue("p1", this));
+		}
+
+		if (!sprite2->isJump()){
+
+			auto blockManager = (BlockManager*)getChildByTag(123);
+
+			sprite2->jump(blockManager->getBlockPos(sprite2->jumpCount()));
+		}
 	}
 
-	if (!sprite->mTestIsJump) return;
 
-	auto blockManager = (BlockManager*)getChildByTag(123);
+	//プレイヤー1
+	{
+		auto sprite = (Player*)getChildByTag(555);
 
-	sprite->jump(blockManager->getBlockPos(sprite->mTestCount));
-	 
-	sprite->mTestIsJump = false;
+		sprite->update(deltaTime);
 
-	CCLOG("%f", mSlideBar->getValue("p1", this));
-	CCLOG("1");
+		if (mSlideBar->isTouch("p1", this)){
+			sprite->changeJumpTime(mSlideBar->getValue("p1", this));
+		}
+
+		if (sprite->isJump()) return;
+
+		auto blockManager = (BlockManager*)getChildByTag(123);
+
+		sprite->jump(blockManager->getBlockPos(sprite->jumpCount()));
+
+		CCLOG("%f", mSlideBar->getValue("p1", this));
+		CCLOG("1");
+	}
 }
 
 
