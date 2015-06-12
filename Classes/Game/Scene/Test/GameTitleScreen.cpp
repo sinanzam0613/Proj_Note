@@ -1,6 +1,8 @@
 #include "GameTitleScreen.h"
 #include "Utility/CocosAssistant/ListenerAssistant.h"
 #include "Game/Object/StageObject/Block/BlockManager.h"
+#include "Utility/SceneSupport/SceneCreator.h"
+#include "HigeLayer.h"
 
 using namespace cocos2d;
 
@@ -24,10 +26,10 @@ bool GameTitleScreen::init()
 	auto onTouchEnded	= CC_CALLBACK_2( GameTitleScreen::onTouchEnded, this );
 	ListenerAssistant::setupSingleTouchListener( this, true, onTouchBegan, nullptr, onTouchEnded, nullptr );
 	
-	auto debugLabel = Label::createWithTTF( "GameTitleScreen", "Font/MarkerFelt.ttf", 64 );
+	auto debugLabel = Label::createWithTTF( "GameClear!!", "Font/MarkerFelt.ttf", 64 );
 	debugLabel->setColor( Color3B::RED );
 	debugLabel->setAnchorPoint( Vec2::ANCHOR_TOP_LEFT );
-	debugLabel->setPosition( Vec2( 40, 1200 ) );
+	debugLabel->setPosition( Vec2( 200, 300 ) );
 	this->addChild( debugLabel );
 	
 	//auto blockManager = BlockManager::create();
@@ -38,6 +40,8 @@ bool GameTitleScreen::init()
 
 bool GameTitleScreen::onTouchBegan( Touch* touch, Event* event )
 {
+	auto scene = SceneCreator::createPhysicsScene(HigeLayer::create(), Vect(0, -9.8f), 5.0f, true);
+	Director::getInstance()->replaceScene(scene);
 	return true;
 }
 

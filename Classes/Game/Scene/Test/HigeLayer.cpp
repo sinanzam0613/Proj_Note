@@ -85,7 +85,10 @@ void HigeLayer::update(float deltaTime) {
     //auto player = (Player*)getChildByTag(55);
     mSlideBar->setPosition(Vec2(getPosition().x,getPosition().y)/*player->getPosition()*/,uiLayer);
 
-    
+	if (this->getChildByName("GameClear"))
+	{
+		return;
+	}
 	
 
 	//プレイヤー２
@@ -127,14 +130,6 @@ void HigeLayer::update(float deltaTime) {
 
 
 bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
-
-
-	if (this->getChildByName("GameClear"))
-	{
-		auto scene = SceneCreator::createPhysicsScene(HigeLayer::create(), Vect(0, -9.8f), 5.0f, true);
-		Director::getInstance()->replaceScene(scene);
-		return true;
-	}
 
 	auto pos = this->convertTouchToNodeSpace(touch);
 
