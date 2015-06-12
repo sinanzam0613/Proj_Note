@@ -255,6 +255,9 @@
     <ClCompile Include="..\Classes\Utility\Action\Follow\CustomFollow.cpp">
       <Filter>Classes\Utility\Action\Follow</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\UIObject\UiObjectLayer.cpp">
+      <Filter>Classes\Game\Scene\Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -448,6 +451,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\Action\Follow\CustomFollow.h">
       <Filter>Classes\Utility\Action\Follow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\UIObject\UiObjectLayer.h">
+      <Filter>Classes\Game\Scene\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
