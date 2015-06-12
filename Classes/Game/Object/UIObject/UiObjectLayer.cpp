@@ -38,3 +38,4 @@ bool UiObjectLayer::init(){
                               Vec2(1000, 100));
     return true;
 }
+
