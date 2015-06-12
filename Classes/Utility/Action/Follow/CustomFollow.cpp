@@ -13,6 +13,7 @@ namespace CustomAction{
 		CustomFollow *follow = new CustomFollow();
 
         if (follow && follow->initWithTarget(followNode, cocos2d::Rect::ZERO)){
+
 			follow->autorelease();
 			return follow;
 		}
@@ -64,7 +65,7 @@ namespace CustomAction{
 			}
 
 			_target->setPosition(cocos2d::Point(x, y));
-
+            
 		}
 		else
 		{
