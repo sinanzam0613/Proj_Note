@@ -11,6 +11,8 @@
 #include "Game/Object/UIObject/UiObjectLayer.h"
 
 #include "Utility/Collision/PhysicsListener.h"
+#include "Utility/Camera/Camera.h"
+#include "Utility/Action/Follow/CustomFollow.h"
 #include <math.h>
 #include <random>
 
@@ -74,11 +76,14 @@ bool HigeLayer::init() {
     
 	//runAction(Follow::create(sprite));
 
+	runAction(CustomAction::CustomFollow::create(sprite,CustomAction::CustomFollowXOnly));
+
 	return true;
 }
 
 void HigeLayer::update(float deltaTime) {
 	
+
 	//プレイヤー２
 	{
 		auto sprite2 = (Player*)getChildByTag(55);
@@ -96,7 +101,6 @@ void HigeLayer::update(float deltaTime) {
 			sprite2->jump(blockManager->getBlockPos(sprite2->jumpCount()));
 		}
 	}
-
 
 	//プレイヤー1
 	{
