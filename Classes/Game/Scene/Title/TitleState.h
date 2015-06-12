@@ -2,9 +2,6 @@
 #define TITLESTATE_H
 
 #include "Utility/SceneSupport/IScene.h"
-#include "Game/Object/UIObject/SlideBar.h"
-#include "Game/Object/UIObject/BackGround.h"
-
 
 class TitleState : public IScene
 {
@@ -85,9 +82,6 @@ private:
 
 private:
 	bool mTestTouch;
-    
-    SlideBar* mSlide;
-    BackGround* mBG;
     
 };
 
