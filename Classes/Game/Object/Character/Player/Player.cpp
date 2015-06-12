@@ -7,7 +7,7 @@
 
 using namespace cocos2d;
 
-Player::Player(ObjectType type, float jumpTime) :mAngle(0), mTestIsJump(false), mTestCount(0), mJumpTime(jumpTime), mIsDead(false),mJumpCount(0)
+Player::Player(ObjectType type, float jumpTime) : mTestIsJump(false), mTestCount(0), mJumpTime(jumpTime), mIsDead(false),mJumpCount(0)
 {
 }
 

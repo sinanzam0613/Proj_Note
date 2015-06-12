@@ -78,7 +78,6 @@ private:
 	unsigned int mJumpCount;
 	bool mIsJump;
 	bool mTest;
-	unsigned int  mJumpTime;
 	bool mIsDead;
 };
 
