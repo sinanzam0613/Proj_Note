@@ -31,17 +31,22 @@ void PlayerManager::update(float deltaTime)
 	for (auto player : mPlayerContainer)
 	{
 		player->update(deltaTime);
+
+		if (player->isDead())
+		{
+			
+		}
 	}
 }
 
-void PlayerManager::add(const Vec2& position1P, const Vec2& position2P)
+void PlayerManager::add(const Vec2& position1P, const Vec2& position2P, float jumpTime1P, float jumpTime2P)
 {
-	auto player = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_RED);
+	auto player = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_RED,jumpTime1P);
 	player->setName("Player1");
 	player->setPosition( position1P );
 	mPlayerContainer.push_back( player );
 	this->addChild(player);
-	auto player2P = Player::create("Helper2.png",ObjectType::OBJECT_PLAYER_BLUE);
+	auto player2P = Player::create("Helper2.png",ObjectType::OBJECT_PLAYER_BLUE,jumpTime2P);
 	player2P->setName("Player2");
 	player2P->setPosition( position2P );
 	mPlayerContainer.push_back( player2P );

@@ -22,7 +22,7 @@ protected:
 	/******************************************
 	コンストラクタ
 	*******************************************/
-	Player(ObjectType type);
+	Player(ObjectType type,float jumpTime);
 
 	/*******************************************
 	デストラクタ
@@ -44,7 +44,7 @@ public:
 	/*********************************************
 	プレイヤーの生成
 	**********************************************/
-	static Player* create(const std::string& fileName, ObjectType type);
+	static Player* create(const std::string& fileName, ObjectType type,float jumpTime);
 
 	/********************************************
 	ジャンプ
@@ -62,6 +62,8 @@ public:
 
 	void stop(){ mSprite->stopAllActions(); };
 
+	bool isDead()const;
+
 	//テストでタッチしている間ジャンプさせてみます
 	bool mTestIsJump;
 	int mTestCount;
@@ -72,6 +74,7 @@ private:
 	cocos2d::Vec2 mTargetPos;
 	bool mTest;
 	unsigned int  mJumpTime;
+	bool mIsDead;
 };
 
 #endif

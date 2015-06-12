@@ -7,7 +7,7 @@
 
 using namespace cocos2d;
 
-Player::Player(ObjectType type) :mAngle(0), mTestIsJump(false), mTestCount(0)
+Player::Player(ObjectType type, float jumpTime) :mAngle(0), mTestIsJump(false), mTestCount(0), mJumpTime(jumpTime), mIsDead(false)
 {
 }
 
@@ -71,10 +71,11 @@ bool Player::init(const std::string& fileName, ObjectType type)
 
 void Player::update(float deltaTime)
 {
-	if (mSprite->getPositionY() < 0){
+	if (mSprite->getPositionY() < -mSprite->getContentSize().height){
 		mSprite->stopAllActions();
 		mSprite->setPosition(Vec2(100, 250));
 		mTestIsJump = true;
+		mIsDead = true;
 	}
 	//jump(Vec2());
 
@@ -87,9 +88,9 @@ void Player::update(float deltaTime)
 
 }
 
-Player* Player::create(const std::string& fileName,ObjectType type)
+Player* Player::create(const std::string& fileName,ObjectType type,float jumpTime)
 {
-	auto instance = new Player(type);
+	auto instance = new Player(type,jumpTime);
 
 	if (instance && instance->init(fileName,type))
 	{
@@ -160,4 +161,9 @@ void Player::changeSpeed(float speed){
 	seq->setTag(1);
 
 	mSprite->runAction(seq);
+}
+
+bool Player::isDead()const
+{
+	return mIsDead;
 }

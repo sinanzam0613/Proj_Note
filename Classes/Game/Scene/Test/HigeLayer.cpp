@@ -48,7 +48,7 @@ bool HigeLayer::init() {
 	goal->setPosition(Vec2(1250, 500));
 	addChild(goal);
 
-	auto sprite = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_RED);
+	auto sprite = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_RED,100);
 	sprite->setPosition(Vec2(100, 230));
 	sprite->setTag(555);
 	addChild(sprite);
