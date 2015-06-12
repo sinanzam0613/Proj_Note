@@ -53,5 +53,7 @@ public:
      *  @param tagNumber
      */
     float getValue(const std::string& name,cocos2d::Layer* layer);
+    
+    void setPosition(cocos2d::Vec2 pos, cocos2d::Layer* layer);
 };
 #endif

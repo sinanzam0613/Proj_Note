@@ -87,3 +87,12 @@ bool SlideBar::isTouch(const std::string& name, Layer* layer){
 
 	return slider->getmEndFlag();
 }
+
+
+void SlideBar::setPosition(Vec2 pos, Layer* layer){
+    auto slider1 = static_cast<extension::ControlSlider*>(layer->getChildByName("p1"));
+    auto slider2 = static_cast<extension::ControlSlider*>(layer->getChildByName("p2"));
+    
+     slider1->setPosition(-pos.x + 300,  -pos.y+100);
+     slider2->setPosition(-pos.x + 1000, -pos.y+100);
+}

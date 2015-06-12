@@ -1,4 +1,5 @@
 ﻿#include "Goal.h"
+#include "Game/Scene/Test/GameTitleScene.h"
 
 USING_NS_CC;
 
@@ -45,5 +46,11 @@ void Goal::update(float deltatime){
 
 void Goal::onContactBegin( Node* contactNode )
 {
-	Director::getInstance()->stopAnimation();
+	auto parent = this->getParent();
+
+	auto layer = GameTitleScene::create();
+	layer->setName("GameClear");
+
+	parent->addChild(layer, 0);
+	
 }

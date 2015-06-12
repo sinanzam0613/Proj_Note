@@ -19,7 +19,6 @@ protected:
 	Goal() = default;
 
 	~Goal() = default;
-
 };
 
 #endif
