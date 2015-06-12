@@ -67,39 +67,24 @@ bool HigeLayer::init() {
 
 	auto b = BlockManager::create();
 	b->setTag(123);
-	this->addChild(b);
+	addChild(b);
 
-   // uiLayer = UiObjectLayer::create();
-   //addChild(uiLayer);
-  
-	//スライドバー生成
-	mSlideBar = SlideBar::create();
-	    
-	//プレイヤー１用スライドバー生成
-	mSlideBar->slideBarCreate("p1",
-	                            this,
-	                            "Texture/GamePlay/Controller/sliderTrack.png",
-	                            "Texture/GamePlay/Controller/sliderTrack.png",
-	                            "Texture/GamePlay/Controller/sliderThumb_Red.png",
-	                            "Texture/GamePlay/Controller/switch-thumb_Red.png",
-	                            Vec2(300, 100));
-	    
-	    
-	//プレイヤー２用スライドバー生成
-	mSlideBar->slideBarCreate("p2",
-	                            this,
-	                            "Texture/GamePlay/Controller/sliderTrack.png",
-	                            "Texture/GamePlay/Controller/sliderTrack.png",
-	                            "Texture/GamePlay/Controller/sliderThumb_Blue.png",
-	                            "Texture/GamePlay/Controller/switch-thumb_Blue.png",
-	                            Vec2(1000, 100));
-
-	runAction(CustomAction::CustomFollow::create(sprite,CustomAction::CustomFollowXOnly));
+   	uiLayer = UiObjectLayer::create();
+    
+    	addChild(uiLayer);
+        
+ 	runAction(CustomAction::CustomFollow::create(sprite,CustomAction::CustomFollowXOnly));
 
 	return true;
 }
 
 void HigeLayer::update(float deltaTime) {
+    
+    //カメラ追従
+    //auto player = (Player*)getChildByTag(55);
+    mSlideBar->setPosition(Vec2(getPosition().x,getPosition().y)/*player->getPosition()*/,uiLayer);
+
+    
 	
 
 	//プレイヤー２
