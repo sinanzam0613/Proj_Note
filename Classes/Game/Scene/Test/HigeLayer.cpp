@@ -13,6 +13,7 @@
 #include "Utility/Collision/PhysicsListener.h"
 #include "Utility/Camera/Camera.h"
 #include "Utility/Action/Follow/CustomFollow.h"
+#include "Utility/SceneSupport/SceneCreator.h"
 #include <math.h>
 #include <random>
 
@@ -71,7 +72,7 @@ bool HigeLayer::init() {
 
    	uiLayer = UiObjectLayer::create();
     
-    	addChild(uiLayer);
+    addChild(uiLayer);
         
  	runAction(CustomAction::CustomFollow::create(sprite,CustomAction::CustomFollowXOnly));
 
@@ -93,8 +94,8 @@ void HigeLayer::update(float deltaTime) {
         
 		sprite2->update(deltaTime);
 
-		if (mSlideBar->isTouch("p2", this)){
-			sprite2->changeJumpTime(mSlideBar->getValue("p2", this));
+		if (mSlideBar->isTouch("p2", uiLayer)){
+			sprite2->changeJumpTime(mSlideBar->getValue("p2", uiLayer));
 		}
 
 		if (!sprite2->isJump()){
@@ -111,8 +112,8 @@ void HigeLayer::update(float deltaTime) {
 
 		sprite->update(deltaTime);
 
-		if (mSlideBar->isTouch("p1", this)){
-			sprite->changeJumpTime(mSlideBar->getValue("p1", this));
+		if (mSlideBar->isTouch("p1", uiLayer)){
+			sprite->changeJumpTime(mSlideBar->getValue("p1", uiLayer));
 		}
 
 		if (sprite->isJump()) return;
@@ -126,6 +127,15 @@ void HigeLayer::update(float deltaTime) {
 
 
 bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
+
+
+	if (this->getChildByName("GameClear"))
+	{
+		auto scene = SceneCreator::createPhysicsScene(HigeLayer::create(), Vect(0, -9.8f), 5.0f, true);
+		Director::getInstance()->replaceScene(scene);
+		return true;
+	}
+
 	auto pos = this->convertTouchToNodeSpace(touch);
 
 	auto blockManager = (BlockManager*)getChildByTag(123);
