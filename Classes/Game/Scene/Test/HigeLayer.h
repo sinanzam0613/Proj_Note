@@ -75,7 +75,8 @@ private:
 	//メンバ変数宣言
 	NoteManager* mNoteManager;
 	SlideBar* mSlideBar;
-    UiObjectLayer* uiLayer;
+	SlideBar* mSlideBar2;
+   // UiObjectLayer* uiLayer;
 
 };
 

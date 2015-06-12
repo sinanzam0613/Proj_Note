@@ -69,11 +69,32 @@ bool HigeLayer::init() {
 	b->setTag(123);
 	this->addChild(b);
 
-    uiLayer = UiObjectLayer::create();
-    addChild(uiLayer);
-    
-    mSlideBar = SlideBar::create();
-    
+   // uiLayer = UiObjectLayer::create();
+   //addChild(uiLayer);
+  
+	//スライドバー生成
+	mSlideBar = SlideBar::create();
+	    
+	//プレイヤー１用スライドバー生成
+	mSlideBar->slideBarCreate("p1",
+	                            this,
+	                            "Texture/GamePlay/Controller/sliderTrack.png",
+	                            "Texture/GamePlay/Controller/sliderTrack.png",
+	                            "Texture/GamePlay/Controller/sliderThumb_Red.png",
+	                            "Texture/GamePlay/Controller/switch-thumb_Red.png",
+	                            Vec2(300, 100));
+	    
+	    
+	//プレイヤー２用スライドバー生成
+	mSlideBar->slideBarCreate("p2",
+	                            this,
+	                            "Texture/GamePlay/Controller/sliderTrack.png",
+	                            "Texture/GamePlay/Controller/sliderTrack.png",
+	                            "Texture/GamePlay/Controller/sliderThumb_Blue.png",
+	                            "Texture/GamePlay/Controller/switch-thumb_Blue.png",
+	                            Vec2(1000, 100));
+
+
 	//runAction(Follow::create(sprite));
 
 	runAction(CustomAction::CustomFollow::create(sprite,CustomAction::CustomFollowXOnly));
@@ -90,8 +111,8 @@ void HigeLayer::update(float deltaTime) {
         
 		sprite2->update(deltaTime);
 
-		if (mSlideBar->isTouch("p2", uiLayer)){
-			sprite2->changeJumpTime(mSlideBar->getValue("p2", uiLayer));
+		if (mSlideBar->isTouch("p2", this)){
+			sprite2->changeJumpTime(mSlideBar->getValue("p2", this));
 		}
 
 		if (!sprite2->isJump()){
@@ -108,8 +129,8 @@ void HigeLayer::update(float deltaTime) {
 
 		sprite->update(deltaTime);
 
-		if (mSlideBar->isTouch("p1", uiLayer)){
-			sprite->changeJumpTime(mSlideBar->getValue("p1", uiLayer));
+		if (mSlideBar->isTouch("p1", this)){
+			sprite->changeJumpTime(mSlideBar->getValue("p1", this));
 		}
 
 		if (sprite->isJump()) return;
