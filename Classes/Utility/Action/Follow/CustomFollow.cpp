@@ -12,7 +12,7 @@ namespace CustomAction{
 	CustomFollow* CustomFollow::create(Node* followNode){
 		CustomFollow *follow = new CustomFollow();
 
-		if (follow && follow->initWithTarget(followNode, Rect::ZERO)){
+        if (follow && follow->initWithTarget(followNode, cocos2d::Rect::ZERO)){
 			follow->autorelease();
 			return follow;
 		}
@@ -23,7 +23,7 @@ namespace CustomAction{
 	CustomFollow* CustomFollow::create(Node* followNode, CustomFollowType type){
 		CustomFollow *follow = new CustomFollow();
 		follow->mType = type;
-		if (follow && follow->initWithTarget(followNode, Rect::ZERO)){
+		if (follow && follow->initWithTarget(followNode, cocos2d::Rect::ZERO)){
 			follow->autorelease();
 			return follow;
 		}
@@ -31,10 +31,10 @@ namespace CustomAction{
 		return nullptr;
 	}
 
-	CustomFollow* CustomFollow::create(Node* followNode, Rect  marginRect){
+	CustomFollow* CustomFollow::create(Node* followNode, cocos2d::Rect  marginRect){
 		CustomFollow *follow = new CustomFollow();
 		follow->mMarginRect = marginRect;
-		if (follow && follow->initWithTarget(followNode, Rect::ZERO)){
+		if (follow && follow->initWithTarget(followNode, cocos2d::Rect::ZERO)){
 			follow->autorelease();
 			return follow;
 		}
@@ -51,7 +51,7 @@ namespace CustomAction{
 			if (_boundaryFullyCovered)
 				return;
 
-			Point tempPos = _halfScreenSize - _followedNode->getPosition();
+			cocos2d::Point tempPos = _halfScreenSize - _followedNode->getPosition();
 
 			float x = clampf(tempPos.x, _leftBoundary, _rightBoundary);
 			float y = clampf(tempPos.y, _bottomBoundary, _topBoundary);
@@ -63,7 +63,7 @@ namespace CustomAction{
 				x = _target->getPositionX();
 			}
 
-			_target->setPosition(Point(x, y));
+			_target->setPosition(cocos2d::Point(x, y));
 
 		}
 		else
@@ -105,14 +105,14 @@ namespace CustomAction{
 		return clone();
 	}
 
-	bool CustomFollow::initWithTarget(Node *followedNode, const Rect& rect/* = Rect::ZERO*/)
+	bool CustomFollow::initWithTarget(Node *followedNode, const cocos2d::Rect& rect/* = Rect::ZERO*/)
 	{
 		CCASSERT(followedNode != nullptr, "");
 
 		followedNode->retain();
 		_followedNode = followedNode;
 		_worldRect = rect;
-		if (rect.equals(Rect::ZERO))
+		if (rect.equals(cocos2d::Rect::ZERO))
 		{
 			_boundarySet = false;
 		}
@@ -123,7 +123,7 @@ namespace CustomAction{
 
 		_boundaryFullyCovered = false;
 
-		Size winSize = Director::getInstance()->getWinSize();
+		cocos2d::Size winSize = Director::getInstance()->getWinSize();
 		_fullScreenSize = Vec2(winSize.width, winSize.height);
 		_halfScreenSize = _fullScreenSize * 0.5f;
 
