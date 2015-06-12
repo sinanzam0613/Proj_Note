@@ -29,7 +29,7 @@ bool ObjectManager::init()
 	this->addChild(mKatsumi);*/
 
 	mPlayerManager = PlayerManager::create();
-	mPlayerManager->add(Vec2(100,200),Vec2(400,200));
+	mPlayerManager->add(Vec2(100,200),Vec2(400,200),5,5);
 	this->addChild(mPlayerManager);
 
 	//以下、テストオブジェクト生成
