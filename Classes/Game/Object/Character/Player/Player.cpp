@@ -167,6 +167,7 @@ void Player::changeJumpTime(float changetime){
 	mSprite->runAction(seq);
 }
 
+
 bool Player::isJump(){
 	return mIsJump;
 	//return mSprite->getActionByTag(1) != nullptr ? true : false;
