@@ -49,7 +49,7 @@ bool HigeLayer::init() {
 	addChild(rest);
 
 	auto goal = Goal::create("Texture/GamePlay/GameStage/GoalBlockAfter.png");
-	goal->setPosition(Vec2(1250, 500));
+	goal->setPosition(Vec2(3000, 500));
 	addChild(goal);
 
 	auto sprite = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_BLUE);
@@ -93,9 +93,6 @@ bool HigeLayer::init() {
 	                            "Texture/GamePlay/Controller/sliderThumb_Blue.png",
 	                            "Texture/GamePlay/Controller/switch-thumb_Blue.png",
 	                            Vec2(1000, 100));
-
-
-	//runAction(Follow::create(sprite));
 
 	runAction(CustomAction::CustomFollow::create(sprite,CustomAction::CustomFollowXOnly));
 
