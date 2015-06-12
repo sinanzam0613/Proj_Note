@@ -165,6 +165,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Scene\Test\TestLayer.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\Title\TitleScene.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\Title\TitleState.cpp" />
+    <ClCompile Include="..\Classes\Utility\Action\Follow\CustomFollow.cpp" />
     <ClCompile Include="..\Classes\Utility\Action\Jump.cpp" />
     <ClCompile Include="..\Classes\Utility\Animation\SpriteAnimation.cpp" />
     <ClCompile Include="..\Classes\Utility\Audio\ADX2Converter.cpp" />
@@ -172,6 +173,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Utility\Audio\ADX2LogoLayer.cpp" />
     <ClCompile Include="..\Classes\Utility\Audio\ADX2Manager.cpp" />
     <ClCompile Include="..\Classes\Utility\Audio\ADX2Player.cpp" />
+    <ClCompile Include="..\Classes\Utility\Camera\Camera.cpp" />
     <ClCompile Include="..\Classes\Utility\CocosAssistant\ListenerAssistant.cpp" />
     <ClCompile Include="..\Classes\Utility\CocosAssistant\SpriteCreator.cpp" />
     <ClCompile Include="..\Classes\Utility\Collision\Collider.cpp" />
@@ -217,9 +219,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Scene\Test\TestLayer.h" />
     <ClInclude Include="..\Classes\Game\Scene\Title\TitleScene.h" />
     <ClInclude Include="..\Classes\Game\Scene\Title\TitleState.h" />
-    <ClInclude Include="..\Classes\Template\CloneFactory.h" />
-    <ClInclude Include="..\Classes\Template\CloneFactoryImpl.h" />
-    <ClInclude Include="..\Classes\Template\Singleton.h" />
+    <ClInclude Include="..\Classes\Utility\Action\Follow\CustomFollow.h" />
     <ClInclude Include="..\Classes\Utility\Action\Jump.h" />
     <ClInclude Include="..\Classes\Utility\Animation\SpriteAnimation.h" />
     <ClInclude Include="..\Classes\Utility\Audio\ADX2Converter.h" />
@@ -229,6 +229,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Utility\Audio\ADX2Player.h" />
     <ClInclude Include="..\Classes\Utility\Audio\Define\Note_acf.h" />
     <ClInclude Include="..\Classes\Utility\Audio\Define\PianoSample.h" />
+    <ClInclude Include="..\Classes\Utility\Camera\Camera.h" />
     <ClInclude Include="..\Classes\Utility\CocosAssistant\ListenerAssistant.h" />
     <ClInclude Include="..\Classes\Utility\CocosAssistant\SpriteCreator.h" />
     <ClInclude Include="..\Classes\Utility\Collision\Collider.h" />
@@ -245,6 +246,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Utility\Release\ReleaseInstance.h" />
     <ClInclude Include="..\Classes\Utility\SceneSupport\IScene.h" />
     <ClInclude Include="..\Classes\Utility\SceneSupport\SceneCreator.h" />
+    <ClInclude Include="..\Classes\Utility\Template\CloneFactory.h" />
+    <ClInclude Include="..\Classes\Utility\Template\CloneFactoryImpl.h" />
+    <ClInclude Include="..\Classes\Utility\Template\Singleton.h" />
     <ClInclude Include="..\Classes\Utility\Timer\Timer.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

@@ -106,6 +106,9 @@
     <Filter Include="Classes\Game\Scene\Object\Character\Enemy">
       <UniqueIdentifier>{380d8712-4ae2-4f91-a469-accb0cc10a37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Utility\Action\Follow">
+      <UniqueIdentifier>{6cba50fc-5e01-4431-abd3-7a006b910af5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -246,6 +249,12 @@
     <ClCompile Include="..\Classes\Utility\Timer\Timer.cpp">
       <Filter>Classes\Utility</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Camera\Camera.cpp">
+      <Filter>Classes\Utility\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Action\Follow\CustomFollow.cpp">
+      <Filter>Classes\Utility\Action\Follow</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -274,15 +283,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\CocosAssistant\ListenerAssistant.h">
       <Filter>Classes\Utility\CocosAssistant</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Template\CloneFactory.h">
-      <Filter>Classes\Utility\Template</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Template\CloneFactoryImpl.h">
-      <Filter>Classes\Utility\Template</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Template\Singleton.h">
-      <Filter>Classes\Utility\Template</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\Release\DeleteContainer.h">
       <Filter>Classes\Utility\Release</Filter>
@@ -433,6 +433,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\Timer\Timer.h">
       <Filter>Classes\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Camera\Camera.h">
+      <Filter>Classes\Utility\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Template\CloneFactory.h">
+      <Filter>Classes\Utility\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Template\CloneFactoryImpl.h">
+      <Filter>Classes\Utility\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Template\Singleton.h">
+      <Filter>Classes\Utility\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Action\Follow\CustomFollow.h">
+      <Filter>Classes\Utility\Action\Follow</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
