@@ -49,7 +49,7 @@ void SlideBar::slideBarCreate(const std::string& name,
     //mSlider[tag]->setMaximumAllowedValue(0.9f);
     
     //初期値の設定
-    mSlider->setValue(2.0f);
+    mSlider->setValue(0.7f);
     
     //name設定
     mSlider->setName(name);

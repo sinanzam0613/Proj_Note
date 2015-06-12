@@ -19,79 +19,109 @@ TitleState* TitleState::create(Layer* layer){
 	return nullptr;
 }
 
+/*-----------------------------------------------------
+ -------初期化
+ -----------------------------------------------------*/
 bool TitleState::init(Layer* layer){
 	mSceneState = FADEIN;
 	mUpdateState = UPDATESTART;
 	parentLayer = layer;
 	mTestTouch = false;
     
-	auto debugLabel = Label::createWithTTF("TitleScreen", "Font/MarkerFelt.ttf", 64);
-	debugLabel->setName("ラベル");
-    debugLabel->setColor(Color3B::WHITE);
-	debugLabel->setPosition(Vec2(100, 100));
-	parentLayer->addChild(debugLabel);
     
-    mSlide->slideBarCreate("p1",
-                           parentLayer,
-                           "Texture/GamePlay/slider/sliderTrack.png",
-                           "Texture/GamePlay/slider/sliderTrack.png",
-                           "Texture/GamePlay/slider/sliderThumb.png",
-                           "Texture/GamePlay/slider/switch-thumb.png",
-                           Vec2(300,300));
+    //背景生成------------------------------------------------------------------------
+    auto mBG = Sprite::create("Texture/GamePlay/GameScene/Title/Title_BG.png");
+    mBG->setPosition(Vec2(0,0));
+    mBG->setAnchorPoint(Vec2(0,0));
+    layer->addChild(mBG);
     
-    mBG->BackGraundCreate(parentLayer);
+    //タッチ-----------------------------------------------------------------------
+    auto mLogo = Sprite::create("Texture/GamePlay/GameScene/Title/Title_Touch.png");
+    mLogo->setScale(0.8f, 0.9f);
+    mLogo->setPosition(Vec2(300,100));
+    mLogo->setAnchorPoint(Vec2(0,0));
+    mLogo->setOpacity(0);
+    layer->addChild(mLogo);
+    
+    auto mFadeIn = FadeIn::create(3);
+    auto mFadeOut = FadeOut::create(3);
+    auto sequence = Sequence::create(mFadeIn,mFadeOut,NULL);
+    auto repeatForever = RepeatForever::create(sequence);
+    repeatForever -> setTag(0);
+    mLogo->runAction(repeatForever);
+    
+    
+    //ロゴ----------------------------------------------------------------------------
+    auto mTouch = Sprite::create("Texture/GamePlay/GameScene/Title/Title_Logo.png");
+    mTouch->setScale(0.8f, 0.9f);
+    mTouch->setPosition(Vec2(Director::getInstance()->getVisibleSize().width/2,
+                             Director::getInstance()->getVisibleSize().height/2 + 100));
+    mTouch->setAnchorPoint(Vec2(0.5f,0.5f));
+    layer->addChild(mTouch);
+    
+    
+    auto mScaleUp = ScaleTo::create(1, 1.1f);
+    auto mScaleDown = ScaleTo::create(1, 0.9f);
+    auto sequence2 = Sequence::create(mScaleUp,mScaleDown,NULL);
+    auto repeatForever2 = RepeatForever::create(sequence2);
+    repeatForever2->setTag(1);
+    mTouch->runAction(repeatForever2);
     
 	return true;
 }
 
-void TitleState::update(float at){
-	
-    (this->*updateFunc[mSceneState])(at);
-    
- }
+/*-----------------------------------------------------
+  -------更新
+ -----------------------------------------------------*/
+void TitleState::update(float at){(this->*updateFunc[mSceneState])(at);}
 
+
+/*-----------------------------------------------------
+ -------フェードイン
+ -----------------------------------------------------*/
 void TitleState::fadeIn(float at){
 	if (mTestTouch){
 		mTestTouch = false;
 		mSceneState = MAIN;
 	}
-	auto obj = (Label*)parentLayer->getChildByName("ラベル");
-
-	obj->setString("fadeIN");
-    
-    CCLOG("%f",mSlide->getValue("p1", parentLayer));
 }
 
-void TitleState::sceneMain(float at){
-	(this->*mainFunc[mUpdateState])(at);
-}
+/*-----------------------------------------------------
+ -------シーンメイン
+ -----------------------------------------------------*/
+void TitleState::sceneMain(float at){(this->*mainFunc[mUpdateState])(at);}
 
+/*-----------------------------------------------------
+ -------フェードアウト
+ -----------------------------------------------------*/
 void TitleState::fadeOut(float at){
 	if (mTestTouch){
 		mTestTouch = false;
 		mSceneState = FADEIN;
 	}
-	auto obj = (Label*)parentLayer->getChildByName("ラベル");
-
-	obj->setString("fadeOut");
     
     
 }
 
-void TitleState::mainStart(float at){
-	mUpdateState = UPDATELOOP;
-}
+/*-----------------------------------------------------
+ -------シーンメイン（スタート）
+ -----------------------------------------------------*/
+void TitleState::mainStart(float at){mUpdateState = UPDATELOOP;}
 
+/*-----------------------------------------------------
+ -------シーンメイン（ループ）
+ -----------------------------------------------------*/
 void TitleState::mainLoop(float at){
 	if (mTestTouch){
 		mTestTouch = false;
 		mUpdateState = UPDATEEND;
 	}
-	auto obj = (Label*)parentLayer->getChildByName("ラベル");
-
-	obj->setString("Loop");
+    
+    
 }
-
+/*-----------------------------------------------------
+ -------シーンメイン（エンド）
+ -----------------------------------------------------*/
 void TitleState::mainEnd(float at){
 	mUpdateState =UPDATESTART;
 	mSceneState = FADEOUT;
