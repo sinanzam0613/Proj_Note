@@ -67,14 +67,16 @@ bool HigeLayer::init() {
 
 	auto b = BlockManager::create();
 	b->setTag(123);
-	this->addChild(b);
+	addChild(b);
 
     uiLayer = UiObjectLayer::create();
+    
     addChild(uiLayer);
+    
     
     mSlideBar = SlideBar::create();
     
-	//runAction(Follow::create(sprite));
+	runAction(Follow::create(sprite));
 
 	runAction(CustomAction::CustomFollow::create(sprite,CustomAction::CustomFollowXOnly));
 
@@ -82,6 +84,12 @@ bool HigeLayer::init() {
 }
 
 void HigeLayer::update(float deltaTime) {
+    
+    //カメラ追従
+    //auto player = (Player*)getChildByTag(55);
+    mSlideBar->setPosition(Vec2(getPosition().x,getPosition().y)/*player->getPosition()*/,uiLayer);
+
+    
 	
 
 	//プレイヤー２
