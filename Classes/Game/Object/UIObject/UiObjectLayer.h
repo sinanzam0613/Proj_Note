@@ -11,7 +11,6 @@ public:
     UiObjectLayer();
     /**　@brief  デストラクタ*/
     ~UiObjectLayer() = default;
-    
     /**　@brief  初期化*/
     virtual bool init();
     
