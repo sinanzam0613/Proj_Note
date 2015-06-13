@@ -2,6 +2,7 @@
 #include "cocos-ext.h"
 #include "Utility/Audio/ADX2Player.h"
 
+
 USING_NS_CC;
 using namespace cocos2d::extension;
 
@@ -28,44 +29,8 @@ bool TitleState::init(Layer* layer){
 	parentLayer = layer;
 	mTestTouch = false;
     
-    
-    //背景生成------------------------------------------------------------------------
-    auto mBG = Sprite::create("Texture/GamePlay/GameScene/Title/Title_BG.png");
-    mBG->setPosition(Vec2(0,0));
-    mBG->setAnchorPoint(Vec2(0,0));
-    layer->addChild(mBG);
-    
-    //タッチ-----------------------------------------------------------------------
-    auto mLogo = Sprite::create("Texture/GamePlay/GameScene/Title/Title_Touch.png");
-    mLogo->setScale(0.8f, 0.9f);
-    mLogo->setPosition(Vec2(300,100));
-    mLogo->setAnchorPoint(Vec2(0,0));
-    mLogo->setOpacity(0);
-    layer->addChild(mLogo);
-    
-    auto mFadeIn = FadeIn::create(3);
-    auto mFadeOut = FadeOut::create(3);
-    auto sequence = Sequence::create(mFadeIn,mFadeOut,NULL);
-    auto repeatForever = RepeatForever::create(sequence);
-    repeatForever -> setTag(0);
-    mLogo->runAction(repeatForever);
-    
-    
-    //ロゴ----------------------------------------------------------------------------
-    auto mTouch = Sprite::create("Texture/GamePlay/GameScene/Title/Title_Logo.png");
-    mTouch->setScale(0.8f, 0.9f);
-    mTouch->setPosition(Vec2(Director::getInstance()->getVisibleSize().width/2,
-                             Director::getInstance()->getVisibleSize().height/2 + 100));
-    mTouch->setAnchorPoint(Vec2(0.5f,0.5f));
-    layer->addChild(mTouch);
-    
-    
-    auto mScaleUp = ScaleTo::create(1, 1.1f);
-    auto mScaleDown = ScaleTo::create(1, 0.9f);
-    auto sequence2 = Sequence::create(mScaleUp,mScaleDown,NULL);
-    auto repeatForever2 = RepeatForever::create(sequence2);
-    repeatForever2->setTag(1);
-    mTouch->runAction(repeatForever2);
+    mTitleSpriteLayer = TitleSpriteLayer::create();
+    layer->addChild(mTitleSpriteLayer);
     
 	return true;
 }
@@ -129,6 +94,19 @@ void TitleState::mainEnd(float at){
 
 bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	mTestTouch = true;
+    
+    //アクションの停止
+    auto touchLogo = mTitleSpriteLayer->getChildByName("TouchLogo");
+    touchLogo->stopAllActions();
+    touchLogo->setOpacity(0);
+    auto titleLogo = mTitleSpriteLayer->getChildByName("TitleLogo");
+    titleLogo->stopAllActions();
+    titleLogo->setOpacity(0);
+    
+    
+        
+    mTitleSpriteLayer->nextDraw();
+
     
 	return true;
 }

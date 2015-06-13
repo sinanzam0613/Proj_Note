@@ -45,15 +45,23 @@ public:
                         cocos2d::Vec2 position
                         );
 
-	/*スライダーのタッチ判定
-	*/
+    
+    /** @brief スライダーのタッチ判定
+     *  @param0 tagName
+     *  @param1 レイヤー情報
+     */
 	bool isTouch(const std::string& name, cocos2d::Layer* layer);
 
 	/** @brief 値の取得
-     *  @param tagNumber
+     *  @param0 tagName
+     *  @param1 レイヤー情報
      */
     float getValue(const std::string& name,cocos2d::Layer* layer);
     
+    /** @brief ポジションの設定
+     *  @param0 位置
+     *  @param1 レイヤー情報
+     */
     void setPosition(cocos2d::Vec2 pos, cocos2d::Layer* layer);
 };
 #endif
