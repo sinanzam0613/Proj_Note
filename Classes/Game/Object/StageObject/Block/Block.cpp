@@ -21,7 +21,7 @@ Block* Block::create( const std::string& nodeName, const BlockData& data )
 	
 	if ( inst && inst->init( nodeName, data ) )
 	{
-		inst->autorelease();
+		inst->autorelease();	
 		return inst;
 	}
 	

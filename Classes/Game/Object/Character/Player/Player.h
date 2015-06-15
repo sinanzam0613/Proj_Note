@@ -6,6 +6,7 @@
 #include "cocos2d.h"
 #include "Utility/Collision/Collider.h"
 #include "Game/Object/StageObject/ObjectType.h"
+#include "PlayerState.h"
 
 class Note;
 
@@ -59,26 +60,19 @@ public:
 
 	virtual const cocos2d::Vec2& getPosition()const override;
 
-	bool isJump();
-
 	void stop(){ mSprite->stopAllActions(); };
 
 	unsigned int jumpCount();
 
-	bool isDead()const;
+	PLAYERSTATE getState();
 
-	//テストでタッチしている間ジャンプさせてみます
-	bool mTestIsJump;
-	int mTestCount;
 private:
 	cocos2d::Sprite* mSprite;
    	float mDuration;
-	cocos2d::Vec2 mTargetPos;
-    	float  mJumpTime;
+	float  mJumpTime;
 	unsigned int mJumpCount;
-	bool mIsJump;
-	bool mTest;
-	bool mIsDead;
+	cocos2d::Vec2 mTargetPos;
+	PLAYERSTATE mState;
 };
 
 #endif

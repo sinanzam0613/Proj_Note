@@ -32,10 +32,6 @@ void PlayerManager::update(float deltaTime)
 	{
 		player->update(deltaTime);
 
-		if (player->isDead())
-		{
-			
-		}
 	}
 }
 

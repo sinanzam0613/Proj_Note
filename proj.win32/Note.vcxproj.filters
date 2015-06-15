@@ -455,6 +455,9 @@
     <ClInclude Include="..\Classes\Game\Object\UIObject\UiObjectLayer.h">
       <Filter>Classes\Game\Scene\Test</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\Character\Player\PlayerState.h">
+      <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

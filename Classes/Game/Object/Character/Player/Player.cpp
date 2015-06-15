@@ -7,7 +7,7 @@
 
 using namespace cocos2d;
 
-Player::Player(ObjectType type, float jumpTime) : mTestIsJump(false), mTestCount(0), mJumpTime(jumpTime), mIsDead(false),mJumpCount(0)
+Player::Player(ObjectType type, float jumpTime) :  mJumpTime(jumpTime), mState(NORMAL),mJumpCount(0)
 {
 }
 
@@ -24,10 +24,10 @@ bool Player::init(const std::string& fileName, ObjectType type)
 
 	const std::string file = "Texture/GamePlay/Character/" + fileName;
 	mSprite = SpriteCreator::create(file);
-
-	mPhysicsBody = PhysicsBody::createBox(mSprite->getContentSize());
+	mPhysicsBody = PhysicsBody::createBox(Size(mSprite->getContentSize().width, mSprite->getContentSize().height / 4));
 	mPhysicsBody->setMass(1.0f);
 	mPhysicsBody->setDynamic(true);
+	mPhysicsBody->setPositionOffset(Vec2(0, -40));
 
 	mPhysicsBody->setCategoryBitmask(static_cast<int>(type));
 	if (type == ObjectType::OBJECT_PLAYER_RED){
@@ -60,7 +60,7 @@ bool Player::init(const std::string& fileName, ObjectType type)
 
 	mSprite->setScale(0.5f);
 	mJumpTime = 2.0f;
-	mIsJump = false;
+	mState = NORMAL;
 	mDuration = 0;
 
 	return true;
@@ -70,22 +70,10 @@ void Player::update(float deltaTime)
 {
 	if (mSprite->getPositionY() < -mSprite->getContentSize().height){
 		mSprite->stopAllActions();
-		mSprite->setPosition(Vec2(100, 250));
-		mIsJump = false;
-		mTestIsJump = true;
-		mIsDead = true;
+		//mSprite->setPosition(Vec2(100, 250));
+		mState = DEAD;
 	}
-	//jump(Vec2());
-
-	//CCLOG("X : %f", mSprite->getAnchorPoint().x);
-	//CCLOG("Y : %f", mSprite->getAnchorPoint().y);
-
 	mDuration += deltaTime;
-
-	
-
-
-
 }
 
 Player* Player::create(const std::string& fileName,ObjectType type,float jumpTime)
@@ -105,7 +93,7 @@ Player* Player::create(const std::string& fileName,ObjectType type,float jumpTim
 void Player::jump(Vec2 targetPosition)
 {
 	//すでにジャンプが実行されているのであれば何もしない。
-	if (mSprite->getActionByTag(1))
+	if (mState == JUMP || mState == MISS)
 	{
 		return;
 	}
@@ -124,7 +112,7 @@ void Player::jump(Vec2 targetPosition)
 
 	mPhysicsBody->setDynamic(false);
 
-	mIsJump = true;
+	mState = JUMP;
 }
 
 void Player::setPosition(const Vec2& position)
@@ -138,14 +126,19 @@ const Vec2& Player::getPosition()const
 }
 
 void Player::onContactBegin(cocos2d::Node* contactNode){
-	
+
 	if ( std::strstr(static_cast<Block*>(contactNode)->getName().c_str(),"Block")){
-		if (!static_cast<Block*>(contactNode)->isChange()) return;
+		if (!static_cast<Block*>(contactNode)->isChange()){
+			mState = MISS;
+			return;
+		}
+
 		mSprite->stopAllActions();																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								// 記念AGO
 		mJumpCount++;
 
-		mIsJump = false;
+		mState = NORMAL;
 	}
+
 }
 
 void Player::changeJumpTime(float changetime){
@@ -154,7 +147,7 @@ void Player::changeJumpTime(float changetime){
 
 	mJumpTime = changetime;
 
-	float rest = 0 < changetime - mDuration ? changetime - mDuration : 0.1f;
+	float rest = 0 < changetime - mDuration ? changetime - mDuration : 0.5f;
 
 	mSprite->stopAllActions();
 
@@ -167,17 +160,11 @@ void Player::changeJumpTime(float changetime){
 	mSprite->runAction(seq);
 }
 
-
-bool Player::isJump(){
-	return mIsJump;
-	//return mSprite->getActionByTag(1) != nullptr ? true : false;
+PLAYERSTATE Player::getState(){
+	return mState;
 }
 
 unsigned int Player::jumpCount(){
 	return mJumpCount;	
 }
 
-bool Player::isDead()const
-{
-	return mIsDead;
-}

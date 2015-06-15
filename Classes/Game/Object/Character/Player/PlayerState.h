@@ -1,0 +1,12 @@
+#ifndef PLAYERSTATE_H
+#define PLAYERSTATE_H
+
+enum PLAYERSTATE{
+	NORMAL = 0,
+	JUMP,
+	MISS,
+	DEAD,
+	END
+};
+
+#endif

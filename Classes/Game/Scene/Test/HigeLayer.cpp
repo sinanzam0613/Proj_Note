@@ -58,7 +58,7 @@ bool HigeLayer::init() {
 	sprite->setTag(555);
 	addChild(sprite);
 
-	auto sprite2 = Player::create("Helper1.png", ObjectType::OBJECT_PLAYER_RED,100);
+	auto sprite2 = Player::create("Helper1.png", ObjectType::OBJECT_PLAYER_BLUE,100);
 	sprite2->setPosition(Vec2(100, 230));
 	sprite2->setTag(55);
 	addChild(sprite2);
@@ -101,7 +101,7 @@ void HigeLayer::update(float deltaTime) {
 			sprite2->changeJumpTime(mSlideBar->getValue("p2", uiLayer));
 		}
 
-		if (!sprite2->isJump()){
+		if (!sprite2->getState() == JUMP){
 
 			auto blockManager = (BlockManager*)getChildByTag(123);
 
@@ -119,7 +119,7 @@ void HigeLayer::update(float deltaTime) {
 			sprite->changeJumpTime(mSlideBar->getValue("p1", uiLayer));
 		}
 
-		if (sprite->isJump()) return;
+		if (sprite->getState() == JUMP) return;
 
 		auto blockManager = (BlockManager*)getChildByTag(123);
 
