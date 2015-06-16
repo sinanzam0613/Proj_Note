@@ -31,14 +31,14 @@ void BlockFactory::createBlock( Node* parentNode, const std::string& fileName )
 		}
 		if ( std::strstr( data.blockTextureName.c_str(), "Goal" ) )
 		{
-			auto block = GoalBlock::create( "GoalBlock" + std::to_string( count ), data );
+			auto block = GoalBlock::create( "GoalBlockAfter" + std::to_string( count ), data );
 			parentNode->addChild( block );
 			++count;
 			continue;
 		}
 		if ( std::strstr( data.blockTextureName.c_str(), "Normal" ) )
 		{
-			auto block = NormalBlock::create( "NormalBlock" + std::to_string( count ), data );
+			auto block = NormalBlock::create( "NormalBlockAfter" + std::to_string( count ), data );
 			parentNode->addChild( block );
 			++count;
 			continue;
