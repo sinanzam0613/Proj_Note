@@ -80,9 +80,8 @@ bool HigeLayer::init() {
 
 void HigeLayer::update(float deltaTime) {
     
-    //カメラ追従
-    //auto player = (Player*)getChildByTag(55);
-    mSlideBar->setPosition(Vec2(getPosition().x,getPosition().y)/*player->getPosition()*/,uiLayer);
+
+    mSlideBar->setPosition(Vec2(getPosition().x,getPosition().y),uiLayer);
 
 	if (this->getChildByName("GameClear"))
 	{
@@ -130,10 +129,7 @@ void HigeLayer::update(float deltaTime) {
 
 bool HigeLayer::onTouchBegan(Touch* touch, Event* event) {
 
-	auto pos = this->convertTouchToNodeSpace(touch);
 
-	auto blockManager = (BlockManager*)getChildByTag(123);
-	blockManager->onTouchBegan(pos);
 
 	return true;
 }
