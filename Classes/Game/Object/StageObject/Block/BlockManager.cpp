@@ -1,6 +1,7 @@
 #include "BlockManager.h"
 #include "Block.h"
 #include "BlockDataReader.h"
+#include "BlockFactory.h"
 
 using namespace cocos2d;
 
@@ -28,16 +29,8 @@ bool BlockManager::init()
 	mBlockNode = Node::create();
 	this->addChild( mBlockNode );
 	
-	auto reader		= BlockDataReader::create();
-	auto readData	= reader->read( "Plist/stage1.plist" );
-	
-	int count = 0;
-	for ( auto& data : readData )
-	{
-		auto block = Block::create( "Block" + std::to_string( count ), data );
-		mBlockNode->addChild( block );
-		++count;
-	}
+	auto fac = std::make_shared< BlockFactory >();
+	fac->createBlock( mBlockNode, "Plist/stage1.plist" );
 	
 	return true;
 }
