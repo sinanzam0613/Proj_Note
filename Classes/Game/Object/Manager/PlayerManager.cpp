@@ -31,7 +31,6 @@ void PlayerManager::update(float deltaTime)
 	for (auto player : mPlayerContainer)
 	{
 		player->update(deltaTime);
-
 	}
 }
 

@@ -29,7 +29,7 @@ bool BlockManager::init()
 	this->addChild( mBlockNode );
 	
 	auto reader		= BlockDataReader::create();
-	auto readData	= reader->read( "Plist/BlockData.plist" );
+	auto readData	= reader->read( "Plist/stage1.plist" );
 	
 	int count = 0;
 	for ( auto& data : readData )

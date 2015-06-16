@@ -158,6 +158,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Object\UIObject\UiObjectLayer.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameEnd\EndingScene.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameEnd\EndingState.cpp" />
+    <ClCompile Include="..\Classes\Game\Scene\GameMain\GameDataMediator.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameMain\GameMainScene.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameMain\GameMainState.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\Test\GameTitleScene.cpp" />
@@ -214,6 +215,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Object\UIObject\UiObjectLayer.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameEnd\EndingScene.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameEnd\EndingState.h" />
+    <ClInclude Include="..\Classes\Game\Scene\GameMain\GameDataMediator.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameMain\GameMainScene.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameMain\GameMainState.h" />
     <ClInclude Include="..\Classes\Game\Scene\Test\GameTitleScene.h" />

@@ -58,56 +58,53 @@
     <Filter Include="Classes\Utility\SceneSupport">
       <UniqueIdentifier>{44675f6b-416b-4e56-8868-99ef53a090c2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\Scene\Object">
-      <UniqueIdentifier>{dff83089-697f-4c8f-9e71-d19118eb1fac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Game\Scene\Object\Test">
-      <UniqueIdentifier>{ea1f70f6-f9da-4b5f-9e34-e12479b9be7c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Game\Scene\Object\Character">
-      <UniqueIdentifier>{d5e95d54-503f-4765-abc4-550e7564ebff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Game\Scene\Object\Character\Player">
-      <UniqueIdentifier>{8425d63c-bdf4-4aa1-b354-41d7dbb6e227}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Game\Scene\Object\StageObject">
-      <UniqueIdentifier>{c6034c7a-b74b-43f5-b2b2-6235573969bb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Game\Scene\Object\StageObject\Bar">
-      <UniqueIdentifier>{96c950f7-b1a3-460c-b669-043f30fd0c6d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Game\Scene\Object\StageObject\Goal">
-      <UniqueIdentifier>{67c7943e-2816-4b93-8d0b-3032a6d634e7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Game\Scene\Object\StageObject\Note">
-      <UniqueIdentifier>{a785542e-d2fc-48de-8cb7-9261d23a71cd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Game\Scene\Object\StageObject\Rest">
-      <UniqueIdentifier>{41bcf6dc-ec9c-4df1-8bcd-205ee37384f0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Game\Scene\Object\StageObject\Block">
-      <UniqueIdentifier>{5d58a652-cbb0-4f1b-b6e3-3cb6e95486db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Game\Scene\Object\SideBar">
-      <UniqueIdentifier>{c756fbed-2ac8-4187-b376-33007fd876b6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Game\Scene\Object\Manager">
-      <UniqueIdentifier>{e5bc30a0-fb01-4358-949b-cf4524ff00c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="resource\NewFilter1">
-      <UniqueIdentifier>{af91321a-20b6-403f-a4d2-ea5c71d9748a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\Utility\Camera">
       <UniqueIdentifier>{fd357900-e3f5-4a3b-89b7-3e7790565bf8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\Utility\Audio">
       <UniqueIdentifier>{2a63b653-dd24-4949-9822-26966f2bffa0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\Scene\Object\Character\Enemy">
-      <UniqueIdentifier>{380d8712-4ae2-4f91-a469-accb0cc10a37}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\Utility\Action\Follow">
       <UniqueIdentifier>{6cba50fc-5e01-4431-abd3-7a006b910af5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object">
+      <UniqueIdentifier>{dff83089-697f-4c8f-9e71-d19118eb1fac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\Test">
+      <UniqueIdentifier>{ea1f70f6-f9da-4b5f-9e34-e12479b9be7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\Character">
+      <UniqueIdentifier>{d5e95d54-503f-4765-abc4-550e7564ebff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\Character\Player">
+      <UniqueIdentifier>{8425d63c-bdf4-4aa1-b354-41d7dbb6e227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\Character\Enemy">
+      <UniqueIdentifier>{380d8712-4ae2-4f91-a469-accb0cc10a37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\StageObject">
+      <UniqueIdentifier>{c6034c7a-b74b-43f5-b2b2-6235573969bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\StageObject\Bar">
+      <UniqueIdentifier>{96c950f7-b1a3-460c-b669-043f30fd0c6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\StageObject\Goal">
+      <UniqueIdentifier>{67c7943e-2816-4b93-8d0b-3032a6d634e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\StageObject\Note">
+      <UniqueIdentifier>{a785542e-d2fc-48de-8cb7-9261d23a71cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\StageObject\Rest">
+      <UniqueIdentifier>{41bcf6dc-ec9c-4df1-8bcd-205ee37384f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\StageObject\Block">
+      <UniqueIdentifier>{5d58a652-cbb0-4f1b-b6e3-3cb6e95486db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\SideBar">
+      <UniqueIdentifier>{c756fbed-2ac8-4187-b376-33007fd876b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Game\Object\Manager">
+      <UniqueIdentifier>{e5bc30a0-fb01-4358-949b-cf4524ff00c5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -160,19 +157,19 @@
       <Filter>Classes\Game\Scene\Title</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Bar\Bar.cpp">
-      <Filter>Classes\Game\Scene\Object\StageObject\Bar</Filter>
+      <Filter>Classes\Game\Object\StageObject\Bar</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Goal\Goal.cpp">
-      <Filter>Classes\Game\Scene\Object\StageObject\Goal</Filter>
+      <Filter>Classes\Game\Object\StageObject\Goal</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\Note.cpp">
-      <Filter>Classes\Game\Scene\Object\StageObject\Note</Filter>
+      <Filter>Classes\Game\Object\StageObject\Note</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Character\Player\Player.cpp">
-      <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
+      <Filter>Classes\Game\Object\Character\Player</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Manager\ObjectManager.cpp">
-      <Filter>Classes\Game\Scene\Object\Manager</Filter>
+      <Filter>Classes\Game\Object\Manager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Scene\GameMain\GameMainScene.cpp">
       <Filter>Classes\Game\Scene\GameMain</Filter>
@@ -187,7 +184,7 @@
       <Filter>Classes\Utility\CocosAssistant</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Test\TestObject.cpp">
-      <Filter>Classes\Game\Scene\Object\Test</Filter>
+      <Filter>Classes\Game\Object\Test</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Utility\SceneSupport\SceneCreator.cpp">
       <Filter>Classes\Utility\SceneSupport</Filter>
@@ -196,34 +193,34 @@
       <Filter>Classes\Utility\SceneSupport</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\NoteLine.cpp">
-      <Filter>Classes\Game\Scene\Object\StageObject\Note</Filter>
+      <Filter>Classes\Game\Object\StageObject\Note</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Manager\NoteManager.cpp">
-      <Filter>Classes\Game\Scene\Object\Manager</Filter>
+      <Filter>Classes\Game\Object\Manager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Rest\Rest.cpp">
-      <Filter>Classes\Game\Scene\Object\StageObject\Rest</Filter>
+      <Filter>Classes\Game\Object\StageObject\Rest</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\Block.cpp">
-      <Filter>Classes\Game\Scene\Object\StageObject\Block</Filter>
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\UIObject\SlideBar.cpp">
-      <Filter>Classes\Game\Scene\Object\SideBar</Filter>
+      <Filter>Classes\Game\Object\SideBar</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockDataReader.cpp">
-      <Filter>Classes\Game\Scene\Object\StageObject\Block</Filter>
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockManager.cpp">
-      <Filter>Classes\Game\Scene\Object\StageObject\Block</Filter>
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Utility\Action\Jump.cpp">
       <Filter>Classes\Utility\Action</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Manager\PlayerManager.cpp">
-      <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
+      <Filter>Classes\Game\Object\Character\Player</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\UIObject\BackGround.cpp">
-      <Filter>Classes\Game\Scene\Object</Filter>
+      <Filter>Classes\Game\Object</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Utility\Audio\ADX2Converter.cpp">
       <Filter>Classes\Utility\Audio</Filter>
@@ -241,10 +238,10 @@
       <Filter>Classes\Utility\Audio</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Character\Enemy\RestEnemy.cpp">
-      <Filter>Classes\Game\Scene\Object\Character\Enemy</Filter>
+      <Filter>Classes\Game\Object\Character\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Manager\EnemyManager.cpp">
-      <Filter>Classes\Game\Scene\Object\Manager</Filter>
+      <Filter>Classes\Game\Object\Manager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Utility\Timer\Timer.cpp">
       <Filter>Classes\Utility</Filter>
@@ -256,6 +253,9 @@
       <Filter>Classes\Utility\Action\Follow</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\UIObject\UiObjectLayer.cpp">
+      <Filter>Classes\Game\Scene\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\GameMain\GameDataMediator.cpp">
       <Filter>Classes\Game\Scene\Test</Filter>
     </ClCompile>
   </ItemGroup>
@@ -330,22 +330,22 @@
       <Filter>Classes\Game\Scene\Title</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Bar\Bar.h">
-      <Filter>Classes\Game\Scene\Object\StageObject\Bar</Filter>
+      <Filter>Classes\Game\Object\StageObject\Bar</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Goal\Goal.h">
-      <Filter>Classes\Game\Scene\Object\StageObject\Goal</Filter>
+      <Filter>Classes\Game\Object\StageObject\Goal</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\Note.h">
-      <Filter>Classes\Game\Scene\Object\StageObject\Note</Filter>
+      <Filter>Classes\Game\Object\StageObject\Note</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Character\Player\Player.h">
-      <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
+      <Filter>Classes\Game\Object\Character\Player</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Manager\ObjectManager.h">
-      <Filter>Classes\Game\Scene\Object\Manager</Filter>
+      <Filter>Classes\Game\Object\Manager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\StageObj.h">
-      <Filter>Classes\Game\Scene\Object\StageObject</Filter>
+      <Filter>Classes\Game\Object\StageObject</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Scene\GameMain\GameMainScene.h">
       <Filter>Classes\Game\Scene\GameMain</Filter>
@@ -360,7 +360,7 @@
       <Filter>Classes\Utility\CocosAssistant</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Test\TestObject.h">
-      <Filter>Classes\Game\Scene\Object\Test</Filter>
+      <Filter>Classes\Game\Object\Test</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\SceneSupport\SceneCreator.h">
       <Filter>Classes\Utility\SceneSupport</Filter>
@@ -369,43 +369,43 @@
       <Filter>Classes\Utility\SceneSupport</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\NoteLine.h">
-      <Filter>Classes\Game\Scene\Object\StageObject\Note</Filter>
+      <Filter>Classes\Game\Object\StageObject\Note</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\NoteValue.h">
-      <Filter>Classes\Game\Scene\Object\StageObject\Note</Filter>
+      <Filter>Classes\Game\Object\StageObject\Note</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Manager\NoteManager.h">
-      <Filter>Classes\Game\Scene\Object\Manager</Filter>
+      <Filter>Classes\Game\Object\Manager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Rest\Rest.h">
-      <Filter>Classes\Game\Scene\Object\StageObject\Rest</Filter>
+      <Filter>Classes\Game\Object\StageObject\Rest</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\Block.h">
-      <Filter>Classes\Game\Scene\Object\StageObject\Block</Filter>
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\ObjectType.h">
-      <Filter>Classes\Game\Scene\Object\StageObject\Block</Filter>
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\UIObject\SlideBar.h">
-      <Filter>Classes\Game\Scene\Object\SideBar</Filter>
+      <Filter>Classes\Game\Object\SideBar</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockData.h">
-      <Filter>Classes\Game\Scene\Object\StageObject\Block</Filter>
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockDataReader.h">
-      <Filter>Classes\Game\Scene\Object\StageObject\Block</Filter>
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockManager.h">
-      <Filter>Classes\Game\Scene\Object\StageObject\Block</Filter>
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\Action\Jump.h">
       <Filter>Classes\Utility\Action</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Manager\PlayerManager.h">
-      <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
+      <Filter>Classes\Game\Object\Character\Player</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\UIObject\BackGround.h">
-      <Filter>Classes\Game\Scene\Object</Filter>
+      <Filter>Classes\Game\Object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\Audio\ADX2Converter.h">
       <Filter>Classes\Utility\Audio</Filter>
@@ -429,10 +429,10 @@
       <Filter>Classes\Utility\Audio</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Character\Enemy\RestEnemy.h">
-      <Filter>Classes\Game\Scene\Object\Character\Enemy</Filter>
+      <Filter>Classes\Game\Object\Character\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Manager\EnemyManager.h">
-      <Filter>Classes\Game\Scene\Object\Manager</Filter>
+      <Filter>Classes\Game\Object\Manager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\Timer\Timer.h">
       <Filter>Classes\Utility</Filter>
@@ -456,7 +456,10 @@
       <Filter>Classes\Game\Scene\Test</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Character\Player\PlayerState.h">
-      <Filter>Classes\Game\Scene\Object\Character\Player</Filter>
+      <Filter>Classes\Game\Object\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\GameMain\GameDataMediator.h">
+      <Filter>Classes\Game\Scene\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -50,7 +50,7 @@ bool HigeLayer::init() {
 	addChild(rest);
 
 	auto goal = Goal::create("Texture/GamePlay/GameStage/GoalBlockAfter.png");
-	goal->setPosition(Vec2(3000, 500));
+	goal->setPosition(Vec2(18600, 500));
 	addChild(goal);
 
 	auto sprite = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_RED,100);

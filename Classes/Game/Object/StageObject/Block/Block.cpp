@@ -42,6 +42,10 @@ bool Block::init( const std::string& nodeName, const BlockData& data )
 	this->enableCollision( nodeName );
 	this->setPosition( Vec2( mBlockData.positionX, mBlockData.positionY ) );
 	
+	if (std::strstr(data.pointTextureName.c_str(), "Normal")){
+		mIsTextureChanged = true;
+	}
+	
 	initPhysics();
 	
 	return true;
@@ -86,6 +90,10 @@ void Block::initPhysics()
 	mPhysicsBody->setDynamic( false );
 	mPhysicsBody->setCategoryBitmask( mBlockData.objectType );
 
+	mPhysicsBody->setContactTestBitmask(0xFFFFFFFF);
+	mPhysicsBody->setCollisionBitmask(static_cast<int>(0xFFFFFFFF));
+	this->setPhysicsBody(mPhysicsBody);
+
 	if (static_cast<ObjectType>(mBlockData.objectType) == ObjectType::OBJECT_BLOCK_RED)
 	{
 		mPhysicsBody->setContactTestBitmask(0xFFFFFFFF);
@@ -99,4 +107,6 @@ void Block::initPhysics()
 		mPhysicsBody->setCollisionBitmask(static_cast<int>(ObjectType::OBJECT_PLAYER_BLUE));
 		this->setPhysicsBody(mPhysicsBody);
 	}
+
+
 }

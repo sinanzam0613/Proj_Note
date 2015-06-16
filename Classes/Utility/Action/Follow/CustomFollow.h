@@ -21,6 +21,7 @@ namespace CustomAction{
 	public:
 		static CustomFollow* create(cocos2d::Node* followedNode);
 		static CustomFollow* create(cocos2d::Node* followedNode, CustomFollowType type);
+		static CustomFollow* create(cocos2d::Node* followedNode, cocos2d::Node* equalityFollowedNode, CustomFollowType type);
 		static CustomFollow* create(cocos2d::Node* followedNode, cocos2d::Rect marginRect);
 
 		inline bool isBoundarySet() const { return _boundarySet; }
@@ -65,9 +66,13 @@ namespace CustomAction{
 		*/
 		bool initWithTarget(cocos2d::Node *followedNode, const cocos2d::Rect& rect = cocos2d::Rect::ZERO);
 
+		bool initWithTarget(cocos2d::Node *followedNode, cocos2d::Node *equalityFollowedNode, const cocos2d::Rect& rect = cocos2d::Rect::ZERO);
+
 	protected:
 		// node to follow
 		cocos2d::Node *_followedNode;
+
+		cocos2d::Node *_equalityFollowedNode;
 
 		// whether camera should be limited to certain area
 		bool _boundarySet;
