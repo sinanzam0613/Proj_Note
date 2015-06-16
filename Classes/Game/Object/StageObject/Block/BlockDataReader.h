@@ -23,10 +23,6 @@ public:
 	static BlockDataReader* create();
 	
 	ReadData read( const std::string& fileName );
-	
-private:
-	
-	void debugLog( const BlockData& data );
 };
 
 #endif
