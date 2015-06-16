@@ -11,7 +11,7 @@ class PlayerManager:public cocos2d::Node
 public:
 	static PlayerManager* create();
 	virtual bool init()override;
-	virtual void update(float deltaTime)override;
+	virtual void update(float deltaTime);
 	void add(const cocos2d::Vec2& position1P, const cocos2d::Vec2& position2P,float jumpTime1P,float jumpTime2P);
 protected:
 	PlayerManager();

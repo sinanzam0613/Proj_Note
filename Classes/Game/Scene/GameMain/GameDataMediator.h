@@ -4,17 +4,22 @@
 #include "../../Object/Manager/PlayerManager.h"
 #include "../../Object/StageObject/Block/BlockManager.h"
 
-class GameDataMediator
+class UiObjectLayer;
+
+class GameDataMediator : public cocos2d::Node
 {
 private:
-	GameDataMediator();
-	~GameDataMediator();
+	GameDataMediator() = default;
+	~GameDataMediator() = default;
 public:
-	//static GameDataMediator* create(cocos2d::Layer* layer);
+	static GameDataMediator* create();
 
-	//virtual bool init(cocos2d::Layer* layer)override;
+	virtual bool init();
 
+	void update(float dt, UiObjectLayer* uilayer);
 
+	PlayerManager* mPlayerManager;
+	BlockManager* mBlockManager;
 };
 
 #endif
