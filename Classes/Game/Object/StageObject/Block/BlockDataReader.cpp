@@ -26,7 +26,7 @@ BlockDataReader::ReadData BlockDataReader::read( const std::string& fileName )
 	for ( auto& map : valueMap )
 	{
 		BlockData data;
-		data.blockTextureName	= map.at( "blockTextureName" ).asString();
+		data.blockTextureName	= map.at( "pointTextureName" ).asString();
 		data.cueID				= map.at( "cueID" ).asInt();
 		data.positionX			= map.at( "positionX" ).asInt();
 		data.positionY			= map.at( "positionY" ).asInt();

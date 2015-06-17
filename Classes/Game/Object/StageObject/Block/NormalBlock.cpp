@@ -48,7 +48,6 @@ bool NormalBlock::init( const std::string& nodeName, const BlockData& data )
 
 void NormalBlock::onContactBegin( Node* contactNode )
 {
-	CCLOG( "NormalBlockに衝突したよ！" );
 }
 
 void NormalBlock::initPhysics()

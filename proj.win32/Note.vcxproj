@@ -145,9 +145,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Object\Manager\ObjectManager.cpp" />
     <ClCompile Include="..\Classes\Game\Object\Manager\PlayerManager.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Bar\Bar.cpp" />
-    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\Block.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockDataReader.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockFactory.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockManager.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlueBlock.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\GoalBlock.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\NormalBlock.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\RedBlock.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Goal\Goal.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\Note.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\NoteLine.cpp" />
@@ -198,15 +202,19 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Object\Manager\ObjectManager.h" />
     <ClInclude Include="..\Classes\Game\Object\Manager\PlayerManager.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Bar\Bar.h" />
-    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\Block.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockData.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockDataReader.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockFactory.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockManager.h" />
-    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\ObjectType.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlueBlock.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\GoalBlock.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\NormalBlock.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\RedBlock.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Goal\Goal.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\Note.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\NoteLine.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\NoteValue.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\ObjectType.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Rest\Rest.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\StageObj.h" />
     <ClInclude Include="..\Classes\Game\Object\Test\TestObject.h" />
@@ -277,6 +285,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Plist\BlockData.plist" />
+    <None Include="..\Resources\Plist\Stage1.plist" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

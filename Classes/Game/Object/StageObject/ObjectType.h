@@ -14,12 +14,12 @@ enum class ObjectType : int
 	
 namespace converter
 {
-	int toInt( ObjectType type )
+	static int toInt( ObjectType type )
 	{
 		return static_cast< int >( type );
 	}
 	
-	ObjectType toObjectType( int bit )
+	static ObjectType toObjectType(int bit)
 	{
 		return static_cast< ObjectType >( bit );
 	}

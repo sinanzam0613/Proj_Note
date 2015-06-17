@@ -5,8 +5,9 @@
 //インクルード
 #include "cocos2d.h"
 #include "Utility/Collision/Collider.h"
-#include "Game/Object/StageObject/ObjectType.h"
 #include "PlayerState.h"
+
+enum class ObjectType : int;
 
 class Note;
 

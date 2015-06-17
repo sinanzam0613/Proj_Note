@@ -8,11 +8,11 @@
 #include "Game/Object/Character/Player/Player.h"
 #include "Game/Object/StageObject/Block/BlockManager.h"
 #include "Game/Object/UIObject/UiObjectLayer.h"
-
 #include "Utility/Collision/PhysicsListener.h"
 #include "Utility/Camera/Camera.h"
 #include "Utility/Action/Follow/CustomFollow.h"
 #include "Utility/SceneSupport/SceneCreator.h"
+#include "Game/Object/StageObject/ObjectType.h"
 #include <math.h>
 #include <random>
 
@@ -52,7 +52,7 @@ bool HigeLayer::init() {
 	goal->setPosition(Vec2(18600, 500));
 	addChild(goal);
 
-	auto sprite = Player::create("Helper1.png",ObjectType::OBJECT_PLAYER_RED,100);
+	auto sprite = Player::create("Helper1.png", ObjectType::OBJECT_PLAYER_RED, 100);
 	sprite->setPosition(Vec2(100, 230));
 	sprite->setTag(555);
 	addChild(sprite);

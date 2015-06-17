@@ -1,9 +1,8 @@
 #include "Player.h"
 #include "Utility/CocosAssistant/SpriteCreator.h"
 #include "Utility/Collision/PhysicsCollisionManager.h"
-#include "Game/Object/StageObject/Block/Block.h"
-#include "Game/Object/StageObject/ObjectType.h"
 #include "Utility/Action/Jump.h"
+#include "Game/Object/StageObject/ObjectType.h"
 
 using namespace cocos2d;
 
@@ -127,8 +126,8 @@ const Vec2& Player::getPosition()const
 
 void Player::onContactBegin(cocos2d::Node* contactNode){
 
-	if ( std::strstr(static_cast<Block*>(contactNode)->getName().c_str(),"Block")){
-		if (!static_cast<Block*>(contactNode)->isChange()){
+	if ( std::strstr(contactNode->getName().c_str(),"Block")){
+		if (!std::strstr(contactNode->getName().c_str(), "After")){
 			mState = MISS;
 			return;
 		}

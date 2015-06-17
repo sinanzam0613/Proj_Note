@@ -201,9 +201,6 @@
     <ClCompile Include="..\Classes\Game\Object\StageObject\Rest\Rest.cpp">
       <Filter>Classes\Game\Object\StageObject\Rest</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\Block.cpp">
-      <Filter>Classes\Game\Object\StageObject\Block</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\UIObject\SlideBar.cpp">
       <Filter>Classes\Game\Object\SideBar</Filter>
     </ClCompile>
@@ -257,6 +254,21 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Scene\GameMain\GameDataMediator.cpp">
       <Filter>Classes\Game\Scene\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlockFactory.cpp">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\BlueBlock.cpp">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\GoalBlock.cpp">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\NormalBlock.cpp">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Block\RedBlock.cpp">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -380,12 +392,6 @@
     <ClInclude Include="..\Classes\Game\Object\StageObject\Rest\Rest.h">
       <Filter>Classes\Game\Object\StageObject\Rest</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\Block.h">
-      <Filter>Classes\Game\Object\StageObject\Block</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\ObjectType.h">
-      <Filter>Classes\Game\Object\StageObject\Block</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\UIObject\SlideBar.h">
       <Filter>Classes\Game\Object\SideBar</Filter>
     </ClInclude>
@@ -461,6 +467,24 @@
     <ClInclude Include="..\Classes\Game\Scene\GameMain\GameDataMediator.h">
       <Filter>Classes\Game\Scene\Test</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlockFactory.h">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\BlueBlock.h">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\GoalBlock.h">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\NormalBlock.h">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Block\RedBlock.h">
+      <Filter>Classes\Game\Object\StageObject\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\ObjectType.h">
+      <Filter>Classes\Game\Object\StageObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
@@ -469,6 +493,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Plist\BlockData.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Plist\Stage1.plist">
       <Filter>resource</Filter>
     </None>
   </ItemGroup>
