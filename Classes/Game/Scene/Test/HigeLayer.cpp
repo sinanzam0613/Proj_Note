@@ -7,6 +7,8 @@
 #include "Game/Object/StageObject/Goal/Goal.h"
 #include "Game/Object/Character/Player/Player.h"
 #include "Game/Object/StageObject/Block/BlockManager.h"
+#include "Game/Object/StageObject/Gimmick/Gimmick.h"
+#include "Game/Object/StageObject/Gimmick/GimmickManager.h"
 #include "Game/Object/UIObject/UiObjectLayer.h"
 #include "Utility/Collision/PhysicsListener.h"
 #include "Utility/Camera/Camera.h"
@@ -68,6 +70,10 @@ bool HigeLayer::init() {
 	auto b = BlockManager::create();
 	b->setTag(123);
 	addChild(b);
+
+	auto gm = GimmickManager::create();
+	gm->setTag(456);
+	addChild(gm);
 
    	uiLayer = UiObjectLayer::create();
     
