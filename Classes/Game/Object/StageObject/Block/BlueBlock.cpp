@@ -55,7 +55,9 @@ void BlueBlock::onContactBegin( Node* contactNode )
 	
 	if ( converter::toObjectType( contactBit ) == ObjectType::OBJECT_PLAYER_BLUE )
 	{
-		setTexture( mBlockData.blockTextureName + "After.png" );
+		auto name = mBlockData.blockTextureName + "After";
+		setTexture( name + ".png" );
+		setName( name );
 		mIsChanged = true;
 		initPhysics();
 	}
