@@ -25,6 +25,8 @@ public:
 
 	void update(float dt, UiObjectLayer* uilayer);
 
+	void playerUpdate(float dt, UiObjectLayer* uilayer);
+
 	PlayerManager* mPlayerManager;
 	BlockManager* mBlockManager;
 };

@@ -17,7 +17,9 @@ bool TestObject::init()
 	{
 		return false;
 	}
-	mSprite = SpriteCreator::create("Texture/GamePlay/Character/Test.png");
+	mSprite = SpriteCreator::createPhysicsBox("Texture/GamePlay/Character/Test.png",Size(100,100));
+
+
 	this->addChild(mSprite);
 
 	
@@ -38,5 +40,6 @@ void TestObject::setPosition(const Vec2& position)
 void TestObject::dead()
 {
 	DeadAnimation anime;
+	mSprite->getPhysicsBody()->setDynamic(false);
 	anime.action(mSprite);
 }

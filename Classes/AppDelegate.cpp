@@ -5,6 +5,7 @@
 #include "Game/Scene/Test/HigeLayer.h"
 #include "Game/Scene/GameMain/GameMainScene.h"
 #include "Game/Scene/Title/TitleScene.h"
+#include "Game/Scene/Test/TestLayer.h"
 
 using namespace cocos2d;
 

@@ -17,7 +17,7 @@ void DeadAnimation::action(Sprite* sprite)
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	auto dead = JumpTo::create(2, Vec2(sprite->getPosition().x, -100), origin.y + visibleSize.height / 2 + 200, 1);
-	auto rotate = RotateBy::create(2, Vec3(0, 0, 720));
+	auto rotate = RotateTo::create(2, 720*2);
 	//auto repeat = RepeatForever::create(rotate);
 	auto spawn = Spawn::create(dead, rotate,NULL);
 	spawn->setTag(21);

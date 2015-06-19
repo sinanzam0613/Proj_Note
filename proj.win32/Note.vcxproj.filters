@@ -270,6 +270,9 @@
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\RedBlock.cpp">
       <Filter>Classes\Game\Object\StageObject\Block</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\Character\Player\DeadAnimation.cpp">
+      <Filter>Classes\Game\Object\Character\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -487,6 +490,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Scene\GameMain\Tags.h">
       <Filter>Classes\Game\Scene\GameMain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\Character\Player\DeadAnimation.h">
+      <Filter>Classes\Game\Object\Character\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
