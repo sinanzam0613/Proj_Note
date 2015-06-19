@@ -5,6 +5,8 @@
 #include "../Manager/PlayerManager.h"
 #include "Game/Object/Character/Enemy/RestEnemy.h"
 #include "../Manager/EnemyManager.h"
+#include "Game/Object/Character/Player/DeadAnimation.h"
+
 
 using namespace cocos2d;
 
@@ -34,7 +36,7 @@ bool ObjectManager::init()
 
 	//以下、テストオブジェクト生成
 	mObject = TestObject::create();
-	mObject->setPosition(300,500);
+	mObject->setPosition(Vec2(300,0));
 	this->addChild(mObject);
 
 	//以下、エネミーのテスト
@@ -79,7 +81,8 @@ ObjectManager* ObjectManager::create()
 
 void ObjectManager::onTouchBegan(Vec2 touchPoint)
 {
-	mObject->setPosition(touchPoint);
+	//mObject->setPosition(touchPoint);
+	mObject->dead();
 }
 
 bool ObjectManager::distanceCheck()
