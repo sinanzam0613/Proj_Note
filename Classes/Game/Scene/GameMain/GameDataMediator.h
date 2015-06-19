@@ -4,6 +4,11 @@
 #include "../../Object/Manager/PlayerManager.h"
 #include "../../Object/StageObject/Block/BlockManager.h"
 
+enum PLAYERS{
+	PLAYER1 = 0,
+	PLAYER2
+};
+
 class UiObjectLayer;
 
 class GameDataMediator : public cocos2d::Node
@@ -15,6 +20,8 @@ public:
 	static GameDataMediator* create();
 
 	virtual bool init();
+
+	void setFollow(cocos2d::Layer* layer);
 
 	void update(float dt, UiObjectLayer* uilayer);
 

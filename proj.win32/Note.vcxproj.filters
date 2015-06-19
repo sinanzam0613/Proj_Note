@@ -485,6 +485,9 @@
     <ClInclude Include="..\Classes\Game\Object\StageObject\ObjectType.h">
       <Filter>Classes\Game\Object\StageObject</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\GameMain\Tags.h">
+      <Filter>Classes\Game\Scene\GameMain</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

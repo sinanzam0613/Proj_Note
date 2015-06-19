@@ -1,4 +1,7 @@
 ﻿#include "GameMainState.h"
+#include "Utility/Collision/PhysicsListener.h"
+#include "Utility/SceneSupport/SceneCreator.h"
+#include "Game/Scene/GameMain/GameDataMediator.h"
 
 USING_NS_CC;
 
@@ -20,12 +23,24 @@ bool GameMainState::init(Layer* layer){
 	mSceneState = FADEIN;
 	mUpdateState = UPDATESTART;
 	parentLayer = layer;
-	mTestTouch = false;
 
-	auto debugLabel = Label::createWithTTF("TitleScreen", "Font/MarkerFelt.ttf", 64);
-	debugLabel->setName("ラベル");
-	debugLabel->setPosition(Vec2(500, 500));
-	parentLayer->addChild(debugLabel);
+	auto back = Sprite::create("Texture/GamePlay/GameStage/BackGround1.png");
+	back->setAnchorPoint(Vec2(0, 0));
+	back->setPosition(Vec2(0, 5));
+	parentLayer->addChild(back);
+
+	auto mediator = GameDataMediator::create();
+	mediator->setTag(12345);
+	parentLayer->addChild(mediator);
+
+	mediator->setFollow(parentLayer);
+
+	auto lis = PhysicsListener::create();
+	parentLayer->addChild(lis);
+
+	uiLayer = UiObjectLayer::create();
+
+	parentLayer->addChild(uiLayer);
 
 	return true;
 }
@@ -36,13 +51,7 @@ void GameMainState::update(float at){
 }
 
 void GameMainState::fadeIn(float at){
-	if (mTestTouch){
-		mTestTouch = false;
-		mSceneState = MAIN;
-	}
-	auto obj = (Label*)parentLayer->getChildByName("ラベル");
-
-	obj->setString("fadeIN");
+	mSceneState = MAIN;
 }
 
 void GameMainState::sceneMain(float at){
@@ -50,13 +59,8 @@ void GameMainState::sceneMain(float at){
 }
 
 void GameMainState::fadeOut(float at){
-	if (mTestTouch){
-		mTestTouch = false;
-		mSceneState = FADEIN;
-	}
-	auto obj = (Label*)parentLayer->getChildByName("ラベル");
-
-	obj->setString("fadeOut");
+	
+	mSceneState = FADEIN;	
 }
 
 void GameMainState::mainStart(float at){
@@ -64,13 +68,13 @@ void GameMainState::mainStart(float at){
 }
 
 void GameMainState::mainLoop(float at){
-	if (mTestTouch){
-		mTestTouch = false;
-		mUpdateState = UPDATEEND;
-	}
-	auto obj = (Label*)parentLayer->getChildByName("ラベル");
 
-	obj->setString("Loop");
+	mSlideBar->setPosition(Vec2(parentLayer->getPosition().x, parentLayer->getPosition().y), uiLayer);
+
+	auto media = (GameDataMediator*)parentLayer->getChildByTag(12345);
+
+	media->update(at, uiLayer);
+	
 }
 
 void GameMainState::mainEnd(float at){
@@ -79,7 +83,6 @@ void GameMainState::mainEnd(float at){
 }
 
 bool GameMainState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
-	mTestTouch = true;
 
 	return true;
 }

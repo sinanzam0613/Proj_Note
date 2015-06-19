@@ -2,7 +2,6 @@
 #define _HIGE_LAYER_H_
 
 #include "cocos2d.h"
-#include <vector>
 #include "Game/Object/UIObject/SlideBar.h"
 #include "Game/Object/UIObject/UiObjectLayer.h"
 

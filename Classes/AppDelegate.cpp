@@ -3,6 +3,7 @@
 #include "Utility/Audio/ADX2Manager.h"
 #include "Utility/Audio/ADX2LogoLayer.h"
 #include "Game/Scene/Test/HigeLayer.h"
+#include "Game/Scene/GameMain/GameMainScene.h"
 #include "Game/Scene/Title/TitleScene.h"
 
 using namespace cocos2d;
@@ -36,7 +37,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	
 	mADX2Manager->init( "Note.acf" );
 	
-	auto firstScene = SceneCreator::createPhysicsScene( HigeLayer::create(),Vect(0,-9.8f),5.0f,true );
+	auto firstScene = SceneCreator::createPhysicsScene( GameMainScene::create(),Vect(0,-9.8f),5.0f,true );
 	auto scene		= TransitionFade::create( 1.5f, firstScene, Color3B::BLACK );
 	director->runWithScene( scene );
 	
