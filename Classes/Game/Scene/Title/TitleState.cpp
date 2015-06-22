@@ -1,12 +1,10 @@
 ﻿#include "TitleState.h"
-#include "cocos-ext.h"
 #include "Utility/Audio/ADX2Player.h"
 #include "Utility/SceneSupport/SceneCreator.h"
 #include "Game/Scene/StageSelect/StageSelectScene.h"
 
 
 USING_NS_CC;
-using namespace cocos2d::extension;
 
 TitleState* TitleState::create(Layer* layer){
 

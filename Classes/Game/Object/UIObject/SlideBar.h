@@ -2,7 +2,7 @@
 #define _SLIDEBAR_H_
 
 #include "cocos2d.h"
-#include "extensions/cocos-ext.h"
+#include <extensions/cocos-ext.h>
 #include <math.h>
 
 /**
