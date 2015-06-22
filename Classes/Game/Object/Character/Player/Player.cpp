@@ -3,6 +3,8 @@
 #include "Utility/Collision/PhysicsCollisionManager.h"
 #include "Utility/Action/Jump.h"
 #include "Game/Object/StageObject/ObjectType.h"
+#include "Game/Object/Character/Player/DeadAnimation.h"
+#include "Utility/Animation/SimpleParticle.h"
 
 using namespace cocos2d;
 
@@ -67,9 +69,13 @@ bool Player::init(const std::string& fileName, ObjectType type)
 
 void Player::update(float deltaTime)
 {
+	if (mState == DEAD) return;
+
 	if (mSprite->getPositionY() < -mSprite->getContentSize().height){
 		mSprite->stopAllActions();
-		//mSprite->setPosition(Vec2(100, 250));
+		DeadAnimation anim;
+		anim.action(mSprite);
+		mPhysicsBody->setDynamic(false);
 		mState = DEAD;
 	}
 	mDuration += deltaTime;
@@ -92,10 +98,7 @@ Player* Player::create(const std::string& fileName,ObjectType type,float jumpTim
 void Player::jump(Vec2 targetPosition)
 {
 	//すでにジャンプが実行されているのであれば何もしない。
-	if (mState == JUMP || mState == MISS)
-	{
-		return;
-	}
+	if (!mState == NORMAL){ return; }
 	mDuration = 0;
 
 	mTargetPos = targetPosition;
@@ -112,6 +115,8 @@ void Player::jump(Vec2 targetPosition)
 	mPhysicsBody->setDynamic(false);
 
 	mState = JUMP;
+	auto p = SimpleParticle::create("Particle/JumpEffect.plist", Vec2(getPosition().x, getPosition().y - 20));
+	getParent()->addChild(p);
 }
 
 void Player::setPosition(const Vec2& position)

@@ -1,6 +1,9 @@
 ﻿#ifndef GAMEMAINSTATE_H
 #define GAMEMAINSTATE_H
 
+#include "cocos2d.h"
+#include "Game/Object/UIObject/SlideBar.h"
+#include "Game/Object/UIObject/UiObjectLayer.h"
 #include "Utility/SceneSupport/IScene.h"
 
 class GameMainState : public IScene
@@ -81,7 +84,8 @@ private:
 	void mainEnd(float at)   override;
 
 private:
-	bool mTestTouch;
+	SlideBar* mSlideBar;
+	UiObjectLayer* uiLayer;
 };
 
 #endif

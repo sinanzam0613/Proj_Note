@@ -22,6 +22,9 @@ namespace CustomAction{
 		static CustomFollow* create(cocos2d::Node* followedNode);
 		static CustomFollow* create(cocos2d::Node* followedNode, CustomFollowType type);
 		static CustomFollow* create(cocos2d::Node* followedNode, cocos2d::Node* equalityFollowedNode, CustomFollowType type);
+
+		static CustomFollow* create(cocos2d::Node* followedNode, CustomFollowType type, cocos2d::Rect marginRect);
+		static CustomFollow* create(cocos2d::Node* followedNode, cocos2d::Node* equalityFollowedNode, CustomFollowType type, cocos2d::Rect marginRect);
 		static CustomFollow* create(cocos2d::Node* followedNode, cocos2d::Rect marginRect);
 
 		inline bool isBoundarySet() const { return _boundarySet; }
@@ -43,6 +46,7 @@ namespace CustomAction{
 		*/
 		CustomFollow()
 			: _followedNode(nullptr)
+			, _equalityFollowedNode(nullptr)
 			, _boundarySet(false)
 			, _boundaryFullyCovered(false)
 			, _leftBoundary(0.0)

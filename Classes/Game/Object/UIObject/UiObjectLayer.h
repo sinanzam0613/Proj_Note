@@ -17,6 +17,8 @@ public:
     
     /**　@brief  レイヤー生成*/
     CREATE_FUNC(UiObjectLayer);
+
+	SlideBar* getSlideBar(){ return mSlideBar; }
     
 protected:
     /**　@brief  スライドバー用ポインタ*/

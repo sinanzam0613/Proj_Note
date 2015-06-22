@@ -1,6 +1,6 @@
 #include "TestObject.h"
 #include "Utility/CocosAssistant/SpriteCreator.h"
-
+#include "Game/Object/Character/Player/DeadAnimation.h"
 using namespace cocos2d;
 
 TestObject::TestObject()
@@ -17,8 +17,12 @@ bool TestObject::init()
 	{
 		return false;
 	}
-	mSprite = SpriteCreator::create("Texture/GamePlay/Character/Test.png");
+	mSprite = SpriteCreator::createPhysicsBox("Texture/GamePlay/Character/Test.png",Size(100,100));
+
+
 	this->addChild(mSprite);
+
+	
 	return true;
 }
 
@@ -27,3 +31,15 @@ void TestObject::update(float deltaTime)
 
 }
 
+void TestObject::setPosition(const Vec2& position)
+{
+	mSprite->setPosition(position);
+}
+
+
+void TestObject::dead()
+{
+	DeadAnimation anime;
+	mSprite->getPhysicsBody()->setDynamic(false);
+	anime.action(mSprite);
+}
