@@ -106,6 +106,9 @@
     <Filter Include="Classes\Game\Object\Manager">
       <UniqueIdentifier>{e5bc30a0-fb01-4358-949b-cf4524ff00c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Game\Scene\StageSelect">
+      <UniqueIdentifier>{9af25e49-4e3e-495a-90c2-92365a47cdd9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -275,6 +278,24 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Utility\Animation\SimpleParticle.cpp">
       <Filter>Classes\Utility\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\Title\TitleActionLayer.cpp">
+      <Filter>Classes\Game\Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\Title\TitleSpriteLayer.cpp">
+      <Filter>Classes\Game\Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\StageSelect\StageSelectActionLayer.cpp">
+      <Filter>Classes\Game\Scene\StageSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\StageSelect\StageSelectScene.cpp">
+      <Filter>Classes\Game\Scene\StageSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\StageSelect\StageSelectSpriteLayer.cpp">
+      <Filter>Classes\Game\Scene\StageSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\StageSelect\StageSelectState.cpp">
+      <Filter>Classes\Game\Scene\StageSelect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -499,6 +520,24 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\Animation\SimpleParticle.h">
       <Filter>Classes\Utility\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\Title\TitleActionLayer.h">
+      <Filter>Classes\Game\Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\Title\TitleSpriteLayer.h">
+      <Filter>Classes\Game\Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\StageSelect\StageSelectActionLayer.h">
+      <Filter>Classes\Game\Scene\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\StageSelect\StageSelectScene.h">
+      <Filter>Classes\Game\Scene\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\StageSelect\StageSelectSpriteLayer.h">
+      <Filter>Classes\Game\Scene\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\StageSelect\StageSelectState.h">
+      <Filter>Classes\Game\Scene\StageSelect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

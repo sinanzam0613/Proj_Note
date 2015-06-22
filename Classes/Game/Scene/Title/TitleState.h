@@ -3,6 +3,9 @@
 
 #include "Utility/SceneSupport/IScene.h"
 
+#include "Game/Scene/Title/TitleSpriteLayer.h"
+#include "Game/Scene/Title/TitleActionLayer.h"
+
 class TitleState : public IScene
 {
 public:
@@ -83,7 +86,11 @@ private:
 private:
 	bool mTestTouch;
     
+    //スプライト用レイヤーのポインタ
+    TitleSpriteLayer* mTitleSpriteLayer;
+    
+    //アクション用レイヤーのポインタ
+    TitleActionLayer* mTitleActionLayer;
+    
 };
-
-
 #endif
