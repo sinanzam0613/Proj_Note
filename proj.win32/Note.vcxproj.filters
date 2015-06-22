@@ -273,6 +273,9 @@
     <ClCompile Include="..\Classes\Game\Object\Character\Player\DeadAnimation.cpp">
       <Filter>Classes\Game\Object\Character\Player</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Utility\Animation\SimpleParticle.cpp">
+      <Filter>Classes\Utility\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -493,6 +496,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Character\Player\DeadAnimation.h">
       <Filter>Classes\Game\Object\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Animation\SimpleParticle.h">
+      <Filter>Classes\Utility\Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

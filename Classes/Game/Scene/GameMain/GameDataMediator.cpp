@@ -62,5 +62,5 @@ void GameDataMediator::update(float dt, UiObjectLayer* uiLayer){
 
 void GameDataMediator::setFollow(cocos2d::Layer* layer){
 	
-	layer->runAction(CustomAction::CustomFollow::create(mPlayerManager->getPlayer(PLAYER1), CustomAction::CustomFollowXOnly));
+	layer->runAction(CustomAction::CustomFollow::create(mPlayerManager->getPlayer(PLAYER1), mPlayerManager->getPlayer(PLAYER2), CustomAction::CustomFollowXOnly, cocos2d::Rect(0, 0, 20000, 800)));
 }

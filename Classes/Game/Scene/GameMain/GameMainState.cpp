@@ -24,7 +24,7 @@ bool GameMainState::init(Layer* layer){
 	mUpdateState = UPDATESTART;
 	parentLayer = layer;
 
-	auto back = Sprite::create("Texture/GamePlay/GameStage/BackGround1.png");
+	auto back = Sprite::create("Texture/GamePlay/GameStage/BackGround.png");
 	back->setAnchorPoint(Vec2(0, 0));
 	back->setPosition(Vec2(0, 5));
 	parentLayer->addChild(back);

@@ -43,6 +43,32 @@ namespace CustomAction{
 		return nullptr;
 	}
 
+	CustomFollow* CustomFollow::create(Node* followNode, CustomFollowType type, cocos2d::Rect  marginRect){
+		CustomFollow *follow = new CustomFollow();
+		follow->mType = type;
+		follow->mMarginRect = marginRect;
+
+		if (follow && follow->initWithTarget(followNode, marginRect)){
+			follow->autorelease();
+			return follow;
+		}
+		CC_SAFE_DELETE(follow);
+		return nullptr;
+	}
+
+	CustomFollow* CustomFollow::create(Node* followNode, Node* equalityFollowedNode, CustomFollowType type, cocos2d::Rect  marginRect){
+		CustomFollow *follow = new CustomFollow();
+		follow->mType = type;
+		follow->mMarginRect = marginRect;
+
+		if (follow && follow->initWithTarget(followNode, equalityFollowedNode, marginRect)){
+			follow->autorelease();
+			return follow;
+		}
+		CC_SAFE_DELETE(follow);
+		return nullptr;
+	}
+
 	CustomFollow* CustomFollow::create(Node* followNode, cocos2d::Rect  marginRect){
 		CustomFollow *follow = new CustomFollow();
 		follow->mMarginRect = marginRect;
@@ -62,8 +88,15 @@ namespace CustomAction{
 		{
 			if (_boundaryFullyCovered)
 				return;
+			Node* targetNode = _followedNode;
 
-			cocos2d::Point tempPos = _halfScreenSize - _followedNode->getPosition();
+			if (_equalityFollowedNode){
+				if (_followedNode->getPosition() < _equalityFollowedNode->getPosition()){
+					targetNode = _equalityFollowedNode;
+				}
+			}
+
+			cocos2d::Point tempPos = _halfScreenSize - targetNode->getPosition();
 
 			float x = clampf(tempPos.x, _leftBoundary, _rightBoundary);
 			float y = clampf(tempPos.y, _bottomBoundary, _topBoundary);
@@ -74,6 +107,7 @@ namespace CustomAction{
 			else if (mType == CustomFollowYOnly){
 				x = _target->getPositionX();
 			}
+
 
 			_target->setPosition(cocos2d::Point(x, y));
             
