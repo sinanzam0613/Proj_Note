@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Game/Object/UIObject/SlideBar.h"
+#include "Game/Object/UIObject/BackGround.h"
 
 class UiObjectLayer : public cocos2d::Layer{
   
@@ -20,9 +21,12 @@ public:
 
 	SlideBar* getSlideBar(){ return mSlideBar; }
     
+    SlideBar* getSlideBer();
+    
 protected:
     /**　@brief  スライドバー用ポインタ*/
     SlideBar* mSlideBar;
+    BackGround* mBG;
     
 };
 

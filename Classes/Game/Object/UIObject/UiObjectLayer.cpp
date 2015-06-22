@@ -38,3 +38,10 @@ bool UiObjectLayer::init(){
                               Vec2(1000, 100));
     return true;
 }
+
+/*--------------------------/
+ スライドバー取得
+/--------------------------*/
+SlideBar* UiObjectLayer::getSlideBer(){
+    return mSlideBar;
+}

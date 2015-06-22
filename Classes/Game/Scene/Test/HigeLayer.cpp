@@ -29,10 +29,14 @@ bool HigeLayer::init() {
 	listener->onTouchEnded = CC_CALLBACK_2(HigeLayer::onTouchEnded, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	
+    /*
 	auto back = Sprite::create("Texture/GamePlay/GameStage/BackGround1.png");
 	back->setAnchorPoint(Vec2(0,0));
 	back->setPosition(Vec2(0, 5));
 	addChild(back);
+    */
+    uiLayer = UiObjectLayer::create();
+    addChild(uiLayer,0);
 
 	auto rest = Rest::create("Texture/GamePlay/Character/RestEnemy.png");
 	rest->setPosition(Vec2(100, 50));
@@ -46,17 +50,11 @@ bool HigeLayer::init() {
 
 	auto lis = PhysicsListener::create();
 	addChild(lis);
-
-   	uiLayer = UiObjectLayer::create();
-    
-    addChild(uiLayer);
-        
 	return true;
 }
 
 void HigeLayer::update(float deltaTime) {
     
-
     mSlideBar->setPosition(Vec2(getPosition().x,getPosition().y),uiLayer);
 	
 	auto media = (GameDataMediator*)getChildByTag(12345);

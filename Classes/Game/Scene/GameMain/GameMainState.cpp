@@ -27,7 +27,7 @@ bool GameMainState::init(Layer* layer){
 	auto back = Sprite::create("Texture/GamePlay/GameStage/BackGround.png");
 	back->setAnchorPoint(Vec2(0, 0));
 	back->setPosition(Vec2(0, 5));
-	parentLayer->addChild(back);
+	parentLayer->addChild(back,-1);
 
 	auto mediator = GameDataMediator::create();
 	mediator->setTag(12345);

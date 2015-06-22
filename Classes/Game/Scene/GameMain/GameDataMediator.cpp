@@ -29,6 +29,8 @@ bool GameDataMediator::init(){
 
 	this->addChild(mPlayerManager);
 	this->addChild(mBlockManager);
+
+	return true;
 }
 
 void GameDataMediator::update(float dt, UiObjectLayer* uiLayer){
