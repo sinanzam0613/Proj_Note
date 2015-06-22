@@ -14,7 +14,7 @@ public:
     virtual bool init();
     
     /**　@brief  レイヤー生成*/
-    CREATE_FUNC(TitleSpriteLayer);
+    static TitleSpriteLayer* create();
     
     /**　@brief  時点描画*/
     void nextDraw();
@@ -24,8 +24,6 @@ private:
     /**　@brief  初期描画*/
     void fastDraw();
    
-    
-    
     /**　@brief  背景描画*/
     void drawBackGraund();
     

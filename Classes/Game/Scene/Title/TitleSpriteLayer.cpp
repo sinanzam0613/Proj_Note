@@ -119,7 +119,7 @@ void TitleSpriteLayer::drawStart(){
 /--------------------------*/
 void TitleSpriteLayer::drawStageSelect(){
     auto stageselect = Sprite::create("Texture/GamePlay/GameScene/Title/Title_StageSelect.png");
-    stageselect->setPosition(Vec2(400,100));
+    stageselect->setPosition(Vec2(500,100));
     stageselect->setAnchorPoint(Vec2(0,0));
     addChild(stageselect);
  }
@@ -128,8 +128,25 @@ void TitleSpriteLayer::drawStageSelect(){
 /--------------------------*/
 void TitleSpriteLayer::drawEnd(){
     auto end = Sprite::create("Texture/GamePlay/GameScene/Title/Title_End.png");
-    end->setPosition(Vec2(800,100));
+    end->setPosition(Vec2(900,100));
     end->setAnchorPoint(Vec2(0,0));
     addChild(end);
  }
+
+/*--------------------------/
+ シーン生成
+ /--------------------------*/
+TitleSpriteLayer* TitleSpriteLayer::create()
+{
+    auto instance = new TitleSpriteLayer();
+    
+    if (instance && instance->init())
+    {
+        instance->autorelease();
+        return instance;
+    }
+    
+    CC_SAFE_DELETE(instance);
+    return nullptr;
+}
 

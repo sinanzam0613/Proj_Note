@@ -17,6 +17,9 @@ bool UiObjectLayer::init(){
     
     //スライドバー生成
     mSlideBar = SlideBar::create();
+    mBG = BackGround::create();
+    
+    mBG->BackGraundCreate(this);
     
     //プレイヤー１用スライドバー生成
     mSlideBar->slideBarCreate("p1",
@@ -37,5 +40,12 @@ bool UiObjectLayer::init(){
                               "Texture/GamePlay/Controller/switch-thumb_Blue.png",
                               Vec2(1000, 100));
     return true;
+}
+
+/*--------------------------/
+ スライドバー取得
+/--------------------------*/
+SlideBar* UiObjectLayer::getSlideBer(){
+    return mSlideBar;
 }
 

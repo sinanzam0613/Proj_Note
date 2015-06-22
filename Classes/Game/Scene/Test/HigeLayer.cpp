@@ -10,6 +10,7 @@
 #include "Game/Object/StageObject/Block/BlockManager.h"
 #include "Game/Object/UIObject/UiObjectLayer.h"
 
+
 #include "Utility/Collision/PhysicsListener.h"
 #include "Utility/Camera/Camera.h"
 #include "Utility/Action/Follow/CustomFollow.h"
@@ -39,10 +40,14 @@ bool HigeLayer::init() {
 	listener->onTouchEnded = CC_CALLBACK_2(HigeLayer::onTouchEnded, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	
+    /*
 	auto back = Sprite::create("Texture/GamePlay/GameStage/BackGround1.png");
 	back->setAnchorPoint(Vec2(0,0));
 	back->setPosition(Vec2(0, 5));
 	addChild(back);
+    */
+    uiLayer = UiObjectLayer::create();
+    addChild(uiLayer,0);
 
 	auto rest = Rest::create("Texture/GamePlay/Character/RestEnemy.png");
 	rest->setPosition(Vec2(100, 50));
@@ -69,15 +74,17 @@ bool HigeLayer::init() {
 	b->setTag(123);
 	addChild(b);
 
-    uiLayer = UiObjectLayer::create();
-    
-    addChild(uiLayer);
+
     
     
     mSlideBar = SlideBar::create();
     
 	runAction(Follow::create(sprite));
 	runAction(CustomAction::CustomFollow::create(sprite,CustomAction::CustomFollowXOnly));
+    
+    
+   // auto pause = PauseLayer::create();
+    //addChild( pause );
 
 	return true;
 }
@@ -86,7 +93,9 @@ void HigeLayer::update(float deltaTime) {
     
     //カメラ追従
     //auto player = (Player*)getChildByTag(55);
-    mSlideBar->setPosition(Vec2(getPosition().x,getPosition().y)/*player->getPosition()*/,uiLayer);
+    
+    auto slideBar = uiLayer->getSlideBer();
+    slideBar->setPosition(Vec2(getPosition().x,getPosition().y)/*player->getPosition()*/,uiLayer);
 
     
 	
@@ -97,8 +106,8 @@ void HigeLayer::update(float deltaTime) {
         
 		sprite2->update(deltaTime);
 
-		if (mSlideBar->isTouch("p2", this)){
-			sprite2->changeJumpTime(mSlideBar->getValue("p2", this));
+		if (slideBar->isTouch("p2", uiLayer)){
+			sprite2->changeJumpTime(mSlideBar->getValue("p2", uiLayer));
 		}
 
 		if (!sprite2->isJump()){
@@ -115,8 +124,8 @@ void HigeLayer::update(float deltaTime) {
 
 		sprite->update(deltaTime);
 
-		if (mSlideBar->isTouch("p1", this)){
-			sprite->changeJumpTime(mSlideBar->getValue("p1", this));
+		if (slideBar->isTouch("p1", uiLayer)){
+			sprite->changeJumpTime(mSlideBar->getValue("p1", uiLayer));
 		}
 
 		if (sprite->isJump()) return;

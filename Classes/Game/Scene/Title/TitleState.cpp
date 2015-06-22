@@ -1,6 +1,8 @@
 ﻿#include "TitleState.h"
 #include "cocos-ext.h"
 #include "Utility/Audio/ADX2Player.h"
+#include "Utility/SceneSupport/SceneCreator.h"
+#include "Game/Scene/StageSelect/StageSelectScene.h"
 
 
 USING_NS_CC;
@@ -31,6 +33,8 @@ bool TitleState::init(Layer* layer){
     
     mTitleSpriteLayer = TitleSpriteLayer::create();
     layer->addChild(mTitleSpriteLayer);
+    mTitleActionLayer = TitleActionLayer::create();
+    layer->addChild(mTitleActionLayer);
     
 	return true;
 }
@@ -64,8 +68,6 @@ void TitleState::fadeOut(float at){
 		mTestTouch = false;
 		mSceneState = FADEIN;
 	}
-    
-    
 }
 
 /*-----------------------------------------------------
@@ -82,8 +84,32 @@ void TitleState::mainLoop(float at){
 		mUpdateState = UPDATEEND;
 	}
     
+    int mState = mTitleActionLayer->getSelectCount();
     
+    switch (mState)
+    {
+        case 0:
+            break;
+        
+        case 1:
+        {
+            //ゲーム生成
+            
+            
+        }
+            break;
+        case 2:
+        {
+            //ステージセレクト
+            auto nextScene = SceneCreator::createScene(StageSelectScene::create());
+            auto scene	= TransitionFade::create( 1.5f, nextScene, Color3B::BLACK );
+            auto dir = Director::getInstance();
+            dir->replaceScene(scene);
+            break;
+        }
+    }
 }
+
 /*-----------------------------------------------------
  -------シーンメイン（エンド）
  -----------------------------------------------------*/
@@ -99,14 +125,8 @@ bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
     auto touchLogo = mTitleSpriteLayer->getChildByName("TouchLogo");
     touchLogo->stopAllActions();
     touchLogo->setOpacity(0);
-    auto titleLogo = mTitleSpriteLayer->getChildByName("TitleLogo");
-    titleLogo->stopAllActions();
-    titleLogo->setOpacity(0);
     
-    
-        
-    mTitleSpriteLayer->nextDraw();
-
+    mTitleActionLayer->CreateButton();
     
 	return true;
 }
