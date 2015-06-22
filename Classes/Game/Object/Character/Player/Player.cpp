@@ -25,7 +25,7 @@ bool Player::init(const std::string& fileName, ObjectType type)
 
 	const std::string file = "Texture/GamePlay/Character/" + fileName;
 	mSprite = SpriteCreator::create(file);
-	mPhysicsBody = PhysicsBody::createBox(Size(mSprite->getContentSize().width, mSprite->getContentSize().height / 4));
+	mPhysicsBody = PhysicsBody::createBox(cocos2d::Size(mSprite->getContentSize().width, mSprite->getContentSize().height / 4));
 	mPhysicsBody->setMass(1.0f);
 	mPhysicsBody->setDynamic(true);
 	mPhysicsBody->setPositionOffset(Vec2(0, -40));

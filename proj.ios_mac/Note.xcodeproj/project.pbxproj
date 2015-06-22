@@ -60,7 +60,6 @@
 		5AEA6BCD1B30484900EF2B0F /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA6B2D1B30484900EF2B0F /* AppDelegate.cpp */; };
 		5AEA6BCE1B30484900EF2B0F /* RestEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA6B331B30484900EF2B0F /* RestEnemy.cpp */; };
 		5AEA6BCF1B30484900EF2B0F /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA6B371B30484900EF2B0F /* Player.cpp */; };
-		5AEA6BD01B30484900EF2B0F /* PlayerState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA6B391B30484900EF2B0F /* PlayerState.cpp */; };
 		5AEA6BD11B30484900EF2B0F /* EnemyManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA6B3C1B30484900EF2B0F /* EnemyManager.cpp */; };
 		5AEA6BD21B30484900EF2B0F /* NoteManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA6B3E1B30484900EF2B0F /* NoteManager.cpp */; };
 		5AEA6BD31B30484900EF2B0F /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA6B401B30484900EF2B0F /* ObjectManager.cpp */; };
@@ -314,7 +313,6 @@
 		5AEA6B361B30484900EF2B0F /* DeadAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadAnimation.h; sourceTree = "<group>"; };
 		5AEA6B371B30484900EF2B0F /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		5AEA6B381B30484900EF2B0F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		5AEA6B391B30484900EF2B0F /* PlayerState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerState.cpp; sourceTree = "<group>"; };
 		5AEA6B3A1B30484900EF2B0F /* PlayerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerState.h; sourceTree = "<group>"; };
 		5AEA6B3C1B30484900EF2B0F /* EnemyManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyManager.cpp; sourceTree = "<group>"; };
 		5AEA6B3D1B30484900EF2B0F /* EnemyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyManager.h; sourceTree = "<group>"; };
@@ -672,7 +670,6 @@
 				5AEA6B361B30484900EF2B0F /* DeadAnimation.h */,
 				5AEA6B371B30484900EF2B0F /* Player.cpp */,
 				5AEA6B381B30484900EF2B0F /* Player.h */,
-				5AEA6B391B30484900EF2B0F /* PlayerState.cpp */,
 				5AEA6B3A1B30484900EF2B0F /* PlayerState.h */,
 			);
 			path = Player;
@@ -1284,7 +1281,6 @@
 				5AEA6BD51B30484900EF2B0F /* Bar.cpp in Sources */,
 				5AEA6BF21B30484900EF2B0F /* SpriteAnimation.cpp in Sources */,
 				5AEA6BF31B30484900EF2B0F /* ADX2Converter.cpp in Sources */,
-				5AEA6BD01B30484900EF2B0F /* PlayerState.cpp in Sources */,
 				5AEA6BD81B30484900EF2B0F /* BlockManager.cpp in Sources */,
 				5AEA6BFE1B30484900EF2B0F /* PhysicsListener.cpp in Sources */,
 				5AEA6BE11B30484900EF2B0F /* TestObject.cpp in Sources */,
