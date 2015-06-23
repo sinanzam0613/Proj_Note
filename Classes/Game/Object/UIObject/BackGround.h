@@ -2,6 +2,7 @@
 #define _BACKGROUND_H_
 
 #include "cocos2d.h"
+enum Tags;
 
 /**
  *	@class	： BackGround
@@ -24,13 +25,18 @@ public:
      *  @brief  インスタンスの生成
      * @return	SlideBar   インスタンス
      */
-    static BackGround* create();
+	static BackGround* create(cocos2d::Layer* layer);
     
     /**@brief  背景の生成　*/
-    void BackGraundCreate(cocos2d::Layer* layer);
+	void BackGraundCreate(cocos2d::Layer* layer,const cocos2d::Vec2& pos, const Tags tag);
     
-private:
 
+	void update(float dt, cocos2d::Layer* layer);
+
+	void resetPos(cocos2d::Layer* layer, const Tags tag);
+
+private:
+	int init(cocos2d::Layer* layer);
     
 };
 

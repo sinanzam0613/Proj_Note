@@ -259,4 +259,8 @@ namespace CustomAction{
 		_target = nullptr;
 		Action::stop();
 	}
+
+	const Vec2& CustomFollow::getCameraPos() const{
+		return _target->getPosition();
+	}
 }

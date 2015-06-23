@@ -2,6 +2,8 @@
 #include "Utility/Collision/PhysicsListener.h"
 #include "Utility/SceneSupport/SceneCreator.h"
 #include "Game/Scene/GameMain/GameDataMediator.h"
+#include "Game/Object/UIObject/BackGround.h"
+#include "Game/Scene/GameMain/Tags.h"
 
 USING_NS_CC;
 
@@ -24,10 +26,6 @@ bool GameMainState::init(Layer* layer){
 	mUpdateState = UPDATESTART;
 	parentLayer = layer;
 
-	auto back = Sprite::create("Texture/GamePlay/GameStage/BackGround.png");
-	back->setAnchorPoint(Vec2(0, 0));
-	back->setPosition(Vec2(0, 5));
-	parentLayer->addChild(back,-1);
 
 	auto mediator = GameDataMediator::create();
 	mediator->setTag(12345);
@@ -41,6 +39,10 @@ bool GameMainState::init(Layer* layer){
 	uiLayer = UiObjectLayer::create();
 
 	parentLayer->addChild(uiLayer);
+
+	auto back = BackGround::create(parentLayer);
+	back->setTag(1004);
+	parentLayer->addChild(back);
 
 	return true;
 }
@@ -74,6 +76,9 @@ void GameMainState::mainLoop(float at){
 	auto media = (GameDataMediator*)parentLayer->getChildByTag(12345);
 
 	media->update(at, uiLayer);
+
+	auto back = (BackGround*)parentLayer->getChildByTag(1004);
+	back->update(at, parentLayer);
 	
 }
 

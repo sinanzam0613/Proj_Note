@@ -40,6 +40,8 @@ namespace CustomAction{
 		virtual bool isDone() const override;
 		virtual void stop() override;
 
+		const cocos2d::Vec2& getCameraPos() const;
+
 	CC_CONSTRUCTOR_ACCESS:
 		/**
 		* @js ctor

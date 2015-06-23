@@ -109,6 +109,9 @@
     <Filter Include="Classes\Game\Scene\StageSelect">
       <UniqueIdentifier>{9af25e49-4e3e-495a-90c2-92365a47cdd9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Game\Object\BG">
+      <UniqueIdentifier>{0e02bbfd-e91d-4b28-851b-6cdddbbe960d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -219,9 +222,6 @@
     <ClCompile Include="..\Classes\Game\Object\Manager\PlayerManager.cpp">
       <Filter>Classes\Game\Object\Character\Player</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Game\Object\UIObject\BackGround.cpp">
-      <Filter>Classes\Game\Object</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Utility\Audio\ADX2Converter.cpp">
       <Filter>Classes\Utility\Audio</Filter>
     </ClCompile>
@@ -296,6 +296,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Scene\StageSelect\StageSelectState.cpp">
       <Filter>Classes\Game\Scene\StageSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\UIObject\BackGround.cpp">
+      <Filter>Classes\Game\Object\BG</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -437,9 +440,6 @@
     <ClInclude Include="..\Classes\Game\Object\Manager\PlayerManager.h">
       <Filter>Classes\Game\Object\Character\Player</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Game\Object\UIObject\BackGround.h">
-      <Filter>Classes\Game\Object</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Utility\Audio\ADX2Converter.h">
       <Filter>Classes\Utility\Audio</Filter>
     </ClInclude>
@@ -538,6 +538,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Scene\StageSelect\StageSelectState.h">
       <Filter>Classes\Game\Scene\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\UIObject\BackGround.h">
+      <Filter>Classes\Game\Object\BG</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
