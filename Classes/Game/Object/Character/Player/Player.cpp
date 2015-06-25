@@ -137,12 +137,13 @@ const Vec2& Player::getPosition()const
 
 void Player::onContactBegin(cocos2d::Node* contactNode){
 
-	if (mState != JUMP){ return; }
+	if (!mState == JUMP){ return; }
 
 	if (std::strstr(contactNode->getName().c_str(), "Rest")) {
 		mSprite->stopAllActions();
 		auto action = MoveTo::create(2.5f, Vec2(mSprite->getPositionX(), 0));
 		this->runAction(action);
+		mState = NORMAL;
 		return;
 	}
 
@@ -157,17 +158,18 @@ void Player::onContactBegin(cocos2d::Node* contactNode){
 		mJumpCount++;
 
 		mState = NORMAL;
-		if (_name == "Player") {
-			mSprite->setOpacity(0);
-			Util::SpriteAnimation spriteAnimetion("Texture/GamePlay/Character/");
-			auto anime = spriteAnimetion.create("Helper1_", 6, 0.08f, true, false);
-			anime->setAnchorPoint(Vec2::ZERO);
-			mSprite->addChild(anime);
-		}
-		else if (_name == "Player2") {
+
+		if (mSprite->getName() == "Player2") {
 			mSprite->setOpacity(0);
 			Util::SpriteAnimation spriteAnimetion("Texture/GamePlay/Character/");
 			auto anime = spriteAnimetion.create("Helper2_", 6, 0.08f, true, false);
+			anime->setAnchorPoint(Vec2::ZERO);
+			mSprite->addChild(anime);
+		}
+		else if (mSprite->getName() != "Player2"){
+			mSprite->setOpacity(0);
+			Util::SpriteAnimation spriteAnimetion("Texture/GamePlay/Character/");
+			auto anime = spriteAnimetion.create("Helper1_", 6, 0.08f, true, false);
 			anime->setAnchorPoint(Vec2::ZERO);
 			mSprite->addChild(anime);
 		}
@@ -176,7 +178,6 @@ void Player::onContactBegin(cocos2d::Node* contactNode){
 	if (std::strstr(contactNode->getName().c_str(), "Fermata")) {
 		changeJumpTime(3);
 	}
-
 }
 
 void Player::changeJumpTime(float changetime){
