@@ -4,11 +4,13 @@
 #include "cocos2d.h"
 #include "Game/Object/UIObject/SlideBar.h"
 #include "Game/Object/UIObject/UiObjectLayer.h"
+#include "../../Object/StageObject/Block/BlockManager.h"
 
 
 //クラス前方宣言
 class ADX2Player;
 class NoteManager;
+class Player;
 
 /**
  *	@class	：	HigeLayer
@@ -68,13 +70,16 @@ public:
 	 */
 	static HigeLayer* create();
 
+	void remove();
+
+	void reset();
 
 private:
+	
+	int mNumber;
 
-	//メンバ変数宣言
-	NoteManager* mNoteManager;
-	SlideBar* mSlideBar;
-    UiObjectLayer* uiLayer;
+	Player* player;
+	BlockManager* mBlockManager;
 
 };
 

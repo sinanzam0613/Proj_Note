@@ -4,6 +4,8 @@
 #include "Utility/Collision/PhysicsListener.h"
 #include "Utility/SceneSupport/SceneCreator.h"
 #include "Game/Scene/GameMain/GameDataMediator.h"
+#include "Game/Object/Character/Player/Player.h"
+#include "Game/Object/StageObject/ObjectType.h"
 
 
 using namespace cocos2d;
@@ -11,7 +13,7 @@ using namespace cocos2d;
 #define VISIBLESIZE Director::getInstance()->getVisibleSize()
 #define ORIGINSIZE Director::getInstance()->getVisibleOrigin()
 
-HigeLayer::HigeLayer(){
+HigeLayer::HigeLayer() : mNumber(-1){
 	srand((unsigned)time(NULL));
 }
 
@@ -29,37 +31,74 @@ bool HigeLayer::init() {
 	listener->onTouchEnded = CC_CALLBACK_2(HigeLayer::onTouchEnded, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	
-    /*
-	auto back = Sprite::create("Texture/GamePlay/GameStage/BackGround1.png");
-	back->setAnchorPoint(Vec2(0,0));
-	back->setPosition(Vec2(0, 5));
-	addChild(back);
-    */
-    uiLayer = UiObjectLayer::create();
-    addChild(uiLayer,0);
+	UserDefault* useDef = UserDefault::getInstance();
+	useDef->setIntegerForKey("selectStage", mNumber);
+	useDef->flush();
 
-	auto rest = Rest::create("Texture/GamePlay/Character/RestEnemy.png");
-	rest->setPosition(Vec2(100, 50));
-	addChild(rest);
+	player = Player::create("Helper1_1.png", ObjectType::OBJECT_PLAYER_RED, 2);
+	player->setName("Player");
+	player->setPosition(Vec2(0,0));
+	this->addChild(player);
 
-	auto mediator = GameDataMediator::create();
-	mediator->setTag(12345);
-	addChild(mediator);
-
-	mediator->setFollow(this);
 
 	auto lis = PhysicsListener::create();
 	addChild(lis);
+
+	mBlockManager = BlockManager::create();
+	mBlockManager->setName("Blocks");
+
+	this->addChild(mBlockManager);
+
+
 	return true;
 }
 
 void HigeLayer::update(float deltaTime) {
-    
-    mSlideBar->setPosition(Vec2(getPosition().x,getPosition().y),uiLayer);
-	
-	auto media = (GameDataMediator*)getChildByTag(12345);
 
-	media->update(deltaTime, uiLayer);
+	if (!getChildByName("Player")) return;
+
+	player->update(deltaTime);
+
+	if (player->jumpCount() >= 5 || player->getState() == DEAD){
+		remove();
+		mNumber  = (mNumber - 1) % -4;
+		reset();
+		return;
+	}
+
+	if (player->getState() == JUMP) return;
+	
+	player->jump(mBlockManager->getBlockPos(player->jumpCount()));
+}
+
+void HigeLayer::remove(){
+	removeChildByName("Blocks");
+	removeChildByName("Player");
+}
+
+void HigeLayer::reset(){
+
+	if (mNumber == -2){
+		player = Player::create("Helper2_1.png", ObjectType::OBJECT_PLAYER_BLUE, 2);
+		player->setName("Player");
+		player->setPosition(Vec2(0, 0));
+		this->addChild(player);
+	}
+	else{
+		player = Player::create("Helper1_1.png", ObjectType::OBJECT_PLAYER_RED, 2);
+		player->setName("Player");
+		player->setPosition(Vec2(0, 0));
+		this->addChild(player);
+	}
+
+	UserDefault* useDef = UserDefault::getInstance();
+	useDef->setIntegerForKey("selectStage", mNumber);
+	useDef->flush();
+
+	mBlockManager = BlockManager::create();
+	mBlockManager->setName("Blocks");
+
+	this->addChild(mBlockManager);
 }
 
 

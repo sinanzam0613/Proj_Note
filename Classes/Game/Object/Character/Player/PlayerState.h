@@ -5,6 +5,7 @@ enum PLAYERSTATE{
 	NORMAL = 0,
 	JUMP,
 	MISS,
+	DEADANIM,
 	DEAD,
 	END
 };
