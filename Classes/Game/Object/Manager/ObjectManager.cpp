@@ -6,6 +6,7 @@
 #include "Game/Object/Character/Enemy/RestEnemy.h"
 #include "../Manager/EnemyManager.h"
 #include "Game/Object/Character/Player/DeadAnimation.h"
+#include "Game/Object/Character/Player/GoalAnimation.h"
 
 
 using namespace cocos2d;
@@ -16,7 +17,7 @@ ObjectManager::ObjectManager()
 
 ObjectManager::~ObjectManager()
 {
-	mEnemyManager->release();
+	//mEnemyManager->release();
 }
 
 bool ObjectManager::init()
@@ -35,12 +36,12 @@ bool ObjectManager::init()
 	this->addChild(mPlayerManager);
 
 	//以下、テストオブジェクト生成
-	mObject = TestObject::create();
-	mObject->setPosition(Vec2(300,0));
-	this->addChild(mObject);
+	/*mObject = TestObject::create();
+	mObject->setPosition(Vec2(300,100));
+	this->addChild(mObject);*/
 
 	//以下、エネミーのテスト
-	mEnemy = RestEnemy::create(Vec2());
+	/*mEnemy = RestEnemy::create(Vec2());
 	this->addChild(mEnemy);
 
 	//以下、エネミーマネージャーのテスト
@@ -49,6 +50,7 @@ bool ObjectManager::init()
 	mEnemyManager->add(Vec2(500,-52));
 	mEnemyManager->add(Vec2(300, -52));
 	this->addChild(mEnemyManager);
+	*/
 	return true;
 }
 
@@ -61,8 +63,8 @@ void ObjectManager::update(float deltaTime)
 		mEnemy->jump();
 	}*/
 	mPlayerManager->update(deltaTime);
-	mEnemy->update(deltaTime);
-	mEnemyManager->update(deltaTime);
+	//mEnemy->update(deltaTime);
+	//mEnemyManager->update(deltaTime);
 }
 
 ObjectManager* ObjectManager::create()
@@ -82,7 +84,9 @@ ObjectManager* ObjectManager::create()
 void ObjectManager::onTouchBegan(Vec2 touchPoint)
 {
 	//mObject->setPosition(touchPoint);
-	mObject->dead();
+	//mObject->dead();
+	GoalAnimation goal;
+	goal.action(Vec2(240,300),this, mPlayerManager->getPlayer(0)->getChildByName("Player"), mPlayerManager->getPlayer(1)->getChildByName("Player2"));
 }
 
 bool ObjectManager::distanceCheck()
