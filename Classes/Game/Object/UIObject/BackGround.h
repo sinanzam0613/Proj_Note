@@ -2,7 +2,7 @@
 #define _BACKGROUND_H_
 
 #include "cocos2d.h"
-enum Tags;
+#include "Game/Scene/GameMain/Tags.h"
 
 /**
  *	@class	： BackGround

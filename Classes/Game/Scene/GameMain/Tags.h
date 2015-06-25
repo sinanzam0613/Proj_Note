@@ -1,4 +1,7 @@
-enum Tags : int
+#ifndef TAGS_H
+#define TAGS_H
+
+enum Tags 
 {
 	MEDIATOR = 1000,
 	FLONTBG	 = 1001,
@@ -6,3 +9,5 @@ enum Tags : int
 	FOLLOW   = 1003
 
 };
+
+#endif
