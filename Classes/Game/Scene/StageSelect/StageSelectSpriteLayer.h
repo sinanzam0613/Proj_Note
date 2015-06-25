@@ -7,7 +7,7 @@ class StageSelectSpriteLayer : public cocos2d::Layer{
 public:
 
 	StageSelectSpriteLayer();
-    ~StageSelectSpriteLayer();
+    ~StageSelectSpriteLayer()= default;
     
     virtual bool init();
     
@@ -18,7 +18,6 @@ private:
     
     void drawLogo();
     
-private:
 };
 
 #endif

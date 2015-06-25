@@ -1,19 +1,15 @@
 #include "StageSelectActionLayer.h"
+#include "Utility/SceneSupport/SceneCreator.h"
+#include "Game/Scene/Title/TitleScene.h"
+#include "Game/Scene/GameMain/GameMainScene.h"
+
 USING_NS_CC;
 
 /*--------------------------/
  コンストラクタ
  /--------------------------*/
-StageSelectActionLayer::StageSelectActionLayer(){
-    
-}
-
-/*--------------------------/
- デストラクタ
- /--------------------------*/
-StageSelectActionLayer::~StageSelectActionLayer(){
-    
-}
+StageSelectActionLayer::StageSelectActionLayer()
+{}
 
 
 /*--------------------------/
@@ -40,9 +36,12 @@ void StageSelectActionLayer::buttonBack(){
                                              "Texture/GamePlay/GameScene/StageSelect/StageSelect_Back.png",
                                              [ = ](Ref* sender)
                                             {
+                                                auto nextScene = SceneCreator::createScene(TitleScene::create());
+                                                auto scene	= TransitionFade::create( 1.5f, nextScene, Color3B::BLACK );
+                                                auto dir = Director::getInstance();
+                                                dir->replaceScene(scene);
                                              
-                                             
-                                             });
+                                            });
     
     
     buttonImage->setPosition(1150,650);
@@ -64,26 +63,29 @@ void StageSelectActionLayer::buttonStage(){
     
     auto unko = [ this, &menu ](const std::string& normal, const std::string& selected, const Vec2& pos, std::function < void( Ref* ) > func)
     {
-       auto a = MenuItemImage::create("Texture/GamePlay/GameScene/StageSelect/" + normal + ".png",
-                                      "Texture/GamePlay/GameScene/StageSelect/" + selected + ".png",
+       auto a = MenuItemImage::create("Texture/GamePlay/GameScene/StageSelect/StageSelect_Stage" + normal + ".png",
+                                      "Texture/GamePlay/GameScene/StageSelect/StageSelect_Stage" + selected + ".png",
                                       func);
-        
-        
         a->setPosition(pos);
         a->setScale(0.6f);
         menu->addChild( a );
         
     };
     
-    //ステージボタン生成
-    unko("StageSelect_Stage1","StageSelect_Stage1",Vec2( 200, 450), [ this ]( Ref* ){ this->stageSelected(1);});
-    unko("StageSelect_Stage2","StageSelect_Stage2",Vec2( 500, 450), [ this ]( Ref* ){ this->stageSelected(2);});
-    unko("StageSelect_Stage3","StageSelect_Stage3",Vec2( 800, 450), [ this ]( Ref* ){ this->stageSelected(3);});
-    unko("StageSelect_Stage4","StageSelect_Stage4",Vec2(1100, 450), [ this ]( Ref* ){ this->stageSelected(4);});
-    unko("StageSelect_Stage5","StageSelect_Stage5",Vec2( 200, 250), [ this ]( Ref* ){ this->stageSelected(5);});
-    unko("StageSelect_Stage6","StageSelect_Stage6",Vec2( 500, 250), [ this ]( Ref* ){ this->stageSelected(6);});
-    unko("StageSelect_Stage7","StageSelect_Stage7",Vec2( 800, 250), [ this ]( Ref* ){ this->stageSelected(7);});
-    unko("StageSelect_Stage8","StageSelect_Stage8",Vec2(1100, 250), [ this ]( Ref* ){ this->stageSelected(8);});
+    //クリア済みステージ数の取得
+    auto userDef = UserDefault::getInstance();
+    int  clearStage  = userDef -> getIntegerForKey("clearStage");
+
+    const Vec2 pos[] =
+    {
+        Vec2(0,0),
+        Vec2( 200, 450),Vec2( 500, 450),Vec2( 800, 450),Vec2(1100, 450),
+        Vec2( 200, 250),Vec2( 500, 250),Vec2( 800, 250),Vec2(1100, 250)
+    };
+    
+    for(int i = 1; i <= clearStage; i++){
+        unko(std::to_string(i),std::to_string(i),pos[i], [ = ]( Ref* ){ this->stageSelected(i);});
+    }
 }
 
 /*--------------------------/
@@ -102,7 +104,7 @@ void StageSelectActionLayer::stageSelected(int tag){
     //各自追加
     drawMask(layer);
     drawExplain(layer);
-    buttonYes(layer,menu);
+    buttonYes(layer,menu,tag);
     buttonNo(layer,menu);
     
     layer->addChild(menu);
@@ -143,15 +145,21 @@ void StageSelectActionLayer::drawExplain(Layer* layer){
 /*--------------------------/
  Yesボタン生成
  /--------------------------*/
-void StageSelectActionLayer::buttonYes(cocos2d::Layer* layer,Menu* menu){
+void StageSelectActionLayer::buttonYes(cocos2d::Layer* layer,Menu* menu,int tag){
     
     auto buttonYes = MenuItemImage::create("Texture/GamePlay/GameScene/StageSelect/StageSelect_Yes.png",
                                            "Texture/GamePlay/GameScene/StageSelect/StageSelect_Yes.png",
                                            [ = ](Ref* sender)
                                            {
+                                               UserDefault* useDef;
+                                               useDef->setIntegerForKey("selectStage",tag);
+                                               useDef->flush();
                                                
-                                           }
-                                           );
+                                               auto nextScene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0,-9.8f));
+                                               auto scene	= TransitionFade::create( 1.5f, nextScene, Color3B::BLACK );
+                                               auto dir = Director::getInstance();
+                                               dir->replaceScene(scene);
+                                           });
     buttonYes->setPosition(400,300);
     buttonYes->setScale(1.2f);
     menu->addChild(buttonYes);
@@ -167,11 +175,8 @@ void StageSelectActionLayer::buttonNo(cocos2d::Layer* layer,Menu* menu){
                                           [ = ](Ref* sender)
                                           {
                                               layer->removeFromParent();
-                                        
                                               isButton(true);
-                                              
-                                          }
-                                          );
+                                          });
     buttonNo->setPosition(900,300);
     buttonNo->setScale(1.2f);
     menu->addChild(buttonNo);
@@ -187,9 +192,6 @@ void StageSelectActionLayer::isButton(bool flag){
         static_cast< MenuItem* >( child )->setEnabled( flag );
     }
 }
-
-
-
 
 /*--------------------------/
  シーン生成

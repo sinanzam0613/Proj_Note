@@ -6,7 +6,7 @@
 class StageSelectActionLayer : public cocos2d::Layer{
 public:
     StageSelectActionLayer();
-    ~StageSelectActionLayer();
+    ~StageSelectActionLayer() = default;
     
     virtual bool init();
     
@@ -23,7 +23,7 @@ private:
     
     void drawExplain(cocos2d::Layer* layer);
     
-    void buttonYes(cocos2d::Layer* layer,cocos2d::Menu* menu);
+    void buttonYes(cocos2d::Layer* layer,cocos2d::Menu* menu,int tag);
     
     void buttonNo(cocos2d::Layer* layer,cocos2d::Menu* menu);
     

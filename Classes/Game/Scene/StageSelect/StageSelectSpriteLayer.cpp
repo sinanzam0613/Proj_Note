@@ -9,13 +9,6 @@ StageSelectSpriteLayer::StageSelectSpriteLayer(){
     
 }
 
-/*--------------------------/
- デストラクタ
-/--------------------------*/
-StageSelectSpriteLayer::~StageSelectSpriteLayer(){
-    
-}
-
 
 /*--------------------------/
  初期化

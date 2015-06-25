@@ -13,7 +13,8 @@ public:
     
     static TitleSpriteLayer* create();
     
-    void nextDraw();
+    
+    void drawCredit();
     
 private:
     
@@ -25,11 +26,8 @@ private:
     
     void drawTouchLogo();
     
-    void drawStart();
     
-    void drawStageSelect();
     
-    void drawEnd();
     
     
 };

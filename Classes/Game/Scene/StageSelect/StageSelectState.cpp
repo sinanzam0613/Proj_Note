@@ -1,4 +1,5 @@
 #include "StageSelectState.h"
+#include "Utility/FileIO/PlistReader.h"
 USING_NS_CC;
 
 StageSelectState* StageSelectState::create(Layer* layer){
@@ -14,6 +15,20 @@ StageSelectState* StageSelectState::create(Layer* layer){
     CC_SAFE_DELETE(obj);
     return nullptr;
 }
+
+/*-------------------------------------------------------------------
+ |	・コンストラクタ
+ -------------------------------------------------------------------*/
+StageSelectState::StageSelectState():
+mStageSelectActionLayer(nullptr),
+mStageSelectSpriteLayer(nullptr)
+{}
+
+
+/*-------------------------------------------------------------------
+ |	・デストラクタ
+ -------------------------------------------------------------------*/
+StageSelectState::~StageSelectState(){}
 
 /*-----------------------------------------------------
  -------初期化

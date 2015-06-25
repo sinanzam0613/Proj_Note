@@ -33,19 +33,6 @@ void TitleSpriteLayer::fastDraw(){
     drawTouchLogo();
 }
 
-/*--------------------------/
- 次点描画
- /--------------------------*/
-void TitleSpriteLayer::nextDraw(){
-
-    //初めから描画
-    drawStart();
-    //ステージセレクト描画
-    drawStageSelect();
-    //終了描画
-    drawEnd();
-}
-
 
 
 /*--------------------------/
@@ -66,7 +53,7 @@ void TitleSpriteLayer::drawTitleLogo(){
     auto Touch = Sprite::create("Texture/GamePlay/GameScene/Title/Title_TitleLogo.png");
     Touch->setScale(0.8f, 0.9f);
     Touch->setPosition(Vec2(Director::getInstance()->getVisibleSize().width/2,
-                             Director::getInstance()->getVisibleSize().height/2 + 100));
+                             Director::getInstance()->getVisibleSize().height/2 + 200));
     Touch->setAnchorPoint(Vec2(0.5f,0.5f));
     Touch->setName("TitleLogo");
     addChild(Touch);
@@ -89,8 +76,9 @@ void TitleSpriteLayer::drawTouchLogo(){
     
     auto Logo = Sprite::create("Texture/GamePlay/GameScene/Title/Title_Touch.png");
     Logo->setScale(0.8f, 0.9f);
-    Logo->setPosition(Vec2(300,100));
-    Logo->setAnchorPoint(Vec2(0,0));
+    Logo->setPosition(Vec2(Director::getInstance()->getVisibleSize().width/2,
+                           Director::getInstance()->getVisibleSize().height/2 - 200));
+    Logo->setAnchorPoint(Vec2(0.5f,0.5f));
     Logo->setOpacity(0);
     Logo->setName("TouchLogo");
     addChild(Logo);
@@ -104,34 +92,16 @@ void TitleSpriteLayer::drawTouchLogo(){
     Logo->runAction(repeatForever);
 }
 
-/*--------------------------/
- 初めから描画
-/--------------------------*/
-void TitleSpriteLayer::drawStart(){
-    auto start = Sprite::create("Texture/GamePlay/GameScene/Title/Title_Start.png");
-    start->setPosition(Vec2(100,100));
-    start->setAnchorPoint(Vec2(0,0));
-    addChild(start);
- }
 
 /*--------------------------/
- ステージセレクト描画
+クレジット描画
 /--------------------------*/
-void TitleSpriteLayer::drawStageSelect(){
-    auto stageselect = Sprite::create("Texture/GamePlay/GameScene/Title/Title_StageSelect.png");
-    stageselect->setPosition(Vec2(500,100));
-    stageselect->setAnchorPoint(Vec2(0,0));
-    addChild(stageselect);
- }
-/*--------------------------/
- 終了描画
-/--------------------------*/
-void TitleSpriteLayer::drawEnd(){
-    auto end = Sprite::create("Texture/GamePlay/GameScene/Title/Title_End.png");
-    end->setPosition(Vec2(900,100));
+void TitleSpriteLayer::drawCredit(){
+    auto end = Sprite::create("Texture/GamePlay/GameScene/Title/Title_CreditSprite.png");
+    end->setPosition(Vec2(0,0));
     end->setAnchorPoint(Vec2(0,0));
-    addChild(end);
- }
+    addChild(end,100);
+}
 
 /*--------------------------/
  シーン生成
