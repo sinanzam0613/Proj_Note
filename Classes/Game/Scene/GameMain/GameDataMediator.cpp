@@ -29,7 +29,7 @@ bool GameDataMediator::init(){
     
     timer.reset();
     timer.begin();
-
+    
 	mPlayerManager->add(cocos2d::Vec2(80, 210), cocos2d::Vec2(150, 210), 2, 2);
 
 	this->addChild(mPlayerManager);
