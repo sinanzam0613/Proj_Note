@@ -58,7 +58,7 @@ bool GameMainState::init(Layer* layer){
 					size.height - normalSprite->getContentSize().height));
 	/*menu->setPosition(size);
 	menu->setAnchorPoint(Vec2::ANCHOR_TOP_RIGHT);
-*/
+     */
 	uiLayer->addChild(menu);
 
 	return true;

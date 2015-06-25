@@ -13,7 +13,8 @@ StageSelectScene::StageSelectScene(){
  デストラクタ
 /--------------------------*/
 StageSelectScene::~StageSelectScene(){
-    
+    mState->release();
+    ply->release();
 }
 
 /*--------------------------/
@@ -47,10 +48,17 @@ bool StageSelectScene::init(){
     
     ListenerAssistant::setupSingleTouchListener(this, true, onTouchBegan, nullptr, onTouchEnd, nullptr);
     
-    //
-    ply = ADX2Player::create("Sound/ADX2/MusicUnit/BackMusic.acb");
-    ply->play(0);
-    ply->retain();
+    
+    auto node = Node::create();
+    auto func = cocos2d::CallFunc::create([&]() {
+        ply = ADX2Player::create("Sound/ADX2/MusicUnit/BackMusic.acb");
+        ply->play(0);
+        ply->retain();
+    });
+    auto delay = cocos2d::DelayTime::create(1.8f);
+    auto seq = cocos2d::Sequence::create(delay, func, nullptr);
+    node->runAction(seq);
+    this->addChild(node);
     
     this->scheduleUpdate();
     

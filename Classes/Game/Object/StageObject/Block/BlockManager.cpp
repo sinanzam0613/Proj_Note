@@ -27,9 +27,14 @@ bool BlockManager::init()
 
 	mBlockNode = Node::create();
 	this->addChild( mBlockNode );
-	
+    
+    auto userDef = UserDefault::getInstance();
+    int  selectStage  = userDef -> getIntegerForKey("selectStage");
+    std::string stage = "Plist/Stage" + std::to_string(selectStage) + ".plist";
+
+    
 	auto fac = std::make_shared< BlockFactory >();
-	fac->createBlock( mBlockNode, "Plist/Stage1.plist" );
+	fac->createBlock( mBlockNode, stage);
 	
 	return true;
 }
