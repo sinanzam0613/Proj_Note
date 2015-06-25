@@ -112,6 +112,9 @@
     <Filter Include="Classes\Game\Object\BG">
       <UniqueIdentifier>{0e02bbfd-e91d-4b28-851b-6cdddbbe960d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Game\Scene\Pause">
+      <UniqueIdentifier>{5a86b2a5-df37-45f4-867d-12c9b4471ee5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -299,6 +302,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\UIObject\BackGround.cpp">
       <Filter>Classes\Game\Object\BG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\GameMain\PauseLayer.cpp">
+      <Filter>Classes\Game\Scene\Pause</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\GameMain\PauseBotton.cpp">
+      <Filter>Classes\Game\Scene\Pause</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -541,6 +550,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\UIObject\BackGround.h">
       <Filter>Classes\Game\Object\BG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\GameMain\PauseLayer.h">
+      <Filter>Classes\Game\Scene\Pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\GameMain\PauseBotton.h">
+      <Filter>Classes\Game\Scene\Pause</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

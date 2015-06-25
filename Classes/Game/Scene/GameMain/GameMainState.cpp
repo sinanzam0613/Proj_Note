@@ -4,6 +4,7 @@
 #include "Game/Scene/GameMain/GameDataMediator.h"
 #include "Game/Object/UIObject/BackGround.h"
 #include "Game/Scene/GameMain/Tags.h"
+#include "PauseBotton.h"
 
 USING_NS_CC;
 
@@ -44,6 +45,22 @@ bool GameMainState::init(Layer* layer){
 	back->setTag(1004);
 	parentLayer->addChild(back);
 
+	auto normalSprite = Sprite::create("Texture/GamePlay/Character/2Rest.png");
+
+	auto selectSprite = Sprite::create("Texture/GamePlay/Character/2Rest.png");
+
+	auto pause = UI::PauseBotton::create(normalSprite,selectSprite);
+
+	auto size = cocos2d::Director::getInstance()->getWinSize();
+
+	auto menu = Menu::create(pause, nullptr);
+	menu->setPosition(Vec2(size.width - (normalSprite->getContentSize().width / 2),
+					size.height - normalSprite->getContentSize().height));
+	/*menu->setPosition(size);
+	menu->setAnchorPoint(Vec2::ANCHOR_TOP_RIGHT);
+*/
+	uiLayer->addChild(menu);
+
 	return true;
 }
 
@@ -71,7 +88,7 @@ void GameMainState::mainStart(float at){
 
 void GameMainState::mainLoop(float at){
 
-	mSlideBar->setPosition(Vec2(parentLayer->getPosition().x, parentLayer->getPosition().y), uiLayer);
+	uiLayer->setPosition(parentLayer->getPosition() * -1);
 
 	auto media = (GameDataMediator*)parentLayer->getChildByTag(12345);
 

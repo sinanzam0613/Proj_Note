@@ -12,11 +12,11 @@ protected:
 	
 	~PauseLayer();
 	
-	bool init( const cocos2d::Vec2& position );
+	bool init(cocos2d::RenderTexture* sprite);
 	
 public:
 	
-	static PauseLayer* create( const cocos2d::Vec2& position );
+	static PauseLayer* create( cocos2d::RenderTexture* sprite );
 	
 private:
 	
