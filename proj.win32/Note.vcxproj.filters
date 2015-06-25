@@ -321,6 +321,9 @@
     <ClCompile Include="..\Classes\Game\Object\StageObject\StartStand\StartStand.cpp">
       <Filter>Classes\Game\Object\StageObject\StartStand</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\Character\Player\GoalAnimation.cpp">
+      <Filter>Classes\Game\Object\Character\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -577,6 +580,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\StartStand\StartStand.h">
       <Filter>Classes\Game\Object\StageObject\StartStand</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\Character\Player\GoalAnimation.h">
+      <Filter>Classes\Game\Object\Character\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

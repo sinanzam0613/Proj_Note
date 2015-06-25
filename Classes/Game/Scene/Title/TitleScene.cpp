@@ -41,7 +41,7 @@ bool TitleScene::init(){
     
     auto node = Node::create();
     auto func = cocos2d::CallFunc::create([&]() {
-        ply = ADX2Player::create("Sound/ADX2/MusicUnit/BackMusic.acb");
+		ply = ADX2Player::create("Sound/ADX2/WorkUnit_BackMusic/CueSheet_0.acb");
         ply->play(0);
         ply->retain();
     });

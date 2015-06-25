@@ -131,7 +131,7 @@ void TitleState::sceneChange(){
             useDef->flush();
             
             //ゲーム生成
-            auto nextScene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0,-9.8f));
+			auto nextScene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0, -9.8f), 5.0f);
             auto scene	= TransitionFade::create( 1.5f, nextScene, Color3B::BLACK );
             auto dir = Director::getInstance();
             dir->replaceScene(scene);
