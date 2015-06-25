@@ -48,7 +48,9 @@ bool GoalBlock::init( const std::string& nodeName, const BlockData& data )
 
 void GoalBlock::onContactBegin( Node* contactNode )
 {
-	
+    UserDefault* useDef  = UserDefault::getInstance();
+    useDef->setBoolForKey("isClear", true);
+    useDef->flush();
 }
 
 void GoalBlock::initPhysics()

@@ -6,6 +6,7 @@
 #include "Game/Object/UIObject/UiObjectLayer.h"
 #include "Utility/SceneSupport/IScene.h"
 #include "Game/Scene/GameMain/StartAnimation.h"
+#include "Game/Scene/GameMain/ResultLayer.h"
 
 class GameMainState : public IScene
 {
@@ -90,6 +91,8 @@ private:
 
 private:
 	SlideBar* mSlideBar;
+    cocos2d::Layer* mNowLayer;
+    ResultLayer* mResult;
 	UiObjectLayer* uiLayer;
 };
 

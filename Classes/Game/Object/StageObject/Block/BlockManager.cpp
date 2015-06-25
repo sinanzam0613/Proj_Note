@@ -1,7 +1,6 @@
 ﻿#include "BlockManager.h"
 #include "BlockDataReader.h"
 #include "BlockFactory.h"
-
 #include "Utility/Audio/ADX2Player.h"
 
 using namespace cocos2d;
@@ -31,6 +30,7 @@ bool BlockManager::init()
 	this->addChild( mBlockNode );
     
     auto userDef = UserDefault::getInstance();
+    
     int  selectStage  = userDef -> getIntegerForKey("selectStage");
     std::string stage = "Plist/Stage" + std::to_string(selectStage) + ".plist";
 
@@ -56,9 +56,13 @@ void BlockManager::onTouchEnd(cocos2d::Point pos) {
 
 }
 
+Vec2 BlockManager::getGoalPos(){
+    return mBlockNode->getChildren().back()->getPosition();
+}
+
 Vec2 BlockManager::getBlockPos(int value) const {
 	if (value >= mBlockNode->getChildrenCount()) {
-		return mBlockNode->getChildren().front()->getPosition();
+		return mBlockNode->getChildren().back()->getPosition();
 	}
 
 	return mBlockNode->getChildren().at(value)->getPosition();

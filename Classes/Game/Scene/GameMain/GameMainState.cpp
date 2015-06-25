@@ -28,8 +28,8 @@ bool GameMainState::init(Layer* layer){
 	mSceneState = FADEIN;
 	mUpdateState = UPDATESTART;
 	parentLayer = layer;
-
-
+    
+    
 	auto mediator = GameDataMediator::create();
 	mediator->setTag(12345);
 	parentLayer->addChild(mediator);
@@ -101,8 +101,6 @@ void GameMainState::mainLoop(float at){
 
 	auto back = (BackGround*)parentLayer->getChildByTag(1004);
 	back->update(at, parentLayer);
-
-	
 }
 
 void GameMainState::mainEnd(float at){
@@ -112,6 +110,7 @@ void GameMainState::mainEnd(float at){
 
 bool GameMainState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 
+    
 	return true;
 }
 

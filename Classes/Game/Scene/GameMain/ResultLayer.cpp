@@ -6,8 +6,7 @@
 
 using namespace cocos2d;
 
-ResultLayer::ResultLayer():
-mIsAnimation(false)
+ResultLayer::ResultLayer()
 {
     
 }
@@ -17,11 +16,11 @@ ResultLayer::~ResultLayer()
     stopAllActions();
 }
 
-ResultLayer* ResultLayer::create(cocos2d::RenderTexture* sprite)
+ResultLayer* ResultLayer::create(Vec2 pos)
 {
     auto inst = new ResultLayer();
     
-    if ( inst && inst->init( sprite ) )
+    if ( inst && inst->init(pos) )
     {
         inst->autorelease();
         return inst;
@@ -31,25 +30,20 @@ ResultLayer* ResultLayer::create(cocos2d::RenderTexture* sprite)
     return nullptr;
 }
 
-bool ResultLayer::init(cocos2d::RenderTexture* sprite)
+bool ResultLayer::init(Vec2 pos)
 {
     if ( !LayerColor::initWithColor( Color4B::BLACK ) )
     {
         return false;
     }
     
-    sprite->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
-    
-    addChild(sprite, -1);
-    
-    if(!mIsAnimation){
-        selectScene();
-    }
+    selectScene(pos);
+  
     
     return true;
 }
 
-void ResultLayer::selectScene(){
+void ResultLayer::selectScene(Vec2 pos){
     auto continueCallback = [&](Ref*) { Director::getInstance()->popScene(); };
     
     auto nextCallback		= [ & ]( Ref* )
@@ -79,12 +73,17 @@ void ResultLayer::selectScene(){
     auto icon = Sprite::create( "Texture/GamePlay/GameScene/Pause/Pause_Logo.png" );
     icon->setPosition( Vec2( 1190, 696 ) );
     
-    putButton( "Pause_Continue.png",	"Pause_Continue.png",	Vec2( 640, 410 ), continueCallback	);
-    putButton( "Pause_ReStart.png",		"Pause_ReStart.png",	Vec2( 640, 270 ), nextCallback		);
-    putButton( "Pause_End.png",			"Pause_End.png",		Vec2( 640, 134 ), titleCallback     );
+    auto BG = Sprite::create("Texture/GamePlay/GameScene/StageSelect/StageSelect_Mask.png");
+    BG->setPosition(Vec2(pos.x,pos.y));
+    BG->setScale(3.0f,3.0f);
+    BG->setAnchorPoint(Vec2(0.5f,0.5f));
+    addChild(BG);
     
-    setOpacity( 120 );
+    putButton( "Pause_Continue.png",	"Pause_Continue.png",	Vec2(pos.x, pos.y + 200 ), continueCallback	);
+    putButton( "Pause_ReStart.png",		"Pause_ReStart.png",	Vec2(pos.x, pos.y       ), nextCallback		);
+    putButton( "Pause_End.png",			"Pause_End.png",		Vec2(pos.x, pos.y - 200  ), titleCallback     );
     
+   
     
 }
 

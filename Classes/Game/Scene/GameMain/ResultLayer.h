@@ -12,20 +12,19 @@ protected:
     
     ~ResultLayer();
     
-    bool init(cocos2d::RenderTexture* sprite);
+    bool init(cocos2d::Vec2 pos);
     
 public:
     
-    static ResultLayer* create( cocos2d::RenderTexture* sprite );
+    static ResultLayer* create(cocos2d::Vec2 pos);
     
 private:
     using ButtonCallback = std::function< void( cocos2d::Ref* ) >;
     
     void putButton( const std::string& normal, const std::string& selected, const cocos2d::Vec2& position, ButtonCallback callback );
     
-    void selectScene();
+    void selectScene(cocos2d::Vec2 pos);
 
-    bool mIsAnimation;
 };
 
 
