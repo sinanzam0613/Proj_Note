@@ -3,6 +3,7 @@
 
 #include "../../Object/Manager/PlayerManager.h"
 #include "../../Object/StageObject/Block/BlockManager.h"
+#include "../../Object/StageObject/Gimmick/GimmickManager.h"
 
 enum PLAYERS{
 	PLAYER1 = 0,
@@ -29,6 +30,7 @@ public:
 
 	PlayerManager* mPlayerManager;
 	BlockManager* mBlockManager;
+	GimmickManager* mGImmickManager;
 };
 
 #endif

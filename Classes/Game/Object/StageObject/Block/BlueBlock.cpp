@@ -1,5 +1,6 @@
 #include "BlueBlock.h"
 #include "../ObjectType.h"
+#include "Utility/Audio/ADX2Player.h"
 
 using namespace cocos2d;
 
@@ -55,12 +56,16 @@ void BlueBlock::onContactBegin( Node* contactNode )
 	
 	if ( converter::toObjectType( contactBit ) == ObjectType::OBJECT_PLAYER_BLUE )
 	{
+		auto p = static_cast< ADX2Player* >( getParent()->getParent()->getChildByName("Player") );
+		p->play(mBlockData.cueID);
 		auto name = mBlockData.blockTextureName + "After";
 		setTexture( name + ".png" );
 		setName( name );
 		mIsChanged = true;
 		initPhysics();
 	}
+
+
 }
 
 void BlueBlock::initPhysics()

@@ -7,6 +7,7 @@ enum PLAYERSTATE{
 	MISS,
 	DEADANIM,
 	DEAD,
+	REST,
 	END
 };
 

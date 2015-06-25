@@ -1,6 +1,8 @@
 #include "RedBlock.h"
 #include "../ObjectType.h"
 
+#include "Utility/Audio/ADX2Player.h"
+
 using namespace cocos2d;
 
 RedBlock::RedBlock()
@@ -55,6 +57,8 @@ void RedBlock::onContactBegin( Node* contactNode )
 	
 	if ( converter::toObjectType( contactBit ) == ObjectType::OBJECT_PLAYER_RED )
 	{
+		auto p = static_cast< ADX2Player* >(getParent()->getParent()->getChildByName("Player"));
+		p->play(mBlockData.cueID);
 		auto name = mBlockData.blockTextureName + "After";
 		setTexture( name + ".png" );
 		setName( name );
