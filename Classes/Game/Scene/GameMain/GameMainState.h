@@ -5,6 +5,7 @@
 #include "Game/Object/UIObject/SlideBar.h"
 #include "Game/Object/UIObject/UiObjectLayer.h"
 #include "Utility/SceneSupport/IScene.h"
+#include "Game/Scene/GameMain/StartAnimation.h"
 
 class GameMainState : public IScene
 {
@@ -84,6 +85,8 @@ private:
 	|	メインループ終了
 	------------------------------------------------------------------*/
 	void mainEnd(float at)   override;
+
+	void createPauseBotton();
 
 private:
 	SlideBar* mSlideBar;

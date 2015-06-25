@@ -4,7 +4,9 @@
 #include "Game/Scene/GameMain/GameDataMediator.h"
 #include "Game/Object/UIObject/BackGround.h"
 #include "Game/Scene/GameMain/Tags.h"
+#include "Game/Object/StageObject/StartStand/StartStand.h"
 #include "PauseBotton.h"
+#
 
 USING_NS_CC;
 
@@ -45,21 +47,13 @@ bool GameMainState::init(Layer* layer){
 	back->setTag(1004);
 	parentLayer->addChild(back);
 
-	auto normalSprite = Sprite::create("Texture/GamePlay/Character/2Rest.png");
+	auto startStand = StartStand::create("Texture/GamePlay/GameStage/StartBlockAfter.png");
+	startStand->setName("StartStand");
+	startStand->setPosition(Vec2(140, 200));
 
-	auto selectSprite = Sprite::create("Texture/GamePlay/Character/2Rest.png");
+	parentLayer->addChild(startStand);
 
-	auto pause = UI::PauseBotton::create(normalSprite,selectSprite);
-
-	auto size = cocos2d::Director::getInstance()->getWinSize();
-
-	auto menu = Menu::create(pause, nullptr);
-	menu->setPosition(Vec2(size.width - (normalSprite->getContentSize().width / 2),
-					size.height - normalSprite->getContentSize().height));
-	/*menu->setPosition(size);
-	menu->setAnchorPoint(Vec2::ANCHOR_TOP_RIGHT);
-*/
-	uiLayer->addChild(menu);
+	createPauseBotton();
 
 	return true;
 }
@@ -70,6 +64,12 @@ void GameMainState::update(float at){
 }
 
 void GameMainState::fadeIn(float at){
+
+	auto start = StartAnimation::create();
+	parentLayer->addChild(start);
+	start->setTag(STARTNODE);
+	start->set();
+
 	mSceneState = MAIN;
 }
 
@@ -83,7 +83,12 @@ void GameMainState::fadeOut(float at){
 }
 
 void GameMainState::mainStart(float at){
-	mUpdateState = UPDATELOOP;
+	auto startAction =  (Sequence*)parentLayer->getChildByTag(STARTNODE)->getChildByTag(STARTSPRITE)->getActionByTag(STARTACTION);
+	
+
+	if (!startAction){
+		mUpdateState = UPDATELOOP;
+	}
 }
 
 void GameMainState::mainLoop(float at){
@@ -96,6 +101,7 @@ void GameMainState::mainLoop(float at){
 
 	auto back = (BackGround*)parentLayer->getChildByTag(1004);
 	back->update(at, parentLayer);
+
 	
 }
 
@@ -112,4 +118,20 @@ bool GameMainState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 
 void GameMainState::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event){
 
+}
+
+void GameMainState::createPauseBotton(){
+	auto normalSprite = Sprite::create("Texture/GamePlay/Character/2Rest.png");
+
+	auto selectSprite = Sprite::create("Texture/GamePlay/Character/2Rest.png");
+
+	auto pause = UI::PauseBotton::create(normalSprite, selectSprite);
+
+	auto size = cocos2d::Director::getInstance()->getWinSize();
+
+	auto menu = Menu::create(pause, nullptr);
+	menu->setPosition(Vec2(size.width - (normalSprite->getContentSize().width / 2),
+		size.height - normalSprite->getContentSize().height));
+
+	uiLayer->addChild(menu);
 }

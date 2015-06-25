@@ -29,6 +29,7 @@ bool Player::init(const std::string& fileName, ObjectType type)
 	mPhysicsBody->setMass(1.0f);
 	mPhysicsBody->setDynamic(true);
 	mPhysicsBody->setPositionOffset(Vec2(0, -40));
+	mPhysicsBody->setGravityEnable(false);
 
 	mPhysicsBody->setCategoryBitmask(static_cast<int>(type));
 	if (type == ObjectType::OBJECT_PLAYER_RED){
@@ -100,6 +101,8 @@ void Player::jump(Vec2 targetPosition)
 	//すでにジャンプが実行されているのであれば何もしない。
 	if (!mState == NORMAL){ return; }
 	mDuration = 0;
+	
+	mPhysicsBody->setGravityEnable(true);
 
 	mTargetPos = targetPosition;
 

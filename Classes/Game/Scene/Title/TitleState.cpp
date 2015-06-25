@@ -126,7 +126,7 @@ void TitleState::sceneChange(){
             //初期化
             mTitleActionLayer->initSelectCount();
             
-            UserDefault* useDef;
+            UserDefault* useDef  = UserDefault::getInstance();
             useDef->setIntegerForKey("selectStage",1);
             useDef->flush();
             

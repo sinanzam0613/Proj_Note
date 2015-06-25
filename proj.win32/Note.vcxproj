@@ -157,10 +157,12 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\Note.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\NoteLine.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Rest\Rest.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\StartStand\StartStand.cpp" />
     <ClCompile Include="..\Classes\Game\Object\Test\TestObject.cpp" />
     <ClCompile Include="..\Classes\Game\Object\UIObject\BackGround.cpp" />
     <ClCompile Include="..\Classes\Game\Object\UIObject\SlideBar.cpp" />
     <ClCompile Include="..\Classes\Game\Object\UIObject\UiObjectLayer.cpp" />
+    <ClCompile Include="..\Classes\Game\Scene\Credit\CreditScene.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameEnd\EndingScene.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameEnd\EndingState.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameMain\GameDataMediator.cpp" />
@@ -168,6 +170,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Scene\GameMain\GameMainState.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameMain\PauseBotton.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\GameMain\PauseLayer.cpp" />
+    <ClCompile Include="..\Classes\Game\Scene\GameMain\StartAnimation.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\StageSelect\StageSelectActionLayer.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\StageSelect\StageSelectScene.cpp" />
     <ClCompile Include="..\Classes\Game\Scene\StageSelect\StageSelectSpriteLayer.cpp" />
@@ -228,10 +231,12 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Object\StageObject\ObjectType.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Rest\Rest.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\StageObj.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\StartStand\StartStand.h" />
     <ClInclude Include="..\Classes\Game\Object\Test\TestObject.h" />
     <ClInclude Include="..\Classes\Game\Object\UIObject\BackGround.h" />
     <ClInclude Include="..\Classes\Game\Object\UIObject\SlideBar.h" />
     <ClInclude Include="..\Classes\Game\Object\UIObject\UiObjectLayer.h" />
+    <ClInclude Include="..\Classes\Game\Scene\Credit\CreditScene.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameEnd\EndingScene.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameEnd\EndingState.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameMain\GameDataMediator.h" />
@@ -239,6 +244,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Scene\GameMain\GameMainState.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameMain\PauseBotton.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameMain\PauseLayer.h" />
+    <ClInclude Include="..\Classes\Game\Scene\GameMain\StartAnimation.h" />
     <ClInclude Include="..\Classes\Game\Scene\GameMain\Tags.h" />
     <ClInclude Include="..\Classes\Game\Scene\StageSelect\StageSelectActionLayer.h" />
     <ClInclude Include="..\Classes\Game\Scene\StageSelect\StageSelectScene.h" />

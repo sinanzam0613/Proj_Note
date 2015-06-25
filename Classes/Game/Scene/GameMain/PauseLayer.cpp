@@ -1,5 +1,6 @@
 #include "PauseLayer.h"
 #include "../GameMain/GameMainScene.h"
+#include "../Title/TitleScene.h"
 #include "../../../Utility/SceneSupport/SceneCreator.h"
 
 using namespace cocos2d;
@@ -48,7 +49,7 @@ bool PauseLayer::init(cocos2d::RenderTexture* sprite)
 	};
 	auto retireCallback		= [ & ]( Ref* )
 	{
-		auto scene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0, -9.8f), 5.0f, true);
+		auto scene = SceneCreator::createPhysicsScene(TitleScene::create(), Vect(0, -9.8f), 5.0f, true);
 		auto fade	= TransitionFade::create( 1.5f, scene, Color3B::BLACK );
 		Director::getInstance()->replaceScene( fade );
 	};

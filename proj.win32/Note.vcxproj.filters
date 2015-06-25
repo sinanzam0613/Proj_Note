@@ -115,8 +115,8 @@
     <Filter Include="Classes\Game\Scene\Pause">
       <UniqueIdentifier>{5a86b2a5-df37-45f4-867d-12c9b4471ee5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="resource\NewFilter1">
-      <UniqueIdentifier>{9165ee35-c074-4611-8839-0802f1458363}</UniqueIdentifier>
+    <Filter Include="Classes\Game\Object\StageObject\StartStand">
+      <UniqueIdentifier>{c420a5e6-5db6-4a59-9f1b-52f1d274ff0b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -311,6 +311,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Scene\GameMain\PauseBotton.cpp">
       <Filter>Classes\Game\Scene\Pause</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\Credit\CreditScene.cpp">
+      <Filter>Classes\Game\Scene\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\GameMain\StartAnimation.cpp">
+      <Filter>Classes\Game\Scene\GameMain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\StartStand\StartStand.cpp">
+      <Filter>Classes\Game\Object\StageObject\StartStand</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -559,6 +568,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Scene\GameMain\PauseBotton.h">
       <Filter>Classes\Game\Scene\Pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\Credit\CreditScene.h">
+      <Filter>Classes\Game\Scene\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\GameMain\StartAnimation.h">
+      <Filter>Classes\Game\Scene\GameMain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\StartStand\StartStand.h">
+      <Filter>Classes\Game\Object\StageObject\StartStand</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

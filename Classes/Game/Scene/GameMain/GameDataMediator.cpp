@@ -25,7 +25,7 @@ bool GameDataMediator::init(){
 	mBlockManager = BlockManager::create();
 
 
-	mPlayerManager->add(cocos2d::Vec2(100, 230), cocos2d::Vec2(100, 230), 2, 2);
+	mPlayerManager->add(cocos2d::Vec2(80, 210), cocos2d::Vec2(150, 210), 2, 2);
 
 	this->addChild(mPlayerManager);
 	this->addChild(mBlockManager);
