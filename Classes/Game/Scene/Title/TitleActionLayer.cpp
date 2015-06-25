@@ -25,7 +25,7 @@ bool TitleActionLayer::init(){
  ボタン生成
 /--------------------------*/
 void TitleActionLayer::CreateButton(){
-    ButtonEnd();
+    ButtonCredit();
     ButtonStageselect();
     ButtonStart();
 }
@@ -39,7 +39,8 @@ void TitleActionLayer::ButtonStart(){
                                        "Texture/GamePlay/GameScene/Title/Title_Start.png",
                                        [ = ]( Ref* sender ){mselectCount = 1;});
     
-    buttonImage->setPosition(300,100);
+    buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2
+                             ,300);
     auto start = Menu::create( buttonImage, nullptr );
     start->setPosition( Vec2::ZERO );
     this->addChild(start);
@@ -56,23 +57,39 @@ void TitleActionLayer::ButtonStageselect(){
                                              );
     
    
-    buttonImage->setPosition(800,100);
+    buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2
+                             ,200);
     auto stageSelect = Menu::create( buttonImage, nullptr );
     stageSelect->setPosition( Vec2::ZERO );
     this->addChild(stageSelect);
 }
 
 /*--------------------------/
- 終了ボタン生成
+ クレジットボタン生成
 /--------------------------*/
-void TitleActionLayer::ButtonEnd(){
+void TitleActionLayer::ButtonCredit(){
 
-    auto buttonImage = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_End.png",
-                                             "Texture/GamePlay/GameScene/Title/Title_End.png",
+    auto buttonImage = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_Credit.png",
+                                             "Texture/GamePlay/GameScene/Title/Title_Credit.png",
                                              [ = ](Ref* sender){mselectCount = 3;}
                                              );
     
-    buttonImage->setPosition(1200,100);
+    buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2,100);
+    auto end = Menu::create( buttonImage, nullptr );
+    end->setPosition( Vec2::ZERO );
+    this->addChild(end);
+}
+/*--------------------------/
+ クレジット生成
+ /--------------------------*/
+void TitleActionLayer::ButtonCreditSprite(){
+    
+    auto buttonImage = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_CreditSprite.png",
+                                             "Texture/GamePlay/GameScene/Title/Title_CreditSprite.png",
+                                             [ = ](Ref* sender){mselectCount = 3;}
+                                             );
+    
+    buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2,100);
     auto end = Menu::create( buttonImage, nullptr );
     end->setPosition( Vec2::ZERO );
     this->addChild(end);
@@ -83,6 +100,10 @@ void TitleActionLayer::ButtonEnd(){
  /--------------------------*/
 int TitleActionLayer::getSelectCount(){
     return mselectCount;
+}
+
+void TitleActionLayer::initSelectCount(){
+    mselectCount = 0;
 }
 
 /*--------------------------/

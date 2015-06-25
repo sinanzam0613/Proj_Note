@@ -14,12 +14,16 @@ public:
     
     void CreateButton();
     
+    void ButtonCreditSprite();
+    
     int getSelectCount();
+    void initSelectCount();
     
 private:
     void ButtonStart();
     void ButtonStageselect();
-    void ButtonEnd();
+    void ButtonCredit();
+    
     
     int mselectCount;
 };
