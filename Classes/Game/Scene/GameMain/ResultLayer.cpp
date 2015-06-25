@@ -65,7 +65,7 @@ void ResultLayer::selectScene(Vec2 pos){
     
     auto titleCallback		= [ & ]( Ref* )
     {
-        auto scene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0, -9.8f), 5.0f, true);
+        auto scene = SceneCreator::createPhysicsScene(TitleScene::create(), Vect(0, -9.8f), 5.0f, true);
         auto fade	= TransitionFade::create( 1.5f, scene, Color3B::BLACK );
         Director::getInstance()->replaceScene( fade );
     };
@@ -79,7 +79,7 @@ void ResultLayer::selectScene(Vec2 pos){
     BG->setAnchorPoint(Vec2(0.5f,0.5f));
     addChild(BG);
     
-    putButton( "Pause_Continue.png",	"Pause_Continue.png",	Vec2(pos.x, pos.y + 200 ), continueCallback	);
+   // putButton( "Pause_Continue.png",	"Pause_Continue.png",	Vec2(pos.x, pos.y + 200 ), continueCallback	);
     putButton( "Pause_ReStart.png",		"Pause_ReStart.png",	Vec2(pos.x, pos.y       ), nextCallback		);
     putButton( "Pause_End.png",			"Pause_End.png",		Vec2(pos.x, pos.y - 200  ), titleCallback     );
     

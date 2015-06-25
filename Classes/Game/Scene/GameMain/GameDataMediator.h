@@ -34,6 +34,7 @@ public:
 	BlockManager* mBlockManager;
 	GimmickManager* mGImmickManager;
     ResultLayer* mResult;
+    int mCount;
     
 private:
     MyUtil::Timer timer;
