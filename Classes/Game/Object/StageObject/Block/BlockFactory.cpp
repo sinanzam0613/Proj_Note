@@ -5,7 +5,19 @@
 #include "GoalBlock.h"
 #include "NormalBlock.h"
 
+#include "Utility/Audio/ADX2Player.h"
+
 using namespace cocos2d;
+
+BlockFactory::BlockFactory()
+{
+
+}
+
+BlockFactory::~BlockFactory()
+{
+
+}
 
 void BlockFactory::createBlock( Node* parentNode, const std::string& fileName )
 {

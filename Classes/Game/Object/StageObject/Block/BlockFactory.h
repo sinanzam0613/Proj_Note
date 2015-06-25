@@ -3,12 +3,22 @@
 
 #include "cocos2d.h"
 
+class ADX2Player;
+
 class BlockFactory
 {
 	
 public:
+
+	BlockFactory();
+
+	~BlockFactory();
 	
 	void createBlock( cocos2d::Node* parentNode, const std::string& fileName );
+
+private:
+
+	ADX2Player* mPlayer;
 };
 
 #endif

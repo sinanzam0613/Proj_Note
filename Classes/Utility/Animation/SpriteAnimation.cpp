@@ -27,6 +27,9 @@ Sprite* SpriteAnimation::create(const std::string& spriteName, const int count, 
 		Animate* animate = Animate::create(animation);
 		RepeatForever* repeatTrue = RepeatForever::create(animate);
 		firstSprite->runAction(repeatTrue);
+	} else {
+		Animate* animate = Animate::create(animation);
+		firstSprite->runAction(animate);
 	}
 
 	return firstSprite;

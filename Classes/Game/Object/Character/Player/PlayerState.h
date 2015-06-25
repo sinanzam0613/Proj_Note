@@ -6,6 +6,7 @@ enum PLAYERSTATE{
 	JUMP,
 	MISS,
 	DEAD,
+	REST,
 	END
 };
 

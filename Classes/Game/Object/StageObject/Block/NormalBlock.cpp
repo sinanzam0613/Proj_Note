@@ -1,12 +1,14 @@
 #include "NormalBlock.h"
 #include "../ObjectType.h"
 
+#include "Utility/Audio/ADX2Player.h"
+
 using namespace cocos2d;
 
 NormalBlock::NormalBlock()
 	: mBlockData( BlockData() )
 {
-	
+
 }
 
 NormalBlock::~NormalBlock()
@@ -48,6 +50,8 @@ bool NormalBlock::init( const std::string& nodeName, const BlockData& data )
 
 void NormalBlock::onContactBegin( Node* contactNode )
 {
+	auto p = static_cast< ADX2Player* >(getParent()->getParent()->getChildByName("Player"));
+	p->play(mBlockData.cueID);
 }
 
 void NormalBlock::initPhysics()

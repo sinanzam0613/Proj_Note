@@ -2,6 +2,8 @@
 #include "BlockDataReader.h"
 #include "BlockFactory.h"
 
+#include "Utility/Audio/ADX2Player.h"
+
 using namespace cocos2d;
 
 BlockManager* BlockManager::create()
@@ -27,9 +29,13 @@ bool BlockManager::init()
 
 	mBlockNode = Node::create();
 	this->addChild( mBlockNode );
+
+	auto player = ADX2Player::create("Sound/ADX2/EffectUnit/SoundEffect.acb");
+	player->setName("Player");
+	addChild(player);
 	
 	auto fac = std::make_shared< BlockFactory >();
-	fac->createBlock( mBlockNode, "Plist/stage1.plist" );
+	fac->createBlock( mBlockNode, "Plist/Stage1.plist" );
 	
 	return true;
 }
