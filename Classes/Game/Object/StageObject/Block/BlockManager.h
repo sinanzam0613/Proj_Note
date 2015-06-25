@@ -34,6 +34,8 @@ public:
 	void onTouchEnd(cocos2d::Point pos);
 
 	cocos2d::Vec2 getBlockPos(int value) const;
+
+	void reset();
 	
 private:
 	

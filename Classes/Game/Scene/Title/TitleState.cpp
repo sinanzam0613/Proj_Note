@@ -4,13 +4,16 @@
 #include "Game/Scene/StageSelect/StageSelectScene.h"
 #include "Game/Scene/GameMain/GameMainScene.h"
 #include "Game/Scene/Credit/CreditScene.h"
+#include "Utility/Collision/PhysicsListener.h"
+
 
 USING_NS_CC;
 
 TitleState::TitleState():
 mTitleState(true),
 mTitleActionLayer(nullptr),
-mTitleSpriteLayer(nullptr)
+mTitleSpriteLayer(nullptr),
+mNumber(0)
 {
     auto userDef = UserDefault::getInstance();
     if(userDef->getIntegerForKey("clearStage") <= 2){
@@ -57,23 +60,43 @@ bool TitleState::init(Layer* layer){
     mTitleActionLayer = TitleActionLayer::create();
     layer->addChild(mTitleActionLayer);
     
+
+	UserDefault* useDef = UserDefault::getInstance();
+	useDef->setIntegerForKey("selectStage", mNumber);
+	useDef->flush();
+
+	mPlayer = Player::create("Helper1_1.png", ObjectType::OBJECT_PLAYER_RED, 2);
+	mPlayer->setName("Player");
+	mPlayer->setPosition(Vec2(0, 0));
+	mTitleSpriteLayer->addChild(mPlayer);
+
+
+	auto lis = PhysicsListener::create();
+	layer->addChild(lis);
+
+	mBlockManager = BlockManager::create();
+	mBlockManager->setName("Blocks");
+
+	mTitleSpriteLayer->addChild(mBlockManager);
+
 	return true;
 }
 
 /*-----------------------------------------------------
   -------更新
  -----------------------------------------------------*/
-void TitleState::update(float at){(this->*updateFunc[mSceneState])(at);}
+void TitleState::update(float at){
+	(this->*updateFunc[mSceneState])(at);
+	
+	animeUpdate(at);
+}
 
 
 /*-----------------------------------------------------
  -------フェードイン
  -----------------------------------------------------*/
 void TitleState::fadeIn(float at){
-	if (mTestTouch){
-		mTestTouch = false;
 		mSceneState = MAIN;
-	}
 }
 
 /*-----------------------------------------------------
@@ -104,6 +127,7 @@ void TitleState::mainLoop(float at){
 		mTestTouch = false;
 		mUpdateState = UPDATEEND;
 	}
+
     //シーン遷移
     sceneChange();
 }
@@ -175,6 +199,23 @@ void TitleState::mainEnd(float at){
 	mSceneState = FADEOUT;
 }
 
+void TitleState::animeUpdate(float at){
+	if (!mTitleSpriteLayer->getChildByName("Player")) return;
+
+	mPlayer->update(at);
+
+	if (mPlayer->jumpCount() >= 5 || mPlayer->getState() == DEAD){
+		remove();
+		mNumber = (mNumber - 1) % -3;
+		reset();
+		return;
+	}
+
+	if (mPlayer->getState() == JUMP) return;
+
+	mPlayer->jump(mBlockManager->getBlockPos(mPlayer->jumpCount()));
+}
+
 bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	mTestTouch = true;
     
@@ -196,4 +237,30 @@ bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 
 void TitleState::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event){
 
+}
+
+void TitleState::remove(){
+	mTitleSpriteLayer->removeChildByName("Player");
+}
+
+void TitleState::reset(){
+
+	if (mNumber == -1){
+		mPlayer = Player::create("Helper2_1.png", ObjectType::OBJECT_PLAYER_BLUE, 2);
+		mPlayer->setName("Player");
+		mPlayer->setPosition(Vec2(0, 0));
+		mTitleSpriteLayer->addChild(mPlayer);
+	}
+	else{
+		mPlayer = Player::create("Helper1_1.png", ObjectType::OBJECT_PLAYER_RED, 2);
+		mPlayer->setName("Player");
+		mPlayer->setPosition(Vec2(0, 0));
+		mTitleSpriteLayer->addChild(mPlayer);
+	}
+
+	UserDefault* useDef = UserDefault::getInstance();
+	useDef->setIntegerForKey("selectStage", mNumber);
+	useDef->flush();
+
+	mBlockManager->reset();
 }

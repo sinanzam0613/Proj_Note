@@ -28,6 +28,7 @@ bool BlockManager::init()
 	}
 
 	mBlockNode = Node::create();
+	mBlockNode->setName("BlockNode");
 	this->addChild( mBlockNode );
     
     auto userDef = UserDefault::getInstance();
@@ -62,4 +63,19 @@ Vec2 BlockManager::getBlockPos(int value) const {
 	}
 
 	return mBlockNode->getChildren().at(value)->getPosition();
+}
+
+void BlockManager::reset(){
+	removeChildByName("BlockNode");
+
+	mBlockNode = Node::create();
+	mBlockNode->setName("BlockNode");
+	this->addChild(mBlockNode);
+
+	auto userDef = UserDefault::getInstance();
+	int  selectStage = userDef->getIntegerForKey("selectStage");
+	std::string stage = "Plist/Stage" + std::to_string(selectStage) + ".plist";
+
+	auto fac = std::make_shared< BlockFactory >();
+	fac->createBlock(mBlockNode, stage);
 }
