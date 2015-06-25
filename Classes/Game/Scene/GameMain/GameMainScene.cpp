@@ -9,7 +9,7 @@ GameMainScene::GameMainScene()
 GameMainScene::~GameMainScene()
 {
 	mState->release();
-    ply->release();
+    mPlyer->release();
 }
 
 GameMainScene* GameMainScene::create(){
@@ -41,14 +41,19 @@ bool GameMainScene::init(){
     
     auto node = Node::create();
     auto func = cocos2d::CallFunc::create([&]() {
-		ply = ADX2Player::create("Sound/ADX2/WorkUnit_BackMusic/CueSheet_0.acb");
-        ply->play(2);
-        ply->retain();
+		mPlyer = ADX2Player::create("Sound/ADX2/WorkUnit_BackMusic/CueSheet_0.acb");
+        //mPlyer->play(2);
+        mPlyer->retain();
     });
     auto delay = cocos2d::DelayTime::create(1.6f);
     auto seq = cocos2d::Sequence::create(delay, func, nullptr);
     node->runAction(seq);
     this->addChild(node);
+    
+    
+    cocos2d::UserDefault* useDef  = cocos2d::UserDefault::getInstance();
+    useDef->setBoolForKey("isClear", false);
+    useDef->flush();
 
 	this->scheduleUpdate();
 
@@ -57,6 +62,7 @@ bool GameMainScene::init(){
 
 void GameMainScene::update(float at){
 	mState->update(at);
+
 }
 
 

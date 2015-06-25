@@ -2,6 +2,7 @@
 #include "Utility/CocosAssistant/ListenerAssistant.h"
 #include "Utility/SceneSupport/SceneCreator.h"
 #include "Game/Scene/Title/TitleScene.h"
+#include "Game/Scene/GameMain/ResultLayer.h"
 
 USING_NS_CC;
 
@@ -43,6 +44,7 @@ bool CreditScene::init(){
     ListenerAssistant::setupSingleTouchListener(this, true, onTouchBegan, nullptr, onTouchEnd, nullptr);
     
     this->scheduleUpdate();
+    
     
     auto BG = cocos2d::Sprite::create("Texture/GamePlay/GameScene/Credit.png");
     BG->setPosition(cocos2d::Vec2(0,0));

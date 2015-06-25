@@ -55,6 +55,6 @@ void GoalAnimation::jumpAnimation(Node* playerRed, Node* playerBlue)
 
 void GoalAnimation::createEffect(Node* parent, cocos2d::Vec2 position)
 {
-	auto p = SimpleParticle::create("Particle/JumpEffect.plist", position);
+	auto p = SimpleParticle::create("Particle/GoalEffect.plist", position);
 	parent->addChild(p);
 }

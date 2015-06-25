@@ -5,6 +5,7 @@
 #include "Utility/Audio/ADX2Player.h"
 
 
+
 class GameMainScene : public cocos2d::Layer
 {
 public:
@@ -29,8 +30,7 @@ public:
 	----------------------------------------------------------------------*/
 	virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     
-    ADX2Player* ply;
-
+    ADX2Player* mPlyer;
 };
 
 #endif
