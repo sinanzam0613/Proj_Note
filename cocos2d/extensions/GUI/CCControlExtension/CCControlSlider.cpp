@@ -269,6 +269,7 @@ void ControlSlider::onTouchMoved(Touch *pTouch, Event *pEvent)
 void ControlSlider::onTouchEnded(Touch *pTouch, Event *pEvent)
 {
     sliderEnded(Vec2::ZERO);
+    _EndFlag = true;
 }
 
 void ControlSlider::needsLayout()

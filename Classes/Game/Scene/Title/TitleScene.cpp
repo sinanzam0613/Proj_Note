@@ -9,6 +9,7 @@ TitleScene::TitleScene()
 TitleScene::~TitleScene()
 {
 	mState->release();
+    ply->release();
 }
 
 TitleScene* TitleScene::create(){
@@ -37,6 +38,11 @@ bool TitleScene::init(){
 	auto onTouchEnd = CC_CALLBACK_2(TitleScene::onTouchEnded, this);
 
 	ListenerAssistant::setupSingleTouchListener(this, true, onTouchBegan, nullptr, onTouchEnd, nullptr);
+    
+    //
+    ply = ADX2Player::create("Sound/ADX2/MusicUnit/BackMusic.acb");
+    ply->play(0);
+    ply->retain();
 
 	this->scheduleUpdate();
 

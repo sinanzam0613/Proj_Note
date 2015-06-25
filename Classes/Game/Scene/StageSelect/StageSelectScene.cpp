@@ -47,6 +47,11 @@ bool StageSelectScene::init(){
     
     ListenerAssistant::setupSingleTouchListener(this, true, onTouchBegan, nullptr, onTouchEnd, nullptr);
     
+    //
+    ply = ADX2Player::create("Sound/ADX2/MusicUnit/BackMusic.acb");
+    ply->play(0);
+    ply->retain();
+    
     this->scheduleUpdate();
     
     return true;
