@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Game/Scene/StageSelect/StageSelectState.h"
+#include "Utility/Audio/ADX2Player.h"
 
 class StageSelectScene :public cocos2d::Layer{
 public:
@@ -26,6 +27,8 @@ public:
      |	・タッチ終わり
      ----------------------------------------------------------------------*/
     virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+    
+    ADX2Player* ply;
 };
 
 #endif

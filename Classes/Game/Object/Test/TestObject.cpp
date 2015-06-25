@@ -17,7 +17,7 @@ bool TestObject::init()
 	{
 		return false;
 	}
-	mSprite = SpriteCreator::createPhysicsBox("Texture/GamePlay/Character/Test.png",Size(100,100));
+    mSprite = SpriteCreator::createPhysicsBox("Texture/GamePlay/Character/Test.png",cocos2d::Size(100,100));
 
 
 	this->addChild(mSprite);
