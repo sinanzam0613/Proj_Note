@@ -71,14 +71,18 @@ bool Player::init(const std::string& fileName, ObjectType type)
 
 void Player::update(float deltaTime)
 {
-	if (mState == DEAD) return;
-
+	if (mState == DEADANIM){
+		if (!mSprite->getActionByTag(21)){
+			mState = DEAD;
+		}
+		return;
+	}
 	if (mSprite->getPositionY() < -mSprite->getContentSize().height ){
 		mSprite->stopAllActions();
 		DeadAnimation anim;
 		anim.action(mSprite);
 		mPhysicsBody->setDynamic(false);
-		mState = DEAD;
+		mState = DEADANIM;
 	}
 	mDuration += deltaTime;
 }

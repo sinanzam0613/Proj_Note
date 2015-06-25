@@ -154,6 +154,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\GoalBlock.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\NormalBlock.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Block\RedBlock.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Gimmick\FermataGimmick.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickDataReader.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickFactory.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickManager.cpp" />
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Gimmick\RestGimmick.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Goal\Goal.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\Note.cpp" />
     <ClCompile Include="..\Classes\Game\Object\StageObject\Note\NoteLine.cpp" />
@@ -226,6 +231,12 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\GoalBlock.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\NormalBlock.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Block\RedBlock.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\FermataGimmick.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickData.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickDataReader.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickFactory.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickManager.h" />
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\RestGimmick.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Goal\Goal.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\Note.h" />
     <ClInclude Include="..\Classes\Game\Object\StageObject\Note\NoteLine.h" />

@@ -35,7 +35,7 @@ bool BlockManager::init()
     std::string stage = "Plist/Stage" + std::to_string(selectStage) + ".plist";
 
     
-	auto player = ADX2Player::create("Sound/ADX2/EffectUnit/SoundEffect.acb");
+	auto player = ADX2Player::create("Sound/ADX2/WorkUnit_Effect/CueSheet_1.acb");
 	player->setName("Player");
 	addChild(player);
 

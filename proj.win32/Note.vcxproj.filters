@@ -118,6 +118,9 @@
     <Filter Include="Classes\Game\Object\StageObject\StartStand">
       <UniqueIdentifier>{c420a5e6-5db6-4a59-9f1b-52f1d274ff0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Game\Object\StageObject\Gimmick">
+      <UniqueIdentifier>{b9e873e6-71b5-4e3c-8121-a0e43ba12a37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -323,6 +326,21 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Object\Character\Player\GoalAnimation.cpp">
       <Filter>Classes\Game\Object\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Gimmick\FermataGimmick.cpp">
+      <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickDataReader.cpp">
+      <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickFactory.cpp">
+      <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickManager.cpp">
+      <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Object\StageObject\Gimmick\RestGimmick.cpp">
+      <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -583,6 +601,24 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\Character\Player\GoalAnimation.h">
       <Filter>Classes\Game\Object\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\FermataGimmick.h">
+      <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickData.h">
+      <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickDataReader.h">
+      <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickFactory.h">
+      <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\GimmickManager.h">
+      <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\RestGimmick.h">
+      <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

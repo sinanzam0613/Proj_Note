@@ -13,7 +13,7 @@ using namespace cocos2d;
 #define VISIBLESIZE Director::getInstance()->getVisibleSize()
 #define ORIGINSIZE Director::getInstance()->getVisibleOrigin()
 
-HigeLayer::HigeLayer() : mNumber(-1){
+HigeLayer::HigeLayer() : mNumber(0){
 	srand((unsigned)time(NULL));
 }
 
@@ -61,7 +61,7 @@ void HigeLayer::update(float deltaTime) {
 
 	if (player->jumpCount() >= 5 || player->getState() == DEAD){
 		remove();
-		mNumber  = (mNumber - 1) % -4;
+		mNumber  = (mNumber - 1) % -3;
 		reset();
 		return;
 	}
@@ -78,7 +78,7 @@ void HigeLayer::remove(){
 
 void HigeLayer::reset(){
 
-	if (mNumber == -2){
+	if (mNumber == -1){
 		player = Player::create("Helper2_1.png", ObjectType::OBJECT_PLAYER_BLUE, 2);
 		player->setName("Player");
 		player->setPosition(Vec2(0, 0));

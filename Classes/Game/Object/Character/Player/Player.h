@@ -67,6 +67,8 @@ public:
 
 	PLAYERSTATE getState();
 
+	void setState(PLAYERSTATE state){ mState = state; }
+
 private:
 	cocos2d::Sprite* mSprite;
    	float mDuration;
