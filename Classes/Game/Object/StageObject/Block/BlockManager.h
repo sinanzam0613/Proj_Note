@@ -36,6 +36,8 @@ public:
     cocos2d::Vec2 getGoalPos();
     
 	cocos2d::Vec2 getBlockPos(int value) const;
+
+	void reset();
 	
 private:
 	

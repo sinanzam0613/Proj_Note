@@ -6,6 +6,10 @@
 #include "Game/Scene/Title/TitleSpriteLayer.h"
 #include "Game/Scene/Title/TitleActionLayer.h"
 
+#include "Game/Object/Character/Player/Player.h"
+#include "Game/Object/StageObject/ObjectType.h"
+#include "../../Object/StageObject/Block/BlockManager.h"
+
 class TitleState : public IScene
 {
 public:
@@ -88,6 +92,12 @@ private:
     ------------------------------------------------------------------*/
     void sceneChange();
 
+	void remove();
+
+	void reset();
+
+	void animeUpdate(float at);
+
 private:
 	bool mTestTouch;
     
@@ -99,6 +109,10 @@ private:
     
     //状態管理用フラグ
     bool mTitleState;
+
+	int mNumber;
+	Player* mPlayer;
+	BlockManager* mBlockManager;
     
 };
 #endif
