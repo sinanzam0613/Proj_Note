@@ -5,6 +5,7 @@
 #include "Game/Object/StageObject/ObjectType.h"
 #include "Game/Object/Character/Player/DeadAnimation.h"
 #include "Utility/Animation/SimpleParticle.h"
+#include "Utility/Animation/SpriteAnimation.h"
 
 using namespace cocos2d;
 
@@ -72,7 +73,7 @@ void Player::update(float deltaTime)
 {
 	if (mState == DEAD) return;
 
-	if (mSprite->getPositionY() < -mSprite->getContentSize().height){
+	if (mSprite->getPositionY() < -mSprite->getContentSize().height ){
 		mSprite->stopAllActions();
 		DeadAnimation anim;
 		anim.action(mSprite);
@@ -100,6 +101,7 @@ void Player::jump(Vec2 targetPosition)
 {
 	//すでにジャンプが実行されているのであれば何もしない。
 	if (!mState == NORMAL){ return; }
+
 	mDuration = 0;
 	
 	mPhysicsBody->setGravityEnable(true);
@@ -118,6 +120,7 @@ void Player::jump(Vec2 targetPosition)
 	mPhysicsBody->setDynamic(false);
 
 	mState = JUMP;
+
 	auto p = SimpleParticle::create("Particle/JumpEffect.plist", Vec2(getPosition().x, getPosition().y - 20));
 	getParent()->addChild(p);
 }
@@ -134,16 +137,44 @@ const Vec2& Player::getPosition()const
 
 void Player::onContactBegin(cocos2d::Node* contactNode){
 
+	if (mState != JUMP){ return; }
+
+	if (std::strstr(contactNode->getName().c_str(), "Rest")) {
+		mSprite->stopAllActions();
+		auto action = MoveTo::create(2.5f, Vec2(mSprite->getPositionX(), 0));
+		this->runAction(action);
+		return;
+	}
+
 	if ( std::strstr(contactNode->getName().c_str(),"Block")){
 		if (!std::strstr(contactNode->getName().c_str(), "After")){
 			mState = MISS;
 			return;
 		}
 
-		mSprite->stopAllActions();																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								// 記念AGO
+		mSprite->stopAllActions();
+
 		mJumpCount++;
 
 		mState = NORMAL;
+		if (_name == "Player") {
+			mSprite->setOpacity(0);
+			Util::SpriteAnimation spriteAnimetion("Texture/GamePlay/Character/");
+			auto anime = spriteAnimetion.create("Helper1_", 6, 0.08f, true, false);
+			anime->setAnchorPoint(Vec2::ZERO);
+			mSprite->addChild(anime);
+		}
+		else if (_name == "Player2") {
+			mSprite->setOpacity(0);
+			Util::SpriteAnimation spriteAnimetion("Texture/GamePlay/Character/");
+			auto anime = spriteAnimetion.create("Helper2_", 6, 0.08f, true, false);
+			anime->setAnchorPoint(Vec2::ZERO);
+			mSprite->addChild(anime);
+		}
+	}
+
+	if (std::strstr(contactNode->getName().c_str(), "Fermata")) {
+		changeJumpTime(3);
 	}
 
 }
