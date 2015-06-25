@@ -36,7 +36,7 @@ void StageSelectActionLayer::buttonBack(){
                                              "Texture/GamePlay/GameScene/StageSelect/StageSelect_Back.png",
                                              [ = ](Ref* sender)
                                             {
-                                                auto nextScene = SceneCreator::createScene(TitleScene::create());
+                                                auto nextScene = SceneCreator::createPhysicsScene(TitleScene::create(), Vect(0, -9.8f), 5.0f);
                                                 auto scene	= TransitionFade::create( 1.5f, nextScene, Color3B::BLACK );
                                                 auto dir = Director::getInstance();
                                                 dir->replaceScene(scene);
@@ -155,7 +155,7 @@ void StageSelectActionLayer::buttonYes(cocos2d::Layer* layer,Menu* menu,int tag)
                                                useDef->setIntegerForKey("selectStage",tag);
                                                useDef->flush();
                                                
-                                               auto nextScene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0,-9.8f));
+                                               auto nextScene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0, -9.8f), 5.0f);
                                                auto scene	= TransitionFade::create( 1.5f, nextScene, Color3B::BLACK );
                                                auto dir = Director::getInstance();
                                                dir->replaceScene(scene);
