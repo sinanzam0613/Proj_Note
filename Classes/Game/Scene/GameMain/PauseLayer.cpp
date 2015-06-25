@@ -43,13 +43,17 @@ bool PauseLayer::init(cocos2d::RenderTexture* sprite)
 	
 	auto retryCallback		= [ & ]( Ref* )
 	{
-		auto scene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0, -9.8f), 5.0f, true);
+		Director::getInstance()->popScene();
+
+		auto scene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0, -9.8f), 5.0f);
 		auto fade	= TransitionFade::create( 1.5f, scene, Color3B::BLACK );
 		Director::getInstance()->replaceScene( fade );
 	};
 	auto retireCallback		= [ & ]( Ref* )
 	{
-		auto scene = SceneCreator::createPhysicsScene(TitleScene::create(), Vect(0, -9.8f), 5.0f, true);
+		Director::getInstance()->popScene();
+
+		auto scene = SceneCreator::createPhysicsScene(TitleScene::create(), Vect(0, -9.8f), 5.0f);
 		auto fade	= TransitionFade::create( 1.5f, scene, Color3B::BLACK );
 		Director::getInstance()->replaceScene( fade );
 	};
