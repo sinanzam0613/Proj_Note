@@ -115,6 +115,9 @@
     <Filter Include="Classes\Game\Scene\Pause">
       <UniqueIdentifier>{5a86b2a5-df37-45f4-867d-12c9b4471ee5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resource\NewFilter1">
+      <UniqueIdentifier>{9165ee35-c074-4611-8839-0802f1458363}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

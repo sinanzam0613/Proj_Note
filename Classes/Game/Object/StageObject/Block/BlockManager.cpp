@@ -29,7 +29,7 @@ bool BlockManager::init()
 	this->addChild( mBlockNode );
 	
 	auto fac = std::make_shared< BlockFactory >();
-	fac->createBlock( mBlockNode, "Plist/stage1.plist" );
+	fac->createBlock( mBlockNode, "Plist/Stage1.plist" );
 	
 	return true;
 }
