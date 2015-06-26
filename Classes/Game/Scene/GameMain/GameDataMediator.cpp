@@ -49,16 +49,15 @@ void GameDataMediator::update(float dt, UiObjectLayer* uiLayer){
     
     if(mPlayerManager->getPlayer(0)->getState() == DEAD  && mCount == 0) {
         mCount++;
-        auto scene = SceneCreator::createPhysicsScene(GameMainScene::create(), cocos2d::Vect(0, -9.8f), 5.0f, true);
+        auto scene = SceneCreator::createPhysicsScene(GameMainScene::create(), cocos2d::Vect(0, -9.8f), 5.0f);
         auto fade	= cocos2d::TransitionFade::create( 1.5f, scene, cocos2d::Color3B::BLACK );
         cocos2d::Director::getInstance()->replaceScene( fade );
-        
-    
+		
     }
     
     if(mPlayerManager->getPlayer(1)->getState() == DEAD && mCount == 0){
         mCount++;
-        auto scene = SceneCreator::createPhysicsScene(GameMainScene::create(), cocos2d::Vect(0, -9.8f), 5.0f, true);
+        auto scene = SceneCreator::createPhysicsScene(GameMainScene::create(), cocos2d::Vect(0, -9.8f), 5.0f);
         auto fade	= cocos2d::TransitionFade::create( 1.5f, scene, cocos2d::Color3B::BLACK );
         cocos2d::Director::getInstance()->replaceScene( fade );
     
@@ -81,7 +80,8 @@ void GameDataMediator::update(float dt, UiObjectLayer* uiLayer){
         
         sprite1->getPhysicsBody()->setGravityEnable(false);
         sprite2->getPhysicsBody()->setGravityEnable(false);
-        
+        sprite1->getPhysicsBody()->setDynamic( false );
+		sprite2->getPhysicsBody()->setDynamic( false );
 
         
         GoalAnimation goal;
@@ -89,9 +89,14 @@ void GameDataMediator::update(float dt, UiObjectLayer* uiLayer){
                     this,
                     mPlayerManager->getPlayer(0)->getChildByName("Player"),
                     mPlayerManager->getPlayer(1)->getChildByName("Player2"));
-        
-        
-        
+		
+		
+		auto BG = cocos2d::Sprite::create("Texture/GamePlay/GameStage/Goal.png");
+		BG->setPosition(mBlockManager->getGoalPos());
+		BG->setAnchorPoint(cocos2d::Vec2(0.5f,0.5f));
+		addChild(BG);
+		
+		
         auto node = Node::create();
         auto func = cocos2d::CallFunc::create([&]() {
             mResult = ResultLayer::create(mBlockManager->getGoalPos());
@@ -116,7 +121,7 @@ void GameDataMediator::update(float dt, UiObjectLayer* uiLayer){
         player->changeJumpTime(slideBar->getValue("p1", uiLayer));
     }
     
-    if (!player->getState() == JUMP)
+    if (player->getState() != JUMP)
     {
         player->jump(mBlockManager->getBlockPos(player->jumpCount()));
     }
@@ -133,7 +138,7 @@ void GameDataMediator::update(float dt, UiObjectLayer* uiLayer){
         player2->changeJumpTime(slideBar->getValue("p2", uiLayer));
     }
     
-    if (!player2->getState() == JUMP){
+    if (player2->getState() != JUMP){
         
         player2->jump(mBlockManager->getBlockPos(player2->jumpCount()));
     }
