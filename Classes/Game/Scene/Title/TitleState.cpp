@@ -57,8 +57,7 @@ bool TitleState::init(Layer* layer){
     
     mTitleSpriteLayer = TitleSpriteLayer::create();
     layer->addChild(mTitleSpriteLayer);
-    mTitleActionLayer = TitleActionLayer::create();
-    layer->addChild(mTitleActionLayer);
+  
     
 
 	UserDefault* useDef = UserDefault::getInstance();
@@ -77,7 +76,12 @@ bool TitleState::init(Layer* layer){
 	mBlockManager = BlockManager::create();
 	mBlockManager->setName("Blocks");
 
+    
 	mTitleSpriteLayer->addChild(mBlockManager);
+    
+     
+    mTitleActionLayer = TitleActionLayer::create();
+    layer->addChild(mTitleActionLayer);
 
 	return true;
 }
