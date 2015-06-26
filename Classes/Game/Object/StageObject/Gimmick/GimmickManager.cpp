@@ -28,8 +28,13 @@ bool GimmickManager::init()
 	mGimmickNode = Node::create();
 	this->addChild(mGimmickNode);
 
+	auto userDef = UserDefault::getInstance();
+
+	int  selectStage = userDef->getIntegerForKey("selectGimmick");
+	std::string stage = "Plist/Stage" + std::to_string(selectStage) + "Gimmick.plist";
+
 	auto fac = std::make_shared< GimmickFactory >();
-	fac->createGimmick(mGimmickNode, "Plist/GimmickData.plist");
+	fac->createGimmick(mGimmickNode, stage);
 
 	return true;
 }

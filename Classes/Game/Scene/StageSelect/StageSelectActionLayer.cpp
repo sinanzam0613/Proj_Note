@@ -151,8 +151,9 @@ void StageSelectActionLayer::buttonYes(cocos2d::Layer* layer,Menu* menu,int tag)
                                            "Texture/GamePlay/GameScene/StageSelect/StageSelect_Yes.png",
                                            [ = ](Ref* sender)
                                            {
-                                               UserDefault* useDef;
+											   UserDefault* useDef = UserDefault::getInstance();
                                                useDef->setIntegerForKey("selectStage",tag);
+											   useDef->setIntegerForKey("selectGimmick", tag);
                                                useDef->flush();
                                                
                                                auto nextScene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0, -9.8f), 5.0f);

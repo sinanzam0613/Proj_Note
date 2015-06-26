@@ -93,7 +93,7 @@ bool TitleState::init(Layer* layer){
 void TitleState::update(float at){
 	(this->*updateFunc[mSceneState])(at);
 	
-	//animeUpdate(at);
+	animeUpdate(at);
 }
 
 
@@ -158,6 +158,8 @@ void TitleState::sceneChange(){
             
             UserDefault* useDef  = UserDefault::getInstance();
             useDef->setIntegerForKey("selectStage",1);
+			useDef->setIntegerForKey("selectGimmick", 1);
+			
             useDef->flush();
             
             //ゲーム生成
@@ -234,13 +236,8 @@ bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	
 	cocos2d::MenuItemImage* buttonImage = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_Start.png",
 		"Texture/GamePlay/GameScene/Title/Title_Start.png",
-		[=](Ref* sender){
-	
-		mState = 1;
-	});
-
-	buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2
-		, 300);
+		[=](Ref* sender){mState = 1;});
+	buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2, 300);
 	auto start = Menu::create(buttonImage, nullptr);
 	start->setPosition(Vec2::ZERO);
 	mTitleActionLayer->addChild(start);
@@ -249,12 +246,8 @@ bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 
 	cocos2d::MenuItemImage* buttonImage2 = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_StageSelect.png",
 		"Texture/GamePlay/GameScene/Title/Title_StageSelect.png",
-		[=](Ref* sender){mState = 2; }
-	);
-
-
-	buttonImage->setPosition(Director::getInstance()->getVisibleSize().width / 2
-		, 200);
+		[=](Ref* sender){mState = 2; });
+	buttonImage2->setPosition(Director::getInstance()->getVisibleSize().width / 2, 200);
 	auto stageSelect = Menu::create(buttonImage2, nullptr);
 	stageSelect->setPosition(Vec2::ZERO);
 	mTitleActionLayer->addChild(stageSelect);
@@ -262,10 +255,8 @@ bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 
 	cocos2d::MenuItemImage* buttonImage3 = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_Credit.png",
 		"Texture/GamePlay/GameScene/Title/Title_Credit.png",
-		[=](Ref* sender){mState = 3; }
-	);
-
-	buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2, 100);
+		[=](Ref* sender){mState = 3; });
+	buttonImage3->setPosition(Director::getInstance()->getVisibleSize().width/2, 100);
 	auto end = Menu::create(buttonImage3, nullptr);
 	end->setPosition(Vec2::ZERO);
 	mTitleActionLayer->addChild(end);
