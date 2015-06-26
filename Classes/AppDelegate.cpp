@@ -31,7 +31,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 		director->setOpenGLView( glView );
 	}
 	
-	director->setDisplayStats( true );
+	director->setDisplayStats( false );
 	director->setAnimationInterval( 1.f / 60.f );
 	
 	glView->setDesignResolutionSize( 1280, 720, ResolutionPolicy::SHOW_ALL );

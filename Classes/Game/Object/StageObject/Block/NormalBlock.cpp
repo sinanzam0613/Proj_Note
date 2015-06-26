@@ -13,7 +13,7 @@ NormalBlock::NormalBlock()
 
 NormalBlock::~NormalBlock()
 {
-	this->disableCollision( this->getName() );
+	//this->disableCollision( this->getName() );
 }
 
 NormalBlock* NormalBlock::create( const std::string& nodeName, const BlockData& data )

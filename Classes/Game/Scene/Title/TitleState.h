@@ -110,6 +110,8 @@ private:
     //状態管理用フラグ
     bool mTitleState;
 
+	int mState;
+
 	int mNumber;
 	Player* mPlayer;
 	BlockManager* mBlockManager;

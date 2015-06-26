@@ -14,7 +14,7 @@ RedBlock::RedBlock()
 
 RedBlock::~RedBlock()
 {
-	this->disableCollision( this->getName() );
+	//this->disableCollision( this->getName() );
 }
 
 RedBlock* RedBlock::create( const std::string& nodeName, const BlockData& data )

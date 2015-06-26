@@ -342,6 +342,9 @@
     <ClCompile Include="..\Classes\Game\Object\StageObject\Gimmick\RestGimmick.cpp">
       <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\Scene\GameMain\ResultLayer.cpp">
+      <Filter>Classes\Game\Scene\Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -619,6 +622,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Object\StageObject\Gimmick\RestGimmick.h">
       <Filter>Classes\Game\Object\StageObject\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Scene\GameMain\ResultLayer.h">
+      <Filter>Classes\Game\Scene\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -36,14 +36,14 @@ void TitleActionLayer::CreateButton(){
 void TitleActionLayer::ButtonStart(){
 
     auto buttonImage = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_Start.png",
-                                       "Texture/GamePlay/GameScene/Title/Title_Start.png",
+										     "Texture/GamePlay/GameScene/Title/Title_Start.png",
                                        [ = ]( Ref* sender ){mselectCount = 1;});
     
     buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2
                              ,300);
     auto start = Menu::create( buttonImage, nullptr );
     start->setPosition( Vec2::ZERO );
-    this->addChild(start);
+    addChild(start);
 }
 
 /*--------------------------/

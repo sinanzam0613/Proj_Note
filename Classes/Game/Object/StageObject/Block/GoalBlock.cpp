@@ -11,7 +11,7 @@ GoalBlock::GoalBlock()
 
 GoalBlock::~GoalBlock()
 {
-	this->disableCollision( this->getName() );
+	// this->disableCollision( this->getName() );
 }
 
 GoalBlock* GoalBlock::create( const std::string& nodeName, const BlockData& data )

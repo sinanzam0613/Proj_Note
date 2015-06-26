@@ -77,7 +77,7 @@ void TitleSpriteLayer::drawTouchLogo(){
     auto Logo = Sprite::create("Texture/GamePlay/GameScene/Title/Title_Touch.png");
     Logo->setScale(0.8f, 0.9f);
     Logo->setPosition(Vec2(Director::getInstance()->getVisibleSize().width/2,
-                           Director::getInstance()->getVisibleSize().height/2 - 250));
+                           Director::getInstance()->getVisibleSize().height/2 - 200));
     Logo->setAnchorPoint(Vec2(0.5f,0.5f));
     Logo->setOpacity(0);
     Logo->setName("TouchLogo");

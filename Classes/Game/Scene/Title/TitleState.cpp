@@ -9,11 +9,12 @@
 
 USING_NS_CC;
 
-TitleState::TitleState():
+TitleState::TitleState() :
 mTitleState(true),
 mTitleActionLayer(nullptr),
 mTitleSpriteLayer(nullptr),
-mNumber(0)
+mNumber(0),
+mState(0)
 {
     auto userDef = UserDefault::getInstance();
     if(userDef->getIntegerForKey("clearStage") <= 2){
@@ -59,7 +60,7 @@ bool TitleState::init(Layer* layer){
     layer->addChild(mTitleSpriteLayer);
   
     
-
+	
 	UserDefault* useDef = UserDefault::getInstance();
 	useDef->setIntegerForKey("selectStage", mNumber);
 	useDef->flush();
@@ -92,7 +93,7 @@ bool TitleState::init(Layer* layer){
 void TitleState::update(float at){
 	(this->*updateFunc[mSceneState])(at);
 	
-	animeUpdate(at);
+	//animeUpdate(at);
 }
 
 
@@ -141,7 +142,7 @@ void TitleState::mainLoop(float at){
  -----------------------------------------------------*/
 void TitleState::sceneChange(){
     
-    int mState = mTitleActionLayer->getSelectCount();
+    //int mState = mTitleActionLayer->getSelectCount();
     
     switch (mState)
     {
@@ -152,7 +153,8 @@ void TitleState::sceneChange(){
         case 1:
         {
             //初期化
-            mTitleActionLayer->initSelectCount();
+          //  mTitleActionLayer->initSelectCount();
+			mState = 0;
             
             UserDefault* useDef  = UserDefault::getInstance();
             useDef->setIntegerForKey("selectStage",1);
@@ -170,7 +172,9 @@ void TitleState::sceneChange(){
         case 2:
         {
             //初期化
-            mTitleActionLayer->initSelectCount();
+            //mTitleActionLayer->initSelectCount();
+
+			mState = 0;
             //ステージセレクト
             auto nextScene = SceneCreator::createScene(StageSelectScene::create());
             auto scene	= TransitionFade::create( 1.5f, nextScene, Color3B::BLACK );
@@ -182,7 +186,9 @@ void TitleState::sceneChange(){
         //クレジット////////////////////////////////////////////////////////////////////////////////////////////////////////
         case 3:
         {
-            mTitleActionLayer->initSelectCount();
+            //mTitleActionLayer->initSelectCount();
+
+			mState = 0;
             
             //クレジット
             auto nextScene = SceneCreator::createScene(CreditScene::create());
@@ -222,16 +228,56 @@ void TitleState::animeUpdate(float at){
 
 bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	mTestTouch = true;
+
+	//状態管理
+	if (!mTitleState) return false;
+	
+	cocos2d::MenuItemImage* buttonImage = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_Start.png",
+		"Texture/GamePlay/GameScene/Title/Title_Start.png",
+		[=](Ref* sender){
+	
+		mState = 1;
+	});
+
+	buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2
+		, 300);
+	auto start = Menu::create(buttonImage, nullptr);
+	start->setPosition(Vec2::ZERO);
+	mTitleActionLayer->addChild(start);
+
+
+
+	cocos2d::MenuItemImage* buttonImage2 = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_StageSelect.png",
+		"Texture/GamePlay/GameScene/Title/Title_StageSelect.png",
+		[=](Ref* sender){mState = 2; }
+	);
+
+
+	buttonImage->setPosition(Director::getInstance()->getVisibleSize().width / 2
+		, 200);
+	auto stageSelect = Menu::create(buttonImage2, nullptr);
+	stageSelect->setPosition(Vec2::ZERO);
+	mTitleActionLayer->addChild(stageSelect);
+
+
+	cocos2d::MenuItemImage* buttonImage3 = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_Credit.png",
+		"Texture/GamePlay/GameScene/Title/Title_Credit.png",
+		[=](Ref* sender){mState = 3; }
+	);
+
+	buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2, 100);
+	auto end = Menu::create(buttonImage3, nullptr);
+	end->setPosition(Vec2::ZERO);
+	mTitleActionLayer->addChild(end);
     
-    //状態管理
-    if(!mTitleState) return false;
+ 
     
     //アクションの停止
     auto touchLogo = mTitleSpriteLayer->getChildByName("TouchLogo");
     touchLogo->stopAllActions();
     touchLogo->setOpacity(0);
     
-    mTitleActionLayer->CreateButton();
+   // mTitleActionLayer->CreateButton();
     
     mTitleState = false;
 

@@ -13,7 +13,7 @@ BlueBlock::BlueBlock()
 
 BlueBlock::~BlueBlock()
 {
-	this->disableCollision( this->getName() );
+	// this->disableCollision( this->getName() );
 }
 
 BlueBlock* BlueBlock::create( const std::string& nodeName, const BlockData& data )

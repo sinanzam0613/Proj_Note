@@ -42,7 +42,7 @@ bool GameMainScene::init(){
     auto node = Node::create();
     auto func = cocos2d::CallFunc::create([&]() {
 		mPlyer = ADX2Player::create("Sound/ADX2/WorkUnit_BackMusic/CueSheet_0.acb");
-        //mPlyer->play(2);
+        mPlyer->play(2);
         mPlyer->retain();
     });
     auto delay = cocos2d::DelayTime::create(1.6f);
