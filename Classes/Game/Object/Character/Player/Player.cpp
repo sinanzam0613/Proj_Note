@@ -163,19 +163,37 @@ void Player::onContactBegin(cocos2d::Node* contactNode){
 
 		mState = NORMAL;
 
+		
+
 		if (mSprite->getName() == "Player2") {
-			mSprite->setOpacity(0);
-			Util::SpriteAnimation spriteAnimetion("Texture/GamePlay/Character/");
-			auto anime = spriteAnimetion.create("Helper2_", 6, 0.08f, true, false);
-			anime->setAnchorPoint(Vec2::ZERO);
-			mSprite->addChild(anime);
+			if (mSprite->getChildByTag(1133)){
+				Util::SpriteAnimation spriteAnimetion("Texture/GamePlay/Character/");
+				auto anime = spriteAnimetion.createAnim("Helper2_", 6, 0.08f, true );
+				mSprite->getChildByTag(1133)->runAction(anime);
+			}
+			else{
+				Util::SpriteAnimation spriteAnimetion("Texture/GamePlay/Character/");
+				auto anime = spriteAnimetion.create("Helper2_", 6, 0.08f, true, false);
+				anime->setAnchorPoint(Vec2::ZERO);
+				mSprite->setOpacity(0);
+				mSprite->addChild(anime);
+				anime->setTag(1133);
+			}
 		}
 		else if (mSprite->getName() != "Player2"){
-			mSprite->setOpacity(0);
-			Util::SpriteAnimation spriteAnimetion("Texture/GamePlay/Character/");
-			auto anime = spriteAnimetion.create("Helper1_", 6, 0.08f, true, false);
-			anime->setAnchorPoint(Vec2::ZERO);
-			mSprite->addChild(anime);
+			if (mSprite->getChildByTag(1133)){
+				Util::SpriteAnimation spriteAnimetion("Texture/GamePlay/Character/");
+				auto anime = spriteAnimetion.createAnim("Helper1_", 6, 0.08f, true);
+				mSprite->getChildByTag(1133)->runAction(anime);
+			}
+			else{
+				Util::SpriteAnimation spriteAnimetion("Texture/GamePlay/Character/");
+				auto anime = spriteAnimetion.create("Helper1_", 6, 0.08f, true, false);
+				anime->setAnchorPoint(Vec2::ZERO);
+				mSprite->setOpacity(0);
+				mSprite->addChild(anime);
+				anime->setTag(1133);
+			}
 		}
 	}
 
@@ -184,6 +202,13 @@ void Player::onContactBegin(cocos2d::Node* contactNode){
 	}
 }
 
+void Player::callDrawInit(){
+	mSprite->setOpacity(0);
+}
+
+void Player::CallDrawEnd() {
+	mSprite->setOpacity(255);
+}
 void Player::changeJumpTime(float changetime){
 
 	if (!mSprite->getActionByTag(1) || mJumpTime == changetime || mDuration > mJumpTime) return;
