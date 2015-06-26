@@ -65,6 +65,9 @@ public:
 
 	unsigned int jumpCount();
 
+	void callDrawInit();
+	void CallDrawEnd();
+
 	PLAYERSTATE getState();
 
 	void setState(PLAYERSTATE state){ mState = state; }

@@ -29,6 +29,8 @@ public:
 		bool   repeat	　繰り返すか？
 	--------------------------------------------------------------------------------*/
 	cocos2d::Sprite* create(const std::string& spriteName, const int count, const float delay, const bool restart, const bool repeat);
+
+	cocos2d::Animate* createAnim(const std::string& spriteName, const int count, const float delay, const bool restart);
 	
 
 	/*------------------------------------------------------------
@@ -38,6 +40,7 @@ public:
 	void setResourcesPath(const std::string& path);
 private:
 	std::string mResourcePath;
+	cocos2d::Sprite* firstSprite;
 };
 }
 
