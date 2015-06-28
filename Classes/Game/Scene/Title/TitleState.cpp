@@ -18,7 +18,7 @@ mState(0)
 {
     auto userDef = UserDefault::getInstance();
     if(userDef->getIntegerForKey("clearStage") <= 2){
-        userDef->setIntegerForKey("clearStage", 2);
+        userDef->setIntegerForKey("clearStage", 1);
     }
 }
 
@@ -94,6 +94,9 @@ void TitleState::update(float at){
 	(this->*updateFunc[mSceneState])(at);
 	
 	animeUpdate(at);
+    //シーン遷移
+    sceneChange();
+
 }
 
 
@@ -133,8 +136,7 @@ void TitleState::mainLoop(float at){
 		mUpdateState = UPDATEEND;
 	}
 
-    //シーン遷移
-    sceneChange();
+
 }
 
 /*-----------------------------------------------------
@@ -142,7 +144,7 @@ void TitleState::mainLoop(float at){
  -----------------------------------------------------*/
 void TitleState::sceneChange(){
     
-    //int mState = mTitleActionLayer->getSelectCount();
+   // int mState = mTitleActionLayer->getSelectCount();
     
     switch (mState)
     {
@@ -234,13 +236,16 @@ bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	//状態管理
 	if (!mTitleState) return false;
 	
+    
 	cocos2d::MenuItemImage* buttonImage = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_Start.png",
 		"Texture/GamePlay/GameScene/Title/Title_Start.png",
 		[=](Ref* sender){mState = 1;});
 	buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2, 300);
+
+	
 	auto start = Menu::create(buttonImage, nullptr);
 	start->setPosition(Vec2::ZERO);
-	mTitleActionLayer->addChild(start);
+	mTitleSpriteLayer->addChild(start);
 
 
 
@@ -250,7 +255,8 @@ bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	buttonImage2->setPosition(Director::getInstance()->getVisibleSize().width / 2, 200);
 	auto stageSelect = Menu::create(buttonImage2, nullptr);
 	stageSelect->setPosition(Vec2::ZERO);
-	mTitleActionLayer->addChild(stageSelect);
+	mTitleSpriteLayer->addChild(stageSelect);
+
 
 
 	cocos2d::MenuItemImage* buttonImage3 = MenuItemImage::create("Texture/GamePlay/GameScene/Title/Title_Credit.png",
@@ -259,7 +265,7 @@ bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
 	buttonImage3->setPosition(Director::getInstance()->getVisibleSize().width/2, 100);
 	auto end = Menu::create(buttonImage3, nullptr);
 	end->setPosition(Vec2::ZERO);
-	mTitleActionLayer->addChild(end);
+	mTitleSpriteLayer->addChild(end);
     
  
     
@@ -268,8 +274,8 @@ bool TitleState::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
     touchLogo->stopAllActions();
     touchLogo->setOpacity(0);
     
-   // mTitleActionLayer->CreateButton();
-    
+    //mTitleActionLayer->CreateButton();
+
     mTitleState = false;
 
 	return true;

@@ -99,6 +99,14 @@ void GameDataMediator::update(float dt, UiObjectLayer* uiLayer){
 		
         auto node = Node::create();
         auto func = cocos2d::CallFunc::create([&]() {
+			auto userDef = cocos2d::UserDefault::getInstance();
+
+			int  selectStage = userDef->getIntegerForKey("selectStage");
+			int  clearStage = userDef->getIntegerForKey("clearStage");
+			
+			userDef->setIntegerForKey("clearStage", selectStage);
+			userDef->setIntegerForKey("selectStage", selectStage + 1);
+
             mResult = ResultLayer::create(mBlockManager->getGoalPos());
             addChild(mResult,100);
         });
@@ -148,7 +156,7 @@ void GameDataMediator::update(float dt, UiObjectLayer* uiLayer){
 }
 
 void GameDataMediator::setFollow(cocos2d::Layer* layer){
-	auto follow = CustomAction::CustomFollow::create(mPlayerManager->getPlayer(PLAYER1), mPlayerManager->getPlayer(PLAYER2), CustomAction::CustomFollowXOnly, cocos2d::Rect(0, 0, 20000, 800));
+	auto follow = CustomAction::CustomFollow::create(mPlayerManager->getPlayer(PLAYER1), mPlayerManager->getPlayer(PLAYER2), CustomAction::CustomFollowXOnly, cocos2d::Rect(0, 0, 40000, 800));
 	follow->setTag(1003);
 	layer->runAction(follow);
 }

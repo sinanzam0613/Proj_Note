@@ -39,8 +39,7 @@ void TitleActionLayer::ButtonStart(){
 										     "Texture/GamePlay/GameScene/Title/Title_Start.png",
                                        [ = ]( Ref* sender ){mselectCount = 1;});
     
-    buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2
-                             ,300);
+    buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2,300);
     auto start = Menu::create( buttonImage, nullptr );
     start->setPosition( Vec2::ZERO );
     addChild(start);
@@ -57,8 +56,7 @@ void TitleActionLayer::ButtonStageselect(){
                                              );
     
    
-    buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2
-                             ,200);
+    buttonImage->setPosition(Director::getInstance()->getVisibleSize().width/2,200);
     auto stageSelect = Menu::create( buttonImage, nullptr );
     stageSelect->setPosition( Vec2::ZERO );
     this->addChild(stageSelect);

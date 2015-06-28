@@ -51,6 +51,17 @@ void ResultLayer::selectScene(Vec2 pos){
         int  selectStage  = userDef -> getIntegerForKey("selectStage");
         int  clearStage = userDef -> getIntegerForKey("clearStage");
         
+		if (selectStage >= 9){
+			auto scene = SceneCreator::createPhysicsScene(TitleScene::create(), Vect(0, -9.8f), 5.0f);
+			auto fade = TransitionFade::create(1.5f, scene, Color3B::BLACK);
+			Director::getInstance()->replaceScene(fade);
+		}
+		else{
+			auto scene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0, -9.8f), 5.0f);
+			auto fade = TransitionFade::create(1.5f, scene, Color3B::BLACK);
+			Director::getInstance()->replaceScene(fade);
+		}
+
         if( clearStage <  selectStage )
         {
             if(clearStage > 4) return;
@@ -58,10 +69,6 @@ void ResultLayer::selectScene(Vec2 pos){
             userDef->setIntegerForKey("clearStage",selectStage);
             userDef->flush();
         }
-        
-        auto scene = SceneCreator::createPhysicsScene(GameMainScene::create(), Vect(0, -9.8f), 5.0f);
-        auto fade	= TransitionFade::create( 1.5f, scene, Color3B::BLACK );
-        Director::getInstance()->replaceScene( fade );
     };
     
     auto titleCallback		= [ & ]( Ref* )
